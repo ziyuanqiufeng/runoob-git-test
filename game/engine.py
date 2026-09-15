@@ -77,12 +77,10 @@ ELEMENT_COUNTERS = {
 }
 
 # 属性中文名映射（用于日志显示）
-ELEMENT_NAMES = {
-    "metal": "金", "wood": "木", "water": "水",
-    "fire": "火", "earth": "土",
-    "thunder": "雷", "ice": "冰", "wind": "风",
-    "none": "无", "all": "五行",
-}
+from game.constants import ELEMENT_NAMES  # noqa: F401  (供本模块与子模块共用)
+from game.engine_event_mixin import EventMixin
+from game.engine_ending_mixin import EndingMixin, MainStoryMixin
+from game.engine_combat_mixin import CombatMixin
 
 # 模块级灵根配置，用于展开融合灵根
 _SPIRITUAL_ROOT_CONFIG = SpiritualRootConfig()
@@ -124,7 +122,7 @@ def element_multiplier(attacker_element, defender_element):
     return 1.0
 
 
-class GameEngine:
+class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin):
     """游戏核心引擎，连接玩家、世界、事件，处理所有玩法逻辑。"""
 
     def __init__(
@@ -161,6 +159,7 @@ class GameEngine:
         self.story_generator = StoryGenerator(config_dir=config_dir)
         from game.ai_story_generator import AIStoryGenerator
         self.ai_story_generator = AIStoryGenerator(config_dir=config_dir)
+        self._pending_ai_event = None   # 待 AI 增强的游历事件上下文（UI 层异步消费）
         self._monthly_tick_hooks = []
         # 修炼流派配置（用于查询流派+灵根协同倍率）
         self.path_config = CultivationPathConfig(config_dir="config")
@@ -410,6 +409,32 @@ class GameEngine:
             return True
         return bool(self._feature_flags.get(flag, True))
 
+    def set_feature_flag(self, flag, enabled):
+        """设置功能开关：内存即时生效，并持久化到 feature_flags.json。
+
+        保留文件中的 _comment/names/descriptions 等辅助字段；
+        写入失败（权限/磁盘）时内存状态仍生效，返回 False 供调用方提示。
+        """
+        self._feature_flags[flag] = bool(enabled)
+        path = os.path.join(self.config_dir, "feature_flags.json")
+        try:
+            data = {}
+            if os.path.exists(path):
+                with open(path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            if not isinstance(data, dict):
+                data = {}
+            flags = data.get("flags") if isinstance(data.get("flags"), dict) else {}
+            flags = dict(flags)
+            flags[flag] = bool(enabled)
+            data["flags"] = flags
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            return True
+        except (json.JSONDecodeError, OSError) as e:
+            self.notify(f"[red]功能开关保存失败（内存状态已生效）：{e}")
+            return False
+
     def _load_unlocks(self):
         """读取功能按钮的境界解锁门槛 config/unlocks.json。
 
@@ -504,160 +529,6 @@ class GameEngine:
         cur = self._tutorial_steps[step]
         return (step + 1, len(self._tutorial_steps),
                 cur.get("title", ""), cur.get("desc", ""))
-
-    # ==================== 多结局系统 ====================
-
-    def _load_endings(self):
-        """读取多结局定义 config/endings.json；失败返回空映射。"""
-        path = os.path.join(self.config_dir, "endings.json")
-        if not os.path.exists(path):
-            return {"endings": [], "fallback": None}
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except (json.JSONDecodeError, OSError):
-            return {"endings": [], "fallback": None}
-        if not isinstance(data, dict):
-            return {"endings": [], "fallback": None}
-        return {
-            "endings": [e for e in data.get("endings", []) if isinstance(e, dict)],
-            "fallback": data.get("fallback"),
-        }
-
-    def _check_ending_conditions(self, ending):
-        """检查玩家是否满足某个结局的全部条件。"""
-        cond = ending.get("conditions", {}) or {}
-        p = self.player
-        karma = getattr(p, "karma", 0)
-        heart_demon = getattr(p, "heart_demon", 0)
-        heaven_gaze = getattr(p, "heaven_gaze", 0)
-        bonds = len(getattr(p, "red_dust_bonds", []) or [])
-        if "karma_min" in cond and karma < cond["karma_min"]:
-            return False
-        if "karma_max" in cond and karma > cond["karma_max"]:
-            return False
-        if "heart_demon_min" in cond and heart_demon < cond["heart_demon_min"]:
-            return False
-        if "heart_demon_max" in cond and heart_demon > cond["heart_demon_max"]:
-            return False
-        if "heaven_gaze_min" in cond and heaven_gaze < cond["heaven_gaze_min"]:
-            return False
-        if "heaven_gaze_max" in cond and heaven_gaze > cond["heaven_gaze_max"]:
-            return False
-        if "red_dust_bonds_min" in cond and bonds < cond["red_dust_bonds_min"]:
-            return False
-        return True
-
-    def _judge_ending(self, context):
-        """根据触发场景与玩家状态判定结局，返回结局 dict；无匹配返回 None。"""
-        endings = self._endings.get("endings", [])
-        candidates = [e for e in endings if e.get("context") == context]
-        candidates.sort(key=lambda e: e.get("priority", 999))
-        for e in candidates:
-            if self._check_ending_conditions(e):
-                return e
-        fallback_id = self._endings.get("fallback")
-        for e in endings:
-            if e.get("id") == fallback_id:
-                return e
-        return None
-
-    def _trigger_ending(self, context):
-        """判定并记录结局，返回结局 dict（已记录则返回 None）。"""
-        if getattr(self.player, "ending_id", None):
-            return None
-        ending = self._judge_ending(context)
-        if not ending:
-            return None
-        self.player.ending_id = ending["id"]
-        if context == "ascend":
-            self.player.has_won = True
-        self.notify(f"[gold]【结局】{ending['name']}：{ending['desc']}")
-        self.notify(f"__ENDING__:{ending['id']}")
-        self._check_main_story()
-        self._auto_save()
-        return ending
-
-    def _attempt_ascension(self):
-        """元婴圆满尝试飞升：判定飞升劫与结局。"""
-        p = self.player
-        # 心魔过高：走火入魔
-        if getattr(p, "heart_demon", 0) >= 80:
-            self.notify("[red]飞升之际心魔大盛，你即将走火入魔！")
-            return self._trigger_ending("ascend_fail")
-        # 天道注视过高：天道降罚
-        if getattr(p, "heaven_gaze", 0) >= 90:
-            self.notify("[red]天道注视已久，飞升天劫化作灭世神雷！")
-            return self._trigger_ending("ascend_fail")
-        # 飞升成功率：受心魔与天道注视影响
-        rate = 0.8 - (getattr(p, "heart_demon", 0) / 100.0) * 0.5 - (getattr(p, "heaven_gaze", 0) / 100.0) * 0.4
-        rate = max(0.1, min(0.95, rate))
-        success = random.random() < rate
-        if success:
-            self.notify("[gold]你渡过飞升天劫，白日飞升！")
-            return self._trigger_ending("ascend")
-        self.notify("[red]飞升天劫之下，你肉身兵解，唯余一丝真灵。")
-        return self._trigger_ending("ascend_fail")
-
-    # ==================== 主线剧情 ====================
-
-    def _load_main_story(self):
-        """读取主线章节 config/main_story.json；失败返回空映射。"""
-        path = os.path.join(self.config_dir, "main_story.json")
-        if not os.path.exists(path):
-            return {"chapters": []}
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except (json.JSONDecodeError, OSError):
-            return {"chapters": []}
-        if not isinstance(data, dict):
-            return {"chapters": []}
-        return {"chapters": [c for c in data.get("chapters", []) if isinstance(c, dict)]}
-
-    def _meet_story_condition(self, cond):
-        """判断玩家是否满足主线章节的完成条件。"""
-        cond = cond or {}
-        t = cond.get("type")
-        if t == "sect":
-            return bool(getattr(self.player, "sect_id", None))
-        if t == "realm":
-            order = self.player.REALM_ORDER.get(self.player.realm_id, 0)
-            return order >= cond.get("order", 0)
-        if t == "ending":
-            return getattr(self.player, "ending_id", None) is not None
-        return False
-
-    def _check_main_story(self):
-        """检查当前主线章节是否完成，完成则推进到下一章。"""
-        chapters = self._main_story.get("chapters", [])
-        if not chapters:
-            return
-        step = getattr(self.player, "main_story_step", 0)
-        if step >= len(chapters):
-            return
-        cur = chapters[step]
-        if not self._meet_story_condition(cur.get("condition")):
-            return
-        self.player.main_story_step = step + 1
-        self.notify(f"[gold]【主线】{cur.get('title', '')} 完成！")
-        if step + 1 < len(chapters):
-            nxt = chapters[step + 1]
-            self.notify(f"[cyan]【主线】{nxt.get('title', '')}：{nxt.get('desc', '')}")
-        else:
-            self.notify("[gold]【主线】全部章节完成，你已走完问道长生之路！")
-        self._auto_save()
-
-    def get_main_story_progress(self):
-        """返回当前主线章节 (title, desc, current, total)；已完成返回 None。"""
-        chapters = self._main_story.get("chapters", [])
-        if not chapters:
-            return None
-        step = getattr(self.player, "main_story_step", 0)
-        if step >= len(chapters):
-            return None
-        cur = chapters[step]
-        return (cur.get("title", ""), cur.get("desc", ""), step + 1, len(chapters))
 
     def register_monthly_tick(self, callback, flag=None):
         """注册按月结算回调（无参可调用），作为新系统的统一月度插座。
@@ -1465,10 +1336,16 @@ class GameEngine:
                 self.player.base_attack += 5
                 self.player.base_defense += 2
                 # 大境界突破后尝试按 境界/流派/性别 匹配更丰富的头像资源
-                higher_portrait = find_best_portrait_resource(self.player)
-                if higher_portrait and higher_portrait != self.player.portrait:
-                    self.player.portrait = higher_portrait
-                    self.notify(f"[cyan]大境界突破，头像已自动切换为高阶立绘。")
+                # （玩家捏过脸/拼装过形象则不自动替换，尊重自定义形象）
+                customized = (getattr(self.player, "face_traits", None)
+                              or getattr(self.player, "face_params", None))
+                if customized:
+                    self.notify("[cyan]大境界突破，如需更新立绘可前往捏脸界面重新生成。")
+                else:
+                    higher_portrait = find_best_portrait_resource(self.player)
+                    if higher_portrait and higher_portrait != self.player.portrait:
+                        self.player.portrait = higher_portrait
+                        self.notify(f"[cyan]大境界突破，头像已自动切换为高阶立绘。")
                 # 开启头像光效边框，持续 12 个月
                 self.player.portrait_glow_until_month = self._world_total_months() + 12
                 self.notify(
@@ -1495,6 +1372,9 @@ class GameEngine:
             )
             for aid, name in unlocked:
                 self.notify(f"[gold]达成成就：【{name}】！")
+                self.chronicle_manager.record(
+                    f"达成成就【{name}】", category="achievement"
+                )
 
             # F-06 难度系统：地狱难度的大境界突破触发天道追杀
             if self.is_feature_enabled("achievement_tier"):
@@ -1624,61 +1504,6 @@ class GameEngine:
             self.check_sect_hunt()
         self._auto_save()
         self._check_death()
-
-    def explore(self):
-        """在当前地点外出游历，随机触发事件。"""
-        if not self.player.is_alive():
-            self.notify("你已陨落，无法游历。")
-            return
-
-        location = self.get_current_location()
-
-        # 游历一次消耗 6 个月（逐月推进，保证月度结算每月正确执行一次）
-        for _ in range(6):
-            self.world.advance(1)
-            self.player.add_age_months(1)
-            self._check_sect_daily_reset()
-            self._run_registered_monthly_ticks()
-
-        # 按当前地点权重抽取事件
-        event = self.event_pool.draw("explore", location=location)
-
-        # 元婴期神识扫描：探索时有概率洞察当前地点妖兽弱点
-        self._try_sense_scan(location)
-
-        if event:
-            self._apply_event(event, location)
-        else:
-            self.notify("你外出游历半年，无所获，但心境略有提升。")
-
-        # 记录游历年表
-        self.chronicle_manager.record(
-            f"在【{location['name']}】外出游历", category="explore"
-        )
-
-        # 维度①：游历名山大川增长道心
-        if self.is_feature_enabled("heart_demon"):
-            self.mental_state_manager.on_travel(self.player.location_id)
-
-        # 维度④：天道注视下的无妄之灾 / 杀人夺宝
-        if self.is_feature_enabled("heaven_retribution"):
-            for log in self.heaven_retribution_manager.roll_travel_hazard(self):
-                self.notify(log)
-
-        # 维度⑤：前世遗迹回响
-        if self.is_feature_enabled("lifespan_reincarnation"):
-            self.lifespan_manager.roll_past_life_echo()
-
-        # 概率听闻当地传闻
-        if random.random() < 0.3:
-            rumor = self.letter_rumor_manager.hear_rumor(location_id=self.player.location_id)
-            if rumor:
-                self.notify(
-                    f"[cyan]你听闻一则传闻：{rumor.get('description', '')}"
-                )
-
-        self._check_death()
-        self._advance_tutorial("explore")
 
     # ==================== 城池建筑交互 ====================
 
@@ -2642,123 +2467,6 @@ class GameEngine:
             sell_multiplier=0.6,
         )
         return merchant
-
-    def _render_event_text(self, event, location):
-        """渲染事件文案：LLM 优先，失败回退离线模板。"""
-        if self.is_feature_enabled("ai_llm_story"):
-            realm = self.world.get_realm(self.player.realm_id)
-            realm_name = realm.get("name") if realm else None
-            text = self.ai_story_generator.generate_story(
-                event, self.player, location, realm_name
-            )
-            if text:
-                return text
-        return self.story_generator.render_event(event, self.player, location)
-
-    def _apply_event(self, event, location):
-        """应用事件效果到玩家。"""
-        # AI 动态剧情：渲染事件文案（LLM 优先，失败回退离线模板）
-        if self.is_feature_enabled("ai_dynamic_event"):
-            event = dict(event)
-            event["description"] = self._render_event_text(event, location)
-        # 如果事件触发战斗，进入战斗流程
-        if event.get("trigger_combat"):
-            enemy = self._spawn_enemy(location)
-            if enemy:
-                self.notify(f"【{event['name']}】{enemy.description}")
-                self.start_combat(enemy)
-            else:
-                self.notify(f"【{event['name']}】你感受到了妖气，但妖兽已经离去。")
-            return
-
-        # 如果事件触发云游商人，通知 UI 打开交易弹窗
-        if event.get("trigger_merchant"):
-            self.notify(f"【{event['name']}】{event['description']}")
-            self.notify("__MERCHANT_ENCOUNTER__")
-            return
-
-        # 如果事件触发属性秘境，按灵根属性给予对应技能书
-        if event.get("trigger_secret_realm"):
-            self._handle_secret_realm(event)
-            return
-
-        effects = event.get("effects", {})
-
-        # 修为变化
-        if "qi" in effects:
-            self.player.qi += effects["qi"]
-
-        # 健康变化
-        if "health" in effects:
-            self.player.health += effects["health"]
-            self.player.health = min(self.player.health, self.player.max_health)
-
-        # 获得物品
-        if "item" in effects:
-            item_id = effects["item"]
-            count = effects.get("item_count", 1)
-            for _ in range(count):
-                item = self.item_library.create(item_id)
-                self.player.add_item(item)
-            item_name = self.item_library.get(item_id).name
-            self.notify(f"【{event['name']}】{event['description']} 获得 {item_name} x{count}。")
-            # 推进收集类任务
-            self.advance_collect_quest(item_id)
-            # 推进宗门收集任务
-            self.sect_manager.update_task_progress("collect", item_id, count)
-            # 触发获得物品事件钩子
-            self._on_gain_item(item_id, count)
-        else:
-            self.notify(f"【{event['name']}】{event['description']}")
-
-    def _handle_secret_realm(self, event):
-        """
-        处理属性秘境事件：按玩家灵根属性触发不同奇遇，赠送对应技能书。
-        若玩家所有灵根对应技能均已习得，则转化为修为奖励。
-        """
-        # 属性 → 技能书 ID 和技能 ID 的映射
-        element_manuals = {
-            "metal": ("sword_manual", "sword_art"),
-            "wood": ("vine_manual", "vine_whip"),
-            "water": ("ice_manual", "ice_blade"),
-            "fire": ("fireball_manual", "fireball"),
-            "earth": ("stone_manual", "stone_fist"),
-        }
-
-        # 筛选玩家灵根对应、且尚未习得的技能书
-        available = []
-        for elem in self.player.spiritual_roots:
-            manual_id, skill_id = element_manuals.get(elem, (None, None))
-            if manual_id and not self.player.has_skill(skill_id):
-                available.append((elem, manual_id, skill_id))
-
-        if not available:
-            # 所有灵根对应技能均已习得，转化为修为奖励
-            bonus_qi = 80 + len(self.player.spiritual_roots) * 20
-            self.player.qi += bonus_qi
-            self.notify(
-                f"【{event['name']}】{event['description']}"
-                f"你已参悟本命灵根之道，秘境灵气化为你修为，增加 {bonus_qi} 点。"
-            )
-            return
-
-        # 随机选一项未习得的技能书
-        elem, manual_id, skill_id = random.choice(available)
-        item = self.item_library.create(manual_id)
-        if item:
-            self.player.add_item(item)
-            elem_cn = ELEMENT_NAMES.get(elem, elem)
-            manual_name = self.item_library.get(manual_id).name
-            self.notify(
-                f"【{event['name']}】{event['description']}"
-                f"你的{elem_cn}灵根与秘境共鸣，获得【{manual_name}】！"
-                f"可在背包中研读习得技能。"
-            )
-            self._auto_save()
-        else:
-            # 物品库缺失，降级为修为奖励
-            self.player.qi += 50
-            self.notify(f"【{event['name']}】秘境中似有空灵之气，你静坐感悟，修为增加 50 点。")
 
     # ==================== 战斗系统 ====================
 
@@ -3863,305 +3571,6 @@ class GameEngine:
             logs.append(f"[white]【{camp_name}】阵营之力，你对该敌人造成额外伤害！")
 
         return damage
-
-    def _get_realm_order(self):
-        """获取玩家当前境界的 order。"""
-        realm = self.world.get_realm(self.player.realm_id)
-        return realm["order"] if realm else 1
-
-    def _try_sense_scan(self, location):
-        """
-        元婴期神识扫描：探索时概率洞察当前地点某敌人的弱点。
-        扫描成功后，下一场对目标敌人的战斗伤害 +20%。
-        """
-        if not self.player.has_feature("nascent_soul_revive"):
-            return
-        if random.random() >= 0.3:
-            return
-
-        enemy_ids = location.get("enemies", [])
-        if not enemy_ids:
-            return
-
-        target_id = random.choice(enemy_ids)
-        enemy_data = self.enemy_library.get(target_id)
-        if not enemy_data:
-            return
-
-        self.player.sense_scan_target = target_id
-        self.notify(
-            f"[purple]神识外放！你洞察到【{enemy_data['name']}】的弱点，"
-            f"下一场对其战斗伤害 +20%！"
-        )
-
-    def _try_nascent_soul_revive(self, logs):
-        """
-        元婴替死判定：玩家生命归零且未使用过替死时，
-        元婴离体替死一次，恢复 30% 生命并清除所有 DOT。
-        替死后元婴受损，全属性下降 10%，持续 12 个月。
-        返回 True 表示触发替死，战斗继续。
-        """
-        if (
-            self.player.has_feature("nascent_soul_revive")
-            and not self.player.nascent_soul_revive_used
-            and self.player.health <= 0
-        ):
-            self.player.nascent_soul_revive_used = True
-            # 元婴受损：替死代价
-            self.player.nascent_soul_weakened = True
-            self.player.weakened_remaining_months = 12
-            # 先记录原生命上限用于计算恢复量
-            old_max_health = self.player.max_health
-            revive_health = int(old_max_health * 0.3)
-            self.player.health = max(1, revive_health)
-            self.combat_dot_effects = []
-            logs.append(
-                "[gold]元婴离体！在生死一线之际，你的元婴替你挡下致命一击，"
-                f"你恢复 {self.player.health} 点生命！"
-            )
-            logs.append(
-                "[red]元婴受损！你的全属性下降 10%，需调养 12 个月方可恢复。"
-            )
-            return True
-        return False
-
-    def _get_enemy_realm_order(self, enemy):
-        """获取敌人的境界 order，优先使用 realm_id。"""
-        enemy_realm_id = getattr(enemy, "realm_id", None)
-        if enemy_realm_id:
-            enemy_realm = self.world.get_realm(enemy_realm_id)
-            return enemy_realm.get("order", enemy.level) if enemy_realm else enemy.level
-        return getattr(enemy, "level", 1)
-
-    def _apply_realm_scaling(self, enemy):
-        """根据玩家与敌人境界差动态缩放敌人 HP/攻击/防御。
-
-        敌人境界高于玩家时属性增强，低于玩家时属性削弱，
-        实现越级挑战与压级碾压的手感差异。
-        """
-        player_order = self._get_realm_order()
-        enemy_order = self._get_enemy_realm_order(enemy)
-        diff = enemy_order - player_order
-        if diff == 0:
-            return
-
-        # 每差 1 个境界，属性增减 10%，限制在 [0.5, 2.0] 区间
-        ratio = 1.0 + diff * 0.1
-        ratio = max(0.5, min(2.0, ratio))
-
-        enemy.max_hp = int(enemy.max_hp * ratio)
-        enemy.hp = enemy.max_hp
-        enemy.attack = int(enemy.attack * ratio)
-        enemy.defense = int(enemy.defense * ratio)
-
-        if diff > 0:
-            self.notify(
-                f"[red]{enemy.name} 境界压制！其属性提升 "
-                f"{int((ratio - 1.0) * 100)}%"
-            )
-        else:
-            self.notify(
-                f"[cyan]你境界碾压 {enemy.name}，其属性削弱 "
-                f"{int((1.0 - ratio) * 100)}%"
-            )
-
-    def _combat_damage_modifier(self, enemy):
-        """根据玩家与敌人的境界差计算伤害修正系数。"""
-        player_order = self._get_realm_order()
-        enemy_order = self._get_enemy_realm_order(enemy)
-        diff = player_order - enemy_order
-        # 每差 1 个境界，伤害增减 20%，最低 0.5 倍，最高 2 倍
-        multiplier = 1.0 + diff * 0.2
-        return max(0.5, min(2.0, multiplier))
-
-    def _try_enemy_special_skill(self, enemy, logs):
-        """尝试触发高阶敌人专属技能，成功返回 True。
-
-        专属技能冷却期间不会再次触发，使用后会进入冷却。
-        """
-        special = getattr(enemy, "special", {}) or {}
-        special_skill = special.get("special_skill")
-        if not special_skill:
-            return False
-        if self.enemy_special_cooldown > 0:
-            return False
-        if random.random() >= special_skill.get("chance", 0):
-            return False
-
-        # [red] 标记专属技能
-        logs.append(
-            f"[red]{enemy.name} 施展【{special_skill['name']}】！"
-            f"{special_skill.get('description', '')}"
-        )
-        self.enemy_special_cooldown = special_skill.get("cooldown", 3)
-
-        # 计算技能伤害并乘境界修正
-        enemy_attack = int(
-            enemy.attack * special_skill.get("damage_multiplier", 1.0)
-        )
-        enemy_attack = int(enemy_attack * self._get_enemy_attack_multiplier())
-        actual = max(1, enemy_attack - self.player.defense // 2)
-        self.player.health -= actual
-        logs.append(f"[red]你受到 {actual} 点伤害。")
-
-        # 处理各类特效
-        effect = special_skill.get("effect")
-        if effect == "stun":
-            turns = special_skill.get("turns", 1)
-            self.player_stunned = max(self.player_stunned, turns)
-            logs.append(f"[red]你陷入眩晕，持续 {turns} 回合！")
-        elif effect == "player_attack_down":
-            amount = special_skill.get("amount", 10)
-            turns = special_skill.get("turns", 2)
-            self.player_attack_debuffs.append({"amount": amount, "turns": turns})
-            logs.append(f"[red]你的攻击力被削弱 {amount} 点，持续 {turns} 回合！")
-        elif effect == "life_drain":
-            drain = int(actual * special_skill.get("drain_ratio", 0.5))
-            enemy.hp = min(enemy.max_hp, enemy.hp + drain)
-            logs.append(f"[red]{enemy.name} 吸取 {drain} 点生命！")
-        elif effect == "heal":
-            heal = int(enemy.max_hp * special_skill.get("heal_ratio", 0.15))
-            enemy.hp = min(enemy.max_hp, enemy.hp + heal)
-            logs.append(f"[green]{enemy.name} 恢复 {heal} 点生命！")
-
-        # 毒液类 DOT
-        dot_damage = special_skill.get("dot_damage")
-        dot_turns = special_skill.get("dot_turns")
-        if dot_damage and dot_turns:
-            self.combat_dot_effects.append({
-                "source": "enemy",
-                "damage": dot_damage,
-                "turns": dot_turns,
-                "name": special_skill["name"],
-            })
-            logs.append(f"[red]你受到 {special_skill['name']} 灼烧，每回合损失 {dot_damage} 点生命！")
-
-        return True
-
-    def _try_enemy_summon(self, enemy, logs):
-        """尝试触发高阶敌人召唤机制，成功返回 True。"""
-        special = getattr(enemy, "special", {}) or {}
-        summon = special.get("summon")
-        if not summon:
-            return False
-        # 同一敌人同时只能存在一种召唤物
-        if any(s.get("source") == enemy.id for s in self.enemy_summons):
-            return False
-        if random.random() >= summon.get("chance", 0):
-            return False
-
-        summon_name = summon.get("name", "召唤物")
-        attack = int(enemy.attack * summon.get("attack_ratio", 0.5))
-        turns = summon.get("turns", 3)
-        self.enemy_summons.append({
-            "source": enemy.id,
-            "name": summon_name,
-            "attack": attack,
-            "turns": turns,
-        })
-        logs.append(
-            f"[red]{enemy.name} 召唤出【{summon_name}】，将在 {turns} 回合内协同攻击！"
-        )
-        return True
-
-    def _process_enemy_summons(self, logs):
-        """结算召唤物每回合对玩家的攻击，并移除持续回合耗尽的召唤物。"""
-        remaining = []
-        for summon in self.enemy_summons:
-            attack = summon.get("attack", 0)
-            actual = max(1, attack - self.player.defense // 3)
-            self.player.health -= actual
-            logs.append(
-                f"[red]【{summon['name']}】协同攻击，对你造成 {actual} 点伤害。"
-            )
-            summon["turns"] -= 1
-            if summon["turns"] > 0:
-                remaining.append(summon)
-            else:
-                logs.append(f"[cyan]【{summon['name']}】力量耗尽，消散于空中。")
-        self.enemy_summons = remaining
-
-    def _get_effective_qi_cost(self, skill_id):
-        """根据技能熟练度计算实际真气消耗。"""
-        skill = self.skill_library.get(skill_id)
-        if not skill:
-            return 0
-        multiplier = self.player.get_skill_qi_cost_multiplier(skill_id)
-        return max(0, int(skill.qi_cost * multiplier))
-
-    def _calculate_skill_damage(self, skill):
-        """根据境界、武器加成和技能熟练度动态计算技能伤害。"""
-        realm_order = self._get_realm_order()
-        # 武器攻击力 = 总攻击 - 基础攻击，并受道侣攻击加成影响
-        weapon_attack = int(
-            (self.player.attack - self.player.base_attack) *
-            (1 + getattr(self, "companion_atk_bonus", 0.0))
-        )
-
-        damage = skill.base_damage
-        damage += realm_order * skill.realm_multiplier
-        damage += weapon_attack * skill.weapon_multiplier
-        # 灵兽助战加成（战斗型灵兽）
-        damage += self.sect_manager.get_beast_combat_bonus()
-        # 技能熟练度加成：越熟练伤害越高
-        damage *= self.player.get_skill_damage_multiplier(skill.id)
-        return int(damage)
-
-    def _calculate_skill_heal(self, skill):
-        """
-        根据境界与熟练度计算技能治疗量。
-        丹修的 heal_bonus_mult=1.5 会让治疗效果提升 50%。
-        """
-        realm_order = self._get_realm_order()
-        base = skill.heal + realm_order * skill.heal_realm_multiplier
-        # 应用流派治疗加成（丹修 ×1.5，其他默认 ×1.0）
-        amount = base * self.player.heal_bonus_mult
-        # 熟练度加成：越熟练治疗量越高
-        amount *= self.player.get_skill_heal_multiplier(skill.id)
-        return int(amount)
-
-    def _enemy_dodged(self, enemy):
-        """判断敌人是否闪避本次攻击，等级越高闪避率越高；玩家闪避加成额外叠加。"""
-        # 基础闪避 5%，每高一级加 3%，最高 20%
-        dodge_rate = min(0.2, 0.05 + enemy.level * 0.03)
-        # 叠加玩家主动闪避加成（如剑舞、影遁）
-        dodge_rate += self.player_evasion_bonus
-        return random.random() < min(0.9, dodge_rate)
-
-    def _enemy_rage_attack(self, enemy):
-        """判断敌人是否进入狂暴状态（血量低于 30% 时攻击提升 50%）。"""
-        if enemy.hp / enemy.max_hp < 0.3:
-            return True
-        return False
-
-    def _apply_enemy_element_multiplier(self, enemy_attack, enemy, logs):
-        """
-        计算敌人攻击玩家时的五行相克伤害修正。
-        以玩家主灵根（spiritual_roots[0]）作为防御属性。
-        克制时伤害 ×1.5，被克时 ×0.7，无属性或同属性 ×1.0。
-        返回修正后的攻击力，并在 logs 中追加提示。
-        """
-        # 玩家主灵根作为防御属性；融合灵根展开后取首个元素，无灵根则视为无属性
-        if self.player.spiritual_roots:
-            player_def_element = (
-                self.player.expanded_elements[0]
-                if self.player.expanded_elements
-                else self.player.spiritual_roots[0]
-            )
-        else:
-            player_def_element = "none"
-        elem_mult = element_multiplier(enemy.element, player_def_element)
-        if elem_mult > 1.0:
-            logs.append(
-                f"[red]五行相克！对方{ELEMENT_NAMES.get(enemy.element, '?')}属性"
-                f"克制你的{ELEMENT_NAMES.get(player_def_element, '?')}主灵根，伤害激增！"
-            )
-        elif elem_mult < 1.0:
-            logs.append(
-                f"[green]五行受制！你的{ELEMENT_NAMES.get(player_def_element, '?')}主灵根"
-                f"克制对方{ELEMENT_NAMES.get(enemy.element, '?')}属性，伤害削弱。"
-            )
-        return int(enemy_attack * elem_mult)
 
     def combat_round(self, enemy, action="attack", skill_id=None):
         """进行一个战斗回合，返回本回合日志和战斗状态。"""
