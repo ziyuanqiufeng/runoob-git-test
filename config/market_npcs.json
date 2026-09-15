@@ -1,0 +1,44 @@
+{
+  "npcs": [
+    {
+      "id": "city_merchant",
+      "name": "坊市商人",
+      "description": "城中坊市的掌柜，门路颇多，常年收购各类灵材。",
+      "dialog": "客官想要点什么？本店丹药、符箓、材料一应俱全。",
+      "shop_items": [
+        "healing_pill",
+        "qi_pill",
+        "spirit_stone",
+        "herb",
+        "talisman_attack",
+        "talisman_defense"
+      ],
+      "buy_multiplier": 1.0,
+      "sell_multiplier": 0.6,
+      "services": ["shop", "buy"]
+    },
+    {
+      "id": "auctioneer",
+      "name": "拍卖师",
+      "description": "云海拍卖行的执事，每月都会带来稀世灵材。",
+      "dialog": "本月拍品已经就绪，道友可要出价？价高者得。",
+      "shop_items": [],
+      "services": ["auction"]
+    },
+    {
+      "id": "stall_owner",
+      "name": "摆摊散修",
+      "description": "在坊市角落摆摊的散修，偶尔能淘到意想不到的东西。",
+      "dialog": "我这儿都是刚从秘境带出来的好东西，先到先得，也欢迎道友来摆摊。",
+      "shop_items": [
+        "iron_sword",
+        "leather_armor",
+        "herb",
+        "spirit_stone"
+      ],
+      "buy_multiplier": 1.1,
+      "sell_multiplier": 0.5,
+      "services": ["shop", "stall"]
+    }
+  ]
+}

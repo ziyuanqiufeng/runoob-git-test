@@ -1,0 +1,241 @@
+{
+  "paths": {
+    "fa": {
+      "name": "法修",
+      "description": "以真气御术法，远程攻敌。真气可化为护盾，抵消伤害。",
+      "difficulty": 2,
+      "color": "#3498db",
+      "modifiers": {
+        "max_qi_mult": 1.5,
+        "max_health_mult": 0.8,
+        "attack_mult": 1.0,
+        "defense_mult": 0.8,
+        "skill_damage_mult": 1.3
+      },
+      "resource": "shield_qi",
+      "resource_name": "真气护盾",
+      "resource_max": 100,
+      "exclusive_skills": ["true_qi_shield", "five_thunders", "ten_thousand_arts"],
+      "recommended_elements": ["water", "fire"],
+      "playstyle": "远程术法 · 真气护盾 · 技能爆发"
+    },
+    "ti": {
+      "name": "体修",
+      "description": "锻炼肉身，以力破巧。血厚防高，受击积累怒气，可反震伤害。",
+      "difficulty": 3,
+      "color": "#e67e22",
+      "modifiers": {
+        "max_qi_mult": 0.7,
+        "max_health_mult": 1.6,
+        "attack_mult": 1.3,
+        "defense_mult": 1.5,
+        "skill_damage_mult": 0.8
+      },
+      "resource": "rage",
+      "resource_name": "怒气",
+      "resource_max": 100,
+      "exclusive_skills": ["vajra_body", "mountain_break", "forge_body"],
+      "recommended_elements": ["earth", "metal"],
+      "playstyle": "肉盾型 · 怒气爆发 · 反震流"
+    },
+    "jian": {
+      "name": "剑修",
+      "description": "专精剑道，一剑破万法。战斗中积累剑意，暴击率高，需装备剑类武器。",
+      "difficulty": 4,
+      "color": "#f1c40f",
+      "modifiers": {
+        "max_qi_mult": 1.0,
+        "max_health_mult": 0.9,
+        "attack_mult": 1.4,
+        "defense_mult": 0.9,
+        "skill_damage_mult": 1.2,
+        "crit_rate_bonus": 0.25,
+        "crit_damage_mult": 2.0
+      },
+      "resource": "sword_intent",
+      "resource_name": "剑意",
+      "resource_max": 10,
+      "exclusive_skills": ["sword_rain", "one_sword_break", "sword_qi"],
+      "recommended_elements": ["metal"],
+      "playstyle": "爆发型 · 剑意积累 · 暴击流"
+    },
+    "xie": {
+      "name": "邪修",
+      "description": "吞噬血祭，以邪气炼身。邪气越高攻击越强，但会触发正道追杀。",
+      "difficulty": 3,
+      "color": "#9b59b6",
+      "modifiers": {
+        "max_qi_mult": 1.2,
+        "max_health_mult": 1.0,
+        "attack_mult": 1.3,
+        "defense_mult": 0.9,
+        "skill_damage_mult": 1.2
+      },
+      "resource": "evil_qi",
+      "resource_name": "邪气",
+      "resource_max": 100,
+      "exclusive_skills": ["soul_devour", "blood_sacrifice", "ten_thousand_souls"],
+      "recommended_elements": ["fire"],
+      "playstyle": "高风险 · 邪气加成 · 吸血流"
+    },
+    "dan": {
+      "name": "丹修",
+      "description": "以丹入道，炼药成丹。战斗中可现场炼丹获得增益，持续作战能力极强。",
+      "difficulty": 3,
+      "color": "#27ae60",
+      "modifiers": {
+        "max_qi_mult": 1.3,
+        "max_health_mult": 1.1,
+        "attack_mult": 0.9,
+        "defense_mult": 1.0,
+        "skill_damage_mult": 1.0,
+        "heal_bonus_mult": 1.5
+      },
+      "resource": "dan_fire",
+      "resource_name": "丹火",
+      "resource_max": 100,
+      "exclusive_skills": ["nine_turn_pill", "medicine_cauldron", "hundred_herbs", "poison_pill"],
+      "recommended_elements": ["fire", "wood"],
+      "playstyle": "续航型 · 现场炼丹 · 治疗 buff"
+    },
+    "qi": {
+      "name": "器修",
+      "description": "以器入道，祭炼法宝。装备效果加倍，可临时强化武器，攻防均衡。",
+      "difficulty": 3,
+      "color": "#7f8c8d",
+      "modifiers": {
+        "max_qi_mult": 1.0,
+        "max_health_mult": 1.2,
+        "attack_mult": 1.2,
+        "defense_mult": 1.3,
+        "skill_damage_mult": 1.0,
+        "equipment_bonus_mult": 2.0
+      },
+      "resource": "qi_spirit",
+      "resource_name": "器灵",
+      "resource_max": 50,
+      "exclusive_skills": ["spirit_awaken", "ten_thousand_weapons", "refine_artifact", "weapon_domain"],
+      "recommended_elements": ["metal", "earth"],
+      "playstyle": "装备流 · 法宝共鸣 · 攻防一体"
+    },
+    "shou": {
+      "name": "御兽修",
+      "description": "以兽入道，驯服灵兽。可召唤灵兽助战，人兽合一，协同作战。",
+      "difficulty": 3,
+      "color": "#16a085",
+      "modifiers": {
+        "max_qi_mult": 1.0,
+        "max_health_mult": 1.3,
+        "attack_mult": 1.1,
+        "defense_mult": 1.2,
+        "skill_damage_mult": 1.0,
+        "summon_bonus": 0.5
+      },
+      "resource": "shou_soul",
+      "resource_name": "兽魂",
+      "resource_max": 5,
+      "exclusive_skills": ["beast_charge", "beast_king_roar", "human_beast_union", "beast_contract"],
+      "recommended_elements": ["wood", "earth"],
+      "playstyle": "召唤流 · 人兽协同 · 数量压制"
+    },
+    "hun": {
+      "name": "魂修",
+      "description": "以魂入道，修炼神识。精神攻击无视防御，可控制敌人心智，伤害极高但血薄。",
+      "difficulty": 5,
+      "color": "#34495e",
+      "modifiers": {
+        "max_qi_mult": 1.6,
+        "max_health_mult": 0.6,
+        "attack_mult": 0.9,
+        "defense_mult": 0.7,
+        "skill_damage_mult": 1.8,
+        "ignore_defense": true
+      },
+      "resource": "hun_sense",
+      "resource_name": "神识",
+      "resource_max": 100,
+      "exclusive_skills": ["soul_shock", "soul_seize", "all_souls_return", "dream_realm"],
+      "recommended_elements": ["water", "metal"],
+      "playstyle": "玻璃大炮 · 无视防御 · 精神控制"
+    },
+    "zhen": {
+      "name": "阵修",
+      "description": "以阵入道，布阵困敌。可布置阵法改变战场，群体控制，越战越强。",
+      "difficulty": 5,
+      "color": "#8e44ad",
+      "modifiers": {
+        "max_qi_mult": 1.4,
+        "max_health_mult": 0.8,
+        "attack_mult": 0.8,
+        "defense_mult": 0.9,
+        "skill_damage_mult": 1.5,
+        "control_bonus": 0.3
+      },
+      "resource": "zhen_rune",
+      "resource_name": "阵纹",
+      "resource_max": 9,
+      "exclusive_skills": ["bagua_formation", "trap_immortal", "all_formations_return", "five_element_formation_zhen"],
+      "recommended_elements": ["earth", "water"],
+      "playstyle": "控场型 · 布阵困敌 · 越战越强"
+    },
+    "fu": {
+      "name": "符修",
+      "description": "以符入道，画符成术。可预制符箓，战斗中瞬发无冷却，爆发极高。",
+      "difficulty": 4,
+      "color": "#e74c3c",
+      "modifiers": {
+        "max_qi_mult": 1.1,
+        "max_health_mult": 0.8,
+        "attack_mult": 1.1,
+        "defense_mult": 0.8,
+        "skill_damage_mult": 1.4,
+        "no_cooldown": true
+      },
+      "resource": "fu_seal",
+      "resource_name": "符箓",
+      "resource_max": 20,
+      "exclusive_skills": ["thunder_seal", "demon_seal", "ten_thousand_seals", "blood_seal"],
+      "recommended_elements": ["wood", "water"],
+      "playstyle": "爆发型 · 符箓囤积 · 瞬发连击"
+    }
+  },
+  "synergy": {
+    "jian,metal": 1.2,
+    "ti,earth": 1.2,
+    "fa,water": 1.15,
+    "xie,fire": 1.15,
+    "ti,metal": 1.1,
+    "fa,fire": 1.1,
+    "dan,fire": 1.15,
+    "dan,wood": 1.15,
+    "qi,metal": 1.2,
+    "qi,earth": 1.1,
+    "shou,wood": 1.2,
+    "shou,earth": 1.1,
+    "hun,water": 1.2,
+    "hun,metal": 1.1,
+    "zhen,earth": 1.2,
+    "zhen,water": 1.1,
+    "fu,wood": 1.2,
+    "fu,water": 1.1
+  },
+  "counter": {
+    "jian": "fa",
+    "fa": "ti",
+    "ti": "jian",
+    "xie": "fa",
+    "dan": "xie",
+    "xie": "hun",
+    "hun": "ti",
+    "ti": "hun",
+    "dan": "qi",
+    "zhen": "jian",
+    "fu": "zhen",
+    "shou": "fu",
+    "qi": "shou",
+    "dan": "qi",
+    "hun": "zhen"
+  },
+  "counter_multiplier": 1.3,
+  "counter_resist_multiplier": 0.8
+}

@@ -1,0 +1,551 @@
+[
+  {
+    "id": "century_herb",
+    "name": "百年灵草",
+    "type": "pill",
+    "value": 5,
+    "description": "吸收百年灵气而生的草药，可恢复修为。",
+    "effects": {
+      "qi": 100,
+      "health": 10
+    }
+  },
+  {
+    "id": "health_pill",
+    "name": "回春丹",
+    "type": "pill",
+    "value": 4,
+    "description": "常见的疗伤丹药，可恢复 30 点健康。",
+    "effects": {
+      "health": 30
+    }
+  },
+  {
+    "id": "spirit_stone",
+    "name": "灵石",
+    "type": "material",
+    "value": 10,
+    "description": "蕴含灵气的矿石，炼器、炼丹的基础材料。"
+  },
+  {
+    "id": "demon_core",
+    "name": "妖核",
+    "type": "material",
+    "value": 6,
+    "description": "妖兽体内凝结的核心，可用于炼丹。"
+  },
+  {
+    "id": "demon_core_low",
+    "name": "下品妖核",
+    "type": "material",
+    "value": 4,
+    "description": "低阶妖兽凝结的核心，灵气稀薄，炼丹效果一般。"
+  },
+  {
+    "id": "demon_core_mid",
+    "name": "中品妖核",
+    "type": "material",
+    "value": 8,
+    "description": "中阶妖兽凝结的核心，灵气充沛，是常见的炼丹材料。"
+  },
+  {
+    "id": "demon_core_high",
+    "name": "上品妖核",
+    "type": "material",
+    "value": 15,
+    "description": "高阶妖兽凝结的核心，灵气浓郁，炼制高阶丹药的上佳材料。"
+  },
+  {
+    "id": "ancient_scroll",
+    "name": "残破功法",
+    "type": "manual",
+    "value": 20,
+    "description": "上古修士遗留的残卷，研读后悟性略有提升。",
+    "effects": {
+      "wisdom": 1
+    }
+  },
+  {
+    "id": "sword_manual",
+    "name": "御剑术秘籍",
+    "type": "manual",
+    "value": 50,
+    "description": "记载御剑之术的秘籍，研读后习得御剑术（金属性）。",
+    "effects": {
+      "skill": "sword_art"
+    }
+  },
+  {
+    "id": "vine_manual",
+    "name": "藤蔓缠绕秘籍",
+    "type": "manual",
+    "value": 50,
+    "description": "记载木系术法的秘籍，研读后习得藤蔓缠绕（木属性）。",
+    "effects": {
+      "skill": "vine_whip"
+    }
+  },
+  {
+    "id": "ice_manual",
+    "name": "寒冰刃秘籍",
+    "type": "manual",
+    "value": 50,
+    "description": "记载水系术法的秘籍，研读后习得寒冰刃（水属性）。",
+    "effects": {
+      "skill": "ice_blade"
+    }
+  },
+  {
+    "id": "stone_manual",
+    "name": "巨石拳秘籍",
+    "type": "manual",
+    "value": 50,
+    "description": "记载土系术法的秘籍，研读后习得巨石拳（土属性）。",
+    "effects": {
+      "skill": "stone_fist"
+    }
+  },
+  {
+    "id": "wind_blade_manual",
+    "name": "风刃术秘籍",
+    "type": "manual",
+    "value": 60,
+    "description": "扶风宗流传的风属性术法秘籍，研读后习得风刃（风属性）。",
+    "effects": {
+      "skill": "wind_blade"
+    }
+  },
+  {
+    "id": "iron_sword",
+    "name": "精铁剑",
+    "type": "weapon",
+    "value": 15,
+    "description": "凡人铁匠打造的利剑，对练气期修士略有帮助。",
+    "effects": {
+      "attack": 8
+    }
+  },
+  {
+    "id": "cloth_hat",
+    "name": "布帽",
+    "type": "helmet",
+    "value": 3,
+    "description": "普通的布帽，略能防护头部。",
+    "effects": {
+      "defense": 2
+    }
+  },
+  {
+    "id": "leather_armor",
+    "name": "皮甲",
+    "type": "armor",
+    "value": 18,
+    "description": "用妖兽皮制成的轻甲，防御力尚可。",
+    "effects": {
+      "defense": 5,
+      "health": 20
+    }
+  },
+  {
+    "id": "jade_pendant",
+    "name": "聚灵玉佩",
+    "type": "accessory",
+    "value": 30,
+    "description": "蕴含微弱灵气的玉佩，可加快修炼。",
+    "effects": {
+      "wisdom": 1,
+      "attack": 2
+    }
+  },
+  {
+    "id": "marrow_pill",
+    "name": "洗髓丹",
+    "type": "pill",
+    "value": 200,
+    "description": "传说中能洗髓伐骨的稀世丹药，服用后可觉醒一项新的灵根属性，但修炼倍率会相应提高。",
+    "effects": {
+      "awaken_root": true
+    }
+  },
+  {
+    "id": "tianjian_token",
+    "name": "天剑令",
+    "type": "accessory",
+    "value": 300,
+    "description": "天剑宗的身份令牌，剑修佩戴后剑意积累速度+1。",
+    "effects": {
+      "attack": 5,
+      "sword_intent_regen": 1
+    }
+  },
+  {
+    "id": "zixiao_token",
+    "name": "紫霄令",
+    "type": "accessory",
+    "value": 300,
+    "description": "紫霄宫的身份令牌，法修佩戴后真气上限+50。",
+    "effects": {
+      "max_qi": 50,
+      "wisdom": 1
+    }
+  },
+  {
+    "id": "info_scroll",
+    "name": "情报卷轴",
+    "type": "consumable",
+    "value": 80,
+    "description": "记载着某地秘密的卷轴，可揭示一处隐藏地点或BOSS弱点。",
+    "effects": {
+      "wisdom": 1
+    }
+  },
+  {
+    "id": "soul_lantern",
+    "name": "渡魂灯",
+    "type": "accessory",
+    "value": 250,
+    "description": "忘川河畔采集的魂灯，魂修佩戴后神识上限+30。",
+    "effects": {
+      "max_hun_sense": 30
+    }
+  },
+  {
+    "id": "chaos_spirit_bead",
+    "name": "混沌灵珠",
+    "type": "life_treasure",
+    "value": 800,
+    "description": "金丹期方可祭炼的本命法宝雏形，内含混沌灵气，可小幅提升攻防与生命。",
+    "effects": {
+      "attack": 10,
+      "defense": 5,
+      "health": 30
+    }
+  },
+  {
+    "id": "foundation_pill",
+    "name": "筑基丹",
+    "type": "pill",
+    "value": 150,
+    "description": "筑基期修士突破时服用的丹药，可提升筑基天劫成功率 25%，仅在练气圆满冲击筑基时生效。",
+    "effects": {
+      "breakthrough_boost": "qi_refining_9",
+      "boost_rate": 0.25
+    }
+  },
+  {
+    "id": "golden_core_pill",
+    "name": "结金丹",
+    "type": "pill",
+    "value": 400,
+    "description": "金丹期修士突破时服用的丹药，可提升金丹雷劫成功率 25%，仅在筑基圆满冲击金丹时生效。",
+    "effects": {
+      "breakthrough_boost": "foundation_peak",
+      "boost_rate": 0.25
+    }
+  },
+  {
+    "id": "nascent_soul_pill",
+    "name": "化婴丹",
+    "type": "pill",
+    "value": 1000,
+    "description": "元婴期修士突破时服用的丹药，可提升元婴心魔劫成功率 25%，仅在金丹圆满冲击元婴时生效。",
+    "effects": {
+      "breakthrough_boost": "golden_core_peak",
+      "boost_rate": 0.25
+    }
+  },
+  {
+    "id": "century_herb_seed",
+    "name": "百年灵草种子",
+    "type": "material",
+    "value": 2,
+    "description": "可在洞府药园种植的灵草种子。"
+  },
+  {
+    "id": "spirit_fruit_seed",
+    "name": "灵果种子",
+    "type": "material",
+    "value": 5,
+    "description": "灵果树的种子，结果后食用可恢复修为。"
+  },
+  {
+    "id": "ice_lotus_seed",
+    "name": "冰魄雪莲种子",
+    "type": "material",
+    "value": 20,
+    "description": "极寒灵植种子，成熟后可用于炼制高级丹药。"
+  },
+  {
+    "id": "fire_crystal",
+    "name": "火灵晶",
+    "type": "material",
+    "value": 80,
+    "description": "火属性秘境产出的灵晶，蕴含精纯火灵气。"
+  },
+  {
+    "id": "phoenix_feather",
+    "name": "凤凰羽",
+    "type": "material",
+    "value": 150,
+    "description": "烈焰秘境中偶尔可得的神兽残羽，炼器炼丹的上佳材料。"
+  },
+  {
+    "id": "water_pearl",
+    "name": "玄水珠",
+    "type": "material",
+    "value": 80,
+    "description": "水属性秘境产出的灵珠，蕴含精纯水灵气。"
+  },
+  {
+    "id": "ice_lotus",
+    "name": "冰魄雪莲",
+    "type": "material",
+    "value": 120,
+    "description": "玄水秘境中采集的极寒灵植，炼制高级丹药的主材。"
+  },
+  {
+    "id": "spirit_wood_sword",
+    "name": "灵木剑",
+    "type": "weapon",
+    "value": 40,
+    "description": "以百年灵木雕琢而成的飞剑，木灵根剑修可用。",
+    "effects": {
+      "attack": 8
+    }
+  },
+  {
+    "id": "dan_recipe",
+    "name": "古丹方",
+    "type": "manual",
+    "value": 100,
+    "description": "上古丹修遗留的丹方残卷，记载了几种失传丹药的炼制之法。"
+  },
+  {
+    "id": "qilin_horn",
+    "name": "麒麟角",
+    "type": "material",
+    "value": 300,
+    "description": "上古麒麟残魂遗留的角，炼器炼丹的稀世材料。"
+  },
+  {
+    "id": "beast_core",
+    "name": "兽核",
+    "type": "material",
+    "value": 50,
+    "description": "高阶妖兽体内凝结的能量核心。"
+  },
+  {
+    "id": "blood_demon_heart",
+    "name": "血魔心",
+    "type": "material",
+    "value": 400,
+    "description": "血魔尊者陨落后留下的心脏，蕴含浓郁血气。"
+  },
+  {
+    "id": "evil_crystal",
+    "name": "邪晶",
+    "type": "material",
+    "value": 120,
+    "description": "魔道强者凝聚的晶体，可用于炼制邪修器物。"
+  },
+  {
+    "id": "beast_contract_manual",
+    "name": "灵兽契约秘籍",
+    "type": "manual",
+    "value": 80,
+    "description": "万兽宗流传的御兽心法，研读后习得灵兽契约（木属性）。",
+    "effects": {
+      "skill": "beast_contract"
+    }
+  },
+  {
+    "id": "ice_spike_manual",
+    "name": "玄冰刺秘籍",
+    "type": "manual",
+    "value": 70,
+    "description": "玄水宫珍藏的水系术法秘籍，研读后习得玄冰刺（冰属性）。",
+    "effects": {
+      "skill": "ice_spike"
+    }
+  },
+  {
+    "id": "fireball_manual",
+    "name": "火球术秘籍",
+    "type": "manual",
+    "value": 60,
+    "description": "赤炎门入门火法秘籍，研读后习得火球术（火属性）。",
+    "effects": {
+      "skill": "fireball"
+    }
+  },
+  {
+    "id": "soul_devour_manual",
+    "name": "噬魂术秘籍",
+    "type": "manual",
+    "value": 100,
+    "description": "幽冥宗魂修秘典，研读后习得噬魂术（火属性，邪修/魂修可用）。",
+    "effects": {
+      "skill": "soul_devour"
+    }
+  },
+  {
+    "id": "detox_pill",
+    "name": "解毒丹",
+    "type": "consumable",
+    "value": 40,
+    "description": "药王谷炼制的解毒丹药，可解除多数常见毒素。",
+    "effects": {
+      "heal": 30,
+      "cleanse_poison": true
+    }
+  },
+  {
+    "id": "spirit_herb",
+    "name": "灵韵草",
+    "type": "material",
+    "value": 80,
+    "description": "药王谷特产的百年灵草，药力温和，是炼制高阶丹药的上好材料。"
+  },
+  {
+    "id": "low_herb",
+    "name": "低阶灵草",
+    "type": "material",
+    "value": 2,
+    "description": "山林中随处可见的低阶灵草，可炼制基础丹药。"
+  },
+  {
+    "id": "spirit_liquid",
+    "name": "灵液",
+    "type": "material",
+    "value": 5,
+    "description": "蕴含稀薄灵气的液体，炼丹时常用作调和剂。"
+  },
+  {
+    "id": "qi_pill",
+    "name": "补气丹",
+    "type": "pill",
+    "value": 6,
+    "description": "丹道生活流派所炼之丹。服用后立得修为 50，并引发「灵力温养」：此后 3 个月内每月额外获得 40 点修为。",
+    "effects": {
+      "qi": 50,
+      "cultivation_boost": {"amount": 40, "months": 3}
+    }
+  },
+  {
+    "id": "health_pill_recipe",
+    "name": "回春丹方",
+    "type": "recipe",
+    "value": 30,
+    "description": "记载回春丹炼制之法的丹方，研读后可习得。"
+  },
+  {
+    "id": "qi_pill_recipe",
+    "name": "补气丹方",
+    "type": "recipe",
+    "value": 40,
+    "description": "记载补气丹炼制之法的丹方，研读后可习得。"
+  },
+  {
+    "id": "detox_pill_recipe",
+    "name": "解毒丹方",
+    "type": "recipe",
+    "value": 80,
+    "description": "记载解毒丹炼制之法的丹方，研读后可习得。"
+  },
+  {
+    "id": "foundation_pill_recipe",
+    "name": "筑基丹方",
+    "type": "recipe",
+    "value": 300,
+    "description": "记载筑基丹炼制之法的丹方，研读后可习得。"
+  },
+  {
+    "id": "golden_core_pill_recipe",
+    "name": "结金丹方",
+    "type": "recipe",
+    "value": 800,
+    "description": "记载结金丹炼制之法的丹方，研读后可习得。"
+  },
+  {
+    "id": "beast_blood",
+    "name": "妖兽精血",
+    "type": "material",
+    "value": 8,
+    "description": "从妖兽体内提炼的精血，蕴含浓郁血气，可用于炼丹或炼器。"
+  },
+  {
+    "id": "beast_hide",
+    "name": "妖兽皮革",
+    "type": "material",
+    "value": 10,
+    "description": "坚韧的妖兽皮毛，是制作防具的常见材料。"
+  },
+  {
+    "id": "beast_tendon",
+    "name": "妖兽筋腱",
+    "type": "material",
+    "value": 15,
+    "description": "高阶妖兽的筋腱，弹性极佳，常用于炼制弓弦与束缚法器。"
+  },
+  {
+    "id": "beast_contract",
+    "name": "灵兽契约",
+    "type": "consumable",
+    "value": 50,
+    "description": "万兽宗特制的契约卷轴，可用于与灵兽缔结主从契约。"
+  },
+  {
+    "id": "water_essence",
+    "name": "水精",
+    "type": "material",
+    "value": 25,
+    "description": "从江河湖海中凝练出的水系精华，炼制水属性丹药的上好材料。"
+  },
+  {
+    "id": "healing_pill",
+    "name": "疗伤丹",
+    "type": "pill",
+    "value": 20,
+    "description": "玄水宫常备的疗伤丹药，可恢复 25 点健康。",
+    "effects": {
+      "health": 25
+    }
+  },
+  {
+    "id": "pearl",
+    "name": "灵珠",
+    "type": "material",
+    "value": 30,
+    "description": "水族妖兽体内孕育的灵珠，蕴含温和水灵气。"
+  },
+  {
+    "id": "ice_heart",
+    "name": "冰心",
+    "type": "material",
+    "value": 80,
+    "description": "极寒之地孕育的冰心，炼制冰系法宝与丹药的珍稀材料。"
+  },
+  {
+    "id": "talisman_paper",
+    "name": "自绘符箓",
+    "type": "consumable",
+    "value": 12,
+    "description": "生活流派（符箓）精进所绘之符，蕴含灵力，可于背包服用：镇心护身，道心+4、心魔-3、气血+20。",
+    "effects": {
+      "mental_state": 4,
+      "heart_demon": -3,
+      "health": 20
+    }
+  },
+  {
+    "id": "array_disk",
+    "name": "布设阵盘",
+    "type": "consumable",
+    "value": 18,
+    "description": "生活流派（阵法）精进所布之阵盘，灵纹流转，可于背包服用：聚灵益慧，修为+80、悟性+2。",
+    "effects": {
+      "qi": 80,
+      "wisdom": 2
+    }
+  }
+]

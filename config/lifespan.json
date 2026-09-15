@@ -1,0 +1,105 @@
+{
+  "_comment": "维度⑤寿元与轮回晚年（F-09）。复用 player 的 age/max_lifespan 与既有 ReincarnationManager（转世/前世天赋）。本模块补足『坐化安排后事』『残魂夺舍/器灵化身』『前世遗迹回响』三条新增链路。",
+  "sit_and_dissolve": {
+    "_comment": "坐化：寿元将尽且无法再突破时，可主动安排后事。安排会在转世时转化为前世遗产（功法/遗泽/仇敌削弱）。",
+    "near_end_years": 10,
+    "arrangements": {
+      "heir": {
+        "name": "指定继承人",
+        "desc": "将家族/衣钵传于指定继承人，转世后该继承人所属势力对你有天然好感。",
+        "past_life_effect": "inheritance_boon"
+      },
+      "leave_manual": {
+        "name": "留下绝世功法",
+        "desc": "坐化前将毕生所学凝为一卷功法，转世后有机缘重得。",
+        "past_life_effect": "manual_relic"
+      },
+      "detonate_treasure": {
+        "name": "引爆本命法宝",
+        "desc": "以本命法宝自爆，重创仇敌；转世后仇敌势力气运受损。",
+        "past_life_effect": "enemy_curse"
+      }
+    }
+  },
+  "remnant_soul": {
+    "_comment": "残魂夺舍/器灵化身：肉身死亡但神魂强大者，可化为残魂依附法宝或灵兽，以器灵/兽灵视角存活，期间引导新主或在暗中操控局势，直到重塑肉身。化作残魂时会按神魂资质（道心/心魔/依附载体）解锁不同「形态」，每态带月度被动。",
+    "min_realm_order": 18,
+    "host_types": ["treasure", "spirit_beast"],
+    "reshape_chance_per_month": 0.03,
+    "min_months_as_remnant": 3,
+    "default_form": "formless",
+    "forms": [
+      {
+        "id": "dao_soul",
+        "name": "道魂",
+        "desc": "神魂通明、道心坚如磐石，残魂期间道心日固、心魔渐消，更易重塑肉身。",
+        "min_mental_state": 80,
+        "max_heart_demon": 20,
+        "require_host": null,
+        "monthly_passive": { "mental_delta": 1, "heart_delta": -1, "reshape_bonus": 0.05 }
+      },
+      {
+        "id": "sword_soul",
+        "name": "剑魂",
+        "desc": "杀伐之念凝而不散，寄身本命法宝，凶戾之气护持神魂，重塑后战意更盛。",
+        "min_mental_state": 40,
+        "max_heart_demon": 99,
+        "require_host": "treasure",
+        "monthly_passive": { "mental_delta": 0, "heart_delta": -1, "reshape_bonus": 0.02 }
+      },
+      {
+        "id": "beast_soul",
+        "name": "妖灵",
+        "desc": "寄身灵兽，凶煞之息反哺神魂，残魂期间道心略有温养。",
+        "min_mental_state": 40,
+        "max_heart_demon": 99,
+        "require_host": "spirit_beast",
+        "monthly_passive": { "mental_delta": 1, "heart_delta": 0, "reshape_bonus": 0.02 }
+      },
+      {
+        "id": "formless",
+        "name": "无相残魂",
+        "desc": "神魂浑噩未显异象，仅能静守本心、等待重塑之机。",
+        "min_mental_state": 0,
+        "max_heart_demon": 99,
+        "require_host": null,
+        "monthly_passive": { "mental_delta": 0, "heart_delta": 0, "reshape_bonus": 0.0 }
+      }
+    ]
+  },
+  "past_life_relics": {
+    "_comment": "前世遗迹与回响：转世后新角色探索时，有概率触发『前世回响』事件，呼应往世因果。",
+    "echo_chance_on_explore": 0.15,
+    "relic_pool": [
+      { "id": "broken_flying_sword", "name": "断剑残锋", "echo": "你在一处荒冢拾得半截断剑，剑鸣中似有故人低语。" },
+      { "id": "old_taoist_robe", "name": "旧道袍", "echo": "残破道袍迎风猎猎，前世闭关悟道的画面浮现眼前。" },
+      { "id": "silent_jade_slip", "name": "无字玉简", "echo": "玉简触手温热，一段被封印的记忆正缓缓苏醒。" }
+    ],
+    "echo_events": [
+      "前世回响：你于遗迹中感知到一缕熟悉神念，修为隐隐精进。",
+      "前世回响：往世未竟之愿涌上心头，你明悟了一道关窍。",
+      "前世回响：残魂低语指引你避开了一处死局。"
+    ]
+  },
+  "relic_chains": {
+    "_comment": "前世遗物链：跨世累积的遗物构成的纵向成长链。relic_chain（玩家持久集合）中每收集到一条链的一个 link，即于下次转世时获得 per_link 的永久加成；集齐全部 link 额外获得 set 加成。加成键：wisdom/luck/constitution/max_health（属性，整数加法）、cultivation_speed（叠加 reincarnation_cultivation_bonus）、breakthrough_bonus（叠加 reincarnation_breakthrough_bonus）。link 须指向 relic_pool 的 id 或 'legacy_manual'（坐化留功法所生遗物）。",
+    "chains": [
+      {
+        "id": "return_to_origin",
+        "name": "三遗归元",
+        "desc": "断剑、道袍、玉简三件前世遗物尽数归拢，往世因果圆满，神魂得享前世积累之滋润。",
+        "links": ["broken_flying_sword", "old_taoist_robe", "silent_jade_slip"],
+        "per_link": { "wisdom": 1, "cultivation_speed": 0.02 },
+        "set": { "wisdom": 3, "max_health": 20, "cultivation_speed": 0.05 }
+      },
+      {
+        "id": "legacy_codex",
+        "name": "遗泽功藏",
+        "desc": "坐化所留功法残卷与往世断剑相印证，转世后修行根基更固，突破更顺。",
+        "links": ["legacy_manual", "broken_flying_sword"],
+        "per_link": { "cultivation_speed": 0.03 },
+        "set": { "breakthrough_bonus": 0.03 }
+      }
+    ]
+  }
+}

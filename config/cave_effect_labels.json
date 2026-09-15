@@ -1,0 +1,41 @@
+{
+  "labels": {
+    "cultivation_speed_bonus": "修炼速度",
+    "closed_door_qi_bonus": "闭关修为",
+    "max_qi_bonus": "修为上限",
+    "breakthrough_chance_bonus": "突破概率",
+    "mental_state_bonus": "道心值",
+    "water_damage_bonus": "水属性伤害",
+    "fire_damage_bonus": "火属性伤害",
+    "metal_damage_bonus": "金属性伤害",
+    "wood_damage_bonus": "木属性伤害",
+    "earth_damage_bonus": "土属性伤害",
+    "thunder_damage_bonus": "雷属性伤害",
+    "ice_damage_bonus": "冰属性伤害",
+    "wind_damage_bonus": "风属性伤害",
+    "water_resist_bonus": "水属性抗性",
+    "fire_resist_bonus": "火属性抗性",
+    "metal_resist_bonus": "金属性抗性",
+    "wood_resist_bonus": "木属性抗性",
+    "earth_resist_bonus": "土属性抗性",
+    "thunder_resist_bonus": "雷属性抗性",
+    "ice_resist_bonus": "冰属性抗性",
+    "wind_resist_bonus": "风属性抗性"
+  },
+  "badge_colors": {
+    "cultivation_speed_bonus": "#f1c40f",
+    "closed_door_qi_bonus": "#9b59b6",
+    "max_qi_bonus": "#3498db",
+    "breakthrough_chance_bonus": "#e74c3c",
+    "mental_state_bonus": "#1abc9c",
+    "water_damage_bonus": "#3498db",
+    "fire_damage_bonus": "#e74c3c",
+    "metal_damage_bonus": "#95a5a6",
+    "wood_damage_bonus": "#2ecc71",
+    "earth_damage_bonus": "#8d6e63",
+    "thunder_damage_bonus": "#9b59b6",
+    "ice_damage_bonus": "#00bcd4",
+    "wind_damage_bonus": "#2ecc71",
+    "default": "#7f8c8d"
+  }
+}

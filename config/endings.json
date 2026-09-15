@@ -1,0 +1,80 @@
+{
+  "_comment": "多结局定义。context 为触发场景：ascend=飞升成功，ascend_fail=飞升失败，death=寿终/死亡。",
+  "_comment2": "判定按 priority 升序，取第一个满足全部 conditions 的结局；无匹配则用 fallback。",
+  "_comment3": "conditions 支持：karma_min/max（业力正邪）、heart_demon_min/max（心魔）、heaven_gaze_min/max（天道注视）、red_dust_bonds_min（红尘羁绊数）。",
+  "fallback": "ascend_daoist",
+  "endings": [
+    {
+      "id": "ascend_immortal",
+      "name": "飞升成仙",
+      "type": "good",
+      "priority": 1,
+      "context": "ascend",
+      "desc": "你以无瑕道心渡过飞升天劫，白日飞升、位列仙班，从此逍遥天地间，得证长生大道。",
+      "conditions": { "karma_min": 0, "heart_demon_max": 60, "heaven_gaze_max": 60 }
+    },
+    {
+      "id": "ascend_demon",
+      "name": "魔道登天",
+      "type": "neutral",
+      "priority": 2,
+      "context": "ascend",
+      "desc": "你以杀伐证道、业力滔天，却仍抗过了飞升天劫，于魔道中登临天界，自此正魔两道皆敬你三分。",
+      "conditions": { "karma_max": -1 }
+    },
+    {
+      "id": "ascend_daoist",
+      "name": "大道独行",
+      "type": "good",
+      "priority": 3,
+      "context": "ascend",
+      "desc": "你不拘正邪、只问本心，渡过飞升天劫后独行大道，天地间多了一位亦正亦邪的逍遥仙。",
+      "conditions": {}
+    },
+    {
+      "id": "heart_demon_fall",
+      "name": "走火入魔",
+      "type": "bad",
+      "priority": 1,
+      "context": "ascend_fail",
+      "desc": "飞升之际心魔大盛，你于天劫中走火入魔，道基尽毁、灰飞烟灭，只余一缕执念飘散天地。",
+      "conditions": { "heart_demon_min": 80 }
+    },
+    {
+      "id": "heaven_punish",
+      "name": "天道降罚",
+      "type": "bad",
+      "priority": 2,
+      "context": "ascend_fail",
+      "desc": "你逆天行事、天道注视已久，飞升天劫化作灭世神雷，将你连同道果一并抹去。",
+      "conditions": { "heaven_gaze_min": 90 }
+    },
+    {
+      "id": "rebuild_reincarnation",
+      "name": "兵解重修",
+      "type": "neutral",
+      "priority": 3,
+      "context": "ascend_fail",
+      "desc": "飞升天劫之下你肉身兵解，幸得一丝真灵不灭，可转世重修，来世再证大道。",
+      "conditions": {}
+    },
+    {
+      "id": "red_dust_retire",
+      "name": "红尘归隐",
+      "type": "good",
+      "priority": 1,
+      "context": "death",
+      "desc": "你在红尘中羁绊已深，寿元尽时选择与至亲挚爱归隐田园，虽未成仙，却得一世圆满。",
+      "conditions": { "red_dust_bonds_min": 3 }
+    },
+    {
+      "id": "ordinary_death",
+      "name": "凡尘谢幕",
+      "type": "neutral",
+      "priority": 2,
+      "context": "death",
+      "desc": "你一生求道，终未能超脱生死，于尘世中悄然谢幕，真灵转入轮回，来世再续仙缘。",
+      "conditions": {}
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "template_id": "collect_herbs",
+    "name": "收集灵草",
+    "description": "城主府需要 {count} 份 {target_name} 用于炼丹，完成后可领取赏赐。",
+    "target_type": "collect",
+    "target_pool": ["low_herb", "spirit_herb", "century_herb"],
+    "count_range": [3, 8],
+    "reward_qi_range": [20, 50],
+    "reward_stone_range": [10, 30]
+  },
+  {
+    "template_id": "collect_cores",
+    "name": "收购妖核",
+    "description": "城主府需要 {count} 枚 {target_name} 作为炼器材料。",
+    "target_type": "collect",
+    "target_pool": ["demon_core_low", "demon_core_mid", "demon_core"],
+    "count_range": [2, 5],
+    "reward_qi_range": [30, 70],
+    "reward_stone_range": [15, 35]
+  },
+  {
+    "template_id": "kill_beasts",
+    "name": "清理妖兽",
+    "description": "城外 {target_name} 频繁袭扰商队，城主府悬赏 {count} 只。",
+    "target_type": "kill",
+    "target_pool": ["wolf", "tiger", "snake", "bear"],
+    "count_range": [2, 5],
+    "reward_qi_range": [30, 80],
+    "reward_stone_range": [15, 40]
+  },
+  {
+    "template_id": "kill_bandits",
+    "name": "剿灭散修",
+    "description": "有 {target_name} 在城外劫掠，城主府请修士出手剿灭 {count} 人。",
+    "target_type": "kill",
+    "target_pool": ["righteous_disciple", "evil_cultivator"],
+    "count_range": [1, 3],
+    "reward_qi_range": [50, 100],
+    "reward_stone_range": [20, 50]
+  },
+  {
+    "template_id": "escort_caravan",
+    "name": "护送商队",
+    "description": "一支商队即将前往附近城镇，需要修士护送 {count} 日。",
+    "target_type": "escort",
+    "target_pool": ["caravan"],
+    "count_range": [3, 7],
+    "reward_qi_range": [40, 90],
+    "reward_stone_range": [20, 45]
+  }
+]

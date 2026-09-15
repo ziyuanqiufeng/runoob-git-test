@@ -1,0 +1,10 @@
+{
+  "exchange": [
+    {"id": "spirit_stone", "cost": 30, "name": "灵石", "exclusive": false},
+    {"id": "fire_crystal", "cost": 60, "name": "火灵晶", "exclusive": false},
+    {"id": "water_pearl", "cost": 60, "name": "水灵珠", "exclusive": false},
+    {"id": "ice_lotus", "cost": 90, "name": "冰莲", "exclusive": false},
+    {"id": "phoenix_feather", "cost": 140, "name": "凤凰羽", "exclusive": true},
+    {"id": "realm_core", "cost": 220, "name": "秘境核心", "exclusive": true}
+  ]
+}

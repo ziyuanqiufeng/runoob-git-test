@@ -1,0 +1,2918 @@
+[
+  {
+    "id": "tianjian_sect",
+    "name": "天剑宗",
+    "location_id": "tianjian_sect",
+    "leader_npc_id": "tianjian_elder",
+    "description": "剑修大宗门，门内剑气冲霄，藏经阁收录无数剑诀。",
+    "element": "metal",
+    "alignment": "righteous",
+    "path_bonus": {
+      "jian": 0.15,
+      "fa": 0.05
+    },
+    "hostile_to": [],
+    "friendly_to": [
+      "zixiao_palace"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "sword_tomb",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 200,
+        "effects": {
+          "cultivation_speed": 0.15,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "give_items": {
+            "health_pill": 2
+          }
+        }
+      },
+      {
+        "id": "refining_room",
+        "name": "炼器室",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "refine_success_bonus": 0.2,
+          "duration_months": 3
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "tianjian_sword_tomb",
+        "name": "剑冢禁地",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "righteous_disciple",
+        "enemy_level_bonus": 2,
+        "reward_items": {
+          "sword_manual": 1,
+          "spirit_stone": 2
+        },
+        "reward_qi": 100,
+        "description": "宗门禁地，藏有古剑修遗留的剑意与剑诀。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "tianjian_wolf_bounty",
+        "name": "清剿青风狼",
+        "target_enemy": "wolf",
+        "target_count": 3,
+        "required_rank": "outer",
+        "contribution_reward": 80,
+        "reputation_reward": 10,
+        "item_reward": {
+          "health_pill": 1
+        },
+        "description": "山门附近青风狼群出没，需弟子前往清剿。"
+      },
+      {
+        "id": "tianjian_tiger_bounty",
+        "name": "猎杀铁背虎",
+        "target_enemy": "tiger",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 200,
+        "reputation_reward": 20,
+        "item_reward": {
+          "spirit_stone": 3
+        },
+        "description": "铁背虎伤我外门弟子数名，内门弟子可接此悬赏。"
+      }
+    ],
+    "unique_skill": "sword_rain",
+    "shop_items": [
+      {
+        "item_id": "iron_sword",
+        "cost": 100
+      },
+      {
+        "item_id": "sword_manual",
+        "cost": 200
+      },
+      {
+        "item_id": "health_pill",
+        "cost": 50
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 30
+      },
+      {
+        "item_id": "spirit_stone",
+        "cost": 10
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "sword_art",
+        "required_rank": "outer",
+        "cost": 200
+      },
+      {
+        "skill_id": "sword_qi",
+        "required_rank": "inner",
+        "cost": 800
+      },
+      {
+        "skill_id": "sword_rain",
+        "required_rank": "core",
+        "cost": 2000
+      },
+      {
+        "skill_id": "one_sword_break",
+        "required_rank": "elder",
+        "cost": 5000
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 500,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 3000,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 10000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "掌教",
+        "min_contribution": 50000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.2,
+        "max_qi_bonus": 50
+      },
+      "leader": {
+        "cultivation_speed": 0.3,
+        "max_qi_bonus": 100
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "tianjian_sword_vein",
+        "name": "剑冢灵脉",
+        "bonus": 0.05,
+        "controlled_by": "tianjian_sect"
+      },
+      {
+        "id": "qingyun_spirit_vein",
+        "name": "青云灵脉",
+        "bonus": 0.03,
+        "controlled_by": "tianjian_sect"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 1000,
+      "base_reputation": 50,
+      "health_cost": 20
+    },
+    "war_difficulty": 1.0,
+    "wanted_threshold": 30,
+    "protective_formation": {
+      "name": "天剑护山大阵",
+      "activation_cost": 500,
+      "monthly_cost": 50,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.08,
+      "defense_bonus": 0.1,
+      "enemy_damage_reduction": 0.1,
+      "description": "以万道剑气护佑山门，激活后提升修炼速度与防御，并削弱入侵之敌。"
+    },
+    "fortune_events": [
+      {
+        "id": "sword_qi_rises",
+        "name": "剑气冲霄",
+        "weight": 20,
+        "duration_months": 6,
+        "effects": {
+          "cultivation_speed_bonus": 0.1
+        },
+        "description": "宗门剑气大盛，弟子修炼速度提升 10%。"
+      },
+      {
+        "id": "smithing_boom",
+        "name": "锻器之月",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "shop_discount": 0.9
+        },
+        "description": "宗门炼器材料充裕，商店兑换九折。"
+      },
+      {
+        "id": "beast_tide",
+        "name": "兽潮预警",
+        "weight": 10,
+        "duration_months": 4,
+        "effects": {
+          "enemy_strength_bonus": 0.15
+        },
+        "description": "附近妖兽躁动，遭遇敌人属性提升 15%。"
+      }
+    ],
+    "friendly_discount": 0.9,
+    "inheritance": [
+      {
+        "id": "tianjian_sword_intent",
+        "name": "天剑剑意",
+        "required_rank": "inner",
+        "cost_contribution": 2000,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "参悟古剑修留下的剑意，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 5,
+          "qi": 200
+        }
+      },
+      {
+        "id": "tianjian_true_sword",
+        "name": "天剑真传",
+        "required_rank": "core",
+        "cost_contribution": 8000,
+        "cost_loyalty": 40,
+        "max_monthly": 1,
+        "description": "真传弟子方可参悟的剑诀，习得【剑气】。",
+        "rewards": {
+          "skill_id": "sword_qi",
+          "permanent_attack": 5
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "tianjian_sword_eagle",
+          "name": "剑鹰",
+          "type": "combat",
+          "cost_contribution": 3000,
+          "required_rank": "inner",
+          "description": "天剑宗驯养的灵鹰，战斗中可协助攻击。",
+          "bonus": {
+            "attack": 10
+          }
+        },
+        {
+          "id": "tianjian_cloud_tiger",
+          "name": "云虎",
+          "type": "mount",
+          "cost_contribution": 5000,
+          "required_rank": "core",
+          "description": "踏云而行的灵虎，赶路时更为迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "tianjian_spirit_deer",
+          "name": "灵鹿",
+          "type": "resource",
+          "cost_contribution": 4000,
+          "required_rank": "inner",
+          "description": "温顺的灵鹿，每月低概率产出一株灵草。",
+          "bonus": {
+            "herb_chance": 0.15,
+            "herb_id": "century_herb"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "zixiao_palace",
+    "name": "紫霄宫",
+    "location_id": "zixiao_palace",
+    "leader_npc_id": "zixiao_master",
+    "description": "法修大宗门，宫中藏书万卷，道法森严。",
+    "element": "water",
+    "alignment": "righteous",
+    "path_bonus": {
+      "fa": 0.15,
+      "jian": 0.05
+    },
+    "hostile_to": [],
+    "friendly_to": [
+      "tianjian_sect"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "alchemy_hall",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 200,
+        "effects": {
+          "cultivation_speed": 0.15,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "give_items": {
+            "health_pill": 2,
+            "marrow_pill": 1
+          }
+        }
+      },
+      {
+        "id": "refining_room",
+        "name": "炼器室",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "refine_success_bonus": 0.2,
+          "duration_months": 3
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "zixiao_thunder_pool",
+        "name": "紫霄雷池",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "righteous_elder",
+        "enemy_level_bonus": 1,
+        "reward_items": {
+          "ice_manual": 1,
+          "spirit_stone": 2
+        },
+        "reward_qi": 120,
+        "description": "紫霄宫深处的雷池，雷霆淬体，可悟法修真谛。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "zixiao_snake_bounty",
+        "name": "铲除碧鳞蛇",
+        "target_enemy": "snake",
+        "target_count": 2,
+        "required_rank": "outer",
+        "contribution_reward": 100,
+        "reputation_reward": 10,
+        "item_reward": {
+          "health_pill": 1
+        },
+        "description": "后山碧鳞蛇毒伤凡人，弟子速去铲除。"
+      },
+      {
+        "id": "zixiao_bear_bounty",
+        "name": "击退玄铁熊",
+        "target_enemy": "bear",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 250,
+        "reputation_reward": 25,
+        "item_reward": {
+          "marrow_pill": 1
+        },
+        "description": "玄铁熊盘踞灵矿外围，需内门弟子联手击退。"
+      }
+    ],
+    "unique_skill": "ten_thousand_arts",
+    "shop_items": [
+      {
+        "item_id": "ice_manual",
+        "cost": 200
+      },
+      {
+        "item_id": "health_pill",
+        "cost": 50
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 30
+      },
+      {
+        "item_id": "spirit_stone",
+        "cost": 10
+      },
+      {
+        "item_id": "marrow_pill",
+        "cost": 500
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "ice_blade",
+        "required_rank": "outer",
+        "cost": 200
+      },
+      {
+        "skill_id": "true_qi_shield",
+        "required_rank": "inner",
+        "cost": 800
+      },
+      {
+        "skill_id": "five_thunders",
+        "required_rank": "core",
+        "cost": 2000
+      },
+      {
+        "skill_id": "ten_thousand_arts",
+        "required_rank": "elder",
+        "cost": 5000
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 500,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 3000,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 10000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "掌教",
+        "min_contribution": 50000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.2,
+        "max_qi_bonus": 50
+      },
+      "leader": {
+        "cultivation_speed": 0.3,
+        "max_qi_bonus": 100
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "zixiao_water_vein",
+        "name": "紫霄水灵脉",
+        "bonus": 0.05,
+        "controlled_by": "zixiao_palace"
+      },
+      {
+        "id": "yummeng_spirit_vein",
+        "name": "云梦灵脉",
+        "bonus": 0.03,
+        "controlled_by": "zixiao_palace"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 1000,
+      "base_reputation": 50,
+      "health_cost": 20
+    },
+    "war_difficulty": 1.0,
+    "wanted_threshold": 30,
+    "protective_formation": {
+      "name": "紫霄雷罡阵",
+      "activation_cost": 500,
+      "monthly_cost": 50,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.08,
+      "defense_bonus": 0.1,
+      "enemy_damage_reduction": 0.1,
+      "description": "引动九天雷霆环绕宫门，可提升修炼效率并压制来犯之敌。"
+    },
+    "fortune_events": [
+      {
+        "id": "thunder_pool_full",
+        "name": "雷池满溢",
+        "weight": 20,
+        "duration_months": 6,
+        "effects": {
+          "cultivation_speed_bonus": 0.12
+        },
+        "description": "雷池灵气充沛，法修弟子修炼速度提升 12%。"
+      },
+      {
+        "id": "library_open",
+        "name": "藏经阁开放日",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "shop_discount": 0.85
+        },
+        "description": "藏经阁限时开放，功法兑换八五折。"
+      },
+      {
+        "id": "demonic_influx",
+        "name": "魔气涌动",
+        "weight": 10,
+        "duration_months": 4,
+        "effects": {
+          "enemy_strength_bonus": 0.1
+        },
+        "description": "魔气外溢，附近邪物实力增强 10%。"
+      }
+    ],
+    "friendly_discount": 0.9,
+    "inheritance": [
+      {
+        "id": "zixiao_thunder_intent",
+        "name": "紫霄雷意",
+        "required_rank": "inner",
+        "cost_contribution": 2000,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "感应紫霄神雷，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 5,
+          "qi": 200
+        }
+      },
+      {
+        "id": "zixiao_five_thunders",
+        "name": "五雷正法",
+        "required_rank": "core",
+        "cost_contribution": 8000,
+        "cost_loyalty": 40,
+        "max_monthly": 1,
+        "description": "习得紫霄宫秘传【五雷正法】。",
+        "rewards": {
+          "skill_id": "five_thunders",
+          "permanent_attack": 5
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "zixiao_thunder_bird",
+          "name": "雷鸟",
+          "type": "combat",
+          "cost_contribution": 3000,
+          "required_rank": "inner",
+          "description": "吞吐雷光的灵鸟，战斗中附加雷属性伤害。",
+          "bonus": {
+            "attack": 10
+          }
+        },
+        {
+          "id": "zixiao_mist_qilin",
+          "name": "雾麒麟",
+          "type": "mount",
+          "cost_contribution": 5000,
+          "required_rank": "core",
+          "description": "腾云驾雾的瑞兽，可缩短赶路时间。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "zixiao_jade_toad",
+          "name": "玉蟾",
+          "type": "resource",
+          "cost_contribution": 4000,
+          "required_rank": "inner",
+          "description": "吸纳月华的玉蟾，每月低概率产出灵石。",
+          "bonus": {
+            "spirit_stone_chance": 0.2,
+            "spirit_stone_count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "xie_mo_cult",
+    "name": "血魔宗",
+    "location_id": "jiuyuan_senlin",
+    "leader_npc_id": "xie_master",
+    "description": "邪道宗门，修炼血祭与噬魂之法，为正派所不容。",
+    "element": "fire",
+    "alignment": "evil",
+    "path_bonus": {
+      "xie": 0.2,
+      "hun": 0.1
+    },
+    "hostile_to": [
+      "tianjian_sect",
+      "zixiao_palace"
+    ],
+    "friendly_to": [],
+    "facilities": [
+      "blood_hall",
+      "soul_pit",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 200,
+        "effects": {
+          "cultivation_speed": 0.15,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "blood_pool",
+        "name": "血池",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "give_items": {
+            "health_pill": 3
+          }
+        }
+      },
+      {
+        "id": "soul_pit",
+        "name": "炼魂窟",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "cultivation_speed": 0.25,
+          "duration_months": 3
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "xie_mo_blood_abyss",
+        "name": "血魔深渊",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "righteous_disciple",
+        "enemy_level_bonus": 2,
+        "reward_items": {
+          "demon_core": 2,
+          "health_pill": 2
+        },
+        "reward_qi": 80,
+        "description": "血魔宗镇压正道修士的深渊，血煞之气弥漫。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "xie_mo_righteous_bounty",
+        "name": "猎杀正道弟子",
+        "target_enemy": "righteous_disciple",
+        "target_count": 2,
+        "required_rank": "outer",
+        "contribution_reward": 150,
+        "reputation_reward": 15,
+        "item_reward": {
+          "demon_core": 2
+        },
+        "description": "正道弟子屡屡窥探宗门，血奴们去取他们首级。"
+      },
+      {
+        "id": "xie_mo_scorpion_bounty",
+        "name": "捕捉烈焰蝎",
+        "target_enemy": "fire_scorpion",
+        "target_count": 2,
+        "required_rank": "inner",
+        "contribution_reward": 180,
+        "reputation_reward": 18,
+        "item_reward": {
+          "health_pill": 2
+        },
+        "description": "烈焰蝎的火毒可用于血祭，内门弟子前去捕捉。"
+      }
+    ],
+    "unique_skill": "ten_thousand_souls",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 50
+      },
+      {
+        "item_id": "demon_core",
+        "cost": 20
+      },
+      {
+        "item_id": "spirit_stone",
+        "cost": 10
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "soul_devour",
+        "required_rank": "outer",
+        "cost": 200
+      },
+      {
+        "skill_id": "blood_sacrifice",
+        "required_rank": "inner",
+        "cost": 800
+      },
+      {
+        "skill_id": "ten_thousand_souls",
+        "required_rank": "core",
+        "cost": 2000
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "血奴",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "血徒",
+        "min_contribution": 500,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "血子",
+        "min_contribution": 3000,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 10000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "宗主",
+        "min_contribution": 50000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.12,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.22,
+        "max_qi_bonus": 50
+      },
+      "leader": {
+        "cultivation_speed": 0.32,
+        "max_qi_bonus": 100
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "jiuyuan_blood_vein",
+        "name": "幽冥血脉",
+        "bonus": 0.06,
+        "controlled_by": "xie_mo_cult"
+      },
+      {
+        "id": "heifeng_demon_vein",
+        "name": "黑风魔脉",
+        "bonus": 0.03,
+        "controlled_by": "xie_mo_cult"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 1200,
+      "base_reputation": 60,
+      "health_cost": 25
+    },
+    "war_difficulty": 1.2,
+    "wanted_threshold": 20,
+    "protective_formation": {
+      "name": "血魔噬魂阵",
+      "activation_cost": 500,
+      "monthly_cost": 50,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.1,
+      "defense_bonus": 0.08,
+      "enemy_damage_reduction": 0.12,
+      "description": "以血煞之气形成屏障，可提升修炼速度并侵蚀入侵者。"
+    },
+    "fortune_events": [
+      {
+        "id": "blood_moon",
+        "name": "血月当空",
+        "weight": 20,
+        "duration_months": 6,
+        "effects": {
+          "cultivation_speed_bonus": 0.15
+        },
+        "description": "血月高悬，血魔功法修炼速度提升 15%。"
+      },
+      {
+        "id": "sacrifice_season",
+        "name": "祭祀旺季",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "task_reward_bonus": 0.2
+        },
+        "description": "宗门祭祀频繁，任务奖励提升 20%。"
+      },
+      {
+        "id": "righteous_siege",
+        "name": "正道围剿",
+        "weight": 10,
+        "duration_months": 4,
+        "effects": {
+          "enemy_strength_bonus": 0.2
+        },
+        "description": "正道联军逼近，遭遇敌人属性提升 20%。"
+      }
+    ],
+    "friendly_discount": 0.9,
+    "inheritance": [
+      {
+        "id": "xie_mo_blood_intent",
+        "name": "血魔真意",
+        "required_rank": "inner",
+        "cost_contribution": 2000,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "以血祭道，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 5,
+          "qi": 200
+        }
+      },
+      {
+        "id": "xie_mo_blood_sea",
+        "name": "血海滔天",
+        "required_rank": "core",
+        "cost_contribution": 8000,
+        "cost_loyalty": 40,
+        "max_monthly": 1,
+        "description": "习得血魔宗禁术【血祭】。",
+        "rewards": {
+          "skill_id": "blood_sacrifice",
+          "permanent_attack": 5
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "xie_mo_blood_wolf",
+          "name": "血狼",
+          "type": "combat",
+          "cost_contribution": 2500,
+          "required_rank": "inner",
+          "description": "嗜血的魔狼，战斗中提升攻击力。",
+          "bonus": {
+            "attack": 12
+          }
+        },
+        {
+          "id": "xie_mo_ghost_horse",
+          "name": "幽冥马",
+          "type": "mount",
+          "cost_contribution": 4500,
+          "required_rank": "core",
+          "description": "来自幽冥的战马，赶路如履平地。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "xie_mo_corpse_beetle",
+          "name": "尸蛊虫",
+          "type": "resource",
+          "cost_contribution": 3500,
+          "required_rank": "inner",
+          "description": "以尸气为食的蛊虫，每月低概率产出毒丹材料。",
+          "bonus": {
+            "demon_core_chance": 0.15,
+            "demon_core_count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "fufeng_wind_sect",
+    "name": "扶风宗",
+    "location_id": "fufeng_wind_sect",
+    "leader_npc_id": "fufeng_sect_master",
+    "description": "扶风城外的风属性小宗门，以风灵步法与疾风剑诀闻名。门风自由，不拘一格，深受散修与风灵根修士青睐。",
+    "element": "wind",
+    "alignment": "neutral",
+    "path_bonus": {
+      "jian": 0.12,
+      "fa": 0.08
+    },
+    "hostile_to": [
+      "xie_mo_cult"
+    ],
+    "friendly_to": [
+      "tianjian_sect"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "wind_eye",
+      "spirit_vein",
+      "beast_garden"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 180,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "wind_eye",
+        "name": "风眼",
+        "required_rank": "inner",
+        "cost": 450,
+        "effects": {
+          "cultivation_speed": 0.18,
+          "crit_rate_bonus": 0.05,
+          "duration_months": 3
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 400,
+        "effects": {
+          "give_items": {
+            "health_pill": 2
+          }
+        }
+      },
+      {
+        "id": "wind_array_room",
+        "name": "风阵阁",
+        "required_rank": "core",
+        "cost": 800,
+        "effects": {
+          "cultivation_speed": 0.22,
+          "evasion_bonus": 0.1,
+          "duration_months": 3
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "fufeng_gale_cliff",
+        "name": "罡风崖",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "wind_roc",
+        "enemy_level_bonus": 1,
+        "reward_items": {
+          "wind_blade_manual": 1,
+          "spirit_stone": 3
+        },
+        "reward_qi": 150,
+        "description": "扶风宗后山的罡风崖，崖顶盘踞疾风雕，击败它可获得风属性剑诀残卷。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "fufeng_wind_sparrow_bounty",
+        "name": "清剿风隼",
+        "target_enemy": "wind_sparrow",
+        "target_count": 3,
+        "required_rank": "outer",
+        "contribution_reward": 70,
+        "reputation_reward": 8,
+        "item_reward": {
+          "health_pill": 1
+        },
+        "description": "风隼群袭扰宗门药园，外门弟子前往清剿。"
+      },
+      {
+        "id": "fufeng_wind_roc_bounty",
+        "name": "猎杀疾风雕",
+        "target_enemy": "wind_roc",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 180,
+        "reputation_reward": 18,
+        "item_reward": {
+          "spirit_stone": 3
+        },
+        "description": "罡风崖的疾风雕日益猖狂，内门弟子前去猎杀。"
+      }
+    ],
+    "unique_skill": "gale_step",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 45
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 28
+      },
+      {
+        "item_id": "spirit_stone",
+        "cost": 8
+      },
+      {
+        "item_id": "wind_blade_manual",
+        "cost": 300
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "wind_blade",
+        "required_rank": "outer",
+        "cost": 150
+      },
+      {
+        "skill_id": "gale_step",
+        "required_rank": "inner",
+        "cost": 600
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 400,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 2500,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 9000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "宗主",
+        "min_contribution": 45000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.18,
+        "max_qi_bonus": 40
+      },
+      "leader": {
+        "cultivation_speed": 0.28,
+        "max_qi_bonus": 80
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "fufeng_wind_vein",
+        "name": "扶风灵脉",
+        "bonus": 0.04,
+        "controlled_by": "fufeng_wind_sect"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 900,
+      "base_reputation": 40,
+      "health_cost": 18
+    },
+    "war_difficulty": 0.9,
+    "wanted_threshold": 25,
+    "protective_formation": {
+      "name": "罡风护山大阵",
+      "activation_cost": 450,
+      "monthly_cost": 45,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.07,
+      "defense_bonus": 0.08,
+      "enemy_damage_reduction": 0.08,
+      "description": "以罡风环绕山门，提升弟子闪避与修炼速度，并削弱入侵之敌。"
+    },
+    "fortune_events": [
+      {
+        "id": "gale_rises",
+        "name": "风起扶风",
+        "weight": 20,
+        "duration_months": 6,
+        "effects": {
+          "cultivation_speed_bonus": 0.12
+        },
+        "description": "罡风大盛，风灵根弟子修炼速度提升 12%。"
+      },
+      {
+        "id": "beast_migration",
+        "name": "风妖迁徙",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "task_reward_bonus": 0.15
+        },
+        "description": "风属性妖兽成群出没，悬赏奖励提升 15%。"
+      },
+      {
+        "id": "wind_storm",
+        "name": "暴风预警",
+        "weight": 10,
+        "duration_months": 2,
+        "effects": {
+          "enemy_strength_bonus": 0.12
+        },
+        "description": "山间暴风肆虐，外出历练遭遇敌人属性提升 12%。"
+      }
+    ],
+    "friendly_discount": 0.92,
+    "inheritance": [
+      {
+        "id": "fufeng_wind_intent",
+        "name": "扶风剑意",
+        "required_rank": "inner",
+        "cost_contribution": 1800,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "参悟扶风宗祖师留下的疾风剑意，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 4,
+          "qi": 180
+        }
+      },
+      {
+        "id": "fufeng_gale_body",
+        "name": "疾风之体",
+        "required_rank": "core",
+        "cost_contribution": 7000,
+        "cost_loyalty": 35,
+        "max_monthly": 1,
+        "description": "真传弟子方可参悟的法门，习得【疾风步】。",
+        "rewards": {
+          "skill_id": "gale_step",
+          "permanent_attack": 3
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "fufeng_wind_eagle",
+          "name": "风鹰",
+          "type": "combat",
+          "cost_contribution": 2500,
+          "required_rank": "inner",
+          "description": "扶风宗驯养的灵鹰，战斗中可借罡风之力协助攻击。",
+          "bonus": {
+            "attack": 9
+          }
+        },
+        {
+          "id": "fufeng_cloud_leopard",
+          "name": "云豹",
+          "type": "mount",
+          "cost_contribution": 4200,
+          "required_rank": "core",
+          "description": "踏风而行的灵豹，赶路时更为迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "fufeng_spirit_fox",
+          "name": "灵狐",
+          "type": "resource",
+          "cost_contribution": 3500,
+          "required_rank": "inner",
+          "description": "感应风灵的灵狐，每月低概率产出一株百年灵草。",
+          "bonus": {
+            "herb_chance": 0.12,
+            "herb_id": "century_herb"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "wanyao_sect",
+    "name": "万兽宗",
+    "location_id": "wanyao_sect",
+    "leader_npc_id": "wanyao_sect_master",
+    "description": "万妖山脉深处的御兽宗门，弟子多以灵兽为伴，擅长驯兽与兽魂融合之术。",
+    "element": "wood",
+    "alignment": "neutral",
+    "path_bonus": {
+      "shou": 0.2,
+      "ti": 0.05
+    },
+    "hostile_to": [
+      "xie_mo_cult"
+    ],
+    "friendly_to": [
+      "fufeng_wind_sect"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "beast_garden",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 180,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "beast_training_ground",
+        "name": "驯兽场",
+        "required_rank": "inner",
+        "cost": 450,
+        "effects": {
+          "summon_bonus": 0.15,
+          "duration_months": 3
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 400,
+        "effects": {
+          "give_items": {
+            "health_pill": 2
+          }
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "wanyao_beast_forest",
+        "name": "万兽林深处",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "tiger",
+        "enemy_level_bonus": 2,
+        "reward_items": {
+          "beast_contract_manual": 1,
+          "beast_core": 2
+        },
+        "reward_qi": 160,
+        "description": "万兽林深处栖息着强大妖兽，是驯兽师试炼的绝佳场所。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "wanyao_wolf_bounty",
+        "name": "清剿青风狼",
+        "target_enemy": "wolf",
+        "target_count": 5,
+        "required_rank": "outer",
+        "contribution_reward": 60,
+        "reputation_reward": 6,
+        "item_reward": {
+          "health_pill": 1
+        },
+        "description": "青风狼群频繁袭扰宗门药园，外门弟子前去清剿。"
+      },
+      {
+        "id": "wanyao_tiger_bounty",
+        "name": "猎杀妖虎王",
+        "target_enemy": "tiger",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 170,
+        "reputation_reward": 17,
+        "item_reward": {
+          "beast_core": 1
+        },
+        "description": "万兽林中的妖虎王伤了数名弟子，内门弟子前往猎杀。"
+      }
+    ],
+    "unique_skill": "beast_contract",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 45
+      },
+      {
+        "item_id": "beast_core",
+        "cost": 40
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 28
+      },
+      {
+        "item_id": "beast_contract_manual",
+        "cost": 350
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "beast_contract",
+        "required_rank": "outer",
+        "cost": 200
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 400,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 2500,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 9000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "宗主",
+        "min_contribution": 45000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.18,
+        "max_qi_bonus": 40
+      },
+      "leader": {
+        "cultivation_speed": 0.28,
+        "max_qi_bonus": 80
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "wanyao_beast_vein",
+        "name": "万兽灵脉",
+        "bonus": 0.04,
+        "controlled_by": "wanyao_sect"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 900,
+      "base_reputation": 40,
+      "health_cost": 18
+    },
+    "war_difficulty": 0.95,
+    "wanted_threshold": 25,
+    "protective_formation": {
+      "name": "万兽守护阵",
+      "activation_cost": 450,
+      "monthly_cost": 45,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.07,
+      "defense_bonus": 0.08,
+      "enemy_damage_reduction": 0.08,
+      "description": "召唤护山灵兽虚影，提升弟子防御并削弱入侵之敌。"
+    },
+    "fortune_events": [
+      {
+        "id": "beast_tide_wanyao",
+        "name": "万兽来潮",
+        "weight": 20,
+        "duration_months": 4,
+        "effects": {
+          "summon_bonus": 0.1
+        },
+        "description": "万兽林妖兽活跃，弟子召唤兽属性提升 10%。"
+      },
+      {
+        "id": "herb_season_wanyao",
+        "name": "灵草丰茂",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "task_reward_bonus": 0.15
+        },
+        "description": "山中灵草丰收，任务奖励提升 15%。"
+      }
+    ],
+    "friendly_discount": 0.92,
+    "inheritance": [
+      {
+        "id": "wanyao_beast_soul",
+        "name": "万兽之魂",
+        "required_rank": "inner",
+        "cost_contribution": 1800,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "与护山灵兽共鸣，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 4,
+          "qi": 180
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "wanyao_iron_back_wolf",
+          "name": "铁背狼",
+          "type": "combat",
+          "cost_contribution": 2200,
+          "required_rank": "inner",
+          "description": "万兽宗驯养的战斗灵兽，皮糙肉厚。",
+          "bonus": {
+            "attack": 8,
+            "defense": 3
+          }
+        },
+        {
+          "id": "wanyao_cloud_tiger",
+          "name": "云纹虎",
+          "type": "mount",
+          "cost_contribution": 4000,
+          "required_rank": "core",
+          "description": "山林之王，赶路迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "wanyao_herb_deer",
+          "name": "采药鹿",
+          "type": "resource",
+          "cost_contribution": 3200,
+          "required_rank": "inner",
+          "description": "温顺的灵鹿，每月低概率产出一株灵草。",
+          "bonus": {
+            "herb_chance": 0.12,
+            "herb_id": "century_herb"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "xuanshui_palace",
+    "name": "玄水宫",
+    "location_id": "xuanshui_palace",
+    "leader_npc_id": "xuanshui_master",
+    "description": "玄水湖底的水晶宫殿，法修大宗门。弟子擅控水、冰封与治疗之术，门风清冷。",
+    "element": "water",
+    "alignment": "righteous",
+    "path_bonus": {
+      "fa": 0.15,
+      "jian": 0.05
+    },
+    "hostile_to": [
+      "xie_mo_cult"
+    ],
+    "friendly_to": [
+      "zixiao_palace"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "alchemy_hall",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 180,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "cold_pond",
+        "name": "寒潭",
+        "required_rank": "inner",
+        "cost": 450,
+        "effects": {
+          "cultivation_speed": 0.16,
+          "heal_bonus_mult": 0.1,
+          "duration_months": 3
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 400,
+        "effects": {
+          "give_items": {
+            "health_pill": 2
+          }
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "xuanshui_cold_pond_depth",
+        "name": "寒潭底",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "snake",
+        "enemy_level_bonus": 3,
+        "reward_items": {
+          "ice_spike_manual": 1,
+          "water_pearl": 2
+        },
+        "reward_qi": 170,
+        "description": "寒潭深处藏有玄水宫前辈遗留的冰系功法残卷。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "xuanshui_snake_bounty",
+        "name": "驱逐玄水蛇",
+        "target_enemy": "snake",
+        "target_count": 3,
+        "required_rank": "outer",
+        "contribution_reward": 70,
+        "reputation_reward": 8,
+        "item_reward": {
+          "health_pill": 1
+        },
+        "description": "玄水蛇在湖心岛出没，外门弟子前去驱逐。"
+      },
+      {
+        "id": "xuanshui_bear_bounty",
+        "name": "猎杀玄铁熊",
+        "target_enemy": "bear",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 190,
+        "reputation_reward": 19,
+        "item_reward": {
+          "water_pearl": 1
+        },
+        "description": "玄铁熊破坏湖边灵田，内门弟子前往猎杀。"
+      }
+    ],
+    "unique_skill": "ice_spike",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 45
+      },
+      {
+        "item_id": "water_pearl",
+        "cost": 60
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 28
+      },
+      {
+        "item_id": "ice_spike_manual",
+        "cost": 400
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "ice_spike",
+        "required_rank": "outer",
+        "cost": 180
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 450,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 2800,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 9500,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "宫主",
+        "min_contribution": 48000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.18,
+        "max_qi_bonus": 45
+      },
+      "leader": {
+        "cultivation_speed": 0.28,
+        "max_qi_bonus": 85
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "xuanshui_cold_vein",
+        "name": "玄水灵脉",
+        "bonus": 0.04,
+        "controlled_by": "xuanshui_palace"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 950,
+      "base_reputation": 45,
+      "health_cost": 18
+    },
+    "war_difficulty": 1.0,
+    "wanted_threshold": 25,
+    "protective_formation": {
+      "name": "玄水寒冰阵",
+      "activation_cost": 480,
+      "monthly_cost": 48,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.08,
+      "defense_bonus": 0.09,
+      "enemy_damage_reduction": 0.08,
+      "description": "以玄水寒气形成屏障，提升修炼速度并冻结入侵之敌。"
+    },
+    "fortune_events": [
+      {
+        "id": "cold_moon",
+        "name": "寒月当空",
+        "weight": 20,
+        "duration_months": 6,
+        "effects": {
+          "cultivation_speed_bonus": 0.12
+        },
+        "description": "寒月高悬，水系功法修炼速度提升 12%。"
+      },
+      {
+        "id": "water_rise",
+        "name": "玄水潮涌",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "heal_bonus_mult": 0.15
+        },
+        "description": "玄水湖灵气大涨，治疗效果提升 15%。"
+      }
+    ],
+    "friendly_discount": 0.9,
+    "inheritance": [
+      {
+        "id": "xuanshui_ice_intent",
+        "name": "玄冰真意",
+        "required_rank": "inner",
+        "cost_contribution": 1900,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "参悟玄冰真意，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 4,
+          "qi": 180
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "xuanshui_ice_fish",
+          "name": "玄冰鱼",
+          "type": "combat",
+          "cost_contribution": 2400,
+          "required_rank": "inner",
+          "description": "玄水宫驯养的灵鱼，可喷射冰锥。",
+          "bonus": {
+            "attack": 8
+          }
+        },
+        {
+          "id": "xuanshui_water_qilin",
+          "name": "水麒麟",
+          "type": "mount",
+          "cost_contribution": 4500,
+          "required_rank": "core",
+          "description": "踏水而行的瑞兽，赶路迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "xuanshui_pearl_clam",
+          "name": "灵珠蚌",
+          "type": "resource",
+          "cost_contribution": 3500,
+          "required_rank": "inner",
+          "description": "吸纳水灵的蚌精，每月低概率产出一颗水灵珠。",
+          "bonus": {
+            "item_chance": 0.12,
+            "item_id": "water_pearl",
+            "item_count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "chiyan_gate",
+    "name": "赤炎门",
+    "location_id": "chiyan_gate",
+    "leader_npc_id": "chiyan_master",
+    "description": "赤焰谷深处的火属性宗门，以炼丹与火法闻名。宗门丹鼎殿终日炉火不熄，地火室更是炼丹圣地。",
+    "element": "fire",
+    "alignment": "neutral",
+    "path_bonus": {
+      "dan": 0.15,
+      "fa": 0.08
+    },
+    "hostile_to": [
+      "xuanshui_palace"
+    ],
+    "friendly_to": [
+      "xie_mo_cult"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "alchemy_hall",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 180,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "earth_fire_room",
+        "name": "地火室",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "alchemy_success_bonus": 0.2,
+          "duration_months": 3
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 400,
+        "effects": {
+          "give_items": {
+            "health_pill": 3
+          }
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "chiyan_earth_fire_cave",
+        "name": "地火洞",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "fire_scorpion",
+        "enemy_level_bonus": 3,
+        "reward_items": {
+          "fireball_manual": 1,
+          "fire_crystal": 2
+        },
+        "reward_qi": 170,
+        "description": "地火洞中火煞弥漫，藏有赤炎门前辈遗留的火法残卷。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "chiyan_scorpion_bounty",
+        "name": "清剿烈焰蝎",
+        "target_enemy": "fire_scorpion",
+        "target_count": 3,
+        "required_rank": "outer",
+        "contribution_reward": 75,
+        "reputation_reward": 8,
+        "item_reward": {
+          "health_pill": 1
+        },
+        "description": "烈焰蝎毒液是炼丹材料，外门弟子前去收集。"
+      },
+      {
+        "id": "chiyan_tiger_bounty",
+        "name": "猎杀火纹虎",
+        "target_enemy": "tiger",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 180,
+        "reputation_reward": 18,
+        "item_reward": {
+          "fire_crystal": 1
+        },
+        "description": "火纹虎盘踞地火洞入口，内门弟子前去猎杀。"
+      }
+    ],
+    "unique_skill": "fireball",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 40
+      },
+      {
+        "item_id": "fire_crystal",
+        "cost": 50
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 28
+      },
+      {
+        "item_id": "fireball_manual",
+        "cost": 350
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "fireball",
+        "required_rank": "outer",
+        "cost": 160
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 400,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 2600,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 9000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "门主",
+        "min_contribution": 46000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.18,
+        "max_qi_bonus": 40
+      },
+      "leader": {
+        "cultivation_speed": 0.28,
+        "max_qi_bonus": 80
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "chiyan_fire_vein",
+        "name": "赤炎灵脉",
+        "bonus": 0.04,
+        "controlled_by": "chiyan_gate"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 950,
+      "base_reputation": 45,
+      "health_cost": 20
+    },
+    "war_difficulty": 1.05,
+    "wanted_threshold": 25,
+    "protective_formation": {
+      "name": "赤焰焚天阵",
+      "activation_cost": 480,
+      "monthly_cost": 48,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.08,
+      "defense_bonus": 0.08,
+      "enemy_damage_reduction": 0.09,
+      "description": "以地火之力形成烈焰屏障，提升修炼速度并灼烧入侵者。"
+    },
+    "fortune_events": [
+      {
+        "id": "fire_mountain_active",
+        "name": "火山活跃",
+        "weight": 20,
+        "duration_months": 4,
+        "effects": {
+          "alchemy_success_bonus": 0.15
+        },
+        "description": "地火旺盛，炼丹成功率提升 15%。"
+      },
+      {
+        "id": "flame_tide",
+        "name": "炎潮",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "skill_damage_mult": 0.1
+        },
+        "description": "火灵充沛，火属性技能伤害提升 10%。"
+      }
+    ],
+    "friendly_discount": 0.92,
+    "inheritance": [
+      {
+        "id": "chiyan_fire_intent",
+        "name": "赤炎真意",
+        "required_rank": "inner",
+        "cost_contribution": 1800,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "参悟赤炎真意，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 4,
+          "qi": 180
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "chiyan_fire_wolf",
+          "name": "火狼",
+          "type": "combat",
+          "cost_contribution": 2400,
+          "required_rank": "inner",
+          "description": "赤炎门驯养的火属性灵狼，攻击附带灼烧。",
+          "bonus": {
+            "attack": 9
+          }
+        },
+        {
+          "id": "chiyan_lava_lizard",
+          "name": "熔岩蜥",
+          "type": "mount",
+          "cost_contribution": 4200,
+          "required_rank": "core",
+          "description": "可在熔岩地带行走的灵蜥，赶路迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "chiyan_fire_bird",
+          "name": "火雀",
+          "type": "resource",
+          "cost_contribution": 3500,
+          "required_rank": "inner",
+          "description": "吸纳火灵的灵雀，每月低概率产出一颗火晶。",
+          "bonus": {
+            "item_chance": 0.12,
+            "item_id": "fire_crystal",
+            "item_count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "youming_sect",
+    "name": "幽冥宗",
+    "location_id": "youming_sect",
+    "leader_npc_id": "youming_master",
+    "description": "忘川河尽头的魂修宗门，宗门建筑藏于幽冥涧中。弟子修炼神识与渡魂之术，行事诡异莫测。",
+    "element": "fire",
+    "alignment": "evil",
+    "path_bonus": {
+      "hun": 0.2,
+      "xie": 0.05
+    },
+    "hostile_to": [
+      "tianjian_sect",
+      "zixiao_palace"
+    ],
+    "friendly_to": [
+      "xie_mo_cult"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "soul_pit",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 180,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "soul_pit",
+        "name": "炼魂窟",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "cultivation_speed": 0.2,
+          "duration_months": 3
+        }
+      },
+      {
+        "id": "blood_pool",
+        "name": "血池",
+        "required_rank": "inner",
+        "cost": 450,
+        "effects": {
+          "give_items": {
+            "health_pill": 3
+          }
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "youming_soul_abyss",
+        "name": "幽冥涧",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "shadow_wolf",
+        "enemy_level_bonus": 3,
+        "reward_items": {
+          "soul_devour_manual": 1,
+          "soul_lantern": 1
+        },
+        "reward_qi": 160,
+        "description": "幽冥涧中阴气弥漫，藏有魂修前辈遗留的噬魂秘术。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "youming_wolf_bounty",
+        "name": "猎杀影狼",
+        "target_enemy": "shadow_wolf",
+        "target_count": 3,
+        "required_rank": "outer",
+        "contribution_reward": 90,
+        "reputation_reward": 10,
+        "item_reward": {
+          "demon_core": 1
+        },
+        "description": "影狼吞噬游魂，外门弟子前去猎杀。"
+      },
+      {
+        "id": "youming_righteous_bounty",
+        "name": "伏击正道弟子",
+        "target_enemy": "righteous_disciple",
+        "target_count": 2,
+        "required_rank": "inner",
+        "contribution_reward": 200,
+        "reputation_reward": 20,
+        "item_reward": {
+          "evil_crystal": 1
+        },
+        "description": "正道弟子在忘川河附近巡逻，内门弟子前去伏击。"
+      }
+    ],
+    "unique_skill": "soul_devour",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 50
+      },
+      {
+        "item_id": "demon_core",
+        "cost": 25
+      },
+      {
+        "item_id": "evil_crystal",
+        "cost": 100
+      },
+      {
+        "item_id": "soul_devour_manual",
+        "cost": 500
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "soul_devour",
+        "required_rank": "outer",
+        "cost": 220
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "鬼奴",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "魂徒",
+        "min_contribution": 450,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "幽子",
+        "min_contribution": 2800,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 9500,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "宗主",
+        "min_contribution": 48000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.12,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.22,
+        "max_qi_bonus": 45
+      },
+      "leader": {
+        "cultivation_speed": 0.32,
+        "max_qi_bonus": 85
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "youming_soul_vein",
+        "name": "幽冥灵脉",
+        "bonus": 0.05,
+        "controlled_by": "youming_sect"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 1100,
+      "base_reputation": 55,
+      "health_cost": 22
+    },
+    "war_difficulty": 1.15,
+    "wanted_threshold": 20,
+    "protective_formation": {
+      "name": "幽冥噬魂阵",
+      "activation_cost": 500,
+      "monthly_cost": 50,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.09,
+      "defense_bonus": 0.08,
+      "enemy_damage_reduction": 0.1,
+      "description": "以幽冥阴气形成屏障，提升修炼速度并侵蚀入侵者神识。"
+    },
+    "fortune_events": [
+      {
+        "id": "soul_moon",
+        "name": "魂月当空",
+        "weight": 20,
+        "duration_months": 6,
+        "effects": {
+          "cultivation_speed_bonus": 0.15
+        },
+        "description": "魂月高悬，魂修功法修炼速度提升 15%。"
+      },
+      {
+        "id": "soul_tide",
+        "name": "阴潮涌动",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "task_reward_bonus": 0.2
+        },
+        "description": "忘川河阴气大涨，任务奖励提升 20%。"
+      }
+    ],
+    "friendly_discount": 0.9,
+    "inheritance": [
+      {
+        "id": "youming_soul_intent",
+        "name": "幽冥魂意",
+        "required_rank": "inner",
+        "cost_contribution": 2000,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "参悟幽冥魂意，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 5,
+          "qi": 200
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "youming_soul_wolf",
+          "name": "魂狼",
+          "type": "combat",
+          "cost_contribution": 2600,
+          "required_rank": "inner",
+          "description": "幽冥宗驯养的魂狼，攻击附带神识伤害。",
+          "bonus": {
+            "attack": 10
+          }
+        },
+        {
+          "id": "youming_ghost_horse",
+          "name": "幽冥马",
+          "type": "mount",
+          "cost_contribution": 4500,
+          "required_rank": "core",
+          "description": "来自幽冥的战马，赶路如履平地。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "youming_soul_lantern_spirit",
+          "name": "引魂灯",
+          "type": "resource",
+          "cost_contribution": 3600,
+          "required_rank": "inner",
+          "description": "吸纳阴气的灯灵，每月低概率产出一盏渡魂灯。",
+          "bonus": {
+            "item_chance": 0.1,
+            "item_id": "soul_lantern",
+            "item_count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "tianji_pavilion",
+    "name": "天机阁",
+    "location_id": "tianji_pavilion",
+    "leader_npc_id": "tianji_master",
+    "description": "云岚城附近的阵修与符修宗门，以推衍天机、炼制阵盘符箓闻名。宗门机关重重，外人难以擅入。",
+    "element": "metal",
+    "alignment": "neutral",
+    "path_bonus": {
+      "zhen": 0.15,
+      "fu": 0.1
+    },
+    "hostile_to": [],
+    "friendly_to": [
+      "fufeng_wind_sect"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "array_room",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 200,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "star_tower",
+        "name": "星宿塔",
+        "required_rank": "inner",
+        "cost": 500,
+        "effects": {
+          "cultivation_speed": 0.15,
+          "control_bonus": 0.1,
+          "duration_months": 3
+        }
+      },
+      {
+        "id": "talisman_room",
+        "name": "符箓坊",
+        "required_rank": "inner",
+        "cost": 450,
+        "effects": {
+          "give_items": {
+            "info_scroll": 2
+          }
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "tianji_star_tower",
+        "name": "星宿塔",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "wind_roc",
+        "enemy_level_bonus": 2,
+        "reward_items": {
+          "jade_pendant": 1,
+          "spirit_stone": 3
+        },
+        "reward_qi": 180,
+        "description": "星宿塔内机关重重，登顶可获得天机阁前辈遗留的推衍之物。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "tianji_wind_roc_bounty",
+        "name": "清理云妖",
+        "target_enemy": "wind_roc",
+        "target_count": 1,
+        "required_rank": "outer",
+        "contribution_reward": 100,
+        "reputation_reward": 10,
+        "item_reward": {
+          "spirit_stone": 2
+        },
+        "description": "云岚城附近疾风雕扰乱阵法，外门弟子前去清理。"
+      },
+      {
+        "id": "tianji_bear_bounty",
+        "name": "猎杀玄铁熊",
+        "target_enemy": "bear",
+        "target_count": 1,
+        "required_rank": "inner",
+        "contribution_reward": 200,
+        "reputation_reward": 20,
+        "item_reward": {
+          "jade_pendant": 1
+        },
+        "description": "玄铁熊破坏护山阵基，内门弟子前去猎杀。"
+      }
+    ],
+    "unique_skill": "wind_blade",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 45
+      },
+      {
+        "item_id": "info_scroll",
+        "cost": 80
+      },
+      {
+        "item_id": "jade_pendant",
+        "cost": 250
+      },
+      {
+        "item_id": "spirit_stone",
+        "cost": 8
+      }
+    ],
+    "scripture_skills": [
+      {
+        "skill_id": "wind_blade",
+        "required_rank": "outer",
+        "cost": 160
+      },
+      {
+        "skill_id": "gale_step",
+        "required_rank": "inner",
+        "cost": 650
+      }
+    ],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 500,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 3000,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 10000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "阁主",
+        "min_contribution": 50000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.18,
+        "max_qi_bonus": 40
+      },
+      "leader": {
+        "cultivation_speed": 0.28,
+        "max_qi_bonus": 80
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "tianji_star_vein",
+        "name": "星宿灵脉",
+        "bonus": 0.04,
+        "controlled_by": "tianji_pavilion"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 950,
+      "base_reputation": 45,
+      "health_cost": 18
+    },
+    "war_difficulty": 1.0,
+    "wanted_threshold": 25,
+    "protective_formation": {
+      "name": "天机星宿阵",
+      "activation_cost": 500,
+      "monthly_cost": 50,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.08,
+      "defense_bonus": 0.1,
+      "enemy_damage_reduction": 0.08,
+      "description": "以星宿之力布下机关大阵，提升修炼速度并困杀入侵者。"
+    },
+    "fortune_events": [
+      {
+        "id": "star_alignment",
+        "name": "星象大吉",
+        "weight": 20,
+        "duration_months": 4,
+        "effects": {
+          "cultivation_speed_bonus": 0.12
+        },
+        "description": "星象大吉，弟子推衍与修炼速度提升 12%。"
+      },
+      {
+        "id": "talisman_boom",
+        "name": "符箓丰收",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "shop_discount": 0.9
+        },
+        "description": "符箓材料充裕，商店兑换九折。"
+      }
+    ],
+    "friendly_discount": 0.92,
+    "inheritance": [
+      {
+        "id": "tianji_star_intent",
+        "name": "星宿真意",
+        "required_rank": "inner",
+        "cost_contribution": 2000,
+        "cost_loyalty": 20,
+        "max_monthly": 1,
+        "description": "参悟星宿真意，永久提升攻击力。",
+        "rewards": {
+          "permanent_attack": 4,
+          "qi": 180
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "tianji_star_sparrow",
+          "name": "星雀",
+          "type": "combat",
+          "cost_contribution": 2400,
+          "required_rank": "inner",
+          "description": "天机阁驯养的灵雀，可借星力攻击。",
+          "bonus": {
+            "attack": 8
+          }
+        },
+        {
+          "id": "tianji_cloud_crane",
+          "name": "云鹤",
+          "type": "mount",
+          "cost_contribution": 4500,
+          "required_rank": "core",
+          "description": "云中仙鹤，赶路迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "tianji_fortune_toad",
+          "name": "运财蟾",
+          "type": "resource",
+          "cost_contribution": 3600,
+          "required_rank": "inner",
+          "description": "吸纳星运的灵蟾，每月低概率产出一颗灵石。",
+          "bonus": {
+            "item_chance": 0.15,
+            "item_id": "spirit_stone",
+            "item_count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "yaowang_valley",
+    "name": "药王谷",
+    "location_id": "yaowang_valley",
+    "leader_npc_id": "yaowang_master",
+    "description": "隐蔽于群山之间的丹修圣地，谷中灵田万亩，药香终年不散。弟子精研炼丹与医术，与世无争。",
+    "element": "wood",
+    "alignment": "righteous",
+    "path_bonus": {
+      "dan": 0.2,
+      "fa": 0.05
+    },
+    "hostile_to": [
+      "xie_mo_cult"
+    ],
+    "friendly_to": [
+      "wanyao_sect"
+    ],
+    "facilities": [
+      "main_hall",
+      "scripture_tower",
+      "alchemy_hall",
+      "spirit_vein"
+    ],
+    "facility_details": [
+      {
+        "id": "spirit_gathering_array",
+        "name": "聚灵阵",
+        "required_rank": "outer",
+        "cost": 160,
+        "effects": {
+          "cultivation_speed": 0.12,
+          "duration_months": 6
+        }
+      },
+      {
+        "id": "herb_garden",
+        "name": "百草园",
+        "required_rank": "outer",
+        "cost": 300,
+        "effects": {
+          "give_items": {
+            "century_herb": 2,
+            "spirit_herb": 1
+          }
+        }
+      },
+      {
+        "id": "alchemy_room",
+        "name": "炼丹房",
+        "required_rank": "inner",
+        "cost": 400,
+        "effects": {
+          "give_items": {
+            "health_pill": 3,
+            "detox_pill": 1
+          }
+        }
+      }
+    ],
+    "secret_realms": [
+      {
+        "id": "yaowang_herb_realm",
+        "name": "百草秘境",
+        "required_rank": "inner",
+        "cooldown_months": 12,
+        "enemy_id": "poison_spider",
+        "enemy_level_bonus": 2,
+        "reward_items": {
+          "spirit_herb": 2,
+          "detox_pill": 2
+        },
+        "reward_qi": 150,
+        "description": "百草秘境中生长着稀有灵草，但也盘踞着毒虫。"
+      }
+    ],
+    "bounty_board": [
+      {
+        "id": "yaowang_spider_bounty",
+        "name": "清除毒蛛",
+        "target_enemy": "poison_spider",
+        "target_count": 3,
+        "required_rank": "outer",
+        "contribution_reward": 65,
+        "reputation_reward": 7,
+        "item_reward": {
+          "detox_pill": 1
+        },
+        "description": "毒蛛侵扰药园，外门弟子前去清除。"
+      },
+      {
+        "id": "yaowang_snake_bounty",
+        "name": "采集蛇胆",
+        "target_enemy": "snake",
+        "target_count": 2,
+        "required_rank": "inner",
+        "contribution_reward": 150,
+        "reputation_reward": 15,
+        "item_reward": {
+          "spirit_herb": 1
+        },
+        "description": "碧鳞蛇胆是炼制解毒丹的重要材料，内门弟子前去采集。"
+      }
+    ],
+    "unique_skill": "heal",
+    "shop_items": [
+      {
+        "item_id": "health_pill",
+        "cost": 35
+      },
+      {
+        "item_id": "detox_pill",
+        "cost": 35
+      },
+      {
+        "item_id": "century_herb",
+        "cost": 22
+      },
+      {
+        "item_id": "spirit_herb",
+        "cost": 70
+      }
+    ],
+    "scripture_skills": [],
+    "ranks": {
+      "outer": {
+        "name": "外门弟子",
+        "min_contribution": 0,
+        "daily_task_limit": 3
+      },
+      "inner": {
+        "name": "内门弟子",
+        "min_contribution": 350,
+        "required_realm": "foundation_early",
+        "daily_task_limit": 5
+      },
+      "core": {
+        "name": "真传弟子",
+        "min_contribution": 2200,
+        "required_realm": "golden_core_early",
+        "daily_task_limit": 7
+      },
+      "elder": {
+        "name": "长老",
+        "min_contribution": 8000,
+        "required_realm": "nascent_soul",
+        "daily_task_limit": 10
+      },
+      "leader": {
+        "name": "谷主",
+        "min_contribution": 42000,
+        "required_realm": "nascent_soul"
+      }
+    },
+    "cave_bonus": {
+      "core": {
+        "cultivation_speed": 0.1,
+        "max_qi_bonus": 0
+      },
+      "elder": {
+        "cultivation_speed": 0.18,
+        "max_qi_bonus": 40
+      },
+      "leader": {
+        "cultivation_speed": 0.28,
+        "max_qi_bonus": 80
+      }
+    },
+    "spirit_veins": [
+      {
+        "id": "yaowang_herb_vein",
+        "name": "百草灵脉",
+        "bonus": 0.04,
+        "controlled_by": "yaowang_valley"
+      }
+    ],
+    "war_reward": {
+      "base_contribution": 850,
+      "base_reputation": 40,
+      "health_cost": 16
+    },
+    "war_difficulty": 0.85,
+    "wanted_threshold": 30,
+    "protective_formation": {
+      "name": "百草迷踪阵",
+      "activation_cost": 420,
+      "monthly_cost": 42,
+      "max_energy": 1000,
+      "cultivation_speed_bonus": 0.07,
+      "defense_bonus": 0.08,
+      "enemy_damage_reduction": 0.08,
+      "description": "以药香与迷雾守护山谷，提升修炼速度并迷惑入侵者。"
+    },
+    "fortune_events": [
+      {
+        "id": "herb_bloom",
+        "name": "灵草盛放",
+        "weight": 25,
+        "duration_months": 4,
+        "effects": {
+          "herb_yield_bonus": 0.2
+        },
+        "description": "谷中灵草丰收，采药与任务奖励提升 20%。"
+      },
+      {
+        "id": "gentle_spring",
+        "name": "药香迎春",
+        "weight": 15,
+        "duration_months": 3,
+        "effects": {
+          "heal_bonus_mult": 0.15
+        },
+        "description": "药香弥漫，治疗效果提升 15%。"
+      }
+    ],
+    "friendly_discount": 0.88,
+    "inheritance": [
+      {
+        "id": "yaowang_alchemy_intent",
+        "name": "药王丹心",
+        "required_rank": "inner",
+        "cost_contribution": 1600,
+        "cost_loyalty": 18,
+        "max_monthly": 1,
+        "description": "参悟药王丹心，永久提升治疗效果。",
+        "rewards": {
+          "permanent_attack": 2,
+          "heal_bonus_mult": 0.1,
+          "qi": 150
+        }
+      }
+    ],
+    "beast_garden": {
+      "max_beasts_per_player": 3,
+      "beasts": [
+        {
+          "id": "yaowang_herb_rabbit",
+          "name": "药兔",
+          "type": "resource",
+          "cost_contribution": 2000,
+          "required_rank": "outer",
+          "description": "以灵草为食的温顺药兔，每月低概率产出一株灵草。",
+          "bonus": {
+            "herb_chance": 0.15,
+            "herb_id": "century_herb"
+          }
+        },
+        {
+          "id": "yaowang_cloud_deer",
+          "name": "云鹿",
+          "type": "mount",
+          "cost_contribution": 4000,
+          "required_rank": "core",
+          "description": "踏云而行的灵鹿，赶路迅捷。",
+          "bonus": {
+            "travel_months": 1
+          }
+        },
+        {
+          "id": "yaowang_poison_bee",
+          "name": "药蜂",
+          "type": "combat",
+          "cost_contribution": 2200,
+          "required_rank": "inner",
+          "description": "药王谷驯养的毒蜂，战斗中可麻痹敌人。",
+          "bonus": {
+            "attack": 7
+          }
+        }
+      ]
+    }
+  }
+]

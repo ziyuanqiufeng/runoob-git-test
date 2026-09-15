@@ -1,0 +1,365 @@
+[
+  {
+    "id": "find_herb",
+    "name": "灵草奇遇",
+    "condition": "explore",
+    "weight": 30,
+    "description": "你在山谷中发现一株百年灵草，服用后修为大涨。",
+    "effects": {
+      "item": "century_herb",
+      "qi": 50,
+      "health": 5
+    }
+  },
+  {
+    "id": "ancient_ruin",
+    "name": "古修洞府",
+    "condition": "explore",
+    "weight": 10,
+    "description": "你误入一座古修洞府，获得一卷残破功法。",
+    "effects": {
+      "item": "ancient_scroll",
+      "qi": 200
+    }
+  },
+  {
+    "id": "beast_attack",
+    "name": "妖兽袭击",
+    "condition": "explore",
+    "weight": 20,
+    "description": "你遭遇了妖兽！",
+    "trigger_combat": true
+  },
+  {
+    "id": "spirit_stone_vein",
+    "name": "灵石矿脉",
+    "condition": "explore",
+    "weight": 15,
+    "description": "你发现一处小型灵石矿脉，采得两块灵石。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 2,
+      "qi": 20
+    }
+  },
+  {
+    "id": "nothing",
+    "name": "平平无奇",
+    "condition": "explore",
+    "weight": 40,
+    "description": "你在外游历半年，并无特别收获。",
+    "effects": {
+      "qi": 10
+    }
+  },
+  {
+    "id": "wandering_merchant",
+    "name": "偶遇云游商人",
+    "condition": "explore",
+    "weight": 8,
+    "description": "你在路上偶遇一位云游商人，他向你展示了货架上的奇珍。",
+    "trigger_merchant": true
+  },
+  {
+    "id": "secret_realm",
+    "name": "属性秘境",
+    "condition": "explore",
+    "weight": 12,
+    "description": "你发现一处隐秘的属性秘境入口，灵气氤氲，似与你的灵根相通。",
+    "trigger_secret_realm": true
+  },
+  {
+    "id": "spirit_spring",
+    "name": "灵泉沐浴",
+    "condition": "explore",
+    "weight": 7,
+    "description": "你在深谷中发现一眼灵泉，泉水氤氲着淡淡灵气。沐浴其中，经脉温润，修为精进。",
+    "effects": {
+      "qi": 80,
+      "health": 10
+    }
+  },
+  {
+    "id": "herb_garden",
+    "name": "野药园",
+    "condition": "explore",
+    "weight": 7,
+    "description": "山坳里竟藏着一座前人留下的药园，几株疗伤丹药的材料长势正好。",
+    "effects": {
+      "item": "health_pill",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "mushroom_good",
+    "name": "五彩芝菇",
+    "condition": "explore",
+    "weight": 6,
+    "description": "一株五彩芝菇在腐木上莹莹发光。你辨明无毒，服下后灵台清明。",
+    "effects": {
+      "qi": 55
+    }
+  },
+  {
+    "id": "mushroom_bad",
+    "name": "迷幻毒菌",
+    "condition": "explore",
+    "weight": 6,
+    "description": "你误食了一株艳丽的菌子，眼前天旋地转，好半天才缓过劲来。",
+    "effects": {
+      "health": -18,
+      "qi": -10
+    }
+  },
+  {
+    "id": "falling_star",
+    "name": "坠星残片",
+    "condition": "explore",
+    "weight": 4,
+    "description": "夜空中一道流星坠入山林。你循迹寻去，捡到一块尚有余温的天外残片。",
+    "effects": {
+      "item": "fire_crystal",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "old_tomb",
+    "name": "无名古墓",
+    "condition": "explore",
+    "weight": 5,
+    "description": "荒草掩映间露出一座无名古墓的角落，残卷半页静静躺在石匣之中。",
+    "effects": {
+      "item": "ancient_scroll",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "jade_vein",
+    "name": "玉髓矿脉",
+    "condition": "explore",
+    "weight": 5,
+    "description": "岩壁裂隙里莹润生光，你凿下一块成色极佳的玉髓佩。",
+    "effects": {
+      "item": "jade_pendant",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "ice_lotus_pond",
+    "name": "冰莲寒池",
+    "condition": "explore",
+    "weight": 5,
+    "description": "寒潭之上，一朵冰莲凌水而开，寒气逼人却纯净无瑕。",
+    "effects": {
+      "item": "ice_lotus",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "old_master_hint",
+    "name": "高人点化",
+    "condition": "explore",
+    "weight": 4,
+    "description": "一位白发老者与你擦肩而过，随口一句偈语令你醍醐灌顶，修为精进。",
+    "effects": {
+      "qi": 100
+    }
+  },
+  {
+    "id": "spirit_fruit_tree",
+    "name": "灵果树",
+    "condition": "explore",
+    "weight": 6,
+    "description": "崖边一株灵果树硕果仅存，你摘下最后的灵果，甘美入腹。",
+    "effects": {
+      "qi": 60,
+      "health": 5
+    }
+  },
+  {
+    "id": "broken_formation",
+    "name": "残缺法阵",
+    "condition": "explore",
+    "weight": 5,
+    "description": "一座残缺法阵在林间明灭。你研读阵纹许久，虽无所得，却悟得几分符理。",
+    "effects": {
+      "item": "info_scroll",
+      "item_count": 1,
+      "qi": 20
+    }
+  },
+  {
+    "id": "qi_deviation",
+    "name": "练功走火",
+    "condition": "explore",
+    "weight": 7,
+    "description": "你急于求成，行功时气息逆乱，胸口气血翻涌，好一番调息才压下去。",
+    "effects": {
+      "health": -30,
+      "qi": -20
+    }
+  },
+  {
+    "id": "poisonous_fog",
+    "name": "毒雾瘴气",
+    "condition": "explore",
+    "weight": 7,
+    "description": "瘴雾自沼泽漫来，你闭气疾走仍中了一丝毒气，头晕目眩。",
+    "effects": {
+      "health": -25
+    }
+  },
+  {
+    "id": "bandit_ambush",
+    "name": "劫道散修",
+    "condition": "explore",
+    "weight": 6,
+    "description": "几名散修拦路索财，一言不合动了手。你虽脱身，也挂了彩。",
+    "effects": {
+      "health": -20,
+      "qi": -10
+    }
+  },
+  {
+    "id": "spirit_tide_storm",
+    "name": "灵潮风暴",
+    "condition": "explore",
+    "weight": 6,
+    "description": "天地灵气骤然狂乱，一场灵潮风暴席卷而过，你被冲得气血浮动。",
+    "effects": {
+      "qi": -15,
+      "health": -10
+    }
+  },
+  {
+    "id": "illusion_mist",
+    "name": "幻境迷心",
+    "condition": "explore",
+    "weight": 5,
+    "description": "浓雾中幻境丛生，你仿佛重回故地，醒来时道心微损，冷汗涔涔。",
+    "effects": {
+      "qi": -25,
+      "health": -5
+    }
+  },
+  {
+    "id": "old_farmer_chat",
+    "name": "老农闲谈",
+    "condition": "explore",
+    "weight": 8,
+    "description": "田埂上一位老农与你闲话桑麻。凡人一世劳碌，你听着听着，竟有些出神。",
+    "effects": {}
+  },
+  {
+    "id": "street_performer",
+    "name": "街头艺人",
+    "condition": "explore",
+    "weight": 8,
+    "description": "市集口一名艺人耍着木剑卖艺，招式滑稽，围观孩童笑作一团。",
+    "effects": {}
+  },
+  {
+    "id": "little_fox",
+    "name": "灵狐报恩",
+    "condition": "explore",
+    "weight": 5,
+    "description": "你随手救下一只被捕兽夹困住的小狐狸。它回头望了你一眼，留下一粒种子便消失在林间。",
+    "effects": {
+      "item": "spirit_fruit_seed",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "drunk_daoist",
+    "name": "醉道人赠言",
+    "condition": "explore",
+    "weight": 5,
+    "description": "一位醉道人拉住你胡言乱语，细听之下竟暗合道韵，你若有所悟。",
+    "effects": {
+      "qi": 30
+    }
+  },
+  {
+    "id": "lost_child",
+    "name": "迷路孩童",
+    "condition": "explore",
+    "weight": 6,
+    "description": "你把迷路的孩子送回村口。孩子娘千恩万谢，塞给你两个还热乎的粗面饼。",
+    "effects": {
+      "health": 8
+    }
+  },
+  {
+    "id": "spirit_stone_shard",
+    "name": "灵石碎块",
+    "condition": "explore",
+    "weight": 7,
+    "description": "碎石堆里嵌着几枚灵石碎块，灵气虽薄，积少成多。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "beast_corpse",
+    "name": "妖兽遗骸",
+    "condition": "explore",
+    "weight": 6,
+    "description": "一头妖兽的遗骸横在山道旁，兽核尚存灵性，你小心取下。",
+    "effects": {
+      "item": "demon_core_low",
+      "item_count": 1
+    }
+  },
+  {
+    "id": "abandoned_furnace",
+    "name": "废弃丹炉",
+    "condition": "explore",
+    "weight": 5,
+    "description": "一座废弃丹炉炉门半开，里面竟还留着一炉成丹，药香扑鼻。",
+    "effects": {
+      "item": "health_pill",
+      "item_count": 1,
+      "qi": 20
+    }
+  },
+  {
+    "id": "lost_caravan",
+    "name": "失落商队",
+    "condition": "explore",
+    "weight": 5,
+    "description": "一支商队的残车散落在谷中，货物早已朽坏，只有一枚灵石完好无损。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 1,
+      "health": 5
+    }
+  },
+  {
+    "id": "hidden_shop",
+    "name": "隐秘小贩",
+    "condition": "explore",
+    "weight": 4,
+    "description": "一处不起眼的摊位后，小贩压低声音：道友，要看看好东西么？",
+    "effects": {},
+    "trigger_merchant": true
+  },
+  {
+    "id": "herb_realm",
+    "name": "药园秘境",
+    "condition": "explore",
+    "weight": 3,
+    "description": "雾气散开，一座灵气盎然的药园秘境显现在你眼前。",
+    "effects": {},
+    "trigger_secret_realm": true
+  },
+  {
+    "id": "rogue_cultivator",
+    "name": "敌意修士",
+    "condition": "explore",
+    "weight": 5,
+    "description": "一名修士眼中凶光一闪，显然把你当成了猎物。",
+    "effects": {},
+    "trigger_combat": true
+  }
+]

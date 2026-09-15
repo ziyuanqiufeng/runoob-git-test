@@ -1,0 +1,132 @@
+{
+  "events": [
+    {
+      "id": "beast_tide_fufeng",
+      "city_id": "fufeng_city",
+      "type": "beast_tide",
+      "name": "扶风城兽潮",
+      "description": "大批妖兽自青云山脉涌出，正冲击扶风城东门，城主府招募修士守城。",
+      "enemy_id": "wolf",
+      "enemy_count": 3,
+      "enemy_scale": 1.0,
+      "rewards": {
+        "spirit_stone": 100,
+        "reputation": 20
+      },
+      "trigger_weight": 10,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_luoxia",
+      "city_id": "luoxia_city",
+      "type": "beast_tide",
+      "name": "落霞城兽潮",
+      "description": "落日荒原上的妖兽受血气吸引，成群结队逼近落霞城。",
+      "enemy_id": "wolf",
+      "enemy_count": 4,
+      "enemy_scale": 1.1,
+      "rewards": {
+        "spirit_stone": 120,
+        "reputation": 25
+      },
+      "trigger_weight": 10,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_yunmeng",
+      "city_id": "yunmeng_city",
+      "type": "beast_tide",
+      "name": "云梦城兽潮",
+      "description": "云雾山脉深处传来阵阵兽吼，妖兽正向云梦城方向移动。",
+      "enemy_id": "wolf",
+      "enemy_count": 3,
+      "enemy_scale": 1.05,
+      "rewards": {
+        "spirit_stone": 110,
+        "reputation": 22
+      },
+      "trigger_weight": 8,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_wanyao",
+      "city_id": "wanyao_city",
+      "type": "beast_tide",
+      "name": "万妖城兽潮",
+      "description": "万兽山脉发生小型兽乱，部分凶兽冲破结界，威胁万妖城外围。",
+      "enemy_id": "wolf",
+      "enemy_count": 5,
+      "enemy_scale": 1.15,
+      "rewards": {
+        "spirit_stone": 140,
+        "reputation": 28
+      },
+      "trigger_weight": 12,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_xuanshui",
+      "city_id": "xuanshui_city",
+      "type": "beast_tide",
+      "name": "玄水城兽潮",
+      "description": "玄水湖中的水族妖兽异常躁动，不断冲击玄水城水门。",
+      "enemy_id": "wolf",
+      "enemy_count": 3,
+      "enemy_scale": 1.1,
+      "rewards": {
+        "spirit_stone": 120,
+        "reputation": 24
+      },
+      "trigger_weight": 9,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_chiyan",
+      "city_id": "chiyan_city",
+      "type": "beast_tide",
+      "name": "赤焰城兽潮",
+      "description": "火山裂谷中的火系妖兽受地火躁动影响，向赤焰城袭来。",
+      "enemy_id": "wolf",
+      "enemy_count": 4,
+      "enemy_scale": 1.2,
+      "rewards": {
+        "spirit_stone": 130,
+        "reputation": 26
+      },
+      "trigger_weight": 11,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_wangchuan",
+      "city_id": "wangchuan_town",
+      "type": "beast_tide",
+      "name": "忘川镇兽潮",
+      "description": "忘川河畔的阴兽趁着阴气大盛，试图侵入镇中。",
+      "enemy_id": "wolf",
+      "enemy_count": 3,
+      "enemy_scale": 1.0,
+      "rewards": {
+        "spirit_stone": 90,
+        "reputation": 18
+      },
+      "trigger_weight": 8,
+      "min_month_interval": 12
+    },
+    {
+      "id": "beast_tide_yunlan",
+      "city_id": "yunlan_city",
+      "type": "beast_tide",
+      "name": "云岚城兽潮",
+      "description": "云海深处的飞行妖兽成群来袭，云岚城浮岛警报大作。",
+      "enemy_id": "wolf",
+      "enemy_count": 4,
+      "enemy_scale": 1.15,
+      "rewards": {
+        "spirit_stone": 140,
+        "reputation": 27
+      },
+      "trigger_weight": 10,
+      "min_month_interval": 12
+    }
+  ]
+}

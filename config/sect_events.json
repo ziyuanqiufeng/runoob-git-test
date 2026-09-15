@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tianjian_tournament",
+    "name": "天剑宗内门大比",
+    "sect_id": "tianjian_sect",
+    "interval_months": 12,
+    "min_rank": "outer",
+    "min_realm": "qi_refining_3",
+    "required_location": "tianjian_sect",
+    "rounds": 3,
+    "base_enemy_level": 3,
+    "rewards": {
+      "contribution_per_win": 200,
+      "reputation_per_win": 10,
+      "bonus_skill": {
+        "skill_id": "sword_qi",
+        "required_wins": 3,
+        "chance": 0.5
+      }
+    }
+  },
+  {
+    "id": "zixiao_tournament",
+    "name": "紫霄宫论道大会",
+    "sect_id": "zixiao_palace",
+    "interval_months": 12,
+    "min_rank": "outer",
+    "min_realm": "qi_refining_3",
+    "required_location": "zixiao_palace",
+    "rounds": 3,
+    "base_enemy_level": 3,
+    "rewards": {
+      "contribution_per_win": 200,
+      "reputation_per_win": 10,
+      "bonus_skill": {
+        "skill_id": "thunder_seal",
+        "required_wins": 3,
+        "chance": 0.5
+      }
+    }
+  },
+  {
+    "id": "xie_mo_tournament",
+    "name": "血魔宗血斗试炼",
+    "sect_id": "xie_mo_cult",
+    "interval_months": 12,
+    "min_rank": "outer",
+    "min_realm": "qi_refining_3",
+    "required_location": "jiuyuan_senlin",
+    "rounds": 3,
+    "base_enemy_level": 3,
+    "rewards": {
+      "contribution_per_win": 200,
+      "reputation_per_win": 10,
+      "bonus_skill": {
+        "skill_id": "blood_devil_claw",
+        "required_wins": 3,
+        "chance": 0.5
+      }
+    }
+  }
+]

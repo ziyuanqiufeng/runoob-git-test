@@ -1,0 +1,148 @@
+[
+  {
+    "city_id": "fufeng_city",
+    "map_image": "assets/city_bg/fufeng_city.png",
+    "hotspots": [
+      {
+        "id": "city_lord_hall",
+        "name": "城主府",
+        "shape": "diamond",
+        "coords": [0.30, 0.10, 0.55, 0.35],
+        "image": "assets/city_buildings/fufeng_city/city_lord_hall.png",
+        "image_hover": "assets/city_buildings/fufeng_city/city_lord_hall_hover.png",
+        "nameplate_offset": [0, -20]
+      },
+      {
+        "id": "inn",
+        "name": "客栈",
+        "shape": "rect",
+        "coords": [0.60, 0.15, 0.85, 0.40],
+        "image": "assets/city_buildings/fufeng_city/inn.png",
+        "image_hover": "assets/city_buildings/fufeng_city/inn_hover.png",
+        "nameplate_offset": [0, -18]
+      },
+      {
+        "id": "market",
+        "name": "坊市",
+        "shape": "circle",
+        "coords": [0.05, 0.40, 0.35, 0.65],
+        "image": "assets/city_buildings/fufeng_city/market.png",
+        "image_hover": "assets/city_buildings/fufeng_city/market_hover.png",
+        "nameplate_offset": [0, -16]
+      },
+      {
+        "id": "arena",
+        "name": "演武场",
+        "shape": "circle",
+        "coords": [0.40, 0.55, 0.70, 0.85],
+        "image": "assets/city_buildings/fufeng_city/arena.png",
+        "image_hover": "assets/city_buildings/fufeng_city/arena_hover.png",
+        "nameplate_offset": [0, -16]
+      },
+      {
+        "id": "alchemy_pavilion",
+        "name": "炼丹阁",
+        "shape": "rect",
+        "coords": [0.70, 0.50, 0.95, 0.80],
+        "image": "assets/city_buildings/fufeng_city/alchemy_pavilion.png",
+        "image_hover": "assets/city_buildings/fufeng_city/alchemy_pavilion_hover.png",
+        "nameplate_offset": [0, -18]
+      },
+      {
+        "id": "cave",
+        "name": "城中洞府",
+        "shape": "rect",
+        "coords": [0.02, 0.02, 0.22, 0.22],
+        "image": "assets/city_buildings/fufeng_city/cave.png",
+        "image_hover": "assets/city_buildings/fufeng_city/cave_hover.png",
+        "nameplate_offset": [0, -18]
+      }
+    ]
+  },
+  {
+    "city_id": "luoxia_city",
+    "map_image": "assets/city_bg/luoxia_city.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.10, 0.55, 0.35], "image": "assets/city_buildings/luoxia_city/city_lord_hall.png", "image_hover": "assets/city_buildings/luoxia_city/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.15, 0.85, 0.40], "image": "assets/city_buildings/luoxia_city/inn.png", "image_hover": "assets/city_buildings/luoxia_city/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.40, 0.35, 0.65], "image": "assets/city_buildings/luoxia_city/market.png", "image_hover": "assets/city_buildings/luoxia_city/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.40, 0.55, 0.70, 0.85], "image": "assets/city_buildings/luoxia_city/arena.png", "image_hover": "assets/city_buildings/luoxia_city/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.70, 0.50, 0.95, 0.80], "image": "assets/city_buildings/luoxia_city/alchemy_pavilion.png", "image_hover": "assets/city_buildings/luoxia_city/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/luoxia_city/cave.png", "image_hover": "assets/city_buildings/luoxia_city/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  },
+  {
+    "city_id": "yunmeng_city",
+    "map_image": "assets/city_bg/yunmeng_city.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.10, 0.55, 0.35], "image": "assets/city_buildings/yunmeng_city/city_lord_hall.png", "image_hover": "assets/city_buildings/yunmeng_city/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.15, 0.85, 0.40], "image": "assets/city_buildings/yunmeng_city/inn.png", "image_hover": "assets/city_buildings/yunmeng_city/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.40, 0.35, 0.65], "image": "assets/city_buildings/yunmeng_city/market.png", "image_hover": "assets/city_buildings/yunmeng_city/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.40, 0.55, 0.70, 0.85], "image": "assets/city_buildings/yunmeng_city/arena.png", "image_hover": "assets/city_buildings/yunmeng_city/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.70, 0.50, 0.95, 0.80], "image": "assets/city_buildings/yunmeng_city/alchemy_pavilion.png", "image_hover": "assets/city_buildings/yunmeng_city/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/yunmeng_city/cave.png", "image_hover": "assets/city_buildings/yunmeng_city/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  },
+  {
+    "city_id": "wanyao_city",
+    "map_image": "assets/city_bg/wanyao_city.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.08, 0.55, 0.32], "image": "assets/city_buildings/wanyao_city/city_lord_hall.png", "image_hover": "assets/city_buildings/wanyao_city/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.12, 0.85, 0.37], "image": "assets/city_buildings/wanyao_city/inn.png", "image_hover": "assets/city_buildings/wanyao_city/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.35, 0.30, 0.60], "image": "assets/city_buildings/wanyao_city/market.png", "image_hover": "assets/city_buildings/wanyao_city/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.35, 0.40, 0.60, 0.65], "image": "assets/city_buildings/wanyao_city/arena.png", "image_hover": "assets/city_buildings/wanyao_city/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.65, 0.38, 0.90, 0.63], "image": "assets/city_buildings/wanyao_city/alchemy_pavilion.png", "image_hover": "assets/city_buildings/wanyao_city/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "beast_park", "name": "万兽园", "shape": "circle", "coords": [0.20, 0.68, 0.50, 0.93], "image": "assets/city_buildings/wanyao_city/beast_park.png", "image_hover": "assets/city_buildings/wanyao_city/beast_park_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/wanyao_city/cave.png", "image_hover": "assets/city_buildings/wanyao_city/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  },
+  {
+    "city_id": "xuanshui_city",
+    "map_image": "assets/city_bg/xuanshui_city.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.08, 0.55, 0.32], "image": "assets/city_buildings/xuanshui_city/city_lord_hall.png", "image_hover": "assets/city_buildings/xuanshui_city/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.12, 0.85, 0.37], "image": "assets/city_buildings/xuanshui_city/inn.png", "image_hover": "assets/city_buildings/xuanshui_city/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.35, 0.30, 0.60], "image": "assets/city_buildings/xuanshui_city/market.png", "image_hover": "assets/city_buildings/xuanshui_city/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.35, 0.40, 0.60, 0.65], "image": "assets/city_buildings/xuanshui_city/arena.png", "image_hover": "assets/city_buildings/xuanshui_city/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.65, 0.38, 0.90, 0.63], "image": "assets/city_buildings/xuanshui_city/alchemy_pavilion.png", "image_hover": "assets/city_buildings/xuanshui_city/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "aquatic_shop", "name": "水族商行", "shape": "diamond", "coords": [0.20, 0.68, 0.50, 0.93], "image": "assets/city_buildings/xuanshui_city/aquatic_shop.png", "image_hover": "assets/city_buildings/xuanshui_city/aquatic_shop_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/xuanshui_city/cave.png", "image_hover": "assets/city_buildings/xuanshui_city/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  },
+  {
+    "city_id": "chiyan_city",
+    "map_image": "assets/city_bg/chiyan_city.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.10, 0.55, 0.35], "image": "assets/city_buildings/chiyan_city/city_lord_hall.png", "image_hover": "assets/city_buildings/chiyan_city/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.15, 0.85, 0.40], "image": "assets/city_buildings/chiyan_city/inn.png", "image_hover": "assets/city_buildings/chiyan_city/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.40, 0.35, 0.65], "image": "assets/city_buildings/chiyan_city/market.png", "image_hover": "assets/city_buildings/chiyan_city/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.40, 0.55, 0.70, 0.85], "image": "assets/city_buildings/chiyan_city/arena.png", "image_hover": "assets/city_buildings/chiyan_city/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.70, 0.50, 0.95, 0.80], "image": "assets/city_buildings/chiyan_city/alchemy_pavilion.png", "image_hover": "assets/city_buildings/chiyan_city/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/chiyan_city/cave.png", "image_hover": "assets/city_buildings/chiyan_city/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  },
+  {
+    "city_id": "wangchuan_town",
+    "map_image": "assets/city_bg/wangchuan_town.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.10, 0.55, 0.35], "image": "assets/city_buildings/wangchuan_town/city_lord_hall.png", "image_hover": "assets/city_buildings/wangchuan_town/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.15, 0.85, 0.40], "image": "assets/city_buildings/wangchuan_town/inn.png", "image_hover": "assets/city_buildings/wangchuan_town/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.40, 0.35, 0.65], "image": "assets/city_buildings/wangchuan_town/market.png", "image_hover": "assets/city_buildings/wangchuan_town/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.40, 0.55, 0.70, 0.85], "image": "assets/city_buildings/wangchuan_town/arena.png", "image_hover": "assets/city_buildings/wangchuan_town/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.70, 0.50, 0.95, 0.80], "image": "assets/city_buildings/wangchuan_town/alchemy_pavilion.png", "image_hover": "assets/city_buildings/wangchuan_town/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/wangchuan_town/cave.png", "image_hover": "assets/city_buildings/wangchuan_town/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  },
+  {
+    "city_id": "yunlan_city",
+    "map_image": "assets/city_bg/yunlan_city.png",
+    "hotspots": [
+      {"id": "city_lord_hall", "name": "城主府", "shape": "diamond", "coords": [0.30, 0.10, 0.55, 0.35], "image": "assets/city_buildings/yunlan_city/city_lord_hall.png", "image_hover": "assets/city_buildings/yunlan_city/city_lord_hall_hover.png", "nameplate_offset": [0, -20]},
+      {"id": "inn", "name": "客栈", "shape": "rect", "coords": [0.60, 0.15, 0.85, 0.40], "image": "assets/city_buildings/yunlan_city/inn.png", "image_hover": "assets/city_buildings/yunlan_city/inn_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "market", "name": "坊市", "shape": "circle", "coords": [0.05, 0.40, 0.35, 0.65], "image": "assets/city_buildings/yunlan_city/market.png", "image_hover": "assets/city_buildings/yunlan_city/market_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "arena", "name": "演武场", "shape": "circle", "coords": [0.40, 0.55, 0.70, 0.85], "image": "assets/city_buildings/yunlan_city/arena.png", "image_hover": "assets/city_buildings/yunlan_city/arena_hover.png", "nameplate_offset": [0, -16]},
+      {"id": "alchemy_pavilion", "name": "炼丹阁", "shape": "rect", "coords": [0.70, 0.50, 0.95, 0.80], "image": "assets/city_buildings/yunlan_city/alchemy_pavilion.png", "image_hover": "assets/city_buildings/yunlan_city/alchemy_pavilion_hover.png", "nameplate_offset": [0, -18]},
+      {"id": "cave", "name": "城中洞府", "shape": "rect", "coords": [0.02, 0.02, 0.22, 0.22], "image": "assets/city_buildings/yunlan_city/cave.png", "image_hover": "assets/city_buildings/yunlan_city/cave_hover.png", "nameplate_offset": [0, -18]}
+    ]
+  }
+]

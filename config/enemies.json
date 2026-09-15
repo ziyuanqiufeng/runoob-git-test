@@ -1,0 +1,2219 @@
+[
+  {
+    "id": "wolf",
+    "name": "青风狼",
+    "element": "wood",
+    "level": 1,
+    "hp": 80,
+    "attack": 12,
+    "defense": 3,
+    "description": "山林中常见的低阶妖兽，动作迅捷，属木灵一族。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.4
+      }
+    ],
+    "exp": 50,
+    "skills": [
+      {
+        "name": "撕咬",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.5,
+        "description": "青风狼露出獠牙，发动凶猛撕咬！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.15,
+      "flee_chance": 0.25,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_2"
+  },
+  {
+    "id": "tiger",
+    "name": "铁背虎",
+    "element": "metal",
+    "level": 3,
+    "hp": 150,
+    "attack": 20,
+    "defense": 6,
+    "description": "皮糙肉厚的中阶妖兽，力量惊人，金甲护体。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.7
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.3
+      }
+    ],
+    "exp": 120,
+    "skills": [
+      {
+        "name": "猛虎扑击",
+        "trigger_hp_ratio": 0.5,
+        "chance": 0.4,
+        "damage_multiplier": 2.0,
+        "description": "铁背虎蓄势猛扑，威力巨大！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.1,
+      "flee_chance": 0.15,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "舔舐伤口",
+        "heal_amount": 30,
+        "chance": 0.5,
+        "description": "铁背虎舔舐伤口，恢复部分生命！"
+      },
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "铁背护体",
+        "buff_type": "defense_up",
+        "buff_amount": 8,
+        "buff_turns": 3,
+        "chance": 0.4,
+        "description": "铁背虎弓起后背，皮甲变得更加坚硬！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "qi_refining_6"
+  },
+  {
+    "id": "snake",
+    "name": "碧鳞蛇",
+    "element": "water",
+    "level": 2,
+    "hp": 60,
+    "attack": 18,
+    "defense": 2,
+    "description": "身含剧毒的蛇妖，攻击凌厉但防御薄弱，水属性灵兽。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.5
+      }
+    ],
+    "exp": 80,
+    "skills": [
+      {
+        "name": "毒液喷射",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.2,
+        "dot_damage": 5,
+        "dot_turns": 3,
+        "description": "碧鳞蛇喷出毒液，你中毒了！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.2,
+      "flee_chance": 0.35,
+      "buff_hp_ratio": 0.6,
+      "buff_skill": {
+        "name": "毒雾弥漫",
+        "buff_type": "player_attack_down",
+        "buff_amount": 6,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "碧鳞蛇吐出毒雾，你的力量被侵蚀！"
+      },
+      "focus_player_hp_ratio": 0.25
+    },
+    "realm_id": "qi_refining_4"
+  },
+  {
+    "id": "bear",
+    "name": "玄铁熊",
+    "element": "earth",
+    "level": 4,
+    "hp": 200,
+    "attack": 25,
+    "defense": 10,
+    "description": "体型庞大的高阶妖兽，皮坚肉厚，厚土之力护体，极难对付。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.9
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.5
+      },
+      {
+        "item_id": "leather_armor",
+        "chance": 0.2
+      }
+    ],
+    "exp": 200,
+    "skills": [
+      {
+        "name": "熊掌重击",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.8,
+        "description": "玄铁熊挥动巨掌，势若千钧！"
+      },
+      {
+        "name": "怒吼震慑",
+        "trigger_hp_ratio": 0.6,
+        "chance": 0.25,
+        "damage_multiplier": 1.0,
+        "description": "玄铁熊发出震天怒吼！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.08,
+      "flee_chance": 0.1,
+      "heal_hp_ratio": 0.3,
+      "heal_skill": {
+        "name": "蛰伏回元",
+        "heal_amount": 50,
+        "chance": 0.4,
+        "description": "玄铁熊蛰伏片刻，恢复大量生命！"
+      },
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "玄铁护甲",
+        "buff_type": "defense_up",
+        "buff_amount": 12,
+        "buff_turns": 4,
+        "chance": 0.4,
+        "description": "玄铁熊周身泛起金属光泽，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "fire_scorpion",
+    "name": "烈焰蝎",
+    "element": "fire",
+    "level": 3,
+    "hp": 120,
+    "attack": 22,
+    "defense": 5,
+    "description": "栖息于火山附近的毒蝎，尾针带火，被刺中者如坠火海。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.7
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.4
+      },
+      {
+        "item_id": "marrow_pill",
+        "chance": 0.05
+      }
+    ],
+    "exp": 150,
+    "skills": [
+      {
+        "name": "烈焰尾针",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.6,
+        "dot_damage": 6,
+        "dot_turns": 2,
+        "description": "烈焰蝎甩动尾针，灼烧你的经脉！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.2,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "火甲护体",
+        "buff_type": "defense_up",
+        "buff_amount": 7,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "烈焰蝎周身燃起火甲，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_6"
+  },
+  {
+    "id": "righteous_disciple",
+    "name": "正道弟子",
+    "alignment": "righteous",
+    "element": "metal",
+    "cultivation_path": "jian",
+    "level": 3,
+    "hp": 130,
+    "attack": 24,
+    "defense": 6,
+    "description": "正道宗门派来追杀邪修的弟子，剑术精湛，金灵根剑修。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.6
+      },
+      {
+        "item_id": "demon_core",
+        "chance": 0.4
+      }
+    ],
+    "exp": 180,
+    "skills": [
+      {
+        "name": "剑气斩",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.4,
+        "damage_multiplier": 1.6,
+        "description": "正道弟子挥剑斩出凌厉剑气！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.1,
+      "flee_chance": 0.1,
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "qi_refining_6"
+  },
+  {
+    "id": "righteous_elder",
+    "name": "正道长老",
+    "alignment": "righteous",
+    "element": "water",
+    "cultivation_path": "fa",
+    "level": 5,
+    "hp": 220,
+    "attack": 32,
+    "defense": 10,
+    "description": "正道宗门的长老，法力高深，奉命清剿邪修。水灵根法修。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.9
+      },
+      {
+        "item_id": "marrow_pill",
+        "chance": 0.15
+      }
+    ],
+    "exp": 350,
+    "skills": [
+      {
+        "name": "天罡法阵",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 1.8,
+        "description": "正道长老布下天罡法阵，灵力激荡！"
+      },
+      {
+        "name": "玄冰诀",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.5,
+        "dot_damage": 4,
+        "dot_turns": 2,
+        "description": "正道长老施展玄冰诀，寒气入骨！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.05,
+      "flee_chance": 0.05,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "灵泉回元",
+        "heal_amount": 60,
+        "chance": 0.5,
+        "description": "正道长老引动灵泉，恢复大量生命！"
+      },
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "evil_cultivator",
+    "name": "邪修徒",
+    "alignment": "evil",
+    "element": "fire",
+    "cultivation_path": "xie",
+    "level": 4,
+    "hp": 160,
+    "attack": 28,
+    "defense": 6,
+    "description": "游荡的邪修徒众，以血祭之力为害一方。火灵根邪修。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.5
+      },
+      {
+        "item_id": "demon_core",
+        "chance": 0.6
+      }
+    ],
+    "exp": 220,
+    "skills": [
+      {
+        "name": "噬魂术",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.5,
+        "description": "邪修徒施展噬魂术，欲夺你神魂！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.15,
+      "flee_chance": 0.2,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "flame_lion",
+    "name": "烈焰狮",
+    "element": "fire",
+    "level": 5,
+    "hp": 220,
+    "attack": 30,
+    "defense": 8,
+    "description": "火焰谷的霸主，周身燃烧烈焰，咆哮如雷。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.8
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.6
+      },
+      {
+        "item_id": "marrow_pill",
+        "chance": 0.1
+      }
+    ],
+    "exp": 280,
+    "skills": [
+      {
+        "name": "烈焰冲击",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 1.8,
+        "description": "烈焰狮全身烈焰爆发，冲撞而来！"
+      },
+      {
+        "name": "狮王咆哮",
+        "trigger_hp_ratio": 0.5,
+        "chance": 0.3,
+        "damage_multiplier": 1.3,
+        "description": "烈焰狮发出震天咆哮！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.08,
+      "flee_chance": 0.08,
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "火焰护体",
+        "buff_type": "defense_up",
+        "buff_amount": 10,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "烈焰狮凝聚火焰护甲，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "fire_snake",
+    "name": "火鳞蛇",
+    "element": "fire",
+    "level": 4,
+    "hp": 130,
+    "attack": 26,
+    "defense": 4,
+    "description": "栖息于火焰谷的毒蛇，鳞片带火，毒液灼烧经脉。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.6
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.3
+      }
+    ],
+    "exp": 180,
+    "skills": [
+      {
+        "name": "灼毒喷射",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.4,
+        "damage_multiplier": 1.3,
+        "dot_damage": 7,
+        "dot_turns": 3,
+        "description": "火鳞蛇喷出灼热毒液，你中毒并被灼烧！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.15,
+      "flee_chance": 0.25,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "shadow_wolf",
+    "name": "影狼",
+    "element": "water",
+    "level": 5,
+    "hp": 160,
+    "attack": 32,
+    "defense": 5,
+    "description": "幽冥森林的暗影妖兽，身形如鬼魅，出没无常。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.7
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.4
+      },
+      {
+        "item_id": "marrow_pill",
+        "chance": 0.08
+      }
+    ],
+    "exp": 250,
+    "skills": [
+      {
+        "name": "暗影撕咬",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.4,
+        "damage_multiplier": 1.7,
+        "description": "影狼从暗影中扑出，獠牙闪烁寒光！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.2,
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "ghost_vine",
+    "name": "幽魂藤",
+    "element": "wood",
+    "level": 4,
+    "hp": 180,
+    "attack": 20,
+    "defense": 12,
+    "description": "幽冥森林的诡异植物，藤蔓如鬼手，会吸取生灵精血。",
+    "loot": [
+      {
+        "item_id": "century_herb",
+        "chance": 0.5
+      },
+      {
+        "item_id": "demon_core",
+        "chance": 0.4
+      }
+    ],
+    "exp": 200,
+    "skills": [
+      {
+        "name": "藤蔓缠绕",
+        "trigger_hp_ratio": 0.8,
+        "chance": 0.35,
+        "damage_multiplier": 1.2,
+        "description": "幽魂藤伸出藤蔓缠绕住你！"
+      },
+      {
+        "name": "精血吸取",
+        "trigger_hp_ratio": 0.6,
+        "chance": 0.3,
+        "damage_multiplier": 1.0,
+        "description": "幽魂藤刺入你的皮肤，吸取精血！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.1,
+      "flee_chance": 0.1,
+      "heal_hp_ratio": 0.4,
+      "heal_skill": {
+        "name": "光合回元",
+        "heal_amount": 40,
+        "chance": 0.4,
+        "description": "幽魂藤吸收阴气，恢复生命！"
+      },
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "荆棘护体",
+        "buff_type": "defense_up",
+        "buff_amount": 8,
+        "buff_turns": 3,
+        "chance": 0.3,
+        "description": "幽魂藤周身长出荆棘，防御提升！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "ghost_swordsman",
+    "name": "古剑亡魂",
+    "element": "metal",
+    "level": 6,
+    "hp": 250,
+    "attack": 35,
+    "defense": 8,
+    "description": "古剑冢中徘徊的剑修亡魂，剑意未散，极难对付。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.8
+      },
+      {
+        "item_id": "iron_sword",
+        "chance": 0.3
+      }
+    ],
+    "exp": 400,
+    "skills": [
+      {
+        "name": "亡魂剑气",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.7,
+        "description": "古剑亡魂斩出阴冷剑气！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.05,
+      "flee_chance": 0.05,
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "foundation_peak"
+  },
+  {
+    "id": "qilin",
+    "name": "麒麟残魂",
+    "element": "fire",
+    "level": 8,
+    "hp": 500,
+    "attack": 55,
+    "defense": 15,
+    "description": "上古神兽麒麟陨落后遗留的残魂，虽实力大损仍不可小觑。",
+    "loot": [
+      {
+        "item_id": "qilin_horn",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1000,
+    "skills": [
+      {
+        "name": "麒麟圣火",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 2.0,
+        "description": "麒麟残魂喷出焚天圣火！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "summon": {
+        "enemy_id": "flame_lion",
+        "name": "圣火分身",
+        "chance": 0.25,
+        "hp_ratio": 0.4,
+        "attack_ratio": 0.4,
+        "turns": 3
+      }
+    }
+  },
+  {
+    "id": "blood_demon",
+    "name": "血魔尊者",
+    "element": "water",
+    "level": 9,
+    "hp": 600,
+    "attack": 60,
+    "defense": 12,
+    "description": "被封印多年的血魔，以修士精血为食，凶焰滔天。",
+    "loot": [
+      {
+        "item_id": "blood_demon_heart",
+        "chance": 1.0
+      },
+      {
+        "item_id": "evil_crystal",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1200,
+    "skills": [
+      {
+        "name": "血海滔天",
+        "trigger_hp_ratio": 0.6,
+        "chance": 0.35,
+        "damage_multiplier": 1.8,
+        "description": "血魔尊者掀起血海，腐蚀万物！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "nascent_soul",
+    "special": {
+      "special_skill": {
+        "name": "血魔大法",
+        "chance": 0.25,
+        "damage_multiplier": 2.0,
+        "effect": "life_drain",
+        "drain_ratio": 0.5,
+        "cooldown": 3,
+        "description": "血魔尊者施展血魔大法，吸取你的精血！"
+      }
+    }
+  },
+  {
+    "id": "rabbit_spirit",
+    "name": "灵兔",
+    "element": "wood",
+    "level": 1,
+    "hp": 50,
+    "attack": 8,
+    "defense": 2,
+    "description": "山中被灵气点化的野兔，虽然弱小但行动敏捷，常成群出没。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.2
+      },
+      {
+        "item_id": "century_herb",
+        "chance": 0.15
+      }
+    ],
+    "exp": 30,
+    "skills": [
+      {
+        "name": "灵兔蹬腿",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.25,
+        "damage_multiplier": 1.3,
+        "description": "灵兔后腿猛蹬，力道出乎意料！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.25,
+      "flee_chance": 0.4,
+      "focus_player_hp_ratio": 0.2
+    },
+    "realm_id": "qi_refining_2"
+  },
+  {
+    "id": "wild_boar",
+    "name": "野猪妖",
+    "element": "earth",
+    "level": 2,
+    "hp": 90,
+    "attack": 14,
+    "defense": 4,
+    "description": "山林中常见的低阶妖兽，皮糙肉厚，冲撞力惊人。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.4
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.2
+      }
+    ],
+    "exp": 60,
+    "skills": [
+      {
+        "name": "野蛮冲撞",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.6,
+        "description": "野猪妖低头猛冲，獠牙如刀！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.18,
+      "flee_chance": 0.2,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_4"
+  },
+  {
+    "id": "fox_spirit",
+    "name": "火狐",
+    "element": "fire",
+    "level": 2,
+    "hp": 65,
+    "attack": 16,
+    "defense": 2,
+    "description": "皮毛如火的低阶狐妖，善于迷惑人心，常徘徊于山林边缘。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.4
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.2
+      }
+    ],
+    "exp": 65,
+    "skills": [
+      {
+        "name": "狐火",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.4,
+        "description": "火狐吐出狐火，灼烧你的皮肤！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.2,
+      "flee_chance": 0.35,
+      "buff_hp_ratio": 0.6,
+      "buff_skill": {
+        "name": "魅惑",
+        "buff_type": "player_attack_down",
+        "buff_amount": 4,
+        "buff_turns": 2,
+        "chance": 0.3,
+        "description": "火狐眼中闪过魅惑之光，你的攻击变得迟疑！"
+      },
+      "focus_player_hp_ratio": 0.25
+    },
+    "realm_id": "qi_refining_4"
+  },
+  {
+    "id": "crow_demon",
+    "name": "乌鸦妖",
+    "element": "metal",
+    "level": 3,
+    "hp": 85,
+    "attack": 17,
+    "defense": 3,
+    "description": "栖息于古木的乌鸦妖，叫声凄厉，能引动阴风伤人。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.45
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.25
+      }
+    ],
+    "exp": 75,
+    "skills": [
+      {
+        "name": "阴风爪",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.5,
+        "description": "乌鸦妖扇动翅膀，阴风如刀割面！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.18,
+      "flee_chance": 0.3,
+      "focus_player_hp_ratio": 0.28
+    },
+    "realm_id": "qi_refining_6"
+  },
+  {
+    "id": "green_snake",
+    "name": "青竹蛇",
+    "element": "wood",
+    "level": 1,
+    "hp": 45,
+    "attack": 10,
+    "defense": 1,
+    "description": "竹叶青修炼成妖，毒性虽弱但速度极快，新手修士也需谨慎。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.25
+      }
+    ],
+    "exp": 35,
+    "skills": [
+      {
+        "name": "青蛇突刺",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.4,
+        "description": "青竹蛇如离弦之箭般弹射而出！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.22,
+      "flee_chance": 0.4,
+      "focus_player_hp_ratio": 0.22
+    },
+    "realm_id": "qi_refining_2"
+  },
+  {
+    "id": "mountain_bandit",
+    "name": "山贼",
+    "alignment": "neutral",
+    "element": "metal",
+    "cultivation_path": "jian",
+    "level": 2,
+    "hp": 75,
+    "attack": 13,
+    "defense": 3,
+    "description": "落草为寇的凡人武者，略通拳脚，常在山道劫掠过往修士。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.3
+      },
+      {
+        "item_id": "health_pill",
+        "chance": 0.2
+      }
+    ],
+    "exp": 55,
+    "skills": [
+      {
+        "name": "挥刀乱砍",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.5,
+        "description": "山贼挥刀乱砍，招式毫无章法但胜在凶狠！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.2,
+      "flee_chance": 0.25,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_4"
+  },
+  {
+    "id": "rogue_cultivator",
+    "name": "散修",
+    "alignment": "neutral",
+    "element": "fire",
+    "level": 3,
+    "hp": 100,
+    "attack": 19,
+    "defense": 4,
+    "description": "无门无派的散修，为争夺资源不择手段，功法驳杂。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.5
+      },
+      {
+        "item_id": "health_pill",
+        "chance": 0.25
+      }
+    ],
+    "exp": 90,
+    "skills": [
+      {
+        "name": "杂术齐出",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.5,
+        "description": "散修同时打出几道低级法术！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.18,
+      "flee_chance": 0.25,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_6"
+  },
+  {
+    "id": "stone_golem",
+    "name": "石巨人",
+    "element": "earth",
+    "level": 5,
+    "hp": 280,
+    "attack": 28,
+    "defense": 14,
+    "description": "由山岩精华凝聚而成的巨人，行动缓慢但防御惊人。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.7
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.5
+      },
+      {
+        "item_id": "iron_sword",
+        "chance": 0.1
+      }
+    ],
+    "exp": 240,
+    "skills": [
+      {
+        "name": "巨石投掷",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.7,
+        "description": "石巨人搬起巨石砸向敌人！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.05,
+      "flee_chance": 0.05,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "岩甲固化",
+        "buff_type": "defense_up",
+        "buff_amount": 10,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "石巨人表面岩层加厚，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "wind_sparrow",
+    "name": "风隼",
+    "element": "wood",
+    "level": 4,
+    "hp": 120,
+    "attack": 24,
+    "defense": 4,
+    "description": "速度极快的中阶妖禽，双翼能卷起锋利风刃。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.55
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.35
+      }
+    ],
+    "exp": 170,
+    "skills": [
+      {
+        "name": "风刃斩",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.4,
+        "damage_multiplier": 1.6,
+        "description": "风隼双翼一振，数道风刃破空而来！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.15,
+      "flee_chance": 0.3,
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "thunder_bird",
+    "name": "雷鸟",
+    "element": "metal",
+    "level": 5,
+    "hp": 160,
+    "attack": 30,
+    "defense": 5,
+    "description": "栖息于雷泽附近的妖禽，周身缠绕雷电，攻击附带麻痹效果。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.65
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.4
+      },
+      {
+        "item_id": "thunder_pearl",
+        "chance": 0.1
+      }
+    ],
+    "exp": 230,
+    "skills": [
+      {
+        "name": "雷霆俯冲",
+        "trigger_hp_ratio": 0.8,
+        "chance": 0.4,
+        "damage_multiplier": 1.8,
+        "description": "雷鸟裹挟雷电从天而降！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.2,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "雷电护体",
+        "buff_type": "defense_up",
+        "buff_amount": 8,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "雷鸟周身雷光大盛，防御提升！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "ice_wolf",
+    "name": "冰狼",
+    "element": "ice",
+    "level": 5,
+    "hp": 170,
+    "attack": 28,
+    "defense": 6,
+    "description": "寒冰原上的群居妖兽，吐息能冻结敌人血脉。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.65
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.4
+      },
+      {
+        "item_id": "ice_lotus",
+        "chance": 0.05
+      }
+    ],
+    "exp": 220,
+    "skills": [
+      {
+        "name": "冰霜撕咬",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.6,
+        "description": "冰狼一口咬下，寒气顺着伤口侵入经脉！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.2,
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "poison_spider",
+    "name": "毒蛛",
+    "element": "wood",
+    "level": 4,
+    "hp": 110,
+    "attack": 22,
+    "defense": 4,
+    "description": "万妖森林中潜伏的毒蛛，蛛丝坚韧，毒液能麻痹猎物。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.5
+      },
+      {
+        "item_id": "century_herb",
+        "chance": 0.2
+      }
+    ],
+    "exp": 160,
+    "skills": [
+      {
+        "name": "毒丝缠绕",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.3,
+        "dot_damage": 5,
+        "dot_turns": 3,
+        "description": "毒蛛喷出毒丝，你中毒且行动不便！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.15,
+      "flee_chance": 0.25,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "demon_disciple",
+    "name": "魔道弟子",
+    "alignment": "evil",
+    "element": "fire",
+    "cultivation_path": "xie",
+    "level": 5,
+    "hp": 180,
+    "attack": 30,
+    "defense": 6,
+    "description": "魔道宗门的外围弟子，修炼血祭之术，手段残忍。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.55
+      },
+      {
+        "item_id": "evil_crystal",
+        "chance": 0.3
+      }
+    ],
+    "exp": 250,
+    "skills": [
+      {
+        "name": "血刃",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.6,
+        "description": "魔道弟子以血化刃，斩向敌人！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.15,
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "bandit_leader",
+    "name": "山贼头目",
+    "alignment": "neutral",
+    "element": "metal",
+    "cultivation_path": "jian",
+    "level": 5,
+    "hp": 190,
+    "attack": 29,
+    "defense": 7,
+    "description": "山贼中的强者，虽无正统传承，但实战经验丰富。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.6
+      },
+      {
+        "item_id": "iron_sword",
+        "chance": 0.25
+      },
+      {
+        "item_id": "health_pill",
+        "chance": 0.3
+      }
+    ],
+    "exp": 240,
+    "skills": [
+      {
+        "name": "当头一刀",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 1.9,
+        "description": "山贼头目高高跃起，一刀劈下！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.1,
+      "flee_chance": 0.12,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "吞服伤药",
+        "heal_amount": 40,
+        "chance": 0.4,
+        "description": "山贼头目吞下伤药，恢复部分生命！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "wandering_swordsman",
+    "name": "流浪剑修",
+    "alignment": "neutral",
+    "element": "metal",
+    "cultivation_path": "jian",
+    "level": 6,
+    "hp": 230,
+    "attack": 34,
+    "defense": 7,
+    "description": "四海为家的剑修，剑法凌厉，常挑战路人以磨砺剑心。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.7
+      },
+      {
+        "item_id": "iron_sword",
+        "chance": 0.3
+      },
+      {
+        "item_id": "sword_manual",
+        "chance": 0.08
+      }
+    ],
+    "exp": 320,
+    "skills": [
+      {
+        "name": "浪客剑",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.4,
+        "damage_multiplier": 1.7,
+        "description": "流浪剑修一剑斩出，剑气如浪！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.08,
+      "flee_chance": 0.1,
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "剑心通明",
+        "buff_type": "defense_up",
+        "buff_amount": 8,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "流浪剑修剑心通明，攻防提升！"
+      },
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "foundation_peak"
+  },
+  {
+    "id": "fire_fox",
+    "name": "烈焰狐",
+    "element": "fire",
+    "level": 5,
+    "hp": 150,
+    "attack": 31,
+    "defense": 5,
+    "description": "火焰谷中修炼有成的高阶狐妖，狐火威力远超普通火狐。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.65
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.4
+      },
+      {
+        "item_id": "fire_crystal",
+        "chance": 0.15
+      }
+    ],
+    "exp": 230,
+    "skills": [
+      {
+        "name": "烈焰狐火",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.4,
+        "damage_multiplier": 1.7,
+        "description": "烈焰狐喷出炽烈狐火，灼烧一切！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.2,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "狐媚惑心",
+        "buff_type": "player_attack_down",
+        "buff_amount": 7,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "烈焰狐施展媚术，你的攻击变得软弱！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "swamp_crocodile",
+    "name": "沼泽鳄",
+    "element": "water",
+    "level": 4,
+    "hp": 160,
+    "attack": 23,
+    "defense": 8,
+    "description": "潜伏于沼泽中的凶鳄，皮甲坚硬，爆发力惊人。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.55
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.3
+      }
+    ],
+    "exp": 175,
+    "skills": [
+      {
+        "name": "死亡翻滚",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.35,
+        "damage_multiplier": 1.8,
+        "description": "沼泽鳄咬住猎物疯狂翻滚！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.08,
+      "flee_chance": 0.1,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "泥甲护身",
+        "buff_type": "defense_up",
+        "buff_amount": 9,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "沼泽鳄裹满泥浆，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "qi_refining_9"
+  },
+  {
+    "id": "iron_armored_beast",
+    "name": "铁甲兽",
+    "element": "metal",
+    "level": 6,
+    "hp": 270,
+    "attack": 32,
+    "defense": 13,
+    "description": "全身覆盖金属鳞甲的中阶妖兽，寻常法术难以伤其分毫。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.75
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.45
+      },
+      {
+        "item_id": "leather_armor",
+        "chance": 0.15
+      }
+    ],
+    "exp": 300,
+    "skills": [
+      {
+        "name": "铁甲冲撞",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.35,
+        "damage_multiplier": 1.7,
+        "description": "铁甲兽低头猛冲，鳞甲摩擦火花四溅！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.06,
+      "flee_chance": 0.08,
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "鳞甲反光",
+        "buff_type": "defense_up",
+        "buff_amount": 11,
+        "buff_turns": 4,
+        "chance": 0.4,
+        "description": "铁甲兽鳞甲竖起，反射光芒，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.38
+    },
+    "realm_id": "foundation_peak"
+  },
+  {
+    "id": "ancient_dragon",
+    "name": "古龙遗种",
+    "element": "water",
+    "level": 9,
+    "hp": 650,
+    "attack": 62,
+    "defense": 16,
+    "description": "拥有稀薄古龙血脉的巨蟒，栖息于深潭之中，实力堪比元婴老怪。",
+    "loot": [
+      {
+        "item_id": "dragon_scale",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1300,
+    "skills": [
+      {
+        "name": "龙息",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 2.0,
+        "description": "古龙遗种喷出蕴含龙威的水柱！"
+      },
+      {
+        "name": "龙尾横扫",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.6,
+        "description": "古龙遗种巨尾横扫，势大力沉！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "heal_hp_ratio": 0.3,
+      "heal_skill": {
+        "name": "龙血复苏",
+        "heal_amount": 80,
+        "chance": 0.4,
+        "description": "古龙遗种激发血脉，伤口快速愈合！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "nascent_soul",
+    "special": {
+      "special_skill": {
+        "name": "古龙龙息",
+        "chance": 0.2,
+        "damage_multiplier": 2.2,
+        "dot_damage": 15,
+        "dot_turns": 3,
+        "cooldown": 4,
+        "description": "古龙遗种喷吐龙息，灼烧你的经脉！"
+      }
+    }
+  },
+  {
+    "id": "phoenix_spirit",
+    "name": "凤凰残魂",
+    "element": "fire",
+    "level": 9,
+    "hp": 580,
+    "attack": 58,
+    "defense": 14,
+    "description": "上古凤凰陨落后留下的残魂，周身燃烧不灭真火，焚尽来犯之敌。",
+    "loot": [
+      {
+        "item_id": "phoenix_feather",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1250,
+    "skills": [
+      {
+        "name": "涅槃真火",
+        "trigger_hp_ratio": 0.6,
+        "chance": 0.4,
+        "damage_multiplier": 1.9,
+        "description": "凤凰残魂扇动翅膀，涅槃真火席卷而来！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "浴火重生",
+        "heal_amount": 100,
+        "chance": 0.35,
+        "description": "凤凰残魂沐浴真火，恢复大量生命！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "nascent_soul",
+    "special": {
+      "special_skill": {
+        "name": "涅槃之火",
+        "chance": 0.2,
+        "damage_multiplier": 2.0,
+        "effect": "heal",
+        "heal_ratio": 0.15,
+        "cooldown": 4,
+        "description": "凤凰残魂燃起涅槃之火，伤势迅速恢复！"
+      }
+    }
+  },
+  {
+    "id": "nine_tailed_fox",
+    "name": "九尾狐",
+    "element": "wood",
+    "level": 8,
+    "hp": 480,
+    "attack": 52,
+    "defense": 12,
+    "description": "修炼千年的九尾妖狐，九尾齐出可崩山裂地，更能迷惑神魂。",
+    "loot": [
+      {
+        "item_id": "nine_tail_fur",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1100,
+    "skills": [
+      {
+        "name": "九尾天袭",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 1.9,
+        "description": "九尾狐九尾齐出，天地变色！"
+      },
+      {
+        "name": "幻术",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.25,
+        "damage_multiplier": 1.0,
+        "description": "九尾狐施展幻术，扰乱你的心神！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "妖狐护体",
+        "buff_type": "defense_up",
+        "buff_amount": 12,
+        "buff_turns": 3,
+        "chance": 0.4,
+        "description": "九尾狐九尾环绕，妖气护体！"
+      },
+      "focus_player_hp_ratio": 0.48
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "special_skill": {
+        "name": "九尾幻术",
+        "chance": 0.2,
+        "damage_multiplier": 1.8,
+        "effect": "stun",
+        "turns": 1,
+        "cooldown": 4,
+        "description": "九尾狐展开幻术，令你神魂颠倒！"
+      }
+    }
+  },
+  {
+    "id": "thunder_lord",
+    "name": "雷泽之主",
+    "element": "metal",
+    "level": 8,
+    "hp": 520,
+    "attack": 56,
+    "defense": 13,
+    "description": "雷泽深处孕育的雷电精灵，掌控雷霆，是雷属性修士梦寐以求的对手。",
+    "loot": [
+      {
+        "item_id": "thunder_pearl",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1150,
+    "skills": [
+      {
+        "name": "九霄神雷",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 2.0,
+        "description": "雷泽之主引动九霄神雷，毁天灭地！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "雷神之怒",
+        "buff_type": "defense_up",
+        "buff_amount": 10,
+        "buff_turns": 3,
+        "chance": 0.35,
+        "description": "雷泽之主周身雷蛇乱舞，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "special_skill": {
+        "name": "雷霆万钧",
+        "chance": 0.25,
+        "damage_multiplier": 2.5,
+        "cooldown": 3,
+        "description": "雷泽之主引动天雷，万钧雷霆轰然落下！"
+      }
+    }
+  },
+  {
+    "id": "sword_saint_ghost",
+    "name": "剑圣亡魂",
+    "element": "metal",
+    "level": 8,
+    "hp": 470,
+    "attack": 60,
+    "defense": 10,
+    "description": "古剑冢中陨落的剑圣残魂，剑道修为通天，一剑可断山河。",
+    "loot": [
+      {
+        "item_id": "ancient_beast_bone",
+        "chance": 1.0
+      },
+      {
+        "item_id": "iron_sword",
+        "chance": 0.5
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1200,
+    "skills": [
+      {
+        "name": "剑圣一剑",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 2.1,
+        "description": "剑圣亡魂斩出至高一剑，剑意冲霄！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "buff_hp_ratio": 0.5,
+      "buff_skill": {
+        "name": "剑意护体",
+        "buff_type": "defense_up",
+        "buff_amount": 11,
+        "buff_turns": 3,
+        "chance": 0.4,
+        "description": "剑圣亡魂周身剑意环绕，防御提升！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "special_skill": {
+        "name": "剑圣一剑",
+        "chance": 0.2,
+        "damage_multiplier": 3.0,
+        "cooldown": 4,
+        "description": "剑圣亡魂凝聚毕生剑意，一剑西来！"
+      }
+    }
+  },
+  {
+    "id": "demon_king",
+    "name": "魔王",
+    "alignment": "evil",
+    "element": "fire",
+    "cultivation_path": "xie",
+    "level": 9,
+    "hp": 620,
+    "attack": 64,
+    "defense": 14,
+    "description": "统御一方魔道的王者，魔焰滔天，正道修士见之必诛。",
+    "loot": [
+      {
+        "item_id": "demon_king_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "evil_crystal",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1350,
+    "skills": [
+      {
+        "name": "魔王降世",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 2.0,
+        "description": "魔王展开魔域，魔焰吞噬一切！"
+      },
+      {
+        "name": "万魔掌",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.6,
+        "description": "魔王拍出万魔掌，遮天蔽日！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "heal_hp_ratio": 0.3,
+      "heal_skill": {
+        "name": "魔血沸腾",
+        "heal_amount": 90,
+        "chance": 0.4,
+        "description": "魔王沸腾魔血，恢复大量生命！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "nascent_soul",
+    "special": {
+      "summon": {
+        "enemy_id": "demon_disciple",
+        "name": "魔将",
+        "chance": 0.25,
+        "hp_ratio": 0.5,
+        "attack_ratio": 0.6,
+        "turns": 3
+      }
+    }
+  },
+  {
+    "id": "ice_phoenix",
+    "name": "冰凤",
+    "element": "ice",
+    "level": 8,
+    "hp": 500,
+    "attack": 54,
+    "defense": 13,
+    "description": "寒冰原深处的凤凰异种，通体由玄冰构成，吐息可冻结万物。",
+    "loot": [
+      {
+        "item_id": "ice_phoenix_feather",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1120,
+    "skills": [
+      {
+        "name": "玄冰吐息",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 1.9,
+        "description": "冰凤吐息，玄冰之气冻结天地！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "冰甲护体",
+        "buff_type": "defense_up",
+        "buff_amount": 12,
+        "buff_turns": 3,
+        "chance": 0.4,
+        "description": "冰凤周身凝结冰甲，防御大增！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "special_skill": {
+        "name": "冰魄寒息",
+        "chance": 0.25,
+        "damage_multiplier": 2.0,
+        "effect": "player_attack_down",
+        "amount": 15,
+        "turns": 2,
+        "cooldown": 3,
+        "description": "冰凤吐出冰魄寒息，你的动作变得迟缓！"
+      }
+    }
+  },
+  {
+    "id": "earth_titan",
+    "name": "大地泰坦",
+    "element": "earth",
+    "level": 8,
+    "hp": 600,
+    "attack": 50,
+    "defense": 18,
+    "description": "由大地精魄凝聚而成的远古巨人，防御力惊人，攻击力亦不可小觑。",
+    "loot": [
+      {
+        "item_id": "ancient_beast_bone",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1100,
+    "skills": [
+      {
+        "name": "大地践踏",
+        "trigger_hp_ratio": 0.8,
+        "chance": 0.4,
+        "damage_multiplier": 1.8,
+        "description": "大地泰坦猛踏地面，地动山摇！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "buff_hp_ratio": 0.55,
+      "buff_skill": {
+        "name": "大地守护",
+        "buff_type": "defense_up",
+        "buff_amount": 14,
+        "buff_turns": 4,
+        "chance": 0.4,
+        "description": "大地泰坦汲取大地之力，防御暴涨！"
+      },
+      "focus_player_hp_ratio": 0.45
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "summon": {
+        "enemy_id": "stone_golem",
+        "name": "岩石傀儡",
+        "chance": 0.3,
+        "hp_ratio": 0.5,
+        "attack_ratio": 0.5,
+        "turns": 4
+      }
+    }
+  },
+  {
+    "id": "blood_sovereign",
+    "name": "血尊",
+    "alignment": "evil",
+    "element": "water",
+    "cultivation_path": "xie",
+    "level": 9,
+    "hp": 580,
+    "attack": 59,
+    "defense": 13,
+    "description": "血魔尊者之下的血道强者，血海神通已臻化境，极难对付。",
+    "loot": [
+      {
+        "item_id": "blood_demon_heart",
+        "chance": 0.8
+      },
+      {
+        "item_id": "evil_crystal",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1250,
+    "skills": [
+      {
+        "name": "血河落日",
+        "trigger_hp_ratio": 0.7,
+        "chance": 0.4,
+        "damage_multiplier": 1.9,
+        "description": "血尊引动血河，落日般轰向敌人！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "血池重生",
+        "heal_amount": 85,
+        "chance": 0.4,
+        "description": "血尊沉入血池，恢复大量生命！"
+      },
+      "focus_player_hp_ratio": 0.5
+    },
+    "realm_id": "nascent_soul",
+    "special": {
+      "special_skill": {
+        "name": "血海滔天",
+        "chance": 0.25,
+        "damage_multiplier": 2.5,
+        "cooldown": 3,
+        "description": "血尊挥袖掀起滔天血海，铺天盖地涌来！"
+      }
+    }
+  },
+  {
+    "id": "wood_ancient",
+    "name": "建木守护者",
+    "element": "wood",
+    "level": 8,
+    "hp": 560,
+    "attack": 48,
+    "defense": 16,
+    "description": "上古建木残骸孕育的树人，生命力顽强，能操控万木。",
+    "loot": [
+      {
+        "item_id": "century_herb",
+        "chance": 1.0
+      },
+      {
+        "item_id": "beast_core",
+        "chance": 1.0
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 1.0
+      }
+    ],
+    "exp": 1080,
+    "skills": [
+      {
+        "name": "万木成兵",
+        "trigger_hp_ratio": 0.8,
+        "chance": 0.4,
+        "damage_multiplier": 1.7,
+        "description": "建木守护者召唤无数藤蔓木刺攻击！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.0,
+      "flee_chance": 0.0,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "根系汲取",
+        "heal_amount": 70,
+        "chance": 0.45,
+        "description": "建木守护者扎根大地，恢复生命！"
+      },
+      "focus_player_hp_ratio": 0.45
+    },
+    "realm_id": "golden_core_peak",
+    "special": {
+      "summon": {
+        "enemy_id": "ghost_vine",
+        "name": "枯木守卫",
+        "chance": 0.3,
+        "hp_ratio": 0.4,
+        "attack_ratio": 0.4,
+        "turns": 3
+      }
+    }
+  },
+  {
+    "id": "golden_core_rogue",
+    "name": "金丹散修",
+    "alignment": "neutral",
+    "element": "earth",
+    "level": 7,
+    "hp": 350,
+    "attack": 40,
+    "defense": 9,
+    "description": "成功结成金丹的散修，虽无宗门资源，但实战经验丰富，不可小觑。",
+    "loot": [
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.9
+      },
+      {
+        "item_id": "golden_core_pill",
+        "chance": 0.1
+      },
+      {
+        "item_id": "jade_pendant",
+        "chance": 0.1
+      }
+    ],
+    "exp": 600,
+    "skills": [
+      {
+        "name": "金丹一击",
+        "trigger_hp_ratio": 0.8,
+        "chance": 0.4,
+        "damage_multiplier": 1.8,
+        "description": "金丹散修调动金丹之力，发出强力一击！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.08,
+      "flee_chance": 0.1,
+      "heal_hp_ratio": 0.35,
+      "heal_skill": {
+        "name": "金丹回元",
+        "heal_amount": 50,
+        "chance": 0.4,
+        "description": "金丹散修运转金丹，恢复部分生命！"
+      },
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "golden_core_mid"
+  },
+  {
+    "id": "thunder_wolf",
+    "name": "紫电狼",
+    "element": "thunder",
+    "level": 5,
+    "hp": 220,
+    "attack": 28,
+    "defense": 8,
+    "description": "吞吐雷云而生的变异妖兽，周身缠绕紫色电光，雷灵根修士可与之共鸣。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.8
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.4
+      }
+    ],
+    "exp": 200,
+    "skills": [
+      {
+        "name": "雷击",
+        "trigger_hp_ratio": 1.0,
+        "chance": 0.3,
+        "damage_multiplier": 1.6,
+        "description": "紫电狼引动雷霆劈向敌人！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.12,
+      "flee_chance": 0.2,
+      "focus_player_hp_ratio": 0.35
+    },
+    "realm_id": "foundation_mid"
+  },
+  {
+    "id": "ice_spirit",
+    "name": "玄冰精魄",
+    "element": "ice",
+    "level": 6,
+    "hp": 180,
+    "attack": 24,
+    "defense": 12,
+    "description": "极寒之地孕育的灵体，核心是一团永不消融的玄冰。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.7
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.5
+      }
+    ],
+    "exp": 220,
+    "skills": [
+      {
+        "name": "冰锥",
+        "trigger_hp_ratio": 0.6,
+        "chance": 0.4,
+        "damage_multiplier": 1.8,
+        "description": "玄冰精魄凝聚冰锥激射而出！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.1,
+      "flee_chance": 0.15,
+      "focus_player_hp_ratio": 0.3
+    },
+    "realm_id": "foundation_peak"
+  },
+  {
+    "id": "wind_roc",
+    "name": "疾风雕",
+    "element": "wind",
+    "level": 7,
+    "hp": 260,
+    "attack": 32,
+    "defense": 10,
+    "description": "翱翔于罡风之上的猛禽，双翼一振便可掀起狂风。",
+    "loot": [
+      {
+        "item_id": "demon_core",
+        "chance": 0.75
+      },
+      {
+        "item_id": "spirit_stone",
+        "chance": 0.45
+      }
+    ],
+    "exp": 260,
+    "skills": [
+      {
+        "name": "狂风斩",
+        "trigger_hp_ratio": 0.5,
+        "chance": 0.35,
+        "damage_multiplier": 2.0,
+        "description": "疾风雕挥动羽翼，罡风如刀切割战场！"
+      }
+    ],
+    "ai": {
+      "flee_hp_ratio": 0.1,
+      "flee_chance": 0.2,
+      "focus_player_hp_ratio": 0.4
+    },
+    "realm_id": "golden_core_mid"
+  }
+]

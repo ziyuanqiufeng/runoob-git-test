@@ -1,0 +1,40 @@
+{
+  "positive_template": "A {gender_desc} Chinese fantasy cultivator, {path_desc}, {root_desc}, {realm_desc}, {style}, portrait, detailed face, traditional xianxia robe, serene expression, soft lighting",
+  "style": "ink wash painting style, ethereal atmosphere",
+  "negative_template": "low quality, blurry, deformed hands, extra fingers, modern clothes, western style, cartoon, 3d render",
+  "negative_format": " (negative prompt: {negative})",
+  "root_template": "{elements} spiritual roots",
+  "no_root_desc": "no spiritual roots",
+  "gender_desc": {
+    "male": "handsome young man",
+    "female": "beautiful young woman"
+  },
+  "path_desc": {
+    "fa": "spell cultivator",
+    "ti": "body cultivator",
+    "jian": "sword cultivator",
+    "xie": "demonic cultivator",
+    "dan": "alchemy cultivator",
+    "qi": "artifact cultivator",
+    "shou": "beast cultivator",
+    "hun": "soul cultivator",
+    "zhen": "formation cultivator",
+    "fu": "talisman cultivator"
+  },
+  "realm_desc": {
+    "qi_refining": "Qi Refining",
+    "foundation": "Foundation Establishment",
+    "golden_core": "Golden Core",
+    "nascent_soul": "Nascent Soul"
+  },
+  "element_names": {
+    "metal": "metal",
+    "wood": "wood",
+    "water": "water",
+    "fire": "fire",
+    "earth": "earth",
+    "thunder": "thunder",
+    "ice": "ice",
+    "wind": "wind"
+  }
+}

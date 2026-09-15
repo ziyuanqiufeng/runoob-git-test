@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "id": "spirit_spring",
+      "name": "灵泉涌泉",
+      "description": "一汪灵泉自石隙涌出，灵气氤氲，触之温润。",
+      "choices": [
+        {"text": "畅饮灵泉", "effect": {"qi": 25}, "desc": "恢复 25 点灵气值"},
+        {"text": "采撷灵水", "effect": {"coins": 15}, "desc": "获得 15 秘境币"}
+      ]
+    },
+    {
+      "id": "ancient_altar",
+      "name": "上古祭坛",
+      "description": "残破祭坛上符文未灭，似在等待献祭。",
+      "choices": [
+        {"text": "献祭灵石", "effect": {"coins": -20, "draw_card": true}, "desc": "耗 20 币，抽取一张增益卡"},
+        {"text": "静默离开", "effect": {}, "desc": "毫无所得，安然离去"}
+      ]
+    },
+    {
+      "id": "lost_cultivator",
+      "name": "迷途修士",
+      "description": "一名重伤修士蜷缩角落，气息奄奄。",
+      "choices": [
+        {"text": "出手相救", "effect": {"qi": 15, "karma": 1}, "desc": "恢复灵气，积累善缘"},
+        {"text": "夺其遗物", "effect": {"coins": 20, "karma": -1}, "desc": "得 20 币，沾染因果"}
+      ]
+    },
+    {
+      "id": "fallen_relic",
+      "name": "残破法宝",
+      "description": "半截断剑插于石中，隐隐有灵性流转。",
+      "choices": [
+        {"text": "参悟剑意", "effect": {"draw_card": true}, "desc": "领悟一张增益卡"},
+        {"text": "熔炼取材", "effect": {"coins": 25}, "desc": "得 25 秘境币"}
+      ]
+    },
+    {
+      "id": "mist_phantom",
+      "name": "迷雾幻影",
+      "description": "雾中幻影重重，似真似假，扰人心神。",
+      "choices": [
+        {"text": "以神识破之", "effect": {"qi": -10, "coins": 10}, "desc": "耗 10 灵气，得 10 币"},
+        {"text": "闭目不为所动", "effect": {"qi": 5}, "desc": "静心恢复 5 灵气"}
+      ]
+    }
+  ]
+}

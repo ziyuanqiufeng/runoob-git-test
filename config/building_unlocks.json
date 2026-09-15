@@ -1,0 +1,155 @@
+{
+  "alchemy_pavilion": {
+    "description": "炼丹阁，可购买丹方、炼制丹药。升级后提升成功率并解锁高阶丹方。",
+    "levels": [
+      {
+        "level": 1,
+        "required_realm_order": 1,
+        "required_reputation": 0,
+        "cost": {},
+        "effects": {
+          "success_rate_bonus": 0.0,
+          "unlock_recipes": ["health_pill_recipe", "qi_pill_recipe", "detox_pill_recipe"]
+        }
+      },
+      {
+        "level": 2,
+        "required_realm_order": 4,
+        "required_reputation": 100,
+        "cost": {
+          "spirit_stone": 500,
+          "low_herb": 20
+        },
+        "effects": {
+          "success_rate_bonus": 0.05,
+          "unlock_recipes": ["foundation_pill_recipe"]
+        }
+      },
+      {
+        "level": 3,
+        "required_realm_order": 8,
+        "required_reputation": 300,
+        "cost": {
+          "spirit_stone": 2000,
+          "century_herb": 5
+        },
+        "effects": {
+          "success_rate_bonus": 0.1,
+          "unlock_recipes": ["golden_core_pill_recipe"]
+        }
+      }
+    ]
+  },
+  "beast_park": {
+    "description": "万兽园，可捕捉、驯养、派遣灵兽。升级后提高捕捉率、缩短历练时间。",
+    "levels": [
+      {
+        "level": 1,
+        "required_realm_order": 1,
+        "required_reputation": 0,
+        "cost": {},
+        "effects": {
+          "capture_rate_bonus": 0.0,
+          "dispatch_time_reduction": 0.0,
+          "unlock_beast_types": ["combat"]
+        }
+      },
+      {
+        "level": 2,
+        "required_realm_order": 3,
+        "required_reputation": 80,
+        "cost": {
+          "spirit_stone": 300,
+          "demon_core": 5
+        },
+        "effects": {
+          "capture_rate_bonus": 0.1,
+          "dispatch_time_reduction": 0.2,
+          "unlock_beast_types": ["combat", "resource"]
+        }
+      },
+      {
+        "level": 3,
+        "required_realm_order": 6,
+        "required_reputation": 250,
+        "cost": {
+          "spirit_stone": 1500,
+          "demon_core": 15,
+          "beast_tendon": 5
+        },
+        "effects": {
+          "capture_rate_bonus": 0.2,
+          "dispatch_time_reduction": 0.35,
+          "unlock_beast_types": ["combat", "resource", "mount"]
+        }
+      }
+    ]
+  },
+  "arena": {
+    "description": "演武场，可切磋并领取每日奖励。升级后提升每日奖励与连胜加成。",
+    "levels": [
+      {
+        "level": 1,
+        "required_realm_order": 1,
+        "required_reputation": 0,
+        "cost": {},
+        "effects": {
+          "daily_reward_bonus": 0.0,
+          "streak_reward_bonus": 0.0
+        }
+      },
+      {
+        "level": 2,
+        "required_realm_order": 4,
+        "required_reputation": 120,
+        "cost": {
+          "spirit_stone": 400
+        },
+        "effects": {
+          "daily_reward_bonus": 0.2,
+          "streak_reward_bonus": 0.1
+        }
+      },
+      {
+        "level": 3,
+        "required_realm_order": 7,
+        "required_reputation": 280,
+        "cost": {
+          "spirit_stone": 1200
+        },
+        "effects": {
+          "daily_reward_bonus": 0.4,
+          "streak_reward_bonus": 0.2
+        }
+      }
+    ]
+  },
+  "aquatic_shop": {
+    "description": "水族商行，售卖水系灵材。升级后解锁珍稀商品并降低售价。",
+    "levels": [
+      {
+        "level": 1,
+        "required_realm_order": 1,
+        "required_reputation": 0,
+        "cost": {},
+        "effects": {
+          "price_reduction": 0.0,
+          "unlock_items": ["water_essence", "healing_pill", "spirit_stone", "pearl"]
+        }
+      },
+      {
+        "level": 2,
+        "required_realm_order": 5,
+        "required_reputation": 150,
+        "cost": {
+          "spirit_stone": 600,
+          "water_essence": 5
+        },
+        "effects": {
+          "price_reduction": 0.1,
+          "unlock_items": ["water_essence", "healing_pill", "spirit_stone", "pearl", "ice_heart"]
+        }
+      }
+    ]
+  }
+}

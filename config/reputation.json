@@ -1,0 +1,34 @@
+[
+  {
+    "id": "qingyun_reputation",
+    "name": "青云声望",
+    "description": "在青云山一带的声望。",
+    "location": "qingyun",
+    "max": 1000,
+    "levels": [
+      {"threshold": 0, "title": "无名小卒"},
+      {"threshold": 100, "title": "略有耳闻"},
+      {"threshold": 300, "title": "青云义士"},
+      {"threshold": 600, "title": "青云名士"},
+      {"threshold": 900, "title": "青云传奇"}
+    ],
+    "shop_discount": 0.001,
+    "unlock_npcs": [{"threshold": 300, "npc_id": "hidden_expert"}]
+  },
+  {
+    "id": "demonic_reputation",
+    "name": "魔道威慑",
+    "description": "在魔道势力中的威慑力。",
+    "location": "jiuyuan_senlin",
+    "max": 1000,
+    "levels": [
+      {"threshold": 0, "title": "正道走狗"},
+      {"threshold": 100, "title": "邪修同路人"},
+      {"threshold": 300, "title": "魔道新锐"},
+      {"threshold": 600, "title": "魔道巨擘"},
+      {"threshold": 900, "title": "一代魔尊"}
+    ],
+    "shop_discount": 0.0,
+    "unlock_npcs": [{"threshold": 300, "npc_id": "xie_master"}]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "gift_to_friend",
+    "name": "结交友好宗门",
+    "target_relation": "friendly",
+    "required_rank": "inner",
+    "cost_contribution": 300,
+    "duration_months": 6,
+    "success_rate": 0.8,
+    "relation_delta": 15,
+    "reward_contribution": 100,
+    "reward_loyalty": 5,
+    "description": "携带宗门礼品出访友好宗门，进一步巩固双方关系。"
+  },
+  {
+    "id": "sabotage_enemy",
+    "name": "破坏敌对宗门",
+    "target_relation": "hostile",
+    "required_rank": "inner",
+    "cost_contribution": 400,
+    "duration_months": 8,
+    "success_rate": 0.6,
+    "relation_delta": -20,
+    "reward_contribution": 150,
+    "reward_loyalty": 5,
+    "description": "潜入敌对宗门领地，破坏其资源点，削弱对方实力。"
+  },
+  {
+    "id": "mediate_neutral",
+    "name": "游说中立宗门",
+    "target_relation": "neutral",
+    "required_rank": "outer",
+    "cost_contribution": 200,
+    "duration_months": 6,
+    "success_rate": 0.5,
+    "relation_delta": 10,
+    "reward_contribution": 80,
+    "reward_loyalty": 3,
+    "description": "派遣使者游说中立宗门，争取其对己方的好感。"
+  }
+]

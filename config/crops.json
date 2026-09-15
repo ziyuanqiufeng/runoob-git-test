@@ -1,0 +1,38 @@
+[
+  {
+    "id": "century_herb_crop",
+    "name": "百年灵草",
+    "description": "修仙界最基础的灵草，生长周期短。",
+    "seed_item_id": "century_herb_seed",
+    "yield_item_id": "century_herb",
+    "growth_months": 3,
+    "yield_min": 1,
+    "yield_max": 3,
+    "seasons": ["spring", "summer", "autumn"],
+    "requirements": {"min_realm_order": 1, "building": "herb_garden"}
+  },
+  {
+    "id": "spirit_fruit_crop",
+    "name": "灵果树",
+    "description": "结出蕴含灵气的果实，可直接提升少量修为。",
+    "seed_item_id": "spirit_fruit_seed",
+    "yield_item_id": "spirit_fruit",
+    "growth_months": 6,
+    "yield_min": 1,
+    "yield_max": 2,
+    "seasons": ["summer", "autumn"],
+    "requirements": {"min_realm_order": 3, "building": "herb_garden"}
+  },
+  {
+    "id": "ice_lotus_crop",
+    "name": "冰魄雪莲",
+    "description": "极寒灵植，用于炼制高级丹药。",
+    "seed_item_id": "ice_lotus_seed",
+    "yield_item_id": "ice_lotus",
+    "growth_months": 12,
+    "yield_min": 1,
+    "yield_max": 1,
+    "seasons": ["winter"],
+    "requirements": {"min_realm_order": 5, "building": "herb_garden"}
+  }
+]

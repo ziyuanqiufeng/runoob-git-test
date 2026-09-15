@@ -1,0 +1,65 @@
+{
+  "events": [
+    {
+      "id": "member_betrayal",
+      "name": "成员叛逃",
+      "desc": "一名忠诚低下的成员卷走部分家财出走。",
+      "trigger_condition": { "loyalty_below": 25, "month_min": 6 },
+      "weight": 15,
+      "choices": [
+        {
+          "text": "追杀叛徒",
+          "effect": { "reputation": -10, "resources": { "spirit_stone": "partial_recovery" }, "loyalty_all": 5 }
+        },
+        {
+          "text": "放任离去",
+          "effect": { "morale": -5, "karma": 5 }
+        }
+      ]
+    },
+    {
+      "id": "genius_awakening",
+      "name": "天才觉醒",
+      "desc": "族中一名晚辈资质顿悟，潜力大增。",
+      "trigger_condition": { "month_min": 3 },
+      "weight": 20,
+      "choices": [
+        { "text": "倾力培养", "effect": { "member_growth": 1 } },
+        { "text": "顺其自然", "effect": {} }
+      ]
+    },
+    {
+      "id": "external_invasion",
+      "name": "外敌入侵",
+      "desc": "敌对势力兵临族地，需抉择守御之策。",
+      "trigger_condition": { "month_min": 8 },
+      "weight": 15,
+      "choices": [
+        { "text": "率众御敌", "effect": { "reputation": 30, "resources": { "spirit_stone": -200 } } },
+        { "text": "求和纳贡", "effect": { "reputation": -15, "resources": { "spirit_stone": -500 } } }
+      ]
+    },
+    {
+      "id": "marriage_proposal",
+      "name": "联姻提议",
+      "desc": "他族遣使提亲，结为姻亲可壮大族势。",
+      "trigger_condition": { "month_min": 5 },
+      "weight": 15,
+      "choices": [
+        { "text": "接受联姻", "effect": { "recruit": 1, "reputation": 20 } },
+        { "text": "婉拒善意", "effect": { "reputation": -5 } }
+      ]
+    },
+    {
+      "id": "internal_power_struggle",
+      "name": "内部争权",
+      "desc": "族中元老对家主之位心生异志。",
+      "trigger_condition": { "month_min": 10, "members_min": 6 },
+      "weight": 15,
+      "choices": [
+        { "text": "铁腕镇压", "effect": { "loyalty_all": -10, "reputation": 10 } },
+        { "text": "妥协分权", "effect": { "loyalty_all": 10, "reputation": -10 } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ancient_sword_tomb",
+    "name": "古剑冢",
+    "description": "一处埋葬上古剑修的遗迹，传闻藏有残缺剑诀。",
+    "location": "jianzhong",
+    "min_realm_order": 8,
+    "stages": [
+      {"type": "combat", "enemy_id": "ghost_swordsman", "count": 2},
+      {"type": "choice", "text": "剑冢深处有三柄古剑，你只能取走一柄。", "options": [{"text": "取寒铁剑", "reward_item": "iron_sword"}, {"text": "取灵木剑", "reward_item": "spirit_wood_sword"}, {"text": "放弃", "reward_qi": 100}]},
+      {"type": "reward", "item_id": "ancient_scroll", "qi": 200}
+    ],
+    "cooldown_months": 24
+  },
+  {
+    "id": "alchemy_cave",
+    "name": "丹鼎洞府",
+    "description": "上古丹修遗留的洞府，丹香四溢。",
+    "location": "huoyan_gu",
+    "min_realm_order": 6,
+    "stages": [
+      {"type": "puzzle", "text": "丹炉上有五行符文，需要按相生顺序激活。", "answer": "metal,wood,water,fire,earth", "reward_item": "marrow_pill"},
+      {"type": "reward", "item_id": "dan_recipe", "qi": 150}
+    ],
+    "cooldown_months": 18
+  }
+]

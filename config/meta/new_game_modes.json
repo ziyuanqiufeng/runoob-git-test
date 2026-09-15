@@ -1,0 +1,56 @@
+{
+  "_comment": "F-07 多周目特殊模式：新游戏开局时选择，effect 在 Player 创建时由 MetaManager.apply_to_player 应用。",
+  "modes": [
+    {
+      "id": "standard",
+      "name": "正统求道",
+      "desc": "标准开局，无额外限制，最纯粹的修仙之路。",
+      "require": {},
+      "effects": {}
+    },
+    {
+      "id": "seize_rebirth",
+      "name": "夺舍重生",
+      "desc": "前世记忆觉醒，保留一道天赋，但业障缠身（需前世已达元婴）。",
+      "require": {"reincarnation_count_min": 1},
+      "effects": {
+        "talent_bonus": 0.1,
+        "start_items": ["spirit_stone"],
+        "karma": -20
+      }
+    },
+    {
+      "id": "heaven_cycle",
+      "name": "天道轮回",
+      "desc": "飞升者重入轮回，恩赐与诅咒并存：悟性大增，然天地更险（需已通关一次）。",
+      "require": {"has_won": true},
+      "effects": {
+        "exp_mult": 1.15,
+        "enemy_strength": 1.2,
+        "start_items": ["spirit_stone"]
+      }
+    },
+    {
+      "id": "mortal_challenge",
+      "name": "凡人挑战",
+      "desc": "天生无灵根，无法感应天地灵气，仅可走体修或符修之路。",
+      "require": {},
+      "effects": {
+        "no_spiritual_roots": true,
+        "allowed_paths": ["ti", "fu"],
+        "start_bonus_max_health": 30
+      }
+    },
+    {
+      "id": "demonic_lone",
+      "name": "魔道独行",
+      "desc": "心向魔道，正道宗门皆视你为敌，然杀伐之力更盛。",
+      "require": {},
+      "effects": {
+        "karma": 30,
+        "hostile_factions": ["righteous"],
+        "start_bonus_attack": 5
+      }
+    }
+  ]
+}

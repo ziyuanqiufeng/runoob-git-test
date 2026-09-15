@@ -1,0 +1,183 @@
+{
+  "inheritance_rules": {
+    "base_points_formula": {
+      "description": "基础继承点 = 前世境界分 × 0.5 + 转世次数 × 2 + 名望分 × 0.1",
+      "realm_score_multiplier": 0.5,
+      "per_reincarnation_bonus": 2,
+      "fame_score_multiplier": 0.1
+    },
+    "karma_thresholds": {
+      "benevolent": -50,
+      "neutral": 50,
+      "evil": 200
+    },
+    "karma_effects": {
+      "benevolent": {
+        "description": "功德深厚，转世天赋更佳",
+        "bonus_points": 3,
+        "extra_talent_chance": 0.3,
+        "starting_luck_bonus": 2
+      },
+      "neutral": {
+        "description": "因果平平，正常转世",
+        "bonus_points": 0,
+        "extra_talent_chance": 0.0,
+        "starting_luck_bonus": 0
+      },
+      "evil": {
+        "description": "业力缠身，转世多有坎坷",
+        "bonus_points": -3,
+        "extra_talent_chance": 0.0,
+        "starting_luck_bonus": -2,
+        "random_debuff_chance": 0.4
+      }
+    }
+  },
+  "inheritance_options": [
+    {
+      "id": "retain_spiritual_root",
+      "name": "灵根传承",
+      "description": "保留前世的灵根属性（纯度会略微下降）。",
+      "cost": 4,
+      "category": "talent",
+      "max_times_per_life": 1,
+      "effects": {
+        "retain_roots": true,
+        "purity_decay": 0.1
+      }
+    },
+    {
+      "id": "retain_talent",
+      "name": "天赋觉醒",
+      "description": "觉醒一项前世领悟的稀有天赋。",
+      "cost": 3,
+      "category": "talent",
+      "max_times_per_life": 2,
+      "effects": {
+        "grant_random_talent": true
+      }
+    },
+    {
+      "id": "retain_memory",
+      "name": "一缕记忆",
+      "description": "保留部分修炼感悟，初始悟性 +2。",
+      "cost": 2,
+      "category": "attribute",
+      "max_times_per_life": 1,
+      "effects": {
+        "wisdom_bonus": 2
+      }
+    },
+    {
+      "id": "retain_fortune",
+      "name": "福缘深厚",
+      "description": "保留前世机缘，初始机缘 +2。",
+      "cost": 2,
+      "category": "attribute",
+      "max_times_per_life": 1,
+      "effects": {
+        "luck_bonus": 2
+      }
+    },
+    {
+      "id": "retain_physique",
+      "name": "根骨不凡",
+      "description": "保留前世锤炼的根骨，初始根骨 +2。",
+      "cost": 2,
+      "category": "attribute",
+      "max_times_per_life": 1,
+      "effects": {
+        "constitution_bonus": 2
+      }
+    },
+    {
+      "id": "retain_item",
+      "name": "遗物随身",
+      "description": "携带一件前世最珍视的物品转世。",
+      "cost": 5,
+      "category": "item",
+      "max_times_per_life": 1,
+      "effects": {
+        "carry_item_count": 1
+      }
+    },
+    {
+      "id": "retain_relationship",
+      "name": "宿世之缘",
+      "description": "保留与一位前世重要 NPC 的关系记忆，转世后初见好感 +3。",
+      "cost": 3,
+      "category": "relationship",
+      "max_times_per_life": 1,
+      "effects": {
+        "relationship_npc_count": 1,
+        "intimacy_bonus": 3
+      }
+    },
+    {
+      "id": "karmic_cleansing",
+      "name": "洗尽铅华",
+      "description": "以继承点洗涤业力，转世时业力 -30。",
+      "cost": 2,
+      "category": "karma",
+      "max_times_per_life": 3,
+      "effects": {
+        "karma_reduction": 30
+      }
+    }
+  ],
+  "random_talents": [
+    {
+      "id": "talent_fast_cultivator",
+      "name": "天纵之资",
+      "description": "修炼速度 +10%",
+      "effects": {"cultivation_speed_bonus": 0.1}
+    },
+    {
+      "id": "talent_battle_instinct",
+      "name": "战意通明",
+      "description": "战斗暴击率 +5%",
+      "effects": {"crit_chance_bonus": 0.05}
+    },
+    {
+      "id": "talent_spirit_affinity",
+      "name": "灵气亲和",
+      "description": "突破成功率 +5%",
+      "effects": {"breakthrough_chance_bonus": 0.05}
+    },
+    {
+      "id": "talent_fortune_favored",
+      "name": "气运之子",
+      "description": "奇遇触发概率 +10%",
+      "effects": {"encounter_chance_bonus": 0.1}
+    },
+    {
+      "id": "talent_iron_will",
+      "name": "道心磐石",
+      "description": "心魔值增长速度 -20%",
+      "effects": {"heart_demon_growth_reduction": 0.2}
+    }
+  ],
+  "negative_reincarnation_events": [
+    {
+      "id": "crippled_root",
+      "name": "灵根残缺",
+      "description": "转世时灵根纯度大幅降低",
+      "weight": 1,
+      "effects": {"root_purity_reduction": 0.3}
+    },
+    {
+      "id": "poor_background",
+      "name": "出身贫寒",
+      "description": "转世后初始灵石为 0",
+      "weight": 1,
+      "effects": {"starting_spirit_stone": 0}
+    },
+    {
+      "id": "karmic_illness",
+      "name": "胎中弱症",
+      "description": "转世后初始健康上限 -20",
+      "weight": 1,
+      "effects": {"max_health_penalty": 20}
+    }
+  ]
+}

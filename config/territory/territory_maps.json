@@ -1,0 +1,53 @@
+{
+  "_comment": "领地建设（F-02）配置：tiers 为领地品阶与升级参数；maps 为可占领的野外领地（基础品阶均为灵脉）。",
+  "tiers": [
+    {
+      "id": "spirit_vein",
+      "name": "灵脉",
+      "grid": [4, 4],
+      "defense_base": 0.10,
+      "max_energy": 60,
+      "required_realm_order": 18
+    },
+    {
+      "id": "blessed_land",
+      "name": "福地",
+      "grid": [6, 6],
+      "defense_base": 0.16,
+      "max_energy": 120,
+      "upgrade_cost": {"spirit_stone": 20000},
+      "required_realm_order": 18
+    },
+    {
+      "id": "cave_heaven",
+      "name": "洞天",
+      "grid": [8, 8],
+      "defense_base": 0.22,
+      "max_energy": 220,
+      "upgrade_cost": {"spirit_stone": 50000},
+      "required_realm_order": 18
+    }
+  ],
+  "maps": [
+    {
+      "id": "qingyun_lingmai",
+      "name": "青云灵脉",
+      "tier": "spirit_vein",
+      "location_id": "qingyun",
+      "required_realm_order": 18,
+      "claim_cost": {"spirit_stone": 8000},
+      "guard_enemy_id": "beast_tiger",
+      "desc": "云雾缭绕的灵气汇聚之地，可筑基立业、驯养灵兽。"
+    },
+    {
+      "id": "bingyuan_lingmai",
+      "name": "冰原灵脉",
+      "tier": "spirit_vein",
+      "location_id": "icefield",
+      "required_realm_order": 18,
+      "claim_cost": {"spirit_stone": 8000},
+      "guard_enemy_id": "snow_wolf",
+      "desc": "极寒之地的寒属性灵脉，宜建坎水阵眼，产出冰系灵材。"
+    }
+  ]
+}

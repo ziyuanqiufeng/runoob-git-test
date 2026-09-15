@@ -1,0 +1,66 @@
+[
+  {
+    "id": "demonic_invasion",
+    "name": "魔道入侵",
+    "description": "魔道修士在青云山附近出没，正道弟子纷纷前往支援。",
+    "trigger": {"type": "random", "chance": 0.03, "min_year": 2, "cooldown_years": 3},
+    "conditions": [{"type": "camp", "evil_value": ">30"}],
+    "effects": [
+      {"type": "spawn_enemy", "enemy_id": "evil_cultivator", "location": "qingyun", "count": 1, "is_boss": false},
+      {"type": "change_npc_location", "npc_id": "law_enforcer", "location": "qingyun"},
+      {"type": "add_reputation", "rep_id": "demonic_reputation", "value": 5}
+    ],
+    "duration_months": 3,
+    "announcement": "魔道蠢蠢欲动，青云山附近出现魔修踪迹！"
+  },
+  {
+    "id": "sword_tomb_vision",
+    "name": "剑冢异象",
+    "description": "剑冢上空剑气冲霄，剑修相关物品价格大涨。",
+    "trigger": {"type": "random", "chance": 0.02, "min_year": 5},
+    "conditions": [],
+    "effects": [
+      {"type": "modify_price_multiplier", "location": "jianzhong", "buy_mult": 1.2, "sell_mult": 1.2},
+      {"type": "add_reputation", "rep_id": "jian_reputation", "value": 3}
+    ],
+    "duration_months": 4,
+    "announcement": "剑冢上空出现异象，传闻有上古剑意现世。"
+  },
+  {
+    "id": "spirit_tide",
+    "name": "灵气潮汐",
+    "description": "全大陆灵气浓郁，各地修炼效率提升。",
+    "trigger": {"type": "scheduled", "month": 6, "day": 1},
+    "conditions": [],
+    "effects": [
+      {"type": "modify_price_multiplier", "location": "qingyun", "buy_mult": 0.9, "sell_mult": 1.1}
+    ],
+    "duration_months": 2,
+    "announcement": "灵气潮汐涌动，全大陆灵气变得浓郁！"
+  },
+  {
+    "id": "beast_wave",
+    "name": "兽潮来袭",
+    "description": "万妖森林妖兽暴动，周边城镇发布悬赏。",
+    "trigger": {"type": "random", "chance": 0.025, "min_year": 3, "cooldown_years": 2},
+    "conditions": [{"type": "year", "value": ">=3"}],
+    "effects": [
+      {"type": "spawn_enemy", "enemy_id": "wolf", "location": "wanyao", "count": 3, "is_boss": false},
+      {"type": "change_npc_location", "npc_id": "beast_keeper", "location": "wanyao"}
+    ],
+    "duration_months": 3,
+    "announcement": "万妖森林妖兽暴动，附近村落请求修士支援！"
+  },
+  {
+    "id": "alchemy_boom",
+    "name": "丹道盛会",
+    "description": "火焰谷举办丹道大会，丹药价格下降，药材需求上升。",
+    "trigger": {"type": "scheduled", "month": 4, "day": 15},
+    "conditions": [],
+    "effects": [
+      {"type": "modify_price_multiplier", "location": "huoyan_gu", "buy_mult": 0.85, "sell_mult": 1.15}
+    ],
+    "duration_months": 2,
+    "announcement": "火焰谷丹道盛会开幕，丹药与药材交易火热！"
+  }
+]

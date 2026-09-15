@@ -1,0 +1,3566 @@
+[
+  {
+    "id": "sword_art",
+    "name": "御剑术",
+    "description": "以气驭剑，对敌人造成大量伤害。伤害受境界和武器加成。",
+    "base_damage": 15,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 30,
+    "cooldown": 0,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【御剑术】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "thunder_palm",
+    "name": "掌心雷",
+    "description": "引动天雷，伤害受境界影响，有几率麻痹。",
+    "base_damage": 12,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 20,
+    "cooldown": 1,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【掌心雷】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "healing_breath",
+    "name": "吐纳回元",
+    "description": "运转心法恢复自身健康，回复量受境界影响。",
+    "base_damage": 0,
+    "heal": 15,
+    "heal_realm_multiplier": 5,
+    "qi_cost": 15,
+    "cooldown": 2,
+    "element": "wood",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【吐纳回元】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "vine_whip",
+    "name": "藤蔓缠绕",
+    "description": "召唤藤蔓攻击敌人并造成持续伤害。",
+    "base_damage": 10,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 18,
+    "cooldown": 1,
+    "element": "wood",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【藤蔓缠绕】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "ice_blade",
+    "name": "寒冰刃",
+    "description": "凝聚寒冰为刃，攻击凌厉。",
+    "base_damage": 14,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 22,
+    "cooldown": 1,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【寒冰刃】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "water_shield",
+    "name": "玄水盾",
+    "description": "凝聚水流形成护盾，恢复自身健康。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 20,
+    "cooldown": 2,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【玄水盾】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "fireball",
+    "name": "火球术",
+    "description": "释放火球灼烧敌人，伤害较高。",
+    "base_damage": 16,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 22,
+    "cooldown": 1,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 15,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "火球术满级有 30% 概率附加灼烧 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "flame_burst",
+    "name": "烈焰爆",
+    "description": "引爆烈焰造成大量伤害，消耗较多真气。",
+    "base_damage": 22,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 35,
+    "cooldown": 2,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【烈焰爆】满级有 30% 概率附加灼烧，每回合 8 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "earth_wall",
+    "name": "土墙术",
+    "description": "召唤土墙护体，大幅恢复健康。",
+    "base_damage": 0,
+    "heal": 25,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 20,
+    "cooldown": 2,
+    "element": "earth",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【土墙术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "stone_fist",
+    "name": "巨石拳",
+    "description": "凝聚巨石轰击敌人，威力刚猛。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 25,
+    "cooldown": 1,
+    "element": "earth",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【巨石拳】满级有 30% 概率以山岳之力震裂敌防，降低防御 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "five_elements_formation",
+    "name": "五行大阵",
+    "description": "五行灵根俱全方可施展，凝聚金木水火土之力轰击敌人，威力惊人。需五行灵根。",
+    "base_damage": 35,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 50,
+    "cooldown": 3,
+    "element": "all",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【五行大阵】满级有 30% 概率五行碾压，使敌人眩晕 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "five_elements_return",
+    "name": "五行归元",
+    "description": "五行灵根俱全方可施展，五行相生回归本元，大幅恢复健康。需五行灵根。",
+    "base_damage": 0,
+    "heal": 50,
+    "heal_realm_multiplier": 8,
+    "qi_cost": 60,
+    "cooldown": 4,
+    "element": "all",
+    "realm_id": "nascent_soul",
+    "mastery_effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 50,
+        "chance": 0.3,
+        "description": "【五行归元】满级有 30% 概率五行相生，额外获得 50 点护盾"
+      }
+    ]
+  },
+  {
+    "id": "true_qi_shield",
+    "name": "真气护体",
+    "description": "法修专属。运转真气形成护盾，恢复真气护盾值至满。需法修流派。",
+    "base_damage": 0,
+    "heal": 0,
+    "qi_cost": 25,
+    "cooldown": 3,
+    "element": "none",
+    "path_exclusive": "fa",
+    "effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 50
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 25,
+        "chance": 0.3,
+        "description": "【真气护体】满级有 30% 概率额外生成 25 点护盾"
+      }
+    ]
+  },
+  {
+    "id": "five_thunders",
+    "name": "五雷正法",
+    "description": "法修专属。引动五雷轰顶，造成大量金属性伤害。需法修流派。",
+    "base_damage": 25,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 40,
+    "cooldown": 2,
+    "element": "metal",
+    "path_exclusive": "fa",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【五雷正法】满级有 30% 概率五雷轰顶，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "ten_thousand_arts",
+    "name": "万法归宗",
+    "description": "法修专属。消耗全部真气释放毁灭一击，伤害随消耗真气提升。需法修流派。",
+    "base_damage": 30,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 60,
+    "cooldown": 4,
+    "element": "none",
+    "path_exclusive": "fa",
+    "realm_id": "nascent_soul",
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【万法归宗】满级有 30% 概率万法封尽，封印敌人技能 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "vajra_body",
+    "name": "金刚不坏",
+    "description": "体修专属。3 回合内减伤 50%，并恢复少量健康。需体修流派。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "realm_id": "golden_core_early",
+    "effects": [
+      {
+        "type": "defense_up",
+        "target": "player",
+        "ratio": 0.5,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "reflect",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【金刚不坏】满级有 30% 概率金刚反震，获得 30% 伤害反弹，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "mountain_break",
+    "name": "破山裂地",
+    "description": "体修专属。消耗全部怒气发动重击，怒气越高伤害越高。需体修流派。",
+    "base_damage": 20,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 25,
+    "cooldown": 2,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "realm_id": "foundation_mid",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【破山裂地】满级有 30% 概率裂地震荡，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "forge_body",
+    "name": "淬体诀",
+    "description": "体修专属。锻淬肉身，永久提升根骨（突破时触发）。需体修流派。",
+    "base_damage": 0,
+    "heal": 10,
+    "qi_cost": 20,
+    "cooldown": 3,
+    "element": "none",
+    "path_exclusive": "ti",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【淬体诀】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "sword_rain",
+    "name": "万剑归宗",
+    "description": "剑修专属。召唤飞剑群攻，伤害受剑意加成。需剑修流派+装备剑。",
+    "base_damage": 22,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.8,
+    "qi_cost": 35,
+    "cooldown": 2,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 12,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【万剑归宗】满级有 30% 概率剑雨成河，每回合 12 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "one_sword_break",
+    "name": "一剑破万法",
+    "description": "剑修专属。无视防御的必杀一击，消耗全部剑意。需剑修流派+装备剑。",
+    "base_damage": 40,
+    "realm_multiplier": 10,
+    "weapon_multiplier": 1.0,
+    "qi_cost": 50,
+    "cooldown": 4,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【一剑破万法】满级有 30% 概率一剑封禁敌人万法，封印技能 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "sword_qi",
+    "name": "剑气纵横",
+    "description": "剑修专属。释放剑气横扫敌人，快速积累剑意。需剑修流派+装备剑。",
+    "base_damage": 15,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 20,
+    "cooldown": 1,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【剑气纵横】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "soul_devour",
+    "name": "噬魂术",
+    "description": "邪修专属。吸取敌人真气，造成伤害并回复自身真气。需邪修流派。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 25,
+    "cooldown": 1,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【噬魂术】满级有 30% 概率噬魂封窍，封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "blood_sacrifice",
+    "name": "血祭大法",
+    "description": "邪修专属。消耗自身 20% 生命造成巨额伤害。需邪修流派。",
+    "base_damage": 35,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "mastery_effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【血祭大法】满级有 30% 概率血祭反补，攻击提升 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "ten_thousand_souls",
+    "name": "万魂幡",
+    "description": "邪修专属。召唤亡魂群攻，伤害随邪气提升。需邪修流派。",
+    "base_damage": 28,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.3,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【万魂幡】满级有 30% 概率万魂哀嚎，降低敌人攻击 30%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "nine_turn_pill",
+    "name": "九转金丹",
+    "description": "丹修专属。炼制九转金丹服下，恢复大量生命。需丹修流派。",
+    "base_damage": 0,
+    "heal": 60,
+    "heal_realm_multiplier": 10,
+    "qi_cost": 50,
+    "cooldown": 4,
+    "element": "none",
+    "path_exclusive": "dan",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 40,
+        "chance": 0.3,
+        "description": "【九转金丹】满级有 30% 概率丹气护体，额外获得 40 点护盾"
+      }
+    ]
+  },
+  {
+    "id": "medicine_cauldron",
+    "name": "药王鼎",
+    "description": "丹修专属。召唤药王鼎，3 回合内每回合恢复生命。需丹修流派。",
+    "base_damage": 0,
+    "heal": 25,
+    "heal_realm_multiplier": 5,
+    "qi_cost": 35,
+    "cooldown": 3,
+    "element": "none",
+    "path_exclusive": "dan",
+    "realm_id": "foundation_peak",
+    "effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 10,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【药王鼎】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "hundred_herbs",
+    "name": "百草回春",
+    "description": "丹修专属。引动百草之力，恢复生命并解除负面状态。需丹修流派。",
+    "base_damage": 0,
+    "heal": 40,
+    "heal_realm_multiplier": 8,
+    "qi_cost": 40,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "dan",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【百草回春】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "poison_pill",
+    "name": "毒丹术",
+    "description": "丹修专属。炼制毒丹掷向敌人，造成持续中毒伤害。需丹修流派。",
+    "base_damage": 15,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 30,
+    "cooldown": 2,
+    "element": "fire",
+    "path_exclusive": "dan",
+    "effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 12,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【毒丹术】满级有 30% 概率附加灼烧，每回合 8 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "spirit_awaken",
+    "name": "器灵觉醒",
+    "description": "器修专属。唤醒器灵，本回合装备效果加倍，攻击力大幅提升。需器修流派。",
+    "base_damage": 30,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 1.5,
+    "qi_cost": 40,
+    "cooldown": 3,
+    "element": "metal",
+    "path_exclusive": "qi",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【器灵觉醒】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "ten_thousand_weapons",
+    "name": "万器归宗",
+    "description": "器修专属。召唤所有法宝群攻，伤害随器灵提升。需器修流派。",
+    "base_damage": 25,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 1.0,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "metal",
+    "path_exclusive": "qi",
+    "realm_id": "golden_core_late",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【万器归宗】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "refine_artifact",
+    "name": "祭炼诀",
+    "description": "器修专属。祭炼当前武器，永久提升攻击力。需器修流派。",
+    "base_damage": 0,
+    "heal": 0,
+    "qi_cost": 50,
+    "cooldown": 5,
+    "element": "earth",
+    "path_exclusive": "qi",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【祭炼诀】满级有 30% 概率以山岳之力震裂敌防，降低防御 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "weapon_domain",
+    "name": "法宝领域",
+    "description": "器修专属。展开法宝领域，3 回合内每回合自动攻击敌人。需器修流派。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.8,
+    "qi_cost": 40,
+    "cooldown": 4,
+    "element": "metal",
+    "path_exclusive": "qi",
+    "realm_id": "golden_core_early",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【法宝领域】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "beast_charge",
+    "name": "万兽奔腾",
+    "description": "御兽修专属。召唤所有兽魂群攻，每只兽魂造成多次伤害。需御兽修流派。",
+    "base_damage": 20,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 40,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "shou",
+    "realm_id": "golden_core_mid",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【万兽奔腾】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "beast_king_roar",
+    "name": "兽王咆哮",
+    "description": "御兽修专属。发出兽王咆哮，削弱敌人攻击并造成伤害。需御兽修流派。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 35,
+    "cooldown": 2,
+    "element": "earth",
+    "path_exclusive": "shou",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【兽王咆哮】满级有 30% 概率以山岳之力震裂敌防，降低防御 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "human_beast_union",
+    "name": "人兽合一",
+    "description": "御兽修专属。与灵兽合体，3 回合内属性翻倍。需兽魂≥3。需御兽修流派。",
+    "base_damage": 0,
+    "heal": 30,
+    "heal_realm_multiplier": 5,
+    "qi_cost": 50,
+    "cooldown": 5,
+    "element": "none",
+    "path_exclusive": "shou",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【人兽合一】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "beast_contract",
+    "name": "灵兽契约",
+    "description": "御兽修专属。与敌人签订契约，造成伤害并恢复自身。需御兽修流派。",
+    "base_damage": 22,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 35,
+    "cooldown": 2,
+    "element": "wood",
+    "path_exclusive": "shou",
+    "realm_id": "golden_core_early",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【灵兽契约】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "soul_shock",
+    "name": "神魂冲击",
+    "description": "魂修专属。神识冲击敌人，无视防御造成伤害。需魂修流派。",
+    "base_damage": 25,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 30,
+    "cooldown": 1,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【神魂冲击】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "soul_seize",
+    "name": "摄魂术",
+    "description": "魂修专属。摄魂夺魄，造成高额伤害并吸取生命。需魂修流派。",
+    "base_damage": 30,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "golden_core_early",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【摄魂术】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "all_souls_return",
+    "name": "万魂归一",
+    "description": "魂修专属。凝聚万魂之力一击，伤害随神识提升，消耗全部神识。需魂修流派。",
+    "base_damage": 40,
+    "realm_multiplier": 10,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 60,
+    "cooldown": 5,
+    "element": "none",
+    "path_exclusive": "hun",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【万魂归一】满级有 30% 概率万魂冲击神魂，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "dream_realm",
+    "name": "梦境领域",
+    "description": "魂修专属。展开梦境领域，造成无视防御的伤害并治疗自身。需魂修流派。",
+    "base_damage": 28,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 50,
+    "cooldown": 4,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "golden_core_mid",
+    "mastery_effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 15,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【梦境领域】满级有 30% 概率梦境滋养，每回合恢复 15 点生命，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "bagua_formation",
+    "name": "九宫八卦阵",
+    "description": "阵修专属。布下八卦阵法，成功率=70%+控制加成（阵修约100%），困住敌人 2 回合无法行动。需阵修流派。",
+    "base_damage": 15,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 40,
+    "cooldown": 4,
+    "element": "earth",
+    "path_exclusive": "zhen",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【九宫八卦阵】满级有 30% 概率以山岳之力震裂敌防，降低防御 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "trap_immortal",
+    "name": "困仙阵",
+    "description": "阵修专属。布下困仙阵，3 回合内敌人攻防下降 40%。需阵修流派。",
+    "base_damage": 10,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 35,
+    "cooldown": 3,
+    "element": "water",
+    "path_exclusive": "zhen",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【困仙阵】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "all_formations_return",
+    "name": "万阵归一",
+    "description": "阵修专属。凝聚所有阵纹一击，伤害随阵纹提升，消耗全部阵纹。需阵修流派。",
+    "base_damage": 35,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 55,
+    "cooldown": 5,
+    "element": "none",
+    "path_exclusive": "zhen",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【万阵归一】满级有 30% 概率蕴含大道威压，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "five_element_formation_zhen",
+    "name": "五行阵法",
+    "description": "阵修专属。需五行灵根，造成全属性巨额伤害。需阵修流派+五行灵根。",
+    "base_damage": 50,
+    "realm_multiplier": 12,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 70,
+    "cooldown": 6,
+    "element": "all",
+    "path_exclusive": "zhen",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【五行阵法】满级有 30% 概率蕴含大道威压，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "thunder_seal",
+    "name": "五雷符",
+    "description": "符修专属。掷出五雷符，造成伤害，暴击率极高。需符修流派。",
+    "base_damage": 22,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "wood",
+    "path_exclusive": "fu",
+    "realm_id": "foundation_peak",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【五雷符】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "demon_seal",
+    "name": "镇妖符",
+    "description": "符修专属。贴出镇妖符，封印敌人技能 2 回合。需符修流派。",
+    "base_damage": 12,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "wood",
+    "path_exclusive": "fu",
+    "realm_id": "golden_core_early",
+    "effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【镇妖符】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "ten_thousand_seals",
+    "name": "万符诀",
+    "description": "符修专属。连发 5 张符箓，伤害 ×5，消耗大量符箓。需符修流派。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "wood",
+    "path_exclusive": "fu",
+    "realm_id": "golden_core_late",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【万符诀】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "blood_seal",
+    "name": "血符术",
+    "description": "符修专属。以血为符，消耗 20% 生命造成 ×3 伤害并吸血。需符修流派。",
+    "base_damage": 25,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "wood",
+    "path_exclusive": "fu",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【血符术】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "gengjin_sword_qi",
+    "name": "庚金剑气",
+    "description": "金属性进阶剑诀，庚金之气锋锐无匹，筑基期以上修士方可发挥全部威力。",
+    "base_damage": 28,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.7,
+    "qi_cost": 38,
+    "cooldown": 2,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【庚金剑气】满级有 30% 概率庚金破甲，降低防御 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "myriad_swords",
+    "name": "万剑诀",
+    "description": "金属性高阶群攻剑诀，剑气化万，金丹期以上修士施展时威力惊人。",
+    "base_damage": 45,
+    "realm_multiplier": 9,
+    "weapon_multiplier": 0.9,
+    "qi_cost": 55,
+    "cooldown": 3,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 15,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【万剑诀】满级有 30% 概率万剑穿心，每回合 15 点伤害，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "qingmu_longevity",
+    "name": "青木长生诀",
+    "description": "木属性高阶心法，借青木生气恢复生命，回复量随境界大幅提升。",
+    "base_damage": 0,
+    "heal": 35,
+    "heal_realm_multiplier": 7,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "wood",
+    "effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 12,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【青木长生诀】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "poison_vine",
+    "name": "毒藤噬心",
+    "description": "木属性进阶毒术，以带毒藤蔓侵蚀敌人心脉，造成持续剧毒伤害。",
+    "base_damage": 20,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 28,
+    "cooldown": 2,
+    "element": "wood",
+    "effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【毒藤噬心】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "xuanbing_dragon",
+    "name": "玄冰龙吟",
+    "description": "水属性高阶术法，召唤玄冰巨龙冲击敌人，寒气可冻结经脉。",
+    "base_damage": 35,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 42,
+    "cooldown": 2,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【玄冰龙吟】满级有 30% 概率玄冰冻结经脉，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "renshen_thunder",
+    "name": "壬水真雷",
+    "description": "水属性进阶雷法，以壬水之精引动真雷，对金属性敌人有奇效。",
+    "base_damage": 30,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 36,
+    "cooldown": 2,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【壬水真雷】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "nanming_lihuo",
+    "name": "南明离火",
+    "description": "火属性高阶术法，召唤南明离火焚尽万物，对木属性敌人伤害极高。",
+    "base_damage": 38,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 45,
+    "cooldown": 2,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 20,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【南明离火】满级有 30% 概率南明离火不灭，每回合 20 点伤害，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "burning_heaven",
+    "name": "焚天烈焰",
+    "description": "火属性顶级群攻术法，烈焰遮天蔽日，元婴期修士方可发挥其真正威力。",
+    "base_damage": 55,
+    "realm_multiplier": 10,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 65,
+    "cooldown": 4,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 25,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【焚天烈焰】满级有 30% 概率焚天烈焰蔓延，每回合 25 点伤害，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "wutu_thunder",
+    "name": "戊土神雷",
+    "description": "土属性进阶雷法，以戊土之精引动神雷，兼具攻击与震慑之效。",
+    "base_damage": 32,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 38,
+    "cooldown": 2,
+    "element": "earth",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【戊土神雷】满级有 30% 概率戊土震荡，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "immovable_mountain",
+    "name": "不动如山",
+    "description": "土属性高阶防御术，化身山岳护体，大幅恢复健康并稳固根基。",
+    "base_damage": 0,
+    "heal": 45,
+    "heal_realm_multiplier": 7,
+    "qi_cost": 35,
+    "cooldown": 3,
+    "element": "earth",
+    "mastery_effects": [
+      {
+        "type": "defense_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【不动如山】满级有 30% 概率山岳之势加身，防御提升 25%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "starlight_zhouxin",
+    "name": "周天星斗",
+    "description": "法修高阶术法，引动周天星斗之力轰击敌人，法力无边。需法修流派。",
+    "base_damage": 50,
+    "realm_multiplier": 9,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 60,
+    "cooldown": 4,
+    "element": "none",
+    "path_exclusive": "fa",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.25,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【周天星斗】满级有 30% 概率星斗威压，降低敌人攻击 25%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "taiyi_thunder",
+    "name": "太乙神雷",
+    "description": "法修高阶雷法，以太乙神雷诛邪灭魔，对邪修伤害加成显著。需法修流派。",
+    "base_damage": 42,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 50,
+    "cooldown": 3,
+    "element": "metal",
+    "path_exclusive": "fa",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【太乙神雷】满级有 30% 概率太乙神雷诛邪，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "three_purities",
+    "name": "一气化三清",
+    "description": "法修顶级秘法，化出三道清气分身同时攻击，伤害叠加。需法修流派。",
+    "base_damage": 60,
+    "realm_multiplier": 11,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 80,
+    "cooldown": 5,
+    "element": "none",
+    "path_exclusive": "fa",
+    "mastery_effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.2,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【一气化三清】满级有 30% 概率三清分身加持，攻击提升 20%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "indestructible_golden_body",
+    "name": "不灭金身",
+    "description": "体修高阶防御技，肉身成圣，3 回合内大幅减伤并恢复生命。需体修流派。",
+    "base_damage": 0,
+    "heal": 55,
+    "heal_realm_multiplier": 8,
+    "qi_cost": 45,
+    "cooldown": 4,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "effects": [
+      {
+        "type": "defense_up",
+        "target": "player",
+        "ratio": 0.4,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "reflect",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【不灭金身】满级有 30% 概率金身反震，获得 30% 伤害反弹，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "dharma_body",
+    "name": "法天象地",
+    "description": "体修高阶神通，化身巨人，攻击力与防御力同时暴涨。需体修流派。",
+    "base_damage": 45,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.8,
+    "qi_cost": 55,
+    "cooldown": 4,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "mastery_effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.2,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【法天象地】满级有 30% 概率法相擎天，攻击提升 20%，持续 3 回合"
+      },
+      {
+        "type": "defense_up",
+        "target": "player",
+        "ratio": 0.2,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【法天象地】满级有 30% 概率法相护体，防御提升 20%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "dragon_elephant",
+    "name": "龙象般若",
+    "description": "体修顶级神力，一龙一象之力加持己身，重击可崩山裂地。需体修流派。",
+    "base_damage": 55,
+    "realm_multiplier": 10,
+    "weapon_multiplier": 0.9,
+    "qi_cost": 65,
+    "cooldown": 4,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【龙象般若】满级有 30% 概率龙象之力震晕敌人，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "sword_domain",
+    "name": "剑域",
+    "description": "剑修高阶领域技，展开剑域后所有剑招伤害大幅提升。需剑修流派+装备剑。",
+    "base_damage": 35,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.8,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "mastery_effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.2,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【剑域】满级有 30% 概率剑域共鸣，攻击提升 20%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "flying_immortal_sword",
+    "name": "天外飞仙",
+    "description": "剑修高阶剑诀，一剑西来天外飞仙，无视部分防御。需剑修流派+装备剑。",
+    "base_damage": 50,
+    "realm_multiplier": 9,
+    "weapon_multiplier": 1.0,
+    "qi_cost": 55,
+    "cooldown": 3,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【天外飞仙】满级有 30% 概率一剑封喉，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "zhuxian_sword_intent",
+    "name": "诛仙剑意",
+    "description": "剑修顶级剑意，一念诛仙，对单个敌人造成毁灭性打击。需剑修流派+装备剑。",
+    "base_damage": 70,
+    "realm_multiplier": 12,
+    "weapon_multiplier": 1.2,
+    "qi_cost": 85,
+    "cooldown": 5,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.4,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【诛仙剑意】满级有 30% 概率剑意摧甲，降低敌人防御 40%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "blood_demon_art",
+    "name": "血魔大法",
+    "description": "邪修高阶魔功，以血海之力侵蚀敌人，造成伤害并回复自身。需邪修流派。",
+    "base_damage": 45,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 50,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 15,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【血魔大法】满级有 30% 概率血海侵蚀，每回合 15 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "myriad_souls_devour",
+    "name": "万魂噬天",
+    "description": "邪修高阶魂术，召唤万千冤魂吞噬天地，群攻威力巨大。需邪修流派。",
+    "base_damage": 55,
+    "realm_multiplier": 9,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 65,
+    "cooldown": 4,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.25,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【万魂噬天】满级有 30% 概率冤魂噬志，降低敌人攻击 25%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "heavenly_demon",
+    "name": "天魔解体",
+    "description": "邪修禁术，以燃烧生命为代价换取极致攻击力，伤害恐怖。需邪修流派。",
+    "base_damage": 75,
+    "realm_multiplier": 12,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 70,
+    "cooldown": 5,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "mastery_effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【天魔解体】满级有 30% 概率天魔之力暴走，攻击提升 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "dan_qi_sword",
+    "name": "丹气化剑",
+    "description": "丹修高阶攻伐之术，将体内丹气化为剑气伤敌，丹药品阶越高威力越大。需丹修流派。",
+    "base_damage": 38,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "dan",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【丹气化剑】满级有 30% 概率丹气蚀甲，降低敌人防御 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "revival_pill",
+    "name": "回天丹诀",
+    "description": "丹修高阶疗伤秘术，凝练丹药精华起死回生，恢复巨额生命。需丹修流派。",
+    "base_damage": 0,
+    "heal": 80,
+    "heal_realm_multiplier": 12,
+    "qi_cost": 60,
+    "cooldown": 5,
+    "element": "wood",
+    "path_exclusive": "dan",
+    "mastery_effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 50,
+        "chance": 0.3,
+        "description": "【回天丹诀】满级有 30% 概率回天之力护体，额外获得 50 点护盾"
+      }
+    ]
+  },
+  {
+    "id": "life_treasure",
+    "name": "本命法宝",
+    "description": "器修高阶秘术，祭出以自身精血温养的本命法宝，攻防一体。需器修流派。",
+    "base_damage": 48,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 1.0,
+    "qi_cost": 55,
+    "cooldown": 4,
+    "element": "metal",
+    "path_exclusive": "qi",
+    "realm_id": "nascent_soul",
+    "mastery_effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 50,
+        "chance": 0.3,
+        "description": "【本命法宝】满级有 30% 概率本命法宝显灵，额外获得 50 点护盾"
+      }
+    ]
+  },
+  {
+    "id": "artifact_fire",
+    "name": "炼器真火",
+    "description": "器修高阶炼火，以真火焚烧敌人护甲，削弱其防御并造成伤害。需器修流派。",
+    "base_damage": 40,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 48,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "qi",
+    "realm_id": "golden_core_mid",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 14,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【炼器真火】满级有 30% 概率附加灼烧，每回合 14 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "beast_king",
+    "name": "万兽之王",
+    "description": "御兽修高阶神通，召唤兽王虚影震慑四方，造成伤害并提升自身气势。需御兽修流派。",
+    "base_damage": 42,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 50,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "shou",
+    "realm_id": "nascent_soul",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【万兽之王】满级有 30% 概率兽王威压震慑，眩晕 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "beast_soul_possession",
+    "name": "兽魂附体",
+    "description": "御兽修高阶秘术，让强大兽魂附体己身，全面提升战斗能力。需御兽修流派。",
+    "base_damage": 35,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "shou",
+    "realm_id": "golden_core_late",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【兽魂附体】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "soul_materialize",
+    "name": "神识化形",
+    "description": "魂修高阶神识技，将神识化为实体兵器攻击敌人，无视防御。需魂修流派。",
+    "base_damage": 45,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 50,
+    "cooldown": 3,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "golden_core_late",
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【神识化形】满级有 30% 概率神识封魂，封印敌人技能 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "possession",
+    "name": "夺舍",
+    "description": "魂修禁术，强行冲击敌人神魂，造成巨额无视防御伤害并恢复自身。需魂修流派。",
+    "base_damage": 65,
+    "realm_multiplier": 11,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 75,
+    "cooldown": 5,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "nascent_soul",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【夺舍】满级有 30% 概率夺舍冲击神魂，眩晕 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "zhuxian_sword_formation",
+    "name": "诛仙剑阵",
+    "description": "阵修顶级杀阵，模拟上古诛仙剑阵，杀伤力冠绝同阶。需阵修流派。",
+    "base_damage": 70,
+    "realm_multiplier": 11,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 80,
+    "cooldown": 5,
+    "element": "metal",
+    "path_exclusive": "zhen",
+    "realm_id": "golden_core_peak",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.4,
+        "turns": 3,
+        "chance": 0.3,
+        "description": "【诛仙剑阵】满级有 30% 概率诛仙剑气绞碎敌甲，降低防御 40%，持续 3 回合"
+      }
+    ]
+  },
+  {
+    "id": "liangyi_dust",
+    "name": "两仪微尘阵",
+    "description": "阵修高阶困阵，以两仪微尘演化世界，困敌于方寸之间。需阵修流派。",
+    "base_damage": 40,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 55,
+    "cooldown": 4,
+    "element": "earth",
+    "path_exclusive": "zhen",
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【两仪微尘阵】满级有 30% 概率以山岳之力震裂敌防，降低防御 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "bean_soldiers",
+    "name": "撒豆成兵",
+    "description": "符修高阶符术，撒豆成兵召唤符兵助战，群攻敌人。需符修流派。",
+    "base_damage": 35,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "wood",
+    "path_exclusive": "fu",
+    "realm_id": "golden_core_mid",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【撒豆成兵】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "immobilize_seal",
+    "name": "定身符",
+    "description": "符修高阶控制符，定住敌人身形 2 回合，使其无法行动。需符修流派。",
+    "base_damage": 15,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "earth",
+    "path_exclusive": "fu",
+    "realm_id": "foundation_late",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【定身符】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "teleport_seal",
+    "name": "传送符",
+    "description": "符修辅助符箓，可瞬间拉开距离，本回合不消耗真气且下回合先攻。需符修流派。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "none",
+    "path_exclusive": "fu",
+    "realm_id": "nascent_soul",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【传送符】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "stealth",
+    "name": "隐身术",
+    "description": "木属性辅助术法，借草木之气隐匿身形，下回合先攻且敌人难以命中。",
+    "base_damage": 0,
+    "heal": 15,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 20,
+    "cooldown": 3,
+    "element": "wood",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【隐身术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "earth_escape",
+    "name": "遁地术",
+    "description": "土属性遁术，可遁入地下躲避攻击，并恢复少量生命。",
+    "base_damage": 0,
+    "heal": 25,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 25,
+    "cooldown": 3,
+    "element": "earth",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【遁地术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "focus_mind",
+    "name": "凝神诀",
+    "description": "水属性辅助心法，凝神静气，恢复生命并清除部分负面状态。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 18,
+    "cooldown": 2,
+    "element": "water",
+    "effects": [
+      {
+        "type": "cleanse",
+        "target": "player"
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 10,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【凝神诀】满级有 30% 概率留下生机，每回合恢复 10 点生命，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "body_lightening",
+    "name": "轻身术",
+    "description": "木属性轻身法门，身轻如燕，提升闪避并恢复少量生命。",
+    "base_damage": 0,
+    "heal": 12,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 15,
+    "cooldown": 2,
+    "element": "wood",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【轻身术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "demon_breaking_sword",
+    "name": "破魔剑气",
+    "description": "金属性破魔剑诀，对魔道敌人有额外克制效果，剑气凌厉。",
+    "base_damage": 25,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 30,
+    "cooldown": 2,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【破魔剑气】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "gather_spirit",
+    "name": "聚灵术",
+    "description": "无属性辅助术法，引动周围灵气恢复真气与生命，适合持久战。",
+    "base_damage": 0,
+    "heal": 18,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 10,
+    "cooldown": 2,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【聚灵术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "dispel_magic",
+    "name": "破魔术",
+    "description": "无属性解控术法，以自身真气冲散敌方施加的负面状态。",
+    "base_damage": 0,
+    "heal": 22,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 22,
+    "cooldown": 2,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【破魔术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "qi_devour",
+    "name": "噬灵诀",
+    "description": "无属性掠夺术法，吸取周围灵气恢复自身真气，同时造成少量伤害。",
+    "base_damage": 10,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.1,
+    "qi_cost": 5,
+    "cooldown": 1,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【噬灵诀】满级有 30% 概率蕴含大道威压，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "stone_skin",
+    "name": "石肤术",
+    "description": "土属性防御术法，使皮肤石化如铁，恢复生命并提升防御。",
+    "base_damage": 0,
+    "heal": 22,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 20,
+    "cooldown": 2,
+    "element": "earth",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【石肤术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "water_breath",
+    "name": "水息术",
+    "description": "水属性辅助术法，调节内息恢复生命，在水边施展效果加倍。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 16,
+    "cooldown": 2,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【水息术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "flame_body",
+    "name": "烈焰体",
+    "description": "火属性炼体术法，周身燃起烈焰，攻击时附带火属性伤害。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 25,
+    "cooldown": 2,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【烈焰体】满级有 30% 概率附加灼烧，每回合 8 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "wind_step",
+    "name": "疾风步",
+    "description": "木属性身法，借风之力加速，提升闪避并造成一次风刃伤害。",
+    "base_damage": 14,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 18,
+    "cooldown": 1,
+    "element": "wood",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【疾风步】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "thunder_strike",
+    "name": "落雷术",
+    "description": "金属性雷法基础进阶，召唤天雷轰击敌人，对邪修伤害提升。",
+    "base_damage": 22,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 28,
+    "cooldown": 2,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【落雷术】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "advanced_meditation",
+    "name": "高级吐纳",
+    "description": "无属性高级心法，深度吐纳恢复大量健康，并平复心境。",
+    "base_damage": 0,
+    "heal": 35,
+    "heal_realm_multiplier": 6,
+    "qi_cost": 25,
+    "cooldown": 3,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【高级吐纳】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "protective_aura",
+    "name": "护体罡气",
+    "description": "无属性护体术法，凝聚罡气护体，恢复生命并提升防御。",
+    "base_damage": 0,
+    "heal": 28,
+    "heal_realm_multiplier": 5,
+    "qi_cost": 22,
+    "cooldown": 2,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【护体罡气】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "blood_boil",
+    "name": "沸血术",
+    "description": "火属性狂暴术法，燃烧精血提升攻击力，同时恢复少量生命。",
+    "base_damage": 20,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 25,
+    "cooldown": 2,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【沸血术】满级有 30% 概率附加灼烧，每回合 8 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "soul_calm",
+    "name": "定魂诀",
+    "description": "水属性神魂术法，稳定神魂恢复生命，抵御神识类攻击。",
+    "base_damage": 0,
+    "heal": 24,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 20,
+    "cooldown": 2,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【定魂诀】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "golden_needle",
+    "name": "金针渡穴",
+    "description": "以庚金之气封住敌人穴道，造成伤害并使其下回合无法使用治疗招式。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 28,
+    "cooldown": 2,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【金针渡穴】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "blade_storm",
+    "name": "金属风暴",
+    "description": "催动无数金刃席卷战场，对敌人造成范围伤害。",
+    "base_damage": 26,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 40,
+    "cooldown": 3,
+    "element": "metal",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【金属风暴】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "metal_prison",
+    "name": "庚金牢笼",
+    "description": "以庚金铸成牢笼困住敌人，使其 1 回合无法行动。",
+    "base_damage": 8,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.1,
+    "qi_cost": 32,
+    "cooldown": 3,
+    "element": "metal",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【庚金牢笼】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "life_seed",
+    "name": "生命之种",
+    "description": "在目标体内种下生命种子，每回合恢复少量生命，持续 3 回合。",
+    "base_damage": 0,
+    "heal": 10,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 22,
+    "cooldown": 3,
+    "element": "wood",
+    "effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 8,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【生命之种】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "toxic_fog",
+    "name": "毒雾弥漫",
+    "description": "释放剧毒雾气笼罩敌人，每回合造成中毒伤害，持续 3 回合。",
+    "base_damage": 12,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 26,
+    "cooldown": 2,
+    "element": "wood",
+    "effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【毒雾弥漫】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "entangle",
+    "name": "盘根错节",
+    "description": "召唤古树根系缠绕敌人，使其 1 回合无法行动并受到持续伤害。",
+    "base_damage": 10,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 28,
+    "cooldown": 3,
+    "element": "wood",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      },
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 5,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【盘根错节】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "frost_prison",
+    "name": "冰封千里",
+    "description": "以玄冰之力冻结敌人，使其 1 回合无法行动。",
+    "base_damage": 12,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 34,
+    "cooldown": 3,
+    "element": "water",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【冰封千里】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "tidal_wave",
+    "name": "潮汐巨浪",
+    "description": "召唤巨浪拍击敌人，对多个目标造成伤害。",
+    "base_damage": 24,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 38,
+    "cooldown": 3,
+    "element": "water",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【潮汐巨浪】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "mirror_water",
+    "name": "水镜术",
+    "description": "以水凝镜，下回合反弹部分受到伤害。",
+    "base_damage": 0,
+    "heal": 15,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 25,
+    "cooldown": 3,
+    "element": "water",
+    "effects": [
+      {
+        "type": "reflect",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【水镜术】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "purify_water",
+    "name": "净水咒",
+    "description": "以纯净水流洗涤自身，解除一个负面状态并恢复生命。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 24,
+    "cooldown": 2,
+    "element": "water",
+    "effects": [
+      {
+        "type": "cleanse",
+        "target": "player"
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 10,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【净水咒】满级有 30% 概率留下生机，每回合恢复 10 点生命，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "fire_rain",
+    "name": "流星火雨",
+    "description": "召唤火流星轰击战场，对多个敌人造成伤害。",
+    "base_damage": 28,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 42,
+    "cooldown": 3,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 9,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【流星火雨】满级有 30% 概率附加灼烧，每回合 9 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "inferno",
+    "name": "无间炼狱",
+    "description": "引动无间之火焚烧敌人，每回合造成灼烧伤害，持续 3 回合。",
+    "base_damage": 16,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 32,
+    "cooldown": 2,
+    "element": "fire",
+    "effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 10,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "dot",
+        "target": "enemy",
+        "damage": 8,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【无间炼狱】满级有 30% 概率附加灼烧，每回合 8 点伤害，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "phoenix_dance",
+    "name": "凤凰舞",
+    "description": "化身凤凰之影扑向敌人，造成伤害并按比例恢复自身生命。",
+    "base_damage": 22,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "heal": 12,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 36,
+    "cooldown": 3,
+    "element": "fire",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【凤凰舞】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "magma_armor",
+    "name": "熔岩护甲",
+    "description": "以熔岩覆盖全身，3 回合内受到伤害时反弹火焰伤害。",
+    "base_damage": 0,
+    "heal": 18,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "fire",
+    "effects": [
+      {
+        "type": "reflect",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【熔岩护甲】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "earthquake",
+    "name": "地动山摇",
+    "description": "引动大地震动攻击全体敌人，并有概率使其眩晕 1 回合。",
+    "base_damage": 24,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "qi_cost": 40,
+    "cooldown": 3,
+    "element": "earth",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【地动山摇】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "mountain_pressure",
+    "name": "泰山压顶",
+    "description": "凝聚山岳之力重击敌人，造成伤害并降低其下回合速度。",
+    "base_damage": 30,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 38,
+    "cooldown": 3,
+    "element": "earth",
+    "effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【泰山压顶】满级有 30% 概率追加防御削弱 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "earth_guardian",
+    "name": "大地守护",
+    "description": "召唤土灵守护，吸收接下来受到的部分伤害。",
+    "base_damage": 0,
+    "heal": 25,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 28,
+    "cooldown": 3,
+    "element": "earth",
+    "effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 40
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【大地守护】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "sandstorm",
+    "name": "沙尘暴",
+    "description": "掀起漫天沙尘，降低敌人命中率 2 回合。",
+    "base_damage": 10,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 22,
+    "cooldown": 2,
+    "element": "earth",
+    "effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.25,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【沙尘暴】满级有 30% 概率追加防御削弱 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "mana_burn",
+    "name": "燃灵术",
+    "description": "法修专属。燃烧敌人真气，造成伤害并使其损失等量真气。",
+    "base_damage": 20,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 35,
+    "cooldown": 2,
+    "element": "none",
+    "path_exclusive": "fa",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【燃灵术】满级有 30% 概率蕴含大道威压，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "arcane_chains",
+    "name": "奥术锁链",
+    "description": "法修专属。以法力锁链束缚敌人，使其 2 回合无法使用技能。",
+    "base_damage": 12,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.1,
+    "qi_cost": 38,
+    "cooldown": 3,
+    "element": "none",
+    "path_exclusive": "fa",
+    "effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【奥术锁链】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "wisdom_light",
+    "name": "慧光",
+    "description": "法修专属。开启智慧之光，下回合修炼效率与悟性临时提升。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 25,
+    "cooldown": 3,
+    "element": "none",
+    "path_exclusive": "fa",
+    "effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.15,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【慧光】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "provoke",
+    "name": "挑衅",
+    "description": "体修专属。嘲讽敌人，迫使其下回合只能攻击自己，并获得减伤。",
+    "base_damage": 0,
+    "heal": 15,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 20,
+    "cooldown": 2,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "effects": [
+      {
+        "type": "defense_up",
+        "target": "player",
+        "ratio": 0.2,
+        "turns": 1
+      },
+      {
+        "type": "taunt",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【挑衅】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "counter_strike",
+    "name": "反击风暴",
+    "description": "体修专属。进入反击姿态，2 回合内受到近战攻击时自动反击。",
+    "base_damage": 0,
+    "heal": 18,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 28,
+    "cooldown": 3,
+    "element": "earth",
+    "path_exclusive": "ti",
+    "effects": [
+      {
+        "type": "reflect",
+        "target": "player",
+        "ratio": 0.5,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【反击风暴】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "blood_rage",
+    "name": "沸血狂暴",
+    "description": "体修专属。燃烧精血提升攻击，造成伤害并按比例回血。",
+    "base_damage": 28,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.6,
+    "heal": 10,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 32,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "ti",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【沸血狂暴】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "sword_dance",
+    "name": "剑舞",
+    "description": "剑修专属。身剑合一闪避攻击并反击，造成伤害并提升闪避 1 回合。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.6,
+    "qi_cost": 26,
+    "cooldown": 2,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.45,
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【剑舞】满级有 30% 概率大幅提升闪避至 45%，持续 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "sword_aura",
+    "name": "剑罡护体",
+    "description": "剑修专属。以剑罡护体，吸收伤害并对攻击者造成反伤。",
+    "base_damage": 0,
+    "heal": 22,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 30
+      },
+      {
+        "type": "reflect",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【剑罡护体】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "quick_draw",
+    "name": "拔剑术",
+    "description": "剑修专属。拔剑出鞘的极速一击，先攻值极高且无视部分防御。",
+    "base_damage": 26,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.7,
+    "qi_cost": 32,
+    "cooldown": 2,
+    "element": "metal",
+    "path_exclusive": "jian",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【拔剑术】满级有 30% 概率拔剑制敌，眩晕 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "curse",
+    "name": "恶咒缠身",
+    "description": "邪修专属。对敌人施加恶咒，降低其攻击与防御 2 回合。",
+    "base_damage": 12,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 25,
+    "cooldown": 2,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2
+      },
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【恶咒缠身】满级有 30% 概率追加眩晕 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "blood_curse",
+    "name": "血咒",
+    "description": "邪修专属。以血为媒诅咒敌人，造成伤害并将伤害转化为生命。",
+    "base_damage": 24,
+    "realm_multiplier": 5,
+    "weapon_multiplier": 0.4,
+    "heal": 12,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 35,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【血咒】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "fear",
+    "name": "天魔恫吓",
+    "description": "邪修专属。释放天魔威压，使敌人恐惧 1 回合无法行动。",
+    "base_damage": 8,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.1,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "fire",
+    "path_exclusive": "xie",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【天魔恫吓】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "detoxify",
+    "name": "百草解毒",
+    "description": "丹修专属。服用百草丹，解除所有负面状态并恢复生命。",
+    "base_damage": 0,
+    "heal": 30,
+    "heal_realm_multiplier": 5,
+    "qi_cost": 28,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "dan",
+    "effects": [
+      {
+        "type": "cleanse",
+        "target": "player"
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 10,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【百草解毒】满级有 30% 概率留下生机，每回合恢复 10 点生命，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "power_pill",
+    "name": "暴血丹",
+    "description": "丹修专属。服用暴血丹，3 回合内攻击力大幅提升但持续损失少量生命。",
+    "base_damage": 0,
+    "heal": 10,
+    "heal_realm_multiplier": 1,
+    "qi_cost": 35,
+    "cooldown": 4,
+    "element": "fire",
+    "path_exclusive": "dan",
+    "effects": [
+      {
+        "type": "attack_up",
+        "target": "player",
+        "ratio": 0.3,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【暴血丹】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "weapon_throw",
+    "name": "御器投掷",
+    "description": "器修专属。将法宝掷出攻击敌人，造成高额伤害并削弱其防御。",
+    "base_damage": 28,
+    "realm_multiplier": 6,
+    "weapon_multiplier": 0.8,
+    "qi_cost": 36,
+    "cooldown": 2,
+    "element": "metal",
+    "path_exclusive": "qi",
+    "realm_id": "foundation_late",
+    "effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【御器投掷】满级有 30% 概率追加攻击削弱 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "armor_break",
+    "name": "破甲击",
+    "description": "器修专属。以法宝击碎敌人护甲，造成伤害并大幅降低其防御 2 回合。",
+    "base_damage": 20,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.5,
+    "qi_cost": 30,
+    "cooldown": 2,
+    "element": "metal",
+    "path_exclusive": "qi",
+    "realm_id": "foundation_mid",
+    "effects": [
+      {
+        "type": "defense_down",
+        "target": "enemy",
+        "ratio": 0.4,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【破甲击】满级有 30% 概率追加攻击削弱 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "beast_summon",
+    "name": "召唤灵兽",
+    "description": "御兽修专属。召唤一只临时灵兽助战，持续 3 回合。",
+    "base_damage": 15,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 32,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "shou",
+    "realm_id": "foundation_mid",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【召唤灵兽】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "beast_guard",
+    "name": "兽魂守护",
+    "description": "御兽修专属。让兽魂附身护主，3 回合内替玩家承受部分伤害。",
+    "base_damage": 0,
+    "heal": 25,
+    "heal_realm_multiplier": 4,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "wood",
+    "path_exclusive": "shou",
+    "realm_id": "foundation_late",
+    "effects": [
+      {
+        "type": "shield",
+        "target": "player",
+        "amount": 35
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【兽魂守护】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "soul_seal",
+    "name": "封魂术",
+    "description": "魂修专属。封印敌人神魂，使其 2 回合无法使用主动技能。",
+    "base_damage": 14,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 35,
+    "cooldown": 3,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "foundation_late",
+    "effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【封魂术】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "illusion",
+    "name": "千幻身",
+    "description": "魂修专属。以神识幻化万千身影，提升闪避并在闪避后反击。",
+    "base_damage": 16,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 28,
+    "cooldown": 2,
+    "element": "water",
+    "path_exclusive": "hun",
+    "realm_id": "foundation_mid",
+    "effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.4,
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.55,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【千幻身】满级有 30% 概率大幅提升闪避至 55%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "spirit_gather",
+    "name": "聚灵阵",
+    "description": "阵修专属。布下聚灵阵，每回合恢复真气与生命，持续 3 回合。",
+    "base_damage": 0,
+    "heal": 15,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 30,
+    "cooldown": 4,
+    "element": "earth",
+    "path_exclusive": "zhen",
+    "realm_id": "foundation_mid",
+    "effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 10,
+        "turns": 3
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【聚灵阵】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "teleport_formation",
+    "name": "缩地成寸",
+    "description": "阵修专属。以阵法缩地，下回合必定先手且闪避大幅提升。",
+    "base_damage": 0,
+    "heal": 12,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 26,
+    "cooldown": 3,
+    "element": "earth",
+    "path_exclusive": "zhen",
+    "realm_id": "foundation_late",
+    "effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.5,
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【缩地成寸】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "seal_break",
+    "name": "破禁符",
+    "description": "符修专属。以符破禁，解除自身所有负面状态并恢复少量真气。",
+    "base_damage": 0,
+    "heal": 20,
+    "heal_realm_multiplier": 3,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "none",
+    "path_exclusive": "fu",
+    "realm_id": "foundation_mid",
+    "effects": [
+      {
+        "type": "cleanse",
+        "target": "player"
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "heal_over_time",
+        "target": "player",
+        "amount": 10,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【破禁符】满级有 30% 概率留下生机，每回合恢复 10 点生命，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "paralysis_seal",
+    "name": "麻痹符",
+    "description": "符修专属。贴出麻痹符，使敌人麻痹 1 回合无法行动。",
+    "base_damage": 10,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.1,
+    "qi_cost": 0,
+    "cooldown": 0,
+    "element": "metal",
+    "path_exclusive": "fu",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【麻痹符】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "blood_bite",
+    "name": "血噬",
+    "description": "无属性通用吸血术，以自身真气化为血刃伤敌并回复生命。",
+    "base_damage": 20,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.4,
+    "heal": 10,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 28,
+    "cooldown": 2,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【血噬】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "shadow_step",
+    "name": "影遁",
+    "description": "无属性通用遁术，进入暗影 1 回合，大幅提升闪避。",
+    "base_damage": 0,
+    "heal": 15,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 22,
+    "cooldown": 2,
+    "element": "none",
+    "effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.5,
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【影遁】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  },
+  {
+    "id": "qi_explosion",
+    "name": "真气爆裂",
+    "description": "无属性通用爆发技，将真气压缩后释放，造成高额伤害。",
+    "base_damage": 32,
+    "realm_multiplier": 7,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 45,
+    "cooldown": 3,
+    "element": "none",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【真气爆裂】满级有 30% 概率蕴含大道威压，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "thunder_chain",
+    "name": "雷霆连锁",
+    "description": "引动九天神雷在敌人体内炸裂，造成雷属性伤害并麻痹 1 回合。",
+    "base_damage": 18,
+    "realm_multiplier": 4,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 28,
+    "cooldown": 2,
+    "element": "thunder",
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【雷霆连锁】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "heavens_thunder",
+    "name": "九霄雷劫",
+    "description": "召唤雷云降下天劫，对所有敌人造成毁灭性雷属性打击。",
+    "base_damage": 35,
+    "realm_multiplier": 8,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 55,
+    "cooldown": 4,
+    "element": "thunder",
+    "mastery_effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【九霄雷劫】满级有 30% 概率以雷霆之势麻痹敌人 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "ice_spike",
+    "name": "玄冰刺",
+    "description": "凝聚极寒之气化为冰刺贯穿敌人，造成冰属性伤害。",
+    "base_damage": 14,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.2,
+    "qi_cost": 22,
+    "cooldown": 1,
+    "element": "ice",
+    "mastery_effects": [
+      {
+        "type": "attack_down",
+        "target": "enemy",
+        "ratio": 0.2,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【玄冰刺】满级有 30% 概率以寒气蚀骨，降低敌人攻击 20%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "ice_seal",
+    "name": "玄冰封印",
+    "description": "以玄冰之力封印敌人经脉，使其 2 回合无法施展技能。",
+    "base_damage": 10,
+    "realm_multiplier": 2,
+    "weapon_multiplier": 0.1,
+    "qi_cost": 30,
+    "cooldown": 3,
+    "element": "ice",
+    "effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 2
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "seal",
+        "target": "enemy",
+        "turns": 1,
+        "chance": 0.3,
+        "description": "【玄冰封印】满级有 30% 概率趁势封印敌人技能 1 回合"
+      }
+    ]
+  },
+  {
+    "id": "wind_blade",
+    "name": "风刃",
+    "description": "操控罡风形成锐利风刃切割敌人，造成风属性伤害。",
+    "base_damage": 12,
+    "realm_multiplier": 3,
+    "weapon_multiplier": 0.3,
+    "qi_cost": 18,
+    "cooldown": 0,
+    "element": "wind",
+    "mastery_effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.25,
+        "turns": 2,
+        "chance": 0.3,
+        "description": "【风刃】满级有 30% 概率借风木之势提升闪避 25%，持续 2 回合"
+      }
+    ]
+  },
+  {
+    "id": "gale_step",
+    "name": "疾风步",
+    "description": "借风灵之力身形如烟，本回合大幅提升闪避并恢复少量状态。",
+    "base_damage": 0,
+    "heal": 12,
+    "heal_realm_multiplier": 2,
+    "qi_cost": 20,
+    "cooldown": 2,
+    "element": "wind",
+    "effects": [
+      {
+        "type": "evasion_up",
+        "target": "player",
+        "ratio": 0.4,
+        "turns": 1
+      }
+    ],
+    "mastery_effects": [
+      {
+        "type": "cleanse",
+        "target": "player",
+        "chance": 0.3,
+        "description": "【疾风步】满级有 30% 概率在治疗时净化自身负面状态"
+      }
+    ]
+  }
+]

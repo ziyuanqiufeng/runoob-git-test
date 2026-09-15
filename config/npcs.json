@@ -1,0 +1,4702 @@
+[
+  {
+    "id": "elder_qing",
+    "name": "青云长老",
+    "location": "qingyun",
+    "description": "青云山的长老，慈眉善目，常指点后辈。",
+    "dialog": "修仙之路漫漫，切忌急功近利。",
+    "quests": [
+      "kill_wolves"
+    ],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "thunder_palm",
+        "requirement": "completed_quest",
+        "requirement_value": "kill_wolves",
+        "cost_spirit_stone": 0
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你颇具慧根，老夫有一言相赠：修仙修心，心正则道成。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "难得你如此上进，这本心法你拿去参悟吧，不必客气。"
+      }
+    ]
+  },
+  {
+    "id": "market_keeper",
+    "name": "坊市掌柜",
+    "location": "qingyun",
+    "description": "青云山脚坊市的掌柜，消息灵通。",
+    "dialog": "我这儿有不少丹药和材料，只要你有灵石。",
+    "quests": [
+      "collect_herbs"
+    ],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "locked_shop_items": [
+      {
+        "item_id": "jade_pendant",
+        "min_relationship": 5
+      },
+      {
+        "item_id": "iron_sword",
+        "min_relationship": 3
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "老朋友来了！最近收了件好货，别人我可不卖。"
+      }
+    ],
+    "portrait": "assets/portraits/market_keeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "qingyun",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "wandering_merchant",
+    "name": "云游商人",
+    "location": "__wandering__",
+    "description": "四处云游的神秘商人，货物稀奇但价格较高。",
+    "dialog": "稀世珍宝，童叟无欺，只是这价格嘛……",
+    "dialogue_id": "wandering_merchant_encounter",
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      },
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "leather_armor"
+      }
+    ],
+    "shop_pool": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      },
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "leather_armor"
+      },
+      {
+        "item_id": "jade_pendant"
+      },
+      {
+        "item_id": "spirit_stone"
+      },
+      {
+        "item_id": "cloth_hat"
+      },
+      {
+        "item_id": "sword_manual"
+      },
+      {
+        "item_id": "marrow_pill"
+      }
+    ],
+    "shop_pool_count": 5,
+    "buy_multiplier": 1.5,
+    "sell_multiplier": 0.45,
+    "portrait": "assets/portraits/wandering_merchant.png",
+    "schedule": {
+      "active_hours": [
+        8,
+        24
+      ],
+      "rest_location": "__wandering__",
+      "rest_dialog": "今日已打烊，明日再来吧。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "sect_master",
+    "name": "宗门执事",
+    "location": "heifeng",
+    "description": "附近小宗门的外门执事，正在招募弟子。",
+    "dialog": "若你能证明自己的实力，宗门自会栽培你。",
+    "quests": [
+      "kill_tiger"
+    ],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "sword_art",
+        "requirement": "completed_quest",
+        "requirement_value": "kill_tiger",
+        "cost_spirit_stone": 0
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 6,
+        "dialog": "宗门看重你的潜力，若愿加入，资源任你取用。"
+      }
+    ]
+  },
+  {
+    "id": "dao_master",
+    "name": "道师",
+    "location": "heifeng",
+    "description": "云游四方的道师，精通各流派奥义，可为修士指点迷津、转换修炼之道。",
+    "dialog": "道无定法，唯心所向。若你愿改弦易辙，我可助你转换流派，但需付出代价。",
+    "teach_skills": [],
+    "path_switch": true
+  },
+  {
+    "id": "fa_master",
+    "name": "法修宗师",
+    "location": "qingyun",
+    "description": "精通法术的宗师，可传授法修专属奥义。",
+    "dialog": "法修之道，在于以真气御天地之力。你若虔诚求学，我可授你秘法。",
+    "teach_skills": [
+      {
+        "skill_id": "true_qi_shield",
+        "requirement": "path_fa"
+      },
+      {
+        "skill_id": "five_thunders",
+        "requirement": "path_fa"
+      },
+      {
+        "skill_id": "ten_thousand_arts",
+        "requirement": "path_fa"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你已得法修真传，这招万法归宗，且看好了！"
+      }
+    ],
+    "portrait": "assets/portraits/fa_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "ti_master",
+    "name": "体修宗师",
+    "location": "heifeng",
+    "description": "锻炼肉身的宗师，可传授体修专属奥义。",
+    "dialog": "体修之道，在于以肉身撼天地。你若能吃苦，我可授你淬体之法。",
+    "teach_skills": [
+      {
+        "skill_id": "vajra_body",
+        "requirement": "path_ti"
+      },
+      {
+        "skill_id": "mountain_break",
+        "requirement": "path_ti"
+      },
+      {
+        "skill_id": "forge_body",
+        "requirement": "path_ti"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的体魄已有所成，这招破山裂地，尽情施展吧！"
+      }
+    ],
+    "portrait": "assets/portraits/ti_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "jian_master",
+    "name": "剑修宗师",
+    "location": "jianzhong",
+    "description": "剑道宗师，可传授剑修专属奥义。",
+    "dialog": "剑修之道，在于一剑破万法。你若有剑心，我可授你剑诀。",
+    "teach_skills": [
+      {
+        "skill_id": "sword_rain",
+        "requirement": "path_jian"
+      },
+      {
+        "skill_id": "one_sword_break",
+        "requirement": "path_jian"
+      },
+      {
+        "skill_id": "sword_qi",
+        "requirement": "path_jian"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的剑心已通明，这招一剑破万法，传授于你！"
+      }
+    ],
+    "portrait": "assets/portraits/jian_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ],
+      "friends": [
+        "tianjian_elder"
+      ]
+    }
+  },
+  {
+    "id": "xie_master",
+    "name": "邪修宗师",
+    "location": "jiuyuan_senlin",
+    "description": "修炼邪术的宗师，可传授邪修专属奥义。",
+    "dialog": "邪修之道，在于吞噬万物。你若不惧反噬，我可授你邪法。",
+    "teach_skills": [
+      {
+        "skill_id": "soul_devour",
+        "requirement": "path_xie"
+      },
+      {
+        "skill_id": "blood_sacrifice",
+        "requirement": "path_xie"
+      },
+      {
+        "skill_id": "ten_thousand_souls",
+        "requirement": "path_xie"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的邪气已深，这招万魂幡，可召亡魂助阵！"
+      }
+    ],
+    "portrait": "assets/portraits/xie_master.png",
+    "faction_affinity": {
+      "righteous": 0.3,
+      "evil": 1.2,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "fa_master",
+        "jian_master",
+        "law_enforcer"
+      ]
+    }
+  },
+  {
+    "id": "dan_master",
+    "name": "丹修宗师",
+    "location": "huoyan_gu",
+    "description": "炼丹宗师，可传授丹修专属奥义。",
+    "dialog": "丹修之道，在于以丹入道。你若有耐心，我可授你炼丹秘法。",
+    "teach_skills": [
+      {
+        "skill_id": "nine_turn_pill",
+        "requirement": "path_dan"
+      },
+      {
+        "skill_id": "medicine_cauldron",
+        "requirement": "path_dan"
+      },
+      {
+        "skill_id": "hundred_herbs",
+        "requirement": "path_dan"
+      },
+      {
+        "skill_id": "poison_pill",
+        "requirement": "path_dan"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的丹道已有所成，这招九转金丹，妙用无穷！"
+      }
+    ],
+    "portrait": "assets/portraits/dan_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "qi_master",
+    "name": "器修宗师",
+    "location": "huoyan_gu",
+    "description": "炼器宗师，可传授器修专属奥义。",
+    "dialog": "器修之道，在于以器入道。你若有匠心，我可授你祭炼之法。",
+    "teach_skills": [
+      {
+        "skill_id": "spirit_awaken",
+        "requirement": "path_qi"
+      },
+      {
+        "skill_id": "ten_thousand_weapons",
+        "requirement": "path_qi"
+      },
+      {
+        "skill_id": "refine_artifact",
+        "requirement": "path_qi"
+      },
+      {
+        "skill_id": "weapon_domain",
+        "requirement": "path_qi"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的器道已有所成，这招万器归宗，可召法宝群攻！"
+      }
+    ],
+    "portrait": "assets/portraits/qi_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "shou_master",
+    "name": "御兽宗师",
+    "location": "heifeng",
+    "description": "驯兽宗师，可传授御兽修专属奥义。",
+    "dialog": "御兽之道，在于与兽为友。你若有爱心，我可授你驭兽之法。",
+    "teach_skills": [
+      {
+        "skill_id": "beast_charge",
+        "requirement": "path_shou"
+      },
+      {
+        "skill_id": "beast_king_roar",
+        "requirement": "path_shou"
+      },
+      {
+        "skill_id": "human_beast_union",
+        "requirement": "path_shou"
+      },
+      {
+        "skill_id": "beast_contract",
+        "requirement": "path_shou"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的驭兽之道已有所成，这招人兽合一，可翻倍属性！"
+      }
+    ],
+    "portrait": "assets/portraits/shou_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "hun_master",
+    "name": "魂修宗师",
+    "location": "jiuyuan_senlin",
+    "description": "修炼神识的宗师，可传授魂修专属奥义。",
+    "dialog": "魂修之道，在于以神识撼心智。你若有悟性，我可授你神魂之法。",
+    "teach_skills": [
+      {
+        "skill_id": "soul_shock",
+        "requirement": "path_hun"
+      },
+      {
+        "skill_id": "soul_seize",
+        "requirement": "path_hun"
+      },
+      {
+        "skill_id": "all_souls_return",
+        "requirement": "path_hun"
+      },
+      {
+        "skill_id": "dream_realm",
+        "requirement": "path_hun"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的神识已有所成，这招万魂归一，可一击毙命！"
+      }
+    ],
+    "portrait": "assets/portraits/hun_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "zhen_master",
+    "name": "阵修宗师",
+    "location": "xuankong_ge",
+    "description": "阵法宗师，可传授阵修专属奥义。",
+    "dialog": "阵修之道，在于以阵困敌。你若有推演之才，我可授你阵法。",
+    "teach_skills": [
+      {
+        "skill_id": "bagua_formation",
+        "requirement": "path_zhen"
+      },
+      {
+        "skill_id": "trap_immortal",
+        "requirement": "path_zhen"
+      },
+      {
+        "skill_id": "all_formations_return",
+        "requirement": "path_zhen"
+      },
+      {
+        "skill_id": "five_element_formation_zhen",
+        "requirement": "path_zhen"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的阵法已有所成，这招万阵归一，可消耗阵纹激增伤害！"
+      }
+    ],
+    "portrait": "assets/portraits/zhen_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "fu_master",
+    "name": "符修宗师",
+    "location": "qingyun",
+    "description": "画符宗师，可传授符修专属奥义。",
+    "dialog": "符修之道，在于画符成术。你若有巧手，我可授你符箓之法。",
+    "teach_skills": [
+      {
+        "skill_id": "thunder_seal",
+        "requirement": "path_fu"
+      },
+      {
+        "skill_id": "demon_seal",
+        "requirement": "path_fu"
+      },
+      {
+        "skill_id": "ten_thousand_seals",
+        "requirement": "path_fu"
+      },
+      {
+        "skill_id": "blood_seal",
+        "requirement": "path_fu"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的符道已有所成，这招万符诀，可连发五符！"
+      }
+    ],
+    "portrait": "assets/portraits/fu_master.png",
+    "faction_affinity": {
+      "righteous": 0.9,
+      "evil": 0.3,
+      "neutral": 1.0
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    }
+  },
+  {
+    "id": "yaoxian",
+    "name": "药仙",
+    "location": "lingyao_fudi",
+    "description": "隐居灵药福地的药仙，精通炼丹之道，可提供珍稀丹方与炼丹加成。",
+    "dialog": "药道无穷，草木皆灵。你若勤于采药，我可授你独门丹方。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      },
+      {
+        "item_id": "marrow_pill"
+      }
+    ],
+    "buy_multiplier": 1.0,
+    "sell_multiplier": 0.7,
+    "locked_shop_items": [
+      {
+        "item_id": "marrow_pill",
+        "min_relationship": 3
+      },
+      {
+        "item_id": "jade_pendant",
+        "min_relationship": 8
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你采药勤勉，这洗髓丹的丹方就传你，可改善根骨。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "药道大成！这件聚灵玉佩助你修炼事半功倍。"
+      }
+    ],
+    "portrait": "assets/portraits/yaoxian.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "lingyao_fudi",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "auctioneer",
+    "name": "拍卖师",
+    "location": "luoxia_city",
+    "description": "落霞城拍卖行的拍卖师，每月初一会拿出一件稀有拍品供修士竞拍。",
+    "dialog": "欢迎来到落霞拍卖会，本月的稀有拍品仅此一件，价高者得。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [],
+    "shop_pool": [
+      {
+        "item_id": "marrow_pill"
+      },
+      {
+        "item_id": "jade_pendant"
+      },
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "sword_manual"
+      },
+      {
+        "item_id": "ice_manual"
+      },
+      {
+        "item_id": "fireball_manual"
+      },
+      {
+        "item_id": "tianjian_token"
+      },
+      {
+        "item_id": "zixiao_token"
+      },
+      {
+        "item_id": "soul_lantern"
+      },
+      {
+        "item_id": "chaos_spirit_bead"
+      }
+    ],
+    "shop_pool_count": 1,
+    "buy_multiplier": 2.0,
+    "sell_multiplier": 0.5,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "这位道友出手阔绰，下次拍卖我会提前为你预留好货。"
+      }
+    ],
+    "portrait": "assets/portraits/auctioneer.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "luoxia_city",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "baixiaosheng",
+    "name": "百晓生",
+    "location": "yunmeng_city",
+    "description": "云梦城的情报贩子，号称无所不知，可用灵石购买情报。",
+    "dialog": "天下事，鲜有我不知道的。一块灵石一条消息，童叟无欺。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "info_scroll"
+      }
+    ],
+    "buy_multiplier": 1.5,
+    "sell_multiplier": 0.6,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 0
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "看在你常来照顾生意的份上，这条绝密消息免费送你：雷泽深处藏有上古雷纹。"
+      },
+      {
+        "min_relationship": 6,
+        "dialog": "忘川河的弱点在于水属性防御薄弱，切记。"
+      }
+    ],
+    "portrait": "assets/portraits/baixiaosheng.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "yunmeng_city",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "tianjian_elder",
+    "name": "剑宗长老",
+    "location": "tianjian_sect",
+    "sect_id": "tianjian_sect",
+    "description": "天剑宗的长老，剑道精深，可为剑修弟子指点剑意试炼。",
+    "dialog": "剑道无涯，重在磨砺。你若通过剑意试炼，我可赐你天剑令。",
+    "quests": [
+      "jian_sword_trial"
+    ],
+    "teach_skills": [
+      {
+        "skill_id": "sword_rain",
+        "requirement": "path_jian"
+      },
+      {
+        "skill_id": "one_sword_break",
+        "requirement": "path_jian"
+      },
+      {
+        "skill_id": "sword_qi",
+        "requirement": "path_jian"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "sword_manual"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "locked_shop_items": [
+      {
+        "item_id": "tianjian_token",
+        "min_relationship": 6
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 6,
+        "dialog": "你剑心通明，这枚天剑令赠你，愿剑道昌隆。"
+      },
+      {
+        "min_relationship": 10,
+        "dialog": "天剑宗的藏经阁，从此为你敞开。"
+      }
+    ]
+  },
+  {
+    "id": "zixiao_master",
+    "name": "紫霄掌教",
+    "location": "zixiao_palace",
+    "description": "紫霄宫的掌教，道法通玄，主持宗门考核与法修传承。",
+    "dialog": "紫霄道法，心怀天下。你若通过道法考核，便可得紫霄令。",
+    "quests": [
+      "zixiao_dao_trial"
+    ],
+    "teach_skills": [
+      {
+        "skill_id": "true_qi_shield",
+        "requirement": "path_fa"
+      },
+      {
+        "skill_id": "five_thunders",
+        "requirement": "path_fa"
+      },
+      {
+        "skill_id": "ten_thousand_arts",
+        "requirement": "path_fa"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "ice_manual"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "locked_shop_items": [
+      {
+        "item_id": "zixiao_token",
+        "min_relationship": 6
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 6,
+        "dialog": "你道法有成，这枚紫霄令可助你参悟更高深的术法。"
+      },
+      {
+        "min_relationship": 10,
+        "dialog": "紫霄宫的未来，或许就要靠你了。"
+      }
+    ]
+  },
+  {
+    "id": "spirit_plant_master",
+    "name": "灵植师",
+    "location": "lingyao_fudi",
+    "description": "隐居灵药福地的灵植大师，培育珍稀灵植，也向有缘人出售种子与幼苗。",
+    "dialog": "草木有灵，悉心培育，自会有意想不到的收获。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "gather_spirit",
+        "requirement": "completed_quest",
+        "requirement_value": "inner_disciple"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "century_herb_seed"
+      },
+      {
+        "item_id": "spirit_fruit_seed"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.0,
+    "sell_multiplier": 0.7,
+    "locked_shop_items": [
+      {
+        "item_id": "ice_lotus_seed",
+        "min_relationship": 4
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你倒是勤勉，这冰魄雪莲种子别处可买不到。"
+      },
+      {
+        "min_relationship": 6,
+        "dialog": "灵植一道博大精深，你若潜心，未必不能自创仙草。"
+      }
+    ],
+    "portrait": "assets/portraits/spirit_plant_master.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "lingyao_fudi",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "book_dealer",
+    "name": "藏书阁长老",
+    "location": "qingyun",
+    "description": "青云山藏书阁的守阁长老，掌管各类入门功法秘籍，对后辈多有提携。",
+    "dialog": "功法如阶梯，循序渐进方能登高。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "sword_manual"
+      },
+      {
+        "item_id": "vine_manual"
+      },
+      {
+        "item_id": "ice_manual"
+      },
+      {
+        "item_id": "fireball_manual"
+      },
+      {
+        "item_id": "stone_manual"
+      }
+    ],
+    "buy_multiplier": 1.1,
+    "sell_multiplier": 0.65,
+    "locked_shop_items": [
+      {
+        "item_id": "ancient_scroll",
+        "min_relationship": 3
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "这本残卷记载上古修士心得，你拿去参悟吧。"
+      },
+      {
+        "min_relationship": 7,
+        "dialog": "难得你嗜书如命，老夫私藏的心得也可借你一观。"
+      }
+    ],
+    "portrait": "assets/portraits/book_dealer.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "qingyun",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "blacksmith",
+    "name": "炼器师",
+    "location": "huoyan_gu",
+    "description": "火焰谷中的炼器师，擅长以火炼器，常收购妖兽材料打造法宝。",
+    "dialog": "好材料难寻，若有妖核兽骨，我可以帮你换些趁手兵器。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "flame_body",
+        "requirement": "completed_quest",
+        "requirement_value": "fire_trial"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "spirit_wood_sword"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "locked_shop_items": [
+      {
+        "item_id": "chaos_spirit_bead",
+        "min_relationship": 8
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "我看你身上有股炼器的好材料气息，下次有好货记得找我。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "这混沌灵珠雏形是我早年所炼，今日与你有缘。"
+      }
+    ],
+    "portrait": "assets/portraits/blacksmith.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "huoyan_gu",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "tavern_owner",
+    "name": "酒馆老板",
+    "location": "luoxia_city",
+    "description": "落霞城酒馆的老板，消息灵通，三教九流皆来此处交换情报。",
+    "dialog": "客官里面请，喝一杯热酒，听一段江湖传闻。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "这条消息刚从北边传来，或许对你有用。"
+      },
+      {
+        "min_relationship": 5,
+        "dialog": "喝酒喝多了，有些秘密也就不小心说出口了……"
+      }
+    ],
+    "portrait": "assets/portraits/tavern_owner.png",
+    "schedule": {
+      "active_hours": [
+        8,
+        24
+      ],
+      "rest_location": "luoxia_city",
+      "rest_dialog": "今日已打烊，明日再来吧。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "herb_collector",
+    "name": "采药人",
+    "location": "wanyao",
+    "description": "常年在万妖森林采药的散修，熟悉各种草药分布，也出售多余的药材。",
+    "dialog": "森林里危险重重，但好药也多，要不要买些傍身？",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "focus_mind",
+        "requirement": "completed_quest",
+        "requirement_value": "collect_herbs"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "century_herb"
+      },
+      {
+        "item_id": "health_pill"
+      }
+    ],
+    "buy_multiplier": 1.1,
+    "sell_multiplier": 0.7,
+    "locked_shop_items": [
+      {
+        "item_id": "marrow_pill",
+        "min_relationship": 5
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "这百年灵草是我刚从蛇窟边采的，灵气充沛。"
+      },
+      {
+        "min_relationship": 6,
+        "dialog": "你我有缘，这洗髓丹我忍痛割爱让给你。"
+      }
+    ],
+    "portrait": "assets/portraits/herb_collector.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "wanyao",
+      "rest_dialog": "今日已歇业，请明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "border_merchant",
+    "name": "边境商人",
+    "location": "yunmeng_city",
+    "description": "往来于各大险地之间的边境商人，手头常有寻常店铺见不到的稀罕材料。",
+    "dialog": "风险越高，利润越大。我手里的货，可不是谁都能买到的。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "fire_crystal"
+      },
+      {
+        "item_id": "water_pearl"
+      },
+      {
+        "item_id": "beast_core"
+      }
+    ],
+    "buy_multiplier": 1.4,
+    "sell_multiplier": 0.5,
+    "locked_shop_items": [
+      {
+        "item_id": "phoenix_feather",
+        "min_relationship": 4
+      },
+      {
+        "item_id": "qilin_horn",
+        "min_relationship": 7
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "这凤凰羽可是我九死一生从烈焰秘境带出来的。"
+      },
+      {
+        "min_relationship": 7,
+        "dialog": "麒麟角这种宝贝我只留给老主顾。"
+      }
+    ],
+    "portrait": "assets/portraits/border_merchant.png",
+    "schedule": {
+      "active_hours": [
+        8,
+        24
+      ],
+      "rest_location": "yunmeng_city",
+      "rest_dialog": "今日已打烊，明日再来吧。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日消费一律九折！"
+      },
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆人团圆，买件好物犒劳自己吧。"
+      }
+    ]
+  },
+  {
+    "id": "outer_disciple_guide",
+    "name": "外门接引",
+    "location": "qingyun",
+    "description": "负责接引新晋弟子的外门修士，熟悉宗门规矩与山下诸事。",
+    "dialog": "新来的？先在山下历练一番，再谈入门之事。",
+    "quests": [
+      "kill_wolves"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你办事利落，日后入门必受器重。"
+      }
+    ],
+    "portrait": "assets/portraits/outer_disciple_guide.png",
+    "side_quests": [
+      "side_hunt_bandits"
+    ],
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "qingyun",
+      "rest_dialog": "弟子正在休息，请勿打扰。"
+    },
+    "npc_relationships": {
+      "master": "elder_qing",
+      "friends": [
+        "sect_master"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "helped_bandits",
+        "expected_value": true,
+        "dialog": "你竟然帮助山匪？我看错你了。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年新气象，宗门又招了不少新弟子。"
+      }
+    ]
+  },
+  {
+    "id": "demon_spy",
+    "name": "魔道卧底",
+    "location": "luoxia_city",
+    "description": "隐藏在落霞城中的魔道探子，行事低调，似乎在寻找有潜力的修士。",
+    "dialog": "正道魔道，不过一线之隔。你若愿听我一句，未必不能换条路子。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "stealth",
+        "requirement": "completed_quest",
+        "requirement_value": "inner_disciple"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "九渊森林深处有位大人，很欣赏你这种人才。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "若你踏入邪道，我可为你引荐。"
+      }
+    ],
+    "portrait": "assets/portraits/demon_spy.png",
+    "side_quests": [
+      "side_undercover_clue"
+    ],
+    "schedule": {
+      "active_hours": [
+        20,
+        6
+      ],
+      "rest_location": "luoxia_city",
+      "rest_dialog": "白天眼线太多，夜晚再来。"
+    },
+    "npc_relationships": {
+      "enemies": [
+        "law_enforcer",
+        "tianjian_elder"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "reported_to_sect",
+        "expected_value": true,
+        "dialog": "你向宗门告密？哼，咱们走着瞧。"
+      },
+      {
+        "memory_key": "accepted_dark_deal",
+        "expected_value": true,
+        "dialog": "很好，你果然是同道中人。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "正道过他们的节，咱们魔道也有咱们的快活。"
+      }
+    ]
+  },
+  {
+    "id": "law_enforcer",
+    "name": "执法长老",
+    "location": "tianjian_sect",
+    "description": "天剑宗执法长老，铁面无私，专司追捕邪修与违反门规之徒。",
+    "dialog": "剑者，正也。若你心存邪念，休怪我剑下无情。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "demon_breaking_sword",
+        "requirement": "path_jian"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "sword_manual"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "locked_shop_items": [
+      {
+        "item_id": "tianjian_token",
+        "min_relationship": 7
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你斩妖除魔有功，宗门自有嘉奖。"
+      },
+      {
+        "min_relationship": 9,
+        "dialog": "邪修祸乱人间，这破魔剑气传你，望你惩恶扬善。"
+      }
+    ],
+    "portrait": "assets/portraits/law_enforcer.png",
+    "side_quests": [
+      "side_punish_evil"
+    ],
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "tianjian_sect",
+      "rest_dialog": "执法堂夜间休值，有事明日再来。"
+    },
+    "npc_relationships": {
+      "friends": [
+        "tianjian_elder"
+      ],
+      "enemies": [
+        "demon_spy",
+        "xie_master"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "killed_innocent",
+        "expected_value": true,
+        "dialog": "你手上沾了无辜之人的血，本座今日便要清理门户。"
+      },
+      {
+        "memory_key": "aided_justice",
+        "expected_value": true,
+        "dialog": "你助我除恶，正道有你，甚慰。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "正道昌盛，方有百姓安乐年。"
+      }
+    ]
+  },
+  {
+    "id": "hermit",
+    "name": "隐世散修",
+    "location": "xuankong_ge",
+    "description": "隐居悬空阁的散修前辈，不问世事，但对有缘后辈会出手指点一二。",
+    "dialog": "浮华如梦，修仙修心。你若耐得住寂寞，可来此与我论道。",
+    "quests": [],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "advanced_meditation",
+        "requirement": "completed_quest",
+        "requirement_value": "inner_disciple"
+      },
+      {
+        "skill_id": "protective_aura",
+        "requirement": "completed_quest",
+        "requirement_value": "inner_disciple"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的心性不错，可愿拜我为师，走一条逍遥散修之路？"
+      },
+      {
+        "min_relationship": 9,
+        "dialog": "天地浩渺，我等散修亦能走出自己的大道。"
+      }
+    ],
+    "portrait": "assets/portraits/hermit.png",
+    "side_quests": [
+      "side_hermit_wisdom"
+    ],
+    "schedule": {
+      "active_hours": [
+        0,
+        24
+      ],
+      "rest_location": "xuankong_ge",
+      "rest_dialog": "散修无昼夜之分，何时来都可论道。"
+    },
+    "npc_relationships": {
+      "friends": [
+        "herbal_granny"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "refused_wisdom",
+        "expected_value": true,
+        "dialog": "机缘已逝，莫再强求。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "double_ninth",
+        "dialog": "登高悟道，今日灵气格外清朗。"
+      }
+    ]
+  },
+  {
+    "id": "beast_keeper",
+    "name": "灵兽守护者",
+    "location": "wanyao",
+    "description": "万妖森林深处的灵兽守护者，能与妖兽沟通，守护森林的安宁。",
+    "dialog": "妖兽亦有灵性，滥杀只会招致灾祸。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "body_lightening",
+        "requirement": "completed_quest",
+        "requirement_value": "inner_disciple"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你身上的气息不像是滥杀之辈，这轻身术教你躲避猛兽。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "森林愿意接纳你，若有危难，可来此暂避。"
+      }
+    ],
+    "portrait": "assets/portraits/beast_keeper.png",
+    "side_quests": [
+      "side_protect_beasts"
+    ],
+    "schedule": {
+      "active_hours": [
+        5,
+        21
+      ],
+      "rest_location": "wanyao",
+      "rest_dialog": "森林夜晚危险，我也需守护灵兽入睡。"
+    },
+    "npc_relationships": {
+      "friends": [
+        "shou_master"
+      ],
+      "enemies": [
+        "poacher_npc_placeholder"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "slaughtered_beasts",
+        "expected_value": true,
+        "dialog": "你滥杀妖兽，森林不再欢迎你。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春万物生发，灵兽们也格外欢快。"
+      }
+    ]
+  },
+  {
+    "id": "ferry_woman",
+    "name": "忘川摆渡人",
+    "location": "wangchuan_river",
+    "description": "忘川河上神秘的摆渡人，据说已在河畔摆渡数百年，对神魂之道颇有见地。",
+    "dialog": "渡河需付魂力，亦可付一个故事。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "soul_calm",
+        "requirement": "path_hun"
+      }
+    ],
+    "shop_items": [
+      {
+        "item_id": "soul_lantern"
+      }
+    ],
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 3
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "神魂不宁者，过不了这条河。定魂诀可助你稳住心神。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "河底沉睡着上古秘密，待你神识足够强大，自会知晓。"
+      }
+    ],
+    "portrait": "assets/portraits/ferry_woman.png",
+    "side_quests": [
+      "side_ferry_soul"
+    ],
+    "schedule": {
+      "active_hours": [
+        18,
+        6
+      ],
+      "rest_location": "wangchuan_river",
+      "rest_dialog": "白日阳气太盛，我需沉睡于河底。"
+    },
+    "npc_relationships": {
+      "friends": [
+        "hun_master"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "disturbed_souls",
+        "expected_value": true,
+        "dialog": "你扰乱了亡魂的安宁，渡河费翻倍。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "今日渡河者众，皆是思念故人之魂。"
+      }
+    ]
+  },
+  {
+    "id": "alchemy_assistant",
+    "name": "丹童",
+    "location": "huoyan_gu",
+    "description": "丹修宗师身边的丹童，虽修为不高，但熟识丹理，常代宗师接待求丹者。",
+    "dialog": "师父正在炼丹，你若不急，可先听我讲讲丹道常识。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "water_breath",
+        "requirement": "completed_quest",
+        "requirement_value": "fire_trial"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "炼丹最忌心浮气躁，水息术可助你平心静气。"
+      },
+      {
+        "min_relationship": 6,
+        "dialog": "师父夸我眼光好，说你是个炼丹的好苗子。"
+      }
+    ],
+    "portrait": "assets/portraits/alchemy_assistant.png",
+    "side_quests": [
+      "side_alchemy_aid"
+    ],
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "huoyan_gu",
+      "rest_dialog": "丹火已熄，明日再来求丹吧。"
+    },
+    "npc_relationships": {
+      "master": "dan_master",
+      "friends": [
+        "herbal_granny"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "stole_herbs",
+        "expected_value": true,
+        "dialog": "你竟偷药园灵草，师父不会再理你。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "dragon_boat",
+        "dialog": "端午采些艾草，可入药香囊。"
+      }
+    ]
+  },
+  {
+    "id": "formation_disciple",
+    "name": "阵法弟子",
+    "location": "xuankong_ge",
+    "description": "悬空阁中研习阵法的年轻弟子，对阵纹推演颇有天赋，常与人讨论阵理。",
+    "dialog": "阵法之道，在于推演。一步错，则满盘皆输。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "stone_skin",
+        "requirement": "path_zhen"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "布阵先要学会护住自身，石肤术对你有用。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "师父说我迟早超过他，我看你也有阵修天赋。"
+      }
+    ],
+    "portrait": "assets/portraits/formation_disciple.png",
+    "side_quests": [
+      "side_formation_study"
+    ],
+    "schedule": {
+      "active_hours": [
+        8,
+        23
+      ],
+      "rest_location": "xuankong_ge",
+      "rest_dialog": "阵纹推演费神，我要歇息了。"
+    },
+    "npc_relationships": {
+      "master": "zhen_master"
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "broke_formation",
+        "expected_value": true,
+        "dialog": "你破我阵法，等同欺师灭祖！"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜布阵，可借太阴之力。"
+      }
+    ]
+  },
+  {
+    "id": "thunder_guide",
+    "name": "雷泽引路人",
+    "location": "leize",
+    "description": "雷泽边缘的引路修士，熟悉雷泽地形，常带领 brave 修士入雷泽淬体。",
+    "dialog": "雷泽凶险，但只要循着我的路线走，可保你平安三分。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "thunder_strike",
+        "requirement": "completed_quest",
+        "requirement_value": "inner_disciple"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "能承受住外围雷霆者，才有资格学习落雷术。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "雷泽深处有上古雷纹，或许与你命中相合。"
+      }
+    ],
+    "portrait": "assets/portraits/thunder_guide.png",
+    "side_quests": [
+      "side_thunder_trial"
+    ],
+    "schedule": {
+      "active_hours": [
+        6,
+        18
+      ],
+      "rest_location": "leize",
+      "rest_dialog": "夜间雷泽太险，我可不敢出来引路。"
+    },
+    "npc_relationships": {
+      "friends": [
+        "ti_master"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "fled_thunder",
+        "expected_value": true,
+        "dialog": "上次你临阵脱逃，这次我可不会再带你。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "winter_solstice",
+        "dialog": "冬至一阳生，雷霆中亦藏生机。"
+      }
+    ]
+  },
+  {
+    "id": "wandering_sword_immortal",
+    "name": "云游剑仙",
+    "location": "jianzhong",
+    "description": "一柄古剑、一袭青衫的云游剑仙，修为深不可测，偶尔会在剑冢点拨后辈。",
+    "dialog": "剑在人在，剑亡人亡。你的剑心，可还坚定？",
+    "quests": [],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "flying_immortal_sword",
+        "requirement": "path_jian"
+      },
+      {
+        "skill_id": "sword_domain",
+        "requirement": "path_jian"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的剑意纯粹，可愿随我云游，参悟无上剑道？"
+      },
+      {
+        "min_relationship": 10,
+        "dialog": "剑道无尽，今日我便将飞仙剑诀传授于你。"
+      }
+    ],
+    "portrait": "assets/portraits/wandering_sword_immortal.png",
+    "dynamic_spawn": {
+      "condition": "high_reputation",
+      "locations": [
+        "jianzhong",
+        "qingyun",
+        "tianjian_sect"
+      ],
+      "chance": 0.3
+    },
+    "npc_relationships": {
+      "friends": [
+        "tianjian_elder",
+        "jian_master"
+      ],
+      "lovers": [
+        "herbal_granny"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "accepted_sword_heritage",
+        "expected_value": true,
+        "dialog": "你已得我剑道真传，日后行走江湖，莫堕了剑修名声。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "qixi",
+        "dialog": "七夕佳节，正是月下论剑的好时候。"
+      }
+    ]
+  },
+  {
+    "id": "herbal_granny",
+    "name": "百草婆婆",
+    "location": "lingyao_fudi",
+    "description": "灵药福地中最年长的药修，精通百草，救人无数，被尊称为百草婆婆。",
+    "dialog": "药道即人道，救人一命，胜造七级浮屠。",
+    "quests": [],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "hundred_herbs",
+        "requirement": "path_dan"
+      },
+      {
+        "skill_id": "revival_pill",
+        "requirement": "path_dan"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你有一颗济世之心，可愿拜我为师，修习药道？"
+      },
+      {
+        "min_relationship": 10,
+        "dialog": "百草归元，生死人肉白骨，今日便传你回春之术。"
+      }
+    ],
+    "portrait": "assets/portraits/herbal_granny.png",
+    "dynamic_spawn": {
+      "condition": "festival",
+      "locations": [
+        "lingyao_fudi",
+        "qingyun"
+      ],
+      "chance": 0.4
+    },
+    "npc_relationships": {
+      "friends": [
+        "dan_master",
+        "yaoxian"
+      ],
+      "lovers": [
+        "wandering_sword_immortal"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "saved_patient",
+        "expected_value": true,
+        "dialog": "你救人之举，老婆子看在眼里，今日便传你一门救命丹方。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "qixi",
+        "dialog": "七夕乞巧，药香也染了几分情意。"
+      }
+    ]
+  },
+  {
+    "id": "ancient_sword_spirit",
+    "name": "上古剑灵",
+    "location": "jianzhong",
+    "description": "剑冢中万年古剑孕育出的剑灵，见证了无数剑修的兴衰，只认可真正的剑道天才。",
+    "dialog": "万剑齐鸣，唯认可一颗至诚剑心。",
+    "quests": [],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "zhuxian_sword_intent",
+        "requirement": "path_jian"
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 6,
+        "dialog": "剑冢沉寂万年，今日因你而鸣。"
+      },
+      {
+        "min_relationship": 10,
+        "dialog": "诛仙剑意，非大机缘不可得。你，准备好了吗？"
+      }
+    ],
+    "portrait": "assets/portraits/ancient_sword_spirit.png",
+    "dynamic_spawn": {
+      "condition": "night",
+      "locations": [
+        "jianzhong"
+      ],
+      "chance": 0.25
+    },
+    "npc_relationships": {
+      "enemies": [
+        "xie_master"
+      ]
+    },
+    "memory_dialogs": [
+      {
+        "memory_key": "proved_sword_heart",
+        "expected_value": true,
+        "dialog": "剑心通明，剑冢万剑已认可你为主。"
+      }
+    ],
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜，古剑共鸣，你感觉到了吗？"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_lord",
+    "name": "扶风城主",
+    "location": "fufeng_city",
+    "description": "扶风城的执掌者，修为高深，治理此地已有百年。对城中大小事务了如指掌。",
+    "dialog": "扶风城虽不如落霞城繁华，但风口之地自有其机缘。若有麻烦，可来找我。",
+    "dialogue_id": "fufeng_lord_greeting",
+    "quests": [
+      "kill_wolves"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你行事稳重，城中最近有些风妖作乱，可否助我一臂之力？"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "扶风城有你的护持，实为百姓之福。这枚城主令，可让你自由出入鬼市。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_lord.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "fufeng_city",
+      "rest_dialog": "城主已歇息，明日再来吧。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.5,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春之际，扶风城减免三日坊市税，道友可多逛逛。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_dan_shopkeeper",
+    "name": "扶风丹阁掌柜",
+    "location": "fufeng_city",
+    "description": "扶风城丹阁的掌柜，擅长炼制疗伤丹药，也收购各类灵草。",
+    "dialog": "风口之地寒气重，我这儿的回春丹最是畅销。",
+    "quests": [
+      "collect_herbs"
+    ],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.15,
+    "sell_multiplier": 0.65,
+    "locked_shop_items": [
+      {
+        "item_id": "foundation_pill",
+        "min_relationship": 5
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来照顾生意，这株百年灵草算你便宜些。"
+      },
+      {
+        "min_relationship": 7,
+        "dialog": "筑基丹乃修士根本，我为你留了一枚。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_dan_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "fufeng_city",
+      "rest_dialog": "丹阁已打烊，明日再来吧。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋丹香伴月，买一颗养颜丹送道侣吧。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_weapon_shopkeeper",
+    "name": "扶风兵工坊掌柜",
+    "location": "fufeng_city",
+    "description": "扶风城兵工坊的掌柜，以风灵铁打造轻灵兵器闻名，剑修与风灵根修士常来光顾。",
+    "dialog": "我这儿的兵器虽不如天剑宗的神兵，却贵在轻便迅疾。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "spirit_wood_sword"
+      },
+      {
+        "item_id": "leather_armor"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "locked_shop_items": [
+      {
+        "item_id": "jade_pendant",
+        "min_relationship": 4
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "看你身上装备普通，这柄灵木剑算你半价。"
+      },
+      {
+        "min_relationship": 7,
+        "dialog": "你我有缘，这枚聚灵玉佩可助你修炼更快。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_weapon_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "fufeng_city",
+      "rest_dialog": "炉火已熄，明日再来吧。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年新气象，买把新剑去去晦气。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_innkeeper",
+    "name": "扶风客栈掌柜",
+    "location": "fufeng_city",
+    "description": "扶风城最大客栈的掌柜，南来北往的修士都在此歇脚，消息极为灵通。",
+    "dialog": "客官住店还是打尖？住一晚可恢复状态，顺便听听最新的江湖传闻。",
+    "dialogue_id": "fufeng_innkeeper_rumor",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "这条消息刚从北边传来，或许对你有用。"
+      },
+      {
+        "min_relationship": 5,
+        "dialog": "扶风城北的鬼市，子时开市，里面有见不得光的买卖。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_innkeeper.png",
+    "schedule": {
+      "active_hours": [
+        0,
+        24
+      ],
+      "rest_location": "fufeng_city",
+      "rest_dialog": "客栈二十四小时不打烊，客官请自便。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日住店送一壶灵酒。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_bounty_officer",
+    "name": "扶风悬赏堂管事",
+    "location": "fufeng_city",
+    "description": "扶风城悬赏堂管事，负责发布与结算各类委托，性格雷厉风行。",
+    "dialog": "城内外妖兽、邪修作乱，悬赏堂常年缺人手。有实力，就来接任务。",
+    "quests": [
+      "kill_wolves"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你完成任务干脆利落，我这儿有笔高阶悬赏，只信得过你。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "扶风城悬赏堂感激你的贡献，这件赏金宝物归你了。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_bounty_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "fufeng_city",
+      "rest_dialog": "悬赏堂夜间不接任务，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.4,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "佳节也不许妖兽闹事，悬赏加倍！"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_black_market",
+    "name": "扶风鬼市商人",
+    "location": "fufeng_city",
+    "description": "扶风城子时鬼市的神秘商人，身份不明，手中常有正道商铺见不到的稀罕货。",
+    "dialog": "嘘——小声点。我这里的货，天亮之前必须带走。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "evil_crystal"
+      },
+      {
+        "item_id": "fire_crystal"
+      },
+      {
+        "item_id": "water_pearl"
+      },
+      {
+        "item_id": "beast_core"
+      }
+    ],
+    "buy_multiplier": 1.6,
+    "sell_multiplier": 0.4,
+    "locked_shop_items": [
+      {
+        "item_id": "marrow_pill",
+        "min_relationship": 5
+      },
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你倒是识货，这邪晶在黑市外可买不到。"
+      },
+      {
+        "min_relationship": 7,
+        "dialog": "洗髓丹能重塑灵根，我只卖给真正的老主顾。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_black_market.png",
+    "schedule": {
+      "active_hours": [
+        22,
+        4
+      ],
+      "rest_location": "fufeng_city",
+      "rest_dialog": "天亮了，鬼市散了。想买东西，子时再来。"
+    },
+    "faction_affinity": {
+      "righteous": 0.6,
+      "evil": 1.2,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜，黑市的货也比平日多三分。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_sect_master",
+    "name": "扶风宗主",
+    "location": "fufeng_wind_sect",
+    "description": "扶风宗现任宗主，风灵根剑修，剑法如风，行踪飘忽。",
+    "dialog": "我扶风宗虽小，却自由洒脱。你若有一颗向风之心，宗门便欢迎你。",
+    "quests": [
+      "fufeng_wind_trial"
+    ],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "gale_step",
+        "requirement": "path_jian",
+        "cost_spirit_stone": 500
+      },
+      {
+        "skill_id": "wind_blade",
+        "requirement": "path_fa",
+        "cost_spirit_stone": 300
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的剑意已初具锋芒，我可传你扶风剑意。"
+      },
+      {
+        "min_relationship": 9,
+        "dialog": "宗门日后若交到你手中，我亦能放心了。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_sect_master.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        21
+      ],
+      "rest_location": "fufeng_wind_sect",
+      "rest_dialog": "宗主正在闭关参悟风道，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.5,
+      "neutral": 1.1
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春罡风送暖，宗门弟子可领取一份风灵石。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_sect_elder",
+    "name": "扶风长老",
+    "location": "fufeng_wind_sect",
+    "description": "扶风宗传功长老，负责指点弟子修炼风属性功法。",
+    "dialog": "风无定形，功法亦是如此。不要拘泥于招式，要感受风的流动。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "wind_blade",
+        "requirement": "completed_quest",
+        "requirement_value": "fufeng_wind_trial",
+        "cost_spirit_stone": 100
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你悟性不错，这式风刃的诀窍在于以气御风。"
+      },
+      {
+        "min_relationship": 7,
+        "dialog": "疾风步的精髓不是快，而是让敌人捉摸不透你的身形。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_sect_elder.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "fufeng_wind_sect",
+      "rest_dialog": "长老正在静修，请勿打扰。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆风清，正是感悟风道的好时机。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_sect_task_officer",
+    "name": "扶风宗任务堂执事",
+    "location": "fufeng_wind_sect",
+    "description": "扶风宗任务堂执事，负责分发宗门日常任务与悬赏。",
+    "dialog": "宗门任务在此领取，完成可得贡献与资源。初入门的弟子可从清剿风隼做起。",
+    "quests": [
+      "fufeng_wind_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，我这儿有笔内门悬赏适合你。"
+      },
+      {
+        "min_relationship": 6,
+        "dialog": "宗门诸多事务多亏有你，这块风灵石是你应得的。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_sect_task_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "fufeng_wind_sect",
+      "rest_dialog": "任务堂夜间不接任务，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "节日期间任务奖励翻倍，抓紧机会。"
+      }
+    ]
+  },
+  {
+    "id": "fufeng_sect_beast_keeper",
+    "name": "扶风宗灵兽园管理员",
+    "location": "fufeng_wind_sect",
+    "description": "扶风宗灵兽园的管理员，擅长驯养风属性灵兽，性格温和。",
+    "dialog": "风鹰、云豹、灵狐都在园中，想要收服它们，需先为宗门立下功劳。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "beast_contract",
+        "requirement": "path_shou",
+        "cost_spirit_stone": 400
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你对灵兽很有耐心，这册驯兽心得送你。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "园中风鹰愿意跟随你，愿它助你在修仙路上一臂之力。"
+      }
+    ],
+    "portrait": "assets/portraits/fufeng_sect_beast_keeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        19
+      ],
+      "rest_location": "fufeng_wind_sect",
+      "rest_dialog": "灵兽已入笼休息，明日再来挑选。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜灵兽格外温顺，今日收服成功率或有提升。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_lord",
+    "name": "万妖城主",
+    "location": "wanyao_city",
+    "description": "万妖城的执掌者，修为深厚，常年与妖兽打交道，性格豪爽。",
+    "dialog": "万妖城靠山吃山，妖兽材料是本城命脉。你若敢进山猎妖，便是本城贵客。",
+    "quests": [
+      "wanyao_wolf_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "城中猎人少有你这般胆识，这批妖核算你高价。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "万妖山脉深处有头妖虎王，杀了它，本城主亲自为你庆功。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_lord.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "wanyao_city",
+      "rest_dialog": "城主已歇息，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春之际，万妖城减免三日坊市税，道友可尽情采购。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_beast_shopkeeper",
+    "name": "万妖灵兽铺掌柜",
+    "location": "wanyao_city",
+    "description": "万妖城灵兽铺的掌柜，常年贩卖妖兽幼崽与驯兽器具。",
+    "dialog": "想要灵兽？本店有刚断奶的青风狼崽，也有驯化好的灵鹰。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "beast_core"
+      },
+      {
+        "item_id": "demon_core"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来买材料，这瓶兽血算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_beast_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "wanyao_city",
+      "rest_dialog": "灵兽铺已打烊，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年新兽，买只灵宠回家吧。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_material_shopkeeper",
+    "name": "万妖材料铺掌柜",
+    "location": "wanyao_city",
+    "description": "万妖城材料铺的掌柜，专门收购和出售妖兽材料。",
+    "dialog": "妖骨、兽皮、兽核，本店应有尽有。你有好货，我出好价。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "demon_core"
+      },
+      {
+        "item_id": "beast_core"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.15,
+    "sell_multiplier": 0.65,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你这批材料品质不错，下次有好货直接找我。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_material_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "wanyao_city",
+      "rest_dialog": "材料铺已关门，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋猎妖季，材料收购价上浮一成。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_innkeeper",
+    "name": "万妖客栈掌柜",
+    "location": "wanyao_city",
+    "description": "万妖城客栈的掌柜，消息灵通，常为猎人提供山中情报。",
+    "dialog": "客官住店？本店有疗伤汤，还有最新妖兽出没的消息。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "山北有群青风狼最近躁动，去猎几只准有收获。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_innkeeper.png",
+    "schedule": {
+      "active_hours": [
+        0,
+        24
+      ],
+      "rest_location": "wanyao_city",
+      "rest_dialog": "客栈二十四小时不打烊。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 1.0,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日住店送一碗妖兽肉汤。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_bounty_officer",
+    "name": "万妖悬赏堂管事",
+    "location": "wanyao_city",
+    "description": "万妖城悬赏堂管事，专门发布猎妖任务。",
+    "dialog": "城中每日都有猎妖悬赏，实力够硬就来接。",
+    "quests": [
+      "wanyao_wolf_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你猎妖效率惊人，这笔高阶悬赏非你莫属。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_bounty_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "wanyao_city",
+      "rest_dialog": "悬赏堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "佳节也不许妖兽闹事，悬赏加倍！"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_black_market",
+    "name": "万妖黑市商人",
+    "location": "wanyao_city",
+    "description": "万妖城黑市的神秘商人，售卖见不得光的妖兽材料和禁品。",
+    "dialog": "小声点，我这里的货可不是正经铺子能买到的。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "evil_crystal"
+      },
+      {
+        "item_id": "beast_core"
+      },
+      {
+        "item_id": "demon_core"
+      }
+    ],
+    "buy_multiplier": 1.6,
+    "sell_multiplier": 0.4,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你倒是识货，这批邪晶在黑市外可买不到。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_black_market.png",
+    "schedule": {
+      "active_hours": [
+        22,
+        4
+      ],
+      "rest_location": "wanyao_city",
+      "rest_dialog": "天亮了，黑市散了。"
+    },
+    "faction_affinity": {
+      "righteous": 0.7,
+      "evil": 1.2,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜，黑市的货也比平日多三分。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_sect_master",
+    "name": "万兽宗主",
+    "location": "wanyao_sect",
+    "description": "万兽宗现任宗主，御兽修高手，身边常伴一头云纹虎。",
+    "dialog": "我万兽宗以兽为友，你若真心待兽，宗门便欢迎你。",
+    "quests": [
+      "wanyao_sect_trial"
+    ],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "beast_contract",
+        "requirement": "path_shou",
+        "cost_spirit_stone": 400
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的驯兽天赋不错，我可传你万兽之魂。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_sect_master.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        21
+      ],
+      "rest_location": "wanyao_sect",
+      "rest_dialog": "宗主正在驯兽，明日再来。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.1
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春万兽同庆，宗门弟子可领取一份兽核。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_sect_elder",
+    "name": "万兽长老",
+    "location": "wanyao_sect",
+    "description": "万兽宗传功长老，精通驯兽与兽魂融合之术。",
+    "dialog": "灵兽不是工具，而是伙伴。理解了这一点，你才算入门。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "beast_contract",
+        "requirement": "completed_quest",
+        "requirement_value": "wanyao_sect_trial",
+        "cost_spirit_stone": 100
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你与灵兽的默契不错，这册驯兽心得送你。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_sect_elder.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "wanyao_sect",
+      "rest_dialog": "长老正在静修。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜灵兽格外温顺，正是缔结契约的好时机。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_sect_task_officer",
+    "name": "万兽宗任务堂执事",
+    "location": "wanyao_sect",
+    "description": "万兽宗任务堂执事，负责分发猎妖与收集任务。",
+    "dialog": "宗门任务在此领取，初入门的弟子可从清剿青风狼做起。",
+    "quests": [
+      "wanyao_sect_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，我这儿有笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_sect_task_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "wanyao_sect",
+      "rest_dialog": "任务堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "节日期间任务奖励翻倍，抓紧机会。"
+      }
+    ]
+  },
+  {
+    "id": "wanyao_sect_beast_keeper",
+    "name": "万兽宗灵兽园管理员",
+    "location": "wanyao_sect",
+    "description": "万兽宗灵兽园管理员，负责照料宗门驯养的各类灵兽。",
+    "dialog": "园中的灵兽都在等你，想要收服它们，需先立功。",
+    "quests": [],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你对灵兽很有耐心，这册驯兽心得送你。"
+      }
+    ],
+    "portrait": "assets/portraits/wanyao_sect_beast_keeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        19
+      ],
+      "rest_location": "wanyao_sect",
+      "rest_dialog": "灵兽已入笼休息。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜灵兽格外温顺，今日收服成功率或有提升。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_lord",
+    "name": "玄水城主",
+    "location": "xuanshui_city",
+    "description": "玄水城的执掌者，水属性法修，治理水城已有数十年。",
+    "dialog": "玄水城四面环水，水灵根修士在此修炼事半功倍。",
+    "quests": [
+      "xuanshui_snake_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "城中最近有玄水蛇作乱，你可愿出手相助？"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_lord.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "xuanshui_city",
+      "rest_dialog": "城主已歇息。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春之际，玄水城减免三日坊市税。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_dan_shopkeeper",
+    "name": "玄水丹阁掌柜",
+    "location": "xuanshui_city",
+    "description": "玄水城丹阁掌柜，擅长炼制疗伤丹药与解毒丹。",
+    "dialog": "玄水城湿气重，我这儿的疗伤丹最是畅销。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "detox_pill"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.15,
+    "sell_multiplier": 0.65,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来照顾生意，这瓶解毒丹算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_dan_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "xuanshui_city",
+      "rest_dialog": "丹阁已打烊。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋丹香伴月，买一颗养颜丹送道侣吧。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_weapon_shopkeeper",
+    "name": "玄水兵工坊掌柜",
+    "location": "xuanshui_city",
+    "description": "玄水城兵工坊掌柜，以玄水铁打造轻灵兵器闻名。",
+    "dialog": "我这儿的兵器轻便迅捷，最适合水属性与风属性修士。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "jade_pendant"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "看你身手敏捷，这柄玄水剑算你半价。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_weapon_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "xuanshui_city",
+      "rest_dialog": "炉火已熄。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年新气象，买把新剑去去晦气。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_innkeeper",
+    "name": "玄水客栈掌柜",
+    "location": "xuanshui_city",
+    "description": "玄水城最大客栈的掌柜，消息灵通。",
+    "dialog": "客官住店还是打尖？本店有湖鲜恢复汤，还可打听湖中情报。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "湖心岛最近有玄水蛇出没，去猎几条准有收获。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_innkeeper.png",
+    "schedule": {
+      "active_hours": [
+        0,
+        24
+      ],
+      "rest_location": "xuanshui_city",
+      "rest_dialog": "客栈二十四小时不打烊。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日住店送一壶灵酒。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_bounty_officer",
+    "name": "玄水悬赏堂管事",
+    "location": "xuanshui_city",
+    "description": "玄水城悬赏堂管事，负责发布城中委托。",
+    "dialog": "城中湖妖、水怪作乱，悬赏堂常年缺人手。",
+    "quests": [
+      "xuanshui_snake_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你完成任务干脆利落，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_bounty_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "xuanshui_city",
+      "rest_dialog": "悬赏堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "佳节也不许水妖闹事，悬赏加倍！"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_ship_master",
+    "name": "玄水船坞主",
+    "location": "xuanshui_city",
+    "description": "玄水城船坞的主人，售卖灵舟与水上法器。",
+    "dialog": "想要渡湖？买艘灵舟最稳妥，也可租船前往湖心岛。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "water_pearl"
+      },
+      {
+        "item_id": "info_scroll"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.25,
+    "sell_multiplier": 0.58,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你常来坐船，这条湖心岛的隐秘航线告诉你。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_ship_master.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        20
+      ],
+      "rest_location": "xuanshui_city",
+      "rest_dialog": "船坞已收工。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年坐船打八折，去湖上祈福吧。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_master",
+    "name": "玄水宫主",
+    "location": "xuanshui_palace",
+    "description": "玄水宫现任宫主，水系法修，性情清冷。",
+    "dialog": "玄水宫弟子需心如止水，你可有此定力？",
+    "quests": [
+      "xuanshui_sect_trial"
+    ],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "ice_spike",
+        "requirement": "path_fa",
+        "cost_spirit_stone": 400
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的水法已有小成，我可传你玄冰真意。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_master.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        21
+      ],
+      "rest_location": "xuanshui_palace",
+      "rest_dialog": "宫主正在寒潭静修。"
+    },
+    "faction_affinity": {
+      "righteous": 1.1,
+      "evil": 0.5,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春寒潭送暖，弟子可领取一份水灵珠。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_sect_elder",
+    "name": "玄水长老",
+    "location": "xuanshui_palace",
+    "description": "玄水宫传功长老，负责指点弟子修炼水系功法。",
+    "dialog": "水无常形，功法亦是如此。以柔克刚，方可大成。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "ice_spike",
+        "requirement": "completed_quest",
+        "requirement_value": "xuanshui_sect_trial",
+        "cost_spirit_stone": 100
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你悟性不错，玄冰刺的诀窍在于凝水成冰。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_sect_elder.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "xuanshui_palace",
+      "rest_dialog": "长老正在静修。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆水清，正是感悟水道的好时机。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_sect_task_officer",
+    "name": "玄水宫任务堂执事",
+    "location": "xuanshui_palace",
+    "description": "玄水宫任务堂执事，负责分发宗门任务。",
+    "dialog": "宗门任务在此领取，初入门的弟子可从驱逐玄水蛇做起。",
+    "quests": [
+      "xuanshui_sect_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_sect_task_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "xuanshui_palace",
+      "rest_dialog": "任务堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "节日期间任务奖励翻倍。"
+      }
+    ]
+  },
+  {
+    "id": "xuanshui_sect_dan_master",
+    "name": "玄水宫炼丹师",
+    "location": "xuanshui_palace",
+    "description": "玄水宫炼丹师，擅长炼制疗伤与解毒丹药。",
+    "dialog": "寒潭水汽重，我这儿的解毒丹品质上乘。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "detox_pill"
+      },
+      {
+        "item_id": "water_pearl"
+      }
+    ],
+    "buy_multiplier": 1.15,
+    "sell_multiplier": 0.65,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来买丹，这瓶疗伤丹算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/xuanshui_sect_dan_master.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "xuanshui_palace",
+      "rest_dialog": "炼丹房已熄炉。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋炼一炉水月丹，送你一颗尝尝。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_lord",
+    "name": "赤焰城主",
+    "location": "chiyan_city",
+    "description": "赤焰城的执掌者，火属性修士，性格火爆却重情义。",
+    "dialog": "赤焰城地热旺盛，火灵根修士在此如鱼得水。",
+    "quests": [
+      "chiyan_scorpion_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "地火洞最近不太平，你可愿去查探一番？"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_lord.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "chiyan_city",
+      "rest_dialog": "城主已歇息。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春之际，赤焰城减免三日坊市税。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_dan_shopkeeper",
+    "name": "赤焰丹阁掌柜",
+    "location": "chiyan_city",
+    "description": "赤焰城丹阁掌柜，擅长炼制火属性丹药。",
+    "dialog": "我这儿的丹药火气足，最适合体修与火灵根修士。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "fire_crystal"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.15,
+    "sell_multiplier": 0.65,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来照顾生意，这瓶火灵丹算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_dan_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "chiyan_city",
+      "rest_dialog": "丹阁已打烊。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋炼一炉火莲丹，送你一颗尝尝。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_weapon_shopkeeper",
+    "name": "赤焰兵工坊掌柜",
+    "location": "chiyan_city",
+    "description": "赤焰城兵工坊掌柜，以地火锻造火属性兵器闻名。",
+    "dialog": "我这儿的兵器火气十足，最适合火灵根修士。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "iron_sword"
+      },
+      {
+        "item_id": "fire_crystal"
+      },
+      {
+        "item_id": "spirit_stone"
+      }
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "看你身上装备普通，这柄炎铁剑算你半价。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_weapon_shopkeeper.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "chiyan_city",
+      "rest_dialog": "炉火已熄。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年新气象，买把新剑去去晦气。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_innkeeper",
+    "name": "赤焰客栈掌柜",
+    "location": "chiyan_city",
+    "description": "赤焰城客栈掌柜，消息灵通，常为炼丹师提供材料情报。",
+    "dialog": "客官住店？本店有清热汤，还可打听地火洞的消息。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "地火洞入口有烈焰蝎出没，去猎几只准有收获。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_innkeeper.png",
+    "schedule": {
+      "active_hours": [
+        0,
+        24
+      ],
+      "rest_location": "chiyan_city",
+      "rest_dialog": "客栈二十四小时不打烊。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 1.0,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "过年好！今日住店送一壶凉茶。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_bounty_officer",
+    "name": "赤焰悬赏堂管事",
+    "location": "chiyan_city",
+    "description": "赤焰城悬赏堂管事，发布城中猎妖与收集任务。",
+    "dialog": "城中地火洞与烈焰蝎的任务最多，有实力就来接。",
+    "quests": [
+      "chiyan_scorpion_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你猎妖效率高，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_bounty_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "chiyan_city",
+      "rest_dialog": "悬赏堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "佳节也不许火妖闹事，悬赏加倍！"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_earth_fire_master",
+    "name": "赤焰地火师",
+    "location": "chiyan_city",
+    "description": "赤焰城地火室的管理者，精通地火炼丹与锻造。",
+    "dialog": "地火室可不是随便进的，需有城主手令或足够贡献。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "fire_crystal"
+      },
+      {
+        "item_id": "fireball_manual"
+      }
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你对地火颇有研究，这本地火纪要送你。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_earth_fire_master.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        20
+      ],
+      "rest_location": "chiyan_city",
+      "rest_dialog": "地火室已封炉。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新年地火旺盛，今日炼丹成功率提升。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_master",
+    "name": "赤炎门主",
+    "location": "chiyan_gate",
+    "description": "赤炎门现任门主，火法与丹道双绝。",
+    "dialog": "我赤炎门以火立道，你若精通丹道，宗门便欢迎你。",
+    "quests": [
+      "chiyan_sect_trial"
+    ],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "fireball",
+        "requirement": "path_fa",
+        "cost_spirit_stone": 350
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的火法已有小成，我可传你赤炎真意。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_master.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        21
+      ],
+      "rest_location": "chiyan_gate",
+      "rest_dialog": "门主正在地火室炼丹。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 1.0,
+      "neutral": 1.1
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春地火旺盛，弟子可领取一份火晶。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_sect_elder",
+    "name": "赤炎长老",
+    "location": "chiyan_gate",
+    "description": "赤炎门传功长老，负责指点弟子修炼火法。",
+    "dialog": "火者，刚猛爆裂。控火之道，在于收放自如。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "fireball",
+        "requirement": "completed_quest",
+        "requirement_value": "chiyan_sect_trial",
+        "cost_spirit_stone": 80
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你悟性不错，火球术的诀窍在于凝气成火。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_sect_elder.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "chiyan_gate",
+      "rest_dialog": "长老正在静修。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆火清，正是感悟火道的好时机。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_sect_task_officer",
+    "name": "赤炎门任务堂执事",
+    "location": "chiyan_gate",
+    "description": "赤炎门任务堂执事，负责分发宗门任务。",
+    "dialog": "宗门任务在此领取，初入门的弟子可从清剿烈焰蝎做起。",
+    "quests": [
+      "chiyan_sect_trial"
+    ],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_sect_task_officer.png",
+    "schedule": {
+      "active_hours": [
+        6,
+        22
+      ],
+      "rest_location": "chiyan_gate",
+      "rest_dialog": "任务堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "节日期间任务奖励翻倍。"
+      }
+    ]
+  },
+  {
+    "id": "chiyan_sect_alchemist",
+    "name": "赤炎门炼丹师",
+    "location": "chiyan_gate",
+    "description": "赤炎门炼丹师，精通火属性丹药炼制。",
+    "dialog": "地火室炉火不熄，我这儿的丹药火气纯正。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {
+        "item_id": "health_pill"
+      },
+      {
+        "item_id": "fire_crystal"
+      },
+      {
+        "item_id": "century_herb"
+      }
+    ],
+    "buy_multiplier": 1.15,
+    "sell_multiplier": 0.65,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来买丹，这瓶火灵丹算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/chiyan_sect_alchemist.png",
+    "schedule": {
+      "active_hours": [
+        7,
+        20
+      ],
+      "rest_location": "chiyan_gate",
+      "rest_dialog": "炼丹房已熄炉。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋炼一炉火莲丹，送你一颗尝尝。"
+      }
+    ]
+  },
+  {
+    "id": "wangchuan_mayor",
+    "name": "忘川镇长",
+    "location": "wangchuan_town",
+    "description": "忘川镇的现任镇长，世代守护忘川渡口，对亡魂与阴气之事知之甚详。",
+    "dialog": "忘川镇白日人烟稀少，夜里才是我们活动的时辰。你若要渡河，先帮镇子平息不安的游魂。",
+    "quests": ["wangchuan_soul_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你身上的阳气比常人稳，或许真能帮镇子解决些麻烦。"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "忘川河底的秘密，或许该由有缘人去揭开。"
+      }
+    ],
+    "portrait": "assets/portraits/wangchuan_mayor.png",
+    "schedule": {
+      "active_hours": [18, 8],
+      "rest_location": "wangchuan_town",
+      "rest_dialog": "镇长白日歇息，入夜再来。"
+    },
+    "faction_affinity": {
+      "righteous": 0.8,
+      "evil": 1.1,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明时节渡魂者众，镇中准备了纸钱香烛，愿亡魂安息。"
+      }
+    ]
+  },
+  {
+    "id": "wangchuan_herb_shop",
+    "name": "忘川药铺掌柜",
+    "location": "wangchuan_town",
+    "description": "忘川镇药铺的掌柜，专售安魂草与解毒丹，也收购幽冥材料。",
+    "dialog": "阴气重的地方最容易中毒，备好解毒丹再下河。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "health_pill"},
+      {"item_id": "detox_pill"},
+      {"item_id": "century_herb"}
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "locked_shop_items": [
+      {
+        "item_id": "soul_lantern",
+        "min_relationship": 4
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你与亡魂打交道多，这盏渡魂灯或许用得上。"
+      }
+    ],
+    "portrait": "assets/portraits/wangchuan_herb_shop.png",
+    "schedule": {
+      "active_hours": [18, 6],
+      "rest_location": "wangchuan_town",
+      "rest_dialog": "药铺白日不开张。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 1.0,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明安魂草销量最好，送你一株。"
+      }
+    ]
+  },
+  {
+    "id": "wangchuan_innkeeper",
+    "name": "忘川客栈掌柜",
+    "location": "wangchuan_town",
+    "description": "忘川客栈的掌柜，消息灵通，常为渡魂人与魂修提供情报。",
+    "dialog": "客官住店？本店有安魂汤，还可打听幽冥宗的消息。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "health_pill"},
+      {"item_id": "century_herb"}
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "镇北渡口最近影狼出没，去猎几只可换赏金。"
+      }
+    ],
+    "portrait": "assets/portraits/wangchuan_innkeeper.png",
+    "schedule": {
+      "active_hours": [0, 24],
+      "rest_location": "wangchuan_town",
+      "rest_dialog": "客栈二十四小时不打烊，只是白日无人。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 1.1,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明时节，住店送一碗安魂汤。"
+      }
+    ]
+  },
+  {
+    "id": "wangchuan_bounty_officer",
+    "name": "忘川悬赏堂管事",
+    "location": "wangchuan_town",
+    "description": "忘川镇悬赏堂管事，专门发布猎魂与渡魂任务。",
+    "dialog": "影狼吞噬游魂，扰乱渡口安宁，有实力的修士可去接任务。",
+    "quests": ["wangchuan_soul_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你猎妖干脆利落，这笔幽冥宗的外围悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/wangchuan_bounty_officer.png",
+    "schedule": {
+      "active_hours": [18, 6],
+      "rest_location": "wangchuan_town",
+      "rest_dialog": "悬赏堂白日不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 0.8,
+      "evil": 1.1,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明悬赏加倍，愿亡魂早日安息。"
+      }
+    ]
+  },
+  {
+    "id": "wangchuan_soul_merchant",
+    "name": "忘川渡魂商人",
+    "location": "wangchuan_town",
+    "description": "往来于忘川河两岸的神秘商人，售卖魂修材料与渡魂法器。",
+    "dialog": "渡魂需要法器，我这里的货都是正经冥器，价格公道。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "soul_lantern"},
+      {"item_id": "demon_core"},
+      {"item_id": "evil_crystal"}
+    ],
+    "buy_multiplier": 1.4,
+    "sell_multiplier": 0.5,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你常来照顾生意，这块阴晶算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/wangchuan_soul_merchant.png",
+    "schedule": {
+      "active_hours": [20, 5],
+      "rest_location": "wangchuan_town",
+      "rest_dialog": "天亮了，冥器收摊。"
+    },
+    "faction_affinity": {
+      "righteous": 0.7,
+      "evil": 1.2,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明时节冥器销量好，送你一盏渡魂灯。"
+      }
+    ]
+  },
+  {
+    "id": "youming_master",
+    "name": "幽冥宗主",
+    "location": "youming_sect",
+    "description": "幽冥宗现任宗主，魂修宗师，神识深不可测。",
+    "dialog": "幽冥宗修炼神识与渡魂之术，你若不惧神魂之苦，宗门便欢迎你。",
+    "quests": ["youming_sect_trial"],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "soul_devour",
+        "requirement": "path_hun",
+        "cost_spirit_stone": 500
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的神识已有小成，我可传你幽冥魂意。"
+      }
+    ],
+    "portrait": "assets/portraits/youming_master.png",
+    "schedule": {
+      "active_hours": [18, 8],
+      "rest_location": "youming_sect",
+      "rest_dialog": "宗主正在炼魂窟闭关。"
+    },
+    "faction_affinity": {
+      "righteous": 0.5,
+      "evil": 1.2,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明万魂躁动，正是修炼魂术的好时机。"
+      }
+    ]
+  },
+  {
+    "id": "youming_elder",
+    "name": "幽冥长老",
+    "location": "youming_sect",
+    "description": "幽冥宗传功长老，精通神识攻击与渡魂之法。",
+    "dialog": "神识如刃，可伤人亦可护己。修炼魂术，先要学会守住本心。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "soul_devour",
+        "requirement": "completed_quest",
+        "requirement_value": "youming_sect_trial",
+        "cost_spirit_stone": 120
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你悟性不错，噬魂术的诀窍在于以神识为引。"
+      }
+    ],
+    "portrait": "assets/portraits/youming_elder.png",
+    "schedule": {
+      "active_hours": [18, 8],
+      "rest_location": "youming_sect",
+      "rest_dialog": "长老正在静修。"
+    },
+    "faction_affinity": {
+      "righteous": 0.6,
+      "evil": 1.1,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明魂月当空，正是感悟魂道的好时机。"
+      }
+    ]
+  },
+  {
+    "id": "youming_task_officer",
+    "name": "幽冥宗任务堂执事",
+    "location": "youming_sect",
+    "description": "幽冥宗任务堂执事，负责分发猎魂与伏击任务。",
+    "dialog": "宗门任务在此领取，初入门的弟子可从猎杀影狼做起。",
+    "quests": ["youming_sect_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/youming_task_officer.png",
+    "schedule": {
+      "active_hours": [18, 8],
+      "rest_location": "youming_sect",
+      "rest_dialog": "任务堂白日不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 0.6,
+      "evil": 1.1,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明期间任务奖励翻倍。"
+      }
+    ]
+  },
+  {
+    "id": "youming_soul_ferryman",
+    "name": "幽冥渡魂师",
+    "location": "youming_sect",
+    "description": "幽冥宗中的渡魂师，负责引渡亡魂，也向外门弟子传授定魂之术。",
+    "dialog": "亡魂未散，多是执念未消。你若学会定魂诀，便可帮他们解脱。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "soul_calm",
+        "requirement": "path_hun",
+        "cost_spirit_stone": 300
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你心性沉稳，定魂诀可助你稳住神魂。"
+      }
+    ],
+    "portrait": "assets/portraits/youming_soul_ferryman.png",
+    "schedule": {
+      "active_hours": [18, 8],
+      "rest_location": "youming_sect",
+      "rest_dialog": "渡魂师白日沉睡。"
+    },
+    "faction_affinity": {
+      "righteous": 0.7,
+      "evil": 1.1,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "qingming",
+        "dialog": "清明渡魂，功德无量。"
+      }
+    ]
+  },
+  {
+    "id": "yunlan_lord",
+    "name": "云岚城主",
+    "location": "yunlan_city",
+    "description": "云岚城的执掌者，修为高深，掌管这座悬浮于云海的天空之城。",
+    "dialog": "云岚城汇聚天下奇珍，唯有筑基以上修士方可御器抵达。",
+    "quests": ["yunlan_wind_roc_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "城外的疾风雕最近扰民，你可愿出手？"
+      },
+      {
+        "min_relationship": 8,
+        "dialog": "云岚城的高阶拍卖会，从此为你敞开。"
+      }
+    ],
+    "portrait": "assets/portraits/yunlan_lord.png",
+    "schedule": {
+      "active_hours": [7, 20],
+      "rest_location": "yunlan_city",
+      "rest_dialog": "城主已歇息。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋云岚城举办云海灯会，道友可尽兴游览。"
+      }
+    ]
+  },
+  {
+    "id": "yunlan_guild_chair",
+    "name": "云岚商会会长",
+    "location": "yunlan_city",
+    "description": "云岚城商会的会长，掌控城中大部分高阶材料与情报交易。",
+    "dialog": "云岚城的货物皆是上品，只要你有足够的灵石。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "info_scroll"},
+      {"item_id": "jade_pendant"},
+      {"item_id": "spirit_stone"},
+      {"item_id": "water_pearl"}
+    ],
+    "buy_multiplier": 1.25,
+    "sell_multiplier": 0.58,
+    "locked_shop_items": [
+      {
+        "item_id": "phoenix_feather",
+        "min_relationship": 5
+      },
+      {
+        "item_id": "qilin_horn",
+        "min_relationship": 8
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "老朋友来了，这批高阶材料先让你挑。"
+      }
+    ],
+    "portrait": "assets/portraits/yunlan_guild_chair.png",
+    "schedule": {
+      "active_hours": [7, 20],
+      "rest_location": "yunlan_city",
+      "rest_dialog": "商会已歇业。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋商会大促，稀有材料九折。"
+      }
+    ]
+  },
+  {
+    "id": "yunlan_innkeeper",
+    "name": "云岚客栈掌柜",
+    "location": "yunlan_city",
+    "description": "云岚城最大客栈的掌柜，三教九流皆来此处交换情报。",
+    "dialog": "客官住店？云岚城的客栈可俯瞰云海，住一晚百病全消。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "health_pill"},
+      {"item_id": "century_herb"}
+    ],
+    "buy_multiplier": 1.3,
+    "sell_multiplier": 0.55,
+    "locked_shop_items": [
+      {
+        "item_id": "info_scroll",
+        "min_relationship": 2
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 2,
+        "dialog": "城外的疾风雕最近躁动，去猎一只可换赏金。"
+      }
+    ],
+    "portrait": "assets/portraits/yunlan_innkeeper.png",
+    "schedule": {
+      "active_hours": [0, 24],
+      "rest_location": "yunlan_city",
+      "rest_dialog": "客栈二十四小时不打烊。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.9,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋住店送一盏云灯，可放至云海祈福。"
+      }
+    ]
+  },
+  {
+    "id": "yunlan_bounty_officer",
+    "name": "云岚悬赏堂管事",
+    "location": "yunlan_city",
+    "description": "云岚城悬赏堂管事，发布高阶猎妖与收集任务。",
+    "dialog": "云岚城的悬赏门槛不低，但报酬也丰厚。",
+    "quests": ["yunlan_wind_roc_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你实力不俗，这笔猎杀疾风雕的悬赏非你莫属。"
+      }
+    ],
+    "portrait": "assets/portraits/yunlan_bounty_officer.png",
+    "schedule": {
+      "active_hours": [6, 22],
+      "rest_location": "yunlan_city",
+      "rest_dialog": "悬赏堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "佳节也不许妖兽扰民，悬赏加倍。"
+      }
+    ]
+  },
+  {
+    "id": "yunlan_tianji_guide",
+    "name": "云岚天机阁接引",
+    "location": "yunlan_city",
+    "description": "天机阁驻云岚城的接引修士，为有意入阁的修士办理引荐。",
+    "dialog": "天机阁专攻阵法与符箓，你若有意，我可为你引荐。",
+    "quests": ["tianji_sect_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你对阵法颇有悟性，天机阁入门试炼等你来。"
+      }
+    ],
+    "portrait": "assets/portraits/yunlan_tianji_guide.png",
+    "schedule": {
+      "active_hours": [7, 20],
+      "rest_location": "yunlan_city",
+      "rest_dialog": "接引使已回阁休息。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.1
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋星象大吉，天机阁今日广收弟子。"
+      }
+    ]
+  },
+  {
+    "id": "yunlan_auctioneer",
+    "name": "云岚拍卖师",
+    "location": "yunlan_city",
+    "description": "云岚城拍卖行的首席拍卖师，主持高阶材料与功法拍卖。",
+    "dialog": "今晚拍卖会有几件稀罕货，道友可有灵石一试？",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "info_scroll"},
+      {"item_id": "jade_pendant"},
+      {"item_id": "chaos_spirit_bead"},
+      {"item_id": "phoenix_feather"}
+    ],
+    "buy_multiplier": 2.0,
+    "sell_multiplier": 0.5,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "这位道友出手阔绰，下次拍卖我提前为你预留好货。"
+      }
+    ],
+    "portrait": "assets/portraits/yunlan_auctioneer.png",
+    "schedule": {
+      "active_hours": [7, 20],
+      "rest_location": "yunlan_city",
+      "rest_dialog": "拍卖行已歇业。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.8,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋拍卖盛会，压轴宝物不可错过。"
+      }
+    ]
+  },
+  {
+    "id": "tianji_master",
+    "name": "天机阁主",
+    "location": "tianji_pavilion",
+    "description": "天机阁现任阁主，阵法与推衍宗师，行事神秘莫测。",
+    "dialog": "天机阁以星象推衍、阵法符箓立道，你可有这份悟性？",
+    "quests": ["tianji_sect_trial"],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "wind_blade",
+        "requirement": "path_zhen",
+        "cost_spirit_stone": 400
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的阵法天赋不错，我可传你星宿真意。"
+      }
+    ],
+    "portrait": "assets/portraits/tianji_master.png",
+    "schedule": {
+      "active_hours": [7, 21],
+      "rest_location": "tianji_pavilion",
+      "rest_dialog": "阁主正在星宿塔推衍。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.1
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋星象大吉，弟子可领取一份星符。"
+      }
+    ]
+  },
+  {
+    "id": "tianji_elder",
+    "name": "天机长老",
+    "location": "tianji_pavilion",
+    "description": "天机阁传功长老，精通阵法与符箓之道。",
+    "dialog": "阵法之道，在于推演。一步错，则满盘皆输。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "wind_blade",
+        "requirement": "completed_quest",
+        "requirement_value": "tianji_sect_trial",
+        "cost_spirit_stone": 100
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你悟性不错，风刃的诀窍在于以气御风。"
+      }
+    ],
+    "portrait": "assets/portraits/tianji_elder.png",
+    "schedule": {
+      "active_hours": [6, 22],
+      "rest_location": "tianji_pavilion",
+      "rest_dialog": "长老正在推演阵纹。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "月圆之夜布阵，可借太阴之力。"
+      }
+    ]
+  },
+  {
+    "id": "tianji_task_officer",
+    "name": "天机阁任务堂执事",
+    "location": "tianji_pavilion",
+    "description": "天机阁任务堂执事，负责分发宗门任务。",
+    "dialog": "宗门任务在此领取，初入门的弟子可从清理云妖做起。",
+    "quests": ["tianji_sect_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/tianji_task_officer.png",
+    "schedule": {
+      "active_hours": [6, 22],
+      "rest_location": "tianji_pavilion",
+      "rest_dialog": "任务堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "节日期间任务奖励翻倍。"
+      }
+    ]
+  },
+  {
+    "id": "tianji_talisman_master",
+    "name": "天机制符师",
+    "location": "tianji_pavilion",
+    "description": "天机阁中的制符大师，擅长炼制各类符箓。",
+    "dialog": "符箓之道，在于一笔一划引动天地之力。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "thunder_seal",
+        "requirement": "path_fu",
+        "cost_spirit_stone": 350
+      }
+    ],
+    "shop_items": [
+      {"item_id": "info_scroll"},
+      {"item_id": "spirit_stone"}
+    ],
+    "buy_multiplier": 1.2,
+    "sell_multiplier": 0.6,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你对符箓颇有悟性，这张五雷符送你研究。"
+      }
+    ],
+    "portrait": "assets/portraits/tianji_talisman_master.png",
+    "schedule": {
+      "active_hours": [7, 20],
+      "rest_location": "tianji_pavilion",
+      "rest_dialog": "符箓坊已熄灯。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "mid_autumn",
+        "dialog": "中秋画符，成功率或有提升。"
+      }
+    ]
+  },
+  {
+    "id": "yaowang_master",
+    "name": "药王谷主",
+    "location": "yaowang_valley",
+    "description": "药王谷现任谷主，丹道宗师，医术通神。",
+    "dialog": "药王谷以丹入道，济世救人。你若心怀善念，谷中便欢迎你。",
+    "quests": ["yaowang_valley_trial"],
+    "can_be_master": true,
+    "teach_skills": [
+      {
+        "skill_id": "healing_breath",
+        "requirement": "path_dan",
+        "cost_spirit_stone": 300
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 5,
+        "dialog": "你的丹道天赋不错，我可传你药王丹心。"
+      }
+    ],
+    "portrait": "assets/portraits/yaowang_master.png",
+    "schedule": {
+      "active_hours": [7, 21],
+      "rest_location": "yaowang_valley",
+      "rest_dialog": "谷主正在百草园采药。"
+    },
+    "faction_affinity": {
+      "righteous": 1.1,
+      "evil": 0.5,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春百草丰茂，弟子可领取一份灵草。"
+      }
+    ]
+  },
+  {
+    "id": "yaowang_elder",
+    "name": "药王长老",
+    "location": "yaowang_valley",
+    "description": "药王谷传功长老，精通炼丹与医术。",
+    "dialog": "炼丹如修心，火候、药性、心境，缺一不可。",
+    "quests": [],
+    "teach_skills": [
+      {
+        "skill_id": "healing_breath",
+        "requirement": "completed_quest",
+        "requirement_value": "yaowang_valley_trial",
+        "cost_spirit_stone": 80
+      }
+    ],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你悟性不错，吐纳回元的诀窍在于以气引药。"
+      }
+    ],
+    "portrait": "assets/portraits/yaowang_elder.png",
+    "schedule": {
+      "active_hours": [6, 22],
+      "rest_location": "yaowang_valley",
+      "rest_dialog": "长老正在丹房。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春炼一炉养生丹，送你一颗。"
+      }
+    ]
+  },
+  {
+    "id": "yaowang_task_officer",
+    "name": "药王谷任务堂执事",
+    "location": "yaowang_valley",
+    "description": "药王谷任务堂执事，负责分发采药与清除毒虫任务。",
+    "dialog": "宗门任务在此领取，初入门的弟子可从清除毒蛛做起。",
+    "quests": ["yaowang_valley_trial"],
+    "teach_skills": [],
+    "relationship_dialogs": [
+      {
+        "min_relationship": 3,
+        "dialog": "你完成任务很勤快，这笔内门悬赏适合你。"
+      }
+    ],
+    "portrait": "assets/portraits/yaowang_task_officer.png",
+    "schedule": {
+      "active_hours": [6, 22],
+      "rest_location": "yaowang_valley",
+      "rest_dialog": "任务堂夜间不接任务。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.6,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "节日期间任务奖励翻倍。"
+      }
+    ]
+  },
+  {
+    "id": "yaowang_alchemist",
+    "name": "药王谷炼丹师",
+    "location": "yaowang_valley",
+    "description": "药王谷炼丹师，精通各类丹药炼制。",
+    "dialog": "谷中丹药药性温和，最适合疗伤与解毒。",
+    "quests": [],
+    "teach_skills": [],
+    "shop_items": [
+      {"item_id": "health_pill"},
+      {"item_id": "detox_pill"},
+      {"item_id": "century_herb"},
+      {"item_id": "spirit_herb"}
+    ],
+    "buy_multiplier": 1.1,
+    "sell_multiplier": 0.65,
+    "relationship_dialogs": [
+      {
+        "min_relationship": 4,
+        "dialog": "你常来买丹，这瓶解毒丹算你便宜。"
+      }
+    ],
+    "portrait": "assets/portraits/yaowang_alchemist.png",
+    "schedule": {
+      "active_hours": [7, 20],
+      "rest_location": "yaowang_valley",
+      "rest_dialog": "炼丹房已熄炉。"
+    },
+    "faction_affinity": {
+      "righteous": 1.0,
+      "evil": 0.7,
+      "neutral": 1.0
+    },
+    "festival_dialogs": [
+      {
+        "festival_id": "spring_festival",
+        "dialog": "新春炼一炉养生丹，送你一颗尝尝。"
+      }
+    ]
+  }
+]

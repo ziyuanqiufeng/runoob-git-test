@@ -1,0 +1,110 @@
+[
+  {
+    "id": "side_herb_delivery",
+    "name": "送药委托",
+    "description": "坊市掌柜急需三株百年灵草，完成后给予丰厚报酬。",
+    "giver_npc_id": "market_keeper",
+    "location": "qingyun",
+    "objectives": [{"type": "collect_item", "item_id": "century_herb", "count": 3}],
+    "rewards": {"spirit_stones": 50, "relationship": 2}
+  },
+  {
+    "id": "side_hunt_wolves",
+    "name": "清剿狼患",
+    "description": "青云山脚下的狼群袭击路人，击杀 5 只野狼。",
+    "giver_npc_id": "elder_qing",
+    "location": "qingyun",
+    "objectives": [{"type": "kill", "enemy_id": "wolf", "count": 5}],
+    "rewards": {"spirit_stones": 30, "relationship": 3, "item_id": "health_pill"}
+  },
+  {
+    "id": "side_find_disciple",
+    "name": "寻找走失弟子",
+    "description": "宗门一名外门弟子在九渊森林失踪，前去查探。",
+    "giver_npc_id": "sect_master",
+    "location": "heifeng",
+    "objectives": [{"type": "visit_location", "location_id": "jiuyuan_senlin"}],
+    "rewards": {"sect_contribution": 50, "relationship": 2}
+  },
+  {
+    "id": "side_hunt_bandits",
+    "name": "剿灭山匪",
+    "description": "外门接引收到消息，青云山道上有山匪拦路，请前去剿灭。",
+    "giver_npc_id": "outer_disciple_guide",
+    "location": "qingyun",
+    "objectives": [{"type": "kill", "enemy_id": "mountain_bandit", "count": 3}],
+    "rewards": {"spirit_stones": 40, "relationship": 3, "sect_contribution": 20}
+  },
+  {
+    "id": "side_undercover_clue",
+    "name": "魔道暗线",
+    "description": "魔道卧底透露了一丝线索，前往幽冥森林查探魔道踪迹。",
+    "giver_npc_id": "demon_spy",
+    "location": "luoxia_city",
+    "objectives": [{"type": "visit_location", "location_id": "jiuyuan_senlin"}],
+    "rewards": {"spirit_stones": 60, "relationship": 4, "item_id": "evil_crystal"}
+  },
+  {
+    "id": "side_punish_evil",
+    "name": "替天行道",
+    "description": "执法长老追查魔道弟子下落，请协助击杀魔道修士。",
+    "giver_npc_id": "law_enforcer",
+    "location": "tianjian_sect",
+    "objectives": [{"type": "kill", "enemy_id": "evil_cultivator", "count": 3}],
+    "rewards": {"spirit_stones": 80, "relationship": 4, "sect_contribution": 40}
+  },
+  {
+    "id": "side_hermit_wisdom",
+    "name": "隐士传道",
+    "description": "隐世散修邀你前往悬空阁听道，若能抵达，必有收获。",
+    "giver_npc_id": "hermit",
+    "location": "xuankong_ge",
+    "objectives": [{"type": "visit_location", "location_id": "xuankong_ge"}],
+    "rewards": {"qi": 500, "relationship": 3, "item_id": "ancient_scroll"}
+  },
+  {
+    "id": "side_protect_beasts",
+    "name": "守护森林",
+    "description": "万妖森林中野狼袭扰灵兽幼崽，灵兽守护者请你出手相助。",
+    "giver_npc_id": "beast_keeper",
+    "location": "wanyao",
+    "objectives": [{"type": "kill", "enemy_id": "wolf", "count": 5}],
+    "rewards": {"spirit_stones": 35, "relationship": 3, "item_id": "beast_core"}
+  },
+  {
+    "id": "side_ferry_soul",
+    "name": "平息游魂",
+    "description": "忘川河畔游魂不安，摆渡人请你斩杀影狼以平息阴气。",
+    "giver_npc_id": "ferry_woman",
+    "location": "wangchuan_river",
+    "objectives": [{"type": "kill", "enemy_id": "shadow_wolf", "count": 3}],
+    "rewards": {"spirit_stones": 70, "relationship": 4, "item_id": "soul_lantern"}
+  },
+  {
+    "id": "side_alchemy_aid",
+    "name": "丹童求药",
+    "description": "丹童炼丹缺了几株百年灵草，请你帮忙采集。",
+    "giver_npc_id": "alchemy_assistant",
+    "location": "huoyan_gu",
+    "objectives": [{"type": "collect_item", "item_id": "century_herb", "count": 4}],
+    "rewards": {"spirit_stones": 50, "relationship": 3, "item_id": "health_pill"}
+  },
+  {
+    "id": "side_formation_study",
+    "name": "阵法研习",
+    "description": "阵法弟子邀你共同研习悬空阁阵法，前往观摩。",
+    "giver_npc_id": "formation_disciple",
+    "location": "xuankong_ge",
+    "objectives": [{"type": "visit_location", "location_id": "xuankong_ge"}],
+    "rewards": {"qi": 400, "relationship": 3, "item_id": "spirit_stone"}
+  },
+  {
+    "id": "side_thunder_trial",
+    "name": "雷霆试炼",
+    "description": "雷泽引路人认为你有淬体潜质，请斩杀玄铁熊证明实力。",
+    "giver_npc_id": "thunder_guide",
+    "location": "leize",
+    "objectives": [{"type": "kill", "enemy_id": "bear", "count": 2}],
+    "rewards": {"spirit_stones": 90, "relationship": 4, "item_id": "fire_crystal"}
+  }
+]

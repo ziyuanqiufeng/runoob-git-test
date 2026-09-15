@@ -1,0 +1,125 @@
+{
+  "_comment": "领地建筑（F-02）：category 为 production/economy/defense/formation；formation 类建筑带 element（五行之一）用于阵眼协同。",
+  "buildings": [
+    {
+      "id": "spirit_gathering_tower",
+      "name": "聚灵塔",
+      "category": "production",
+      "element": "none",
+      "max_level": 5,
+      "base_cost": {"spirit_stone": 300},
+      "cost_multiplier": 1.6,
+      "maintenance": 8,
+      "effect_per_level": {"spirit_stone": 25, "cultivation_speed": 0.03},
+      "footprint": 1
+    },
+    {
+      "id": "spirit_farm",
+      "name": "灵田",
+      "category": "production",
+      "element": "wood",
+      "max_level": 5,
+      "base_cost": {"spirit_stone": 200},
+      "cost_multiplier": 1.5,
+      "maintenance": 5,
+      "effect_per_level": {"herb": 2},
+      "footprint": 1
+    },
+    {
+      "id": "ore_vein_mine",
+      "name": "灵矿",
+      "category": "production",
+      "element": "metal",
+      "max_level": 5,
+      "base_cost": {"spirit_stone": 250},
+      "cost_multiplier": 1.5,
+      "maintenance": 6,
+      "effect_per_level": {"ore": 2},
+      "footprint": 1
+    },
+    {
+      "id": "market_pavilion",
+      "name": "坊市",
+      "category": "economy",
+      "element": "none",
+      "max_level": 5,
+      "base_cost": {"spirit_stone": 400},
+      "cost_multiplier": 1.6,
+      "maintenance": 7,
+      "effect_per_level": {"spirit_stone": 15, "reputation": 1},
+      "footprint": 1
+    },
+    {
+      "id": "guard_tower",
+      "name": "守卫塔",
+      "category": "defense",
+      "element": "none",
+      "max_level": 5,
+      "base_cost": {"spirit_stone": 350},
+      "cost_multiplier": 1.6,
+      "maintenance": 8,
+      "effect_per_level": {"defense": 0.05, "max_energy": 20},
+      "footprint": 1
+    },
+    {
+      "id": "formation_eye_fire",
+      "name": "离火阵眼",
+      "category": "formation",
+      "element": "fire",
+      "max_level": 3,
+      "base_cost": {"spirit_stone": 500},
+      "cost_multiplier": 1.8,
+      "maintenance": 10,
+      "effect_per_level": {"formation": 1},
+      "footprint": 1
+    },
+    {
+      "id": "formation_eye_water",
+      "name": "坎水阵眼",
+      "category": "formation",
+      "element": "water",
+      "max_level": 3,
+      "base_cost": {"spirit_stone": 500},
+      "cost_multiplier": 1.8,
+      "maintenance": 10,
+      "effect_per_level": {"formation": 1},
+      "footprint": 1
+    },
+    {
+      "id": "formation_eye_wood",
+      "name": "震木阵眼",
+      "category": "formation",
+      "element": "wood",
+      "max_level": 3,
+      "base_cost": {"spirit_stone": 500},
+      "cost_multiplier": 1.8,
+      "maintenance": 10,
+      "effect_per_level": {"formation": 1},
+      "footprint": 1
+    },
+    {
+      "id": "formation_eye_metal",
+      "name": "乾金阵眼",
+      "category": "formation",
+      "element": "metal",
+      "max_level": 3,
+      "base_cost": {"spirit_stone": 500},
+      "cost_multiplier": 1.8,
+      "maintenance": 10,
+      "effect_per_level": {"formation": 1},
+      "footprint": 1
+    },
+    {
+      "id": "formation_eye_earth",
+      "name": "坤土阵眼",
+      "category": "formation",
+      "element": "earth",
+      "max_level": 3,
+      "base_cost": {"spirit_stone": 500},
+      "cost_multiplier": 1.8,
+      "maintenance": 10,
+      "effect_per_level": {"formation": 1},
+      "footprint": 1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "base_multipliers": {
+    "buy": 1.2,
+    "sell": 0.6
+  },
+  "relationship_discount": {
+    "buy_per_level": 0.02,
+    "sell_per_level": 0.015,
+    "buy_min": 0.8,
+    "sell_max": 1.15
+  },
+  "price_limits": {
+    "buy_min": 0.75,
+    "buy_max": 3.0,
+    "sell_min": 0.2,
+    "sell_max": 0.7
+  },
+  "festival_discount": 0.9,
+  "location_type_modifiers": {
+    "city": {
+      "buy": 0.95,
+      "sell": 1.05,
+      "description": "商贸之城物价较优，收购价更高"
+    },
+    "sect": {
+      "buy": 1.0,
+      "sell": 1.0,
+      "description": "宗门物价平稳"
+    },
+    "wild": {
+      "buy": 1.1,
+      "sell": 0.9,
+      "description": "荒野物资匮乏，售价偏高、收购偏低"
+    }
+  }
+}

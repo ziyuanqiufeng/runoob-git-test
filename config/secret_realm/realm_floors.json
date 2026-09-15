@@ -1,0 +1,25 @@
+{
+  "floor_templates": [
+    {
+      "floor_range": [1, 3],
+      "node_count": [4, 6],
+      "node_weights": {"battle": 50, "event": 20, "shop": 15, "elite": 10, "boss": 5},
+      "enemy_level_range": [1, 3]
+    },
+    {
+      "floor_range": [4, 6],
+      "node_count": [4, 6],
+      "node_weights": {"battle": 45, "event": 18, "shop": 12, "elite": 20, "boss": 5},
+      "enemy_level_range": [3, 5]
+    },
+    {
+      "floor_range": [7, 9],
+      "node_count": [3, 5],
+      "node_weights": {"battle": 40, "event": 15, "shop": 10, "elite": 30, "boss": 5},
+      "enemy_level_range": [5, 8]
+    }
+  ],
+  "default_total_floors": 8,
+  "qi_per_node": 12,
+  "start_qi": 100
+}

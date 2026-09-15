@@ -1,0 +1,230 @@
+{
+  "residences": [
+    {
+      "id": "cloud_peak_cave",
+      "name": "云顶峰洞府",
+      "type": "city",
+      "location_id": "qingyun",
+      "description": "青云山一处灵气尚可的洞府，适合练气期修士居住。",
+      "cost": {
+        "spirit_stone": 2000,
+        "contribution": 500
+      },
+      "buildings": [
+        {
+          "id": "spirit_gathering_array",
+          "name": "聚灵阵",
+          "description": "聚集天地灵气，提升修炼速度。",
+          "max_level": 5,
+          "base_cost": {
+            "spirit_stone": 500
+          },
+          "cost_multiplier": 1.5,
+          "maintenance_per_level": 30,
+          "effect_per_level": {
+            "cultivation_speed": 0.05
+          }
+        },
+        {
+          "id": "herb_garden",
+          "name": "药园",
+          "description": "种植灵草，每月有概率收获。",
+          "max_level": 3,
+          "base_cost": {
+            "spirit_stone": 800
+          },
+          "cost_multiplier": 1.8,
+          "maintenance_per_level": 40,
+          "effect_per_level": {
+            "herb_chance": 0.1,
+            "herb_id": "century_herb"
+          }
+        },
+        {
+          "id": "refining_room",
+          "name": "炼器室",
+          "description": "提升炼器成功率与祭炼效果。",
+          "max_level": 3,
+          "base_cost": {
+            "spirit_stone": 1000
+          },
+          "cost_multiplier": 2.0,
+          "maintenance_per_level": 50,
+          "effect_per_level": {
+            "refine_bonus": 0.05
+          }
+        },
+        {
+          "id": "defense_formation",
+          "name": "护府阵法",
+          "description": "抵御妖兽与其他修士的袭击。",
+          "max_level": 5,
+          "base_cost": {
+            "spirit_stone": 600
+          },
+          "cost_multiplier": 1.6,
+          "maintenance_per_level": 60,
+          "effect_per_level": {
+            "raid_defense": 0.1,
+            "max_energy": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "frost_lake_palace",
+      "name": "寒湖别宫",
+      "type": "city",
+      "location_id": "hanbing_yuan",
+      "description": "寒冰原深处的幽静别宫，水属性修士修炼事半功倍。",
+      "cost": {
+        "spirit_stone": 8000,
+        "contribution": 2000
+      },
+      "buildings": [
+        {
+          "id": "spirit_gathering_array",
+          "name": "玄冰聚灵阵",
+          "max_level": 7,
+          "base_cost": {
+            "spirit_stone": 1500
+          },
+          "cost_multiplier": 1.6,
+          "maintenance_per_level": 80,
+          "effect_per_level": {
+            "cultivation_speed": 0.06,
+            "water_damage": 0.02
+          }
+        },
+        {
+          "id": "herb_garden",
+          "name": "寒草药圃",
+          "max_level": 4,
+          "base_cost": {
+            "spirit_stone": 1200
+          },
+          "cost_multiplier": 1.8,
+          "maintenance_per_level": 60,
+          "effect_per_level": {
+            "herb_chance": 0.12,
+            "herb_id": "ice_herb"
+          }
+        },
+        {
+          "id": "defense_formation",
+          "name": "玄冰大阵",
+          "max_level": 6,
+          "base_cost": {
+            "spirit_stone": 2000
+          },
+          "cost_multiplier": 1.7,
+          "maintenance_per_level": 100,
+          "effect_per_level": {
+            "raid_defense": 0.12,
+            "max_energy": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "heifeng_lair",
+      "name": "黑风岭灵脉洞府",
+      "type": "wild",
+      "location_id": "heifeng",
+      "description": "黑风岭深处一处未被占领的灵脉，妖气弥漫，适合筑基以上修士开辟为私人洞府。",
+      "cost": {
+        "spirit_stone": 0,
+        "contribution": 0
+      },
+      "occupation": {
+        "required_realm_order": 10,
+        "guard_enemy_id": "tiger",
+        "guard_count": 1,
+        "intro_text": "黑风岭灵脉被一头猛虎看守，击败它方可占据此地。"
+      },
+      "buildings": [
+        {
+          "id": "spirit_gathering_array",
+          "name": "聚灵阵",
+          "description": "聚集黑风岭驳杂灵气，提升修炼速度。",
+          "max_level": 5,
+          "base_cost": {
+            "spirit_stone": 600
+          },
+          "cost_multiplier": 1.6,
+          "maintenance_per_level": 40,
+          "effect_per_level": {
+            "cultivation_speed": 0.04
+          }
+        },
+        {
+          "id": "herb_garden",
+          "name": "灵田",
+          "description": "开辟山岭荒地种植灵草。",
+          "max_level": 4,
+          "base_cost": {
+            "spirit_stone": 500
+          },
+          "cost_multiplier": 1.7,
+          "maintenance_per_level": 30,
+          "effect_per_level": {
+            "herb_chance": 0.08,
+            "herb_id": "century_herb"
+          }
+        },
+        {
+          "id": "alchemy_room",
+          "name": "炼丹室",
+          "description": "在洞府内炼丹，提升成功率。",
+          "max_level": 4,
+          "base_cost": {
+            "spirit_stone": 900
+          },
+          "cost_multiplier": 1.7,
+          "maintenance_per_level": 50,
+          "effect_per_level": {
+            "alchemy_success": 0.04,
+            "alchemy_quality": 0.02
+          }
+        },
+        {
+          "id": "smithy",
+          "name": "炼器台",
+          "description": "强化与重铸装备。",
+          "max_level": 4,
+          "base_cost": {
+            "spirit_stone": 900
+          },
+          "cost_multiplier": 1.7,
+          "maintenance_per_level": 50,
+          "effect_per_level": {
+            "smith_success": 0.04,
+            "refine_bonus": 0.02
+          }
+        },
+        {
+          "id": "defense_formation",
+          "name": "护山大阵",
+          "description": "抵御黑风岭妖兽袭扰。",
+          "max_level": 5,
+          "base_cost": {
+            "spirit_stone": 1200
+          },
+          "cost_multiplier": 1.8,
+          "maintenance_per_level": 80,
+          "effect_per_level": {
+            "raid_defense": 0.12,
+            "max_energy": 200
+          }
+        }
+      ]
+    }
+  ],
+  "raid": {
+    "base_chance": 0.15,
+    "enemy_pool": ["wolf", "tiger", "mountain_bandit", "rogue_cultivator"],
+    "min_strength_bonus": 0.0,
+    "max_strength_bonus": 0.3,
+    "loot_multiplier": 0.5
+  }
+}

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "health_pill_recipe",
+    "name": "炼制回春丹",
+    "description": "用低阶灵草和灵液炼制一枚回春丹。",
+    "category": "alchemy",
+    "materials": {
+      "low_herb": 2,
+      "spirit_liquid": 1
+    },
+    "result": {
+      "item_id": "health_pill",
+      "count": 1
+    },
+    "success_rate": 0.85,
+    "dan_xiu_bonus": 0.15
+  },
+  {
+    "id": "qi_pill_recipe",
+    "name": "炼制补气丹",
+    "description": "用灵石粉末和灵液炼制一枚补气丹。",
+    "category": "alchemy",
+    "materials": {
+      "spirit_stone": 1,
+      "spirit_liquid": 1
+    },
+    "result": {
+      "item_id": "qi_pill",
+      "count": 1
+    },
+    "success_rate": 0.80,
+    "dan_xiu_bonus": 0.15
+  },
+  {
+    "id": "detox_pill_recipe",
+    "name": "炼制解毒丹",
+    "description": "用百年灵草和妖核炼制一枚解毒丹。",
+    "category": "alchemy",
+    "materials": {
+      "century_herb": 1,
+      "demon_core_low": 1
+    },
+    "result": {
+      "item_id": "detox_pill",
+      "count": 1
+    },
+    "success_rate": 0.70,
+    "dan_xiu_bonus": 0.15
+  },
+  {
+    "id": "foundation_pill_recipe",
+    "name": "炼制筑基丹",
+    "description": "以百年灵草与妖核炼制筑基丹，可提升筑基成功率。",
+    "category": "alchemy",
+    "materials": {
+      "century_herb": 3,
+      "demon_core": 2,
+      "spirit_liquid": 2
+    },
+    "result": {
+      "item_id": "foundation_pill",
+      "count": 1
+    },
+    "success_rate": 0.55,
+    "dan_xiu_bonus": 0.15
+  },
+  {
+    "id": "golden_core_pill_recipe",
+    "name": "炼制结金丹",
+    "description": "以珍稀灵草与妖核炼制结金丹，可提升金丹雷劫成功率。",
+    "category": "alchemy",
+    "materials": {
+      "century_herb": 5,
+      "demon_core": 3,
+      "spirit_liquid": 3
+    },
+    "result": {
+      "item_id": "golden_core_pill",
+      "count": 1
+    },
+    "success_rate": 0.45,
+    "dan_xiu_bonus": 0.15
+  },
+  {
+    "id": "iron_sword_recipe",
+    "name": "打造精铁剑",
+    "description": "以灵石淬炼精铁，铸成一柄利剑。",
+    "materials": {
+      "spirit_stone": 2
+    },
+    "result": {
+      "item_id": "iron_sword",
+      "count": 1
+    }
+  },
+  {
+    "id": "cloth_hat_recipe",
+    "name": "缝制布帽",
+    "description": "用灵草纤维缝制一顶布帽。",
+    "materials": {
+      "century_herb": 1
+    },
+    "result": {
+      "item_id": "cloth_hat",
+      "count": 1
+    }
+  },
+  {
+    "id": "leather_armor_recipe",
+    "name": "制作皮甲",
+    "description": "用妖核和灵石强化兽皮，制成皮甲。",
+    "materials": {
+      "demon_core": 1,
+      "spirit_stone": 1
+    },
+    "result": {
+      "item_id": "leather_armor",
+      "count": 1
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "normal",
+    "name": "普通",
+    "description": "平和试炼，适合初探秘境者。",
+    "modifiers": {"enemy_strength": 1.0, "reward_mult": 1.0, "card_rarity_bonus": 0.0}
+  },
+  {
+    "id": "hard",
+    "name": "困难",
+    "description": "敌势凶猛，回报更丰。",
+    "modifiers": {"enemy_strength": 1.35, "reward_mult": 1.4, "card_rarity_bonus": 0.12}
+  },
+  {
+    "id": "hell",
+    "name": "地狱",
+    "description": "九死一生，唯强者可行。",
+    "modifiers": {"enemy_strength": 1.75, "reward_mult": 1.9, "card_rarity_bonus": 0.25}
+  },
+  {
+    "id": "immortal",
+    "name": "仙魔",
+    "description": "仙魔并起，秘境深处藏绝世机缘。",
+    "modifiers": {"enemy_strength": 2.2, "reward_mult": 2.6, "card_rarity_bonus": 0.4, "exclusive_drop": true}
+  }
+]

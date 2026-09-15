@@ -1,0 +1,252 @@
+[
+  {
+    "id": "kill_wolves",
+    "name": "清理狼患",
+    "description": "青云山附近的青风狼时常袭扰凡人，请击退它们。",
+    "target_type": "kill",
+    "target_id": "wolf",
+    "count": 3,
+    "reward": {
+      "qi": 300,
+      "items": ["health_pill"]
+    },
+    "next_quest": "collect_herbs"
+  },
+  {
+    "id": "collect_herbs",
+    "name": "收集灵草",
+    "description": "坊市掌柜需要百年灵草炼制丹药。完成此任务可获准入宗门资格。",
+    "target_type": "collect",
+    "target_id": "century_herb",
+    "count": 2,
+    "reward": {
+      "qi": 200,
+      "items": ["spirit_stone", "spirit_stone"]
+    },
+    "next_quest": "kill_tiger",
+    "unlocks": {
+      "location": "wanyao"
+    }
+  },
+  {
+    "id": "kill_tiger",
+    "name": "斩虎立威",
+    "description": "黑风岭的铁背虎危害一方，宗门执事希望你能除掉它。",
+    "target_type": "kill",
+    "target_id": "tiger",
+    "count": 1,
+    "reward": {
+      "qi": 800,
+      "items": ["iron_sword"]
+    },
+    "next_quest": "fire_trial"
+  },
+  {
+    "id": "fire_trial",
+    "name": "火焰试炼",
+    "description": "火焰谷的炽热考验着每一位修士。先在黑风岭或万妖森林击退烈焰蝎，证明你能承受烈焰洗礼，方可踏入火焰谷拜见丹器双宗师。",
+    "target_type": "kill",
+    "target_id": "fire_scorpion",
+    "count": 3,
+    "reward": {
+      "qi": 1200,
+      "items": ["marrow_pill"]
+    },
+    "next_quest": "inner_disciple",
+    "unlocks": {
+      "location": "huoyan_gu"
+    }
+  },
+  {
+    "id": "inner_disciple",
+    "name": "内门考核",
+    "description": "你的表现引起了宗门长老注意，前往万妖森林斩杀碧鳞蛇，晋升内门弟子。",
+    "target_type": "kill",
+    "target_id": "snake",
+    "count": 2,
+    "reward": {
+      "qi": 1500,
+      "items": ["jade_pendant", "leather_armor"]
+    }
+  },
+  {
+    "id": "jian_sword_trial",
+    "name": "剑意试炼",
+    "description": "天剑宗的剑宗长老要求你前往各地斩杀妖兽，以磨砺剑心。击败3只玄铁熊，证明你的剑道修为。",
+    "target_type": "kill",
+    "target_id": "bear",
+    "count": 3,
+    "reward": {
+      "qi": 2000,
+      "items": ["tianjian_token"]
+    }
+  },
+  {
+    "id": "zixiao_dao_trial",
+    "name": "道法考核",
+    "description": "紫霄宫的掌教欲传你道法，但需先考验你的实力。击败2位正道长老，方可获得紫霄令。",
+    "target_type": "kill",
+    "target_id": "righteous_elder",
+    "count": 2,
+    "reward": {
+      "qi": 2500,
+      "items": ["zixiao_token"]
+    }
+  },
+  {
+    "id": "soul_ferry",
+    "name": "渡魂任务",
+    "description": "忘川河畔游魂不安，前往忘川河斩杀3只影狼，平息阴气，魂修可获得渡魂灯庇护。",
+    "target_type": "kill",
+    "target_id": "shadow_wolf",
+    "count": 3,
+    "reward": {
+      "qi": 2200,
+      "items": ["soul_lantern"]
+    }
+  },
+  {
+    "id": "fufeng_wind_trial",
+    "name": "扶风试炼",
+    "description": "扶风宗入门试炼，前往扶风宗外围清剿三只风隼，证明你有资格修习风道。",
+    "target_type": "kill",
+    "target_id": "wind_sparrow",
+    "count": 3,
+    "reward": {
+      "qi": 600,
+      "items": ["wind_blade_manual", "spirit_stone"]
+    }
+  },
+  {
+    "id": "wanyao_wolf_trial",
+    "name": "万妖城猎妖委托",
+    "description": "万妖城附近的青风狼群袭扰商队，城主委托你清剿五只青风狼。",
+    "target_type": "kill",
+    "target_id": "wolf",
+    "count": 5,
+    "reward": {
+      "qi": 500,
+      "items": ["demon_core", "health_pill"]
+    }
+  },
+  {
+    "id": "wanyao_sect_trial",
+    "name": "万兽宗入门试炼",
+    "description": "万兽宗以御兽立宗，宗主要求你深入万兽林猎杀两只铁背虎，证明你有与猛兽周旋的实力。",
+    "target_type": "kill",
+    "target_id": "tiger",
+    "count": 2,
+    "reward": {
+      "qi": 900,
+      "items": ["beast_contract_manual"]
+    }
+  },
+  {
+    "id": "xuanshui_snake_trial",
+    "name": "玄水城除蛇委托",
+    "description": "玄水湖心岛的碧鳞蛇毒伤渔民，城主请你驱逐四条碧鳞蛇。",
+    "target_type": "kill",
+    "target_id": "snake",
+    "count": 4,
+    "reward": {
+      "qi": 700,
+      "items": ["water_pearl"]
+    }
+  },
+  {
+    "id": "xuanshui_sect_trial",
+    "name": "玄水宫寒潭试炼",
+    "description": "玄水宫入门需在寒潭中经受寒气淬体，并击退两只玄铁熊，证明肉身与心性皆能承受冰寒。",
+    "target_type": "kill",
+    "target_id": "bear",
+    "count": 2,
+    "reward": {
+      "qi": 1000,
+      "items": ["ice_spike_manual"]
+    }
+  },
+  {
+    "id": "chiyan_scorpion_trial",
+    "name": "赤焰城除蝎委托",
+    "description": "赤焰城外地火洞口的烈焰蝎时常袭击采药人，城主请你清剿四只烈焰蝎。",
+    "target_type": "kill",
+    "target_id": "fire_scorpion",
+    "count": 4,
+    "reward": {
+      "qi": 800,
+      "items": ["fire_crystal"]
+    }
+  },
+  {
+    "id": "chiyan_sect_trial",
+    "name": "赤炎门地火试炼",
+    "description": "赤炎门入门需入地火洞承受火煞淬炼，并击退五只烈焰蝎，证明你有修习火法的资质。",
+    "target_type": "kill",
+    "target_id": "fire_scorpion",
+    "count": 5,
+    "reward": {
+      "qi": 1100,
+      "items": ["fireball_manual"]
+    }
+  },
+  {
+    "id": "wangchuan_soul_trial",
+    "name": "忘川渡魂",
+    "description": "忘川镇上游魂不安，镇长请你斩杀四只影狼，平息河边阴气。",
+    "target_type": "kill",
+    "target_id": "shadow_wolf",
+    "count": 4,
+    "reward": {
+      "qi": 1200,
+      "items": ["detox_pill", "info_scroll"]
+    }
+  },
+  {
+    "id": "youming_sect_trial",
+    "name": "幽冥宗噬魂试炼",
+    "description": "幽冥宗修炼神识与渡魂之术，宗主要求你斩杀五只影狼，以魂气磨砺神识。",
+    "target_type": "kill",
+    "target_id": "shadow_wolf",
+    "count": 5,
+    "reward": {
+      "qi": 1500,
+      "items": ["soul_devour_manual"]
+    }
+  },
+  {
+    "id": "yunlan_wind_roc_trial",
+    "name": "云岚城猎雕委托",
+    "description": "云岚城附近的疾风雕袭击过往的飞舟，城主请你猎杀两只疾风雕。",
+    "target_type": "kill",
+    "target_id": "wind_roc",
+    "count": 2,
+    "reward": {
+      "qi": 1800,
+      "items": ["phoenix_feather"]
+    }
+  },
+  {
+    "id": "tianji_sect_trial",
+    "name": "天机阁推衍试炼",
+    "description": "天机阁以阵符推衍天机，阁主要求你猎杀三只疾风雕，取其风灵以助布阵。",
+    "target_type": "kill",
+    "target_id": "wind_roc",
+    "count": 3,
+    "reward": {
+      "qi": 2000,
+      "items": ["info_scroll", "spirit_stone"]
+    }
+  },
+  {
+    "id": "yaowang_valley_trial",
+    "name": "药王谷采药试炼",
+    "description": "药王谷以丹入道，谷主请你采集三株灵韵草，证明你有辨识灵药的眼力。",
+    "target_type": "collect",
+    "target_id": "spirit_herb",
+    "count": 3,
+    "reward": {
+      "qi": 1000,
+      "items": ["detox_pill", "detox_pill"]
+    }
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "colors": {
+    "red": "#e74c3c",
+    "green": "#27ae60",
+    "yellow": "#f39c12",
+    "orange": "#e67e22",
+    "cyan": "#00b7b3",
+    "blue": "#3498db",
+    "default": "#ecf0f1"
+  },
+  "labels": {
+    "red": "敌人攻击/伤害",
+    "green": "治疗行为",
+    "yellow": "逃跑行为",
+    "orange": "狂暴状态",
+    "cyan": "玩家攻击行为",
+    "blue": "获得奖励"
+  }
+}

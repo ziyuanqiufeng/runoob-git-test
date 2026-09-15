@@ -1,0 +1,58 @@
+{
+  "_comment": "F-06 难度系统：4 档难度，修正系数在 Player 创建时由 DifficultyManager.apply_to_player 应用。",
+  "default": "normal",
+  "difficulties": [
+    {
+      "id": "peaceful",
+      "name": "太平",
+      "desc": "灵气充裕、强敌罕见，适合体验剧情。",
+      "heaven_pursuit": false,
+      "modifiers": {
+        "enemy_strength": 0.7,
+        "player_combat": 1.1,
+        "production_mult": 1.3,
+        "exp_mult": 1.2,
+        "drop_mult": 1.2
+      }
+    },
+    {
+      "id": "normal",
+      "name": "寻常",
+      "desc": "标准的修仙世界，攻防产出均衡。",
+      "heaven_pursuit": false,
+      "modifiers": {
+        "enemy_strength": 1.0,
+        "player_combat": 1.0,
+        "production_mult": 1.0,
+        "exp_mult": 1.0,
+        "drop_mult": 1.0
+      }
+    },
+    {
+      "id": "hard",
+      "name": "凶险",
+      "desc": "妖兽凶猛、资源紧缩，需步步为营。",
+      "heaven_pursuit": false,
+      "modifiers": {
+        "enemy_strength": 1.3,
+        "player_combat": 0.95,
+        "production_mult": 0.9,
+        "exp_mult": 0.95,
+        "drop_mult": 1.1
+      }
+    },
+    {
+      "id": "hell",
+      "name": "地狱",
+      "desc": "天地杀机四伏，每突破大境界皆引天道追杀。",
+      "heaven_pursuit": true,
+      "modifiers": {
+        "enemy_strength": 1.7,
+        "player_combat": 0.9,
+        "production_mult": 0.8,
+        "exp_mult": 0.9,
+        "drop_mult": 1.3
+      }
+    }
+  ]
+}

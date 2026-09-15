@@ -1,0 +1,36 @@
+[
+  {
+    "id": "thunder_law",
+    "name": "雷霆法则",
+    "description": "领悟雷霆真意，雷属性技能伤害提升，有概率麻痹敌人。",
+    "unlock_realm_order": 10,
+    "cost": {"enlightenment_points": 5},
+    "effects": {
+      "element_damage": {"metal": 0.2},
+      "paralyze_chance": 0.15
+    }
+  },
+  {
+    "id": "life_law",
+    "name": "生命法则",
+    "description": "感悟生机，治疗效果提升，每月额外恢复生命。",
+    "unlock_realm_order": 10,
+    "cost": {"enlightenment_points": 5},
+    "effects": {
+      "heal_bonus_mult": 0.25,
+      "monthly_health_recovery": 5
+    }
+  },
+  {
+    "id": "sword_dao",
+    "name": "剑道神通",
+    "description": "剑修专属神通，剑意上限提升，剑系技能无视部分防御。",
+    "unlock_realm_order": 14,
+    "exclusive_path": "jian",
+    "cost": {"enlightenment_points": 10},
+    "effects": {
+      "ignore_defense_ratio": 0.2,
+      "path_resource_max": {"jian": 5}
+    }
+  }
+]

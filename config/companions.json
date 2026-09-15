@@ -1,0 +1,33 @@
+{
+  "max_companions": 3,
+  "requirements": {
+    "min_favor": 8,
+    "min_realm_order": 3
+  },
+  "dual_cultivation": {
+    "qi_gain_base": 150,
+    "qi_gain_per_intimacy": 10,
+    "mental_state_gain": 5,
+    "heart_demon_decay": 3,
+    "cooldown_months": 3
+  },
+  "intimacy_levels": [
+    {"min": 0, "name": "相识"},
+    {"min": 20, "name": "倾心"},
+    {"min": 50, "name": "情深"},
+    {"min": 100, "name": "生死与共"}
+  ],
+  "battle_bonus": {
+    "attack_per_intimacy": 0.05,
+    "max_attack_bonus": 0.3,
+    "defense_per_intimacy": 0.03,
+    "max_defense_bonus": 0.2
+  },
+  "events": {
+    "on_death": {
+      "mental_state_loss": 20,
+      "heart_demon_gain": 15,
+      "revenge_quest_id": "revenge_companion"
+    }
+  }
+}

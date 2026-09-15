@@ -1,0 +1,129 @@
+{
+  "enhancement_rules": {
+    "max_level": 10,
+    "base_success_rate": 0.95,
+    "success_rate_decay_per_level": 0.08,
+    "failure_penalty": {
+      "level_1_3": "none",
+      "level_4_6": "level_down",
+      "level_7_9": "level_down_or_destroy",
+      "level_10": "level_down_or_destroy"
+    },
+    "attribute_bonus_per_level": {
+      "attack": 2,
+      "defense": 1,
+      "health": 5
+    },
+    "destroy_chance": 0.3,
+    "cost_per_level": {
+      "spirit_stone": 50,
+      "increment": 30
+    }
+  },
+  "affix_rules": {
+    "max_affixes": 4,
+    "enchant_cost": {
+      "spirit_stone": 200,
+      "material_id": "demon_core_mid",
+      "material_count": 1
+    },
+    "reforge_cost": {
+      "spirit_stone": 100,
+      "material_id": "demon_core_low",
+      "material_count": 2
+    },
+    "allowed_types": ["weapon", "helmet", "armor", "accessory"]
+  },
+  "affix_pool": [
+    {
+      "id": "sharp",
+      "name": "锋利",
+      "description": "攻击力 +{value}",
+      "slots": ["weapon"],
+      "weight": 20,
+      "effect": {"attack": 5},
+      "value_range": [3, 8]
+    },
+    {
+      "id": "sturdy",
+      "name": "坚固",
+      "description": "防御力 +{value}",
+      "slots": ["helmet", "armor"],
+      "weight": 20,
+      "effect": {"defense": 3},
+      "value_range": [2, 5]
+    },
+    {
+      "id": "vital",
+      "name": "生机",
+      "description": "生命值 +{value}",
+      "slots": ["armor", "helmet", "accessory"],
+      "weight": 15,
+      "effect": {"health": 15},
+      "value_range": [10, 25]
+    },
+    {
+      "id": "wise",
+      "name": "聪慧",
+      "description": "悟性 +{value}",
+      "slots": ["accessory", "helmet"],
+      "weight": 10,
+      "effect": {"wisdom": 1},
+      "value_range": [1, 2]
+    },
+    {
+      "id": "lucky",
+      "name": "幸运",
+      "description": "机缘 +{value}",
+      "slots": ["accessory"],
+      "weight": 10,
+      "effect": {"luck": 1},
+      "value_range": [1, 2]
+    },
+    {
+      "id": "fiery",
+      "name": "炽焰",
+      "description": "火属性伤害 +{value}%",
+      "slots": ["weapon", "accessory"],
+      "weight": 8,
+      "effect": {"fire_damage_bonus": 0.05},
+      "value_range": [3, 7]
+    },
+    {
+      "id": "frosty",
+      "name": "寒霜",
+      "description": "水/冰属性伤害 +{value}%",
+      "slots": ["weapon", "accessory"],
+      "weight": 8,
+      "effect": {"water_damage_bonus": 0.05},
+      "value_range": [3, 7]
+    },
+    {
+      "id": "thunderous",
+      "name": "雷霆",
+      "description": "雷属性伤害 +{value}%",
+      "slots": ["weapon", "accessory"],
+      "weight": 5,
+      "effect": {"thunder_damage_bonus": 0.05},
+      "value_range": [3, 7]
+    },
+    {
+      "id": "poisonous",
+      "name": "剧毒",
+      "description": "攻击时 {value}% 概率中毒",
+      "slots": ["weapon"],
+      "weight": 6,
+      "effect": {"poison_chance": 0.05},
+      "value_range": [3, 8]
+    },
+    {
+      "id": "swift",
+      "name": "迅捷",
+      "description": "闪避率 +{value}%",
+      "slots": ["armor", "accessory", "helmet"],
+      "weight": 8,
+      "effect": {"dodge_chance": 0.03},
+      "value_range": [2, 5]
+    }
+  ]
+}

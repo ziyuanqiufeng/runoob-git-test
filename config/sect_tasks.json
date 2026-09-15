@@ -1,0 +1,110 @@
+[
+  {
+    "id": "sect_collect_herb",
+    "name": "采集灵草",
+    "description": "宗门炼丹房需要百年灵草，采集 5 株上缴。",
+    "type": "collect",
+    "target_item": "century_herb",
+    "target_count": 5,
+    "required_rank": "outer",
+    "contribution_reward": 80,
+    "reputation_reward": 3,
+    "item_reward": {"spirit_stone": 3}
+  },
+  {
+    "id": "sect_hunt_wolf",
+    "name": "清剿狼患",
+    "description": "山门附近的青风狼袭扰凡人，击杀 5 只。",
+    "type": "kill",
+    "target_enemy": "wolf",
+    "target_count": 5,
+    "required_rank": "outer",
+    "contribution_reward": 100,
+    "reputation_reward": 5,
+    "item_reward": {"health_pill": 1}
+  },
+  {
+    "id": "sect_hunt_tiger",
+    "name": "斩虎立威",
+    "description": "黑风岭的铁背虎危害一方，击杀 2 只扬我宗门之威。",
+    "type": "kill",
+    "target_enemy": "tiger",
+    "target_count": 2,
+    "required_rank": "inner",
+    "contribution_reward": 200,
+    "reputation_reward": 8,
+    "item_reward": {"spirit_stone": 5}
+  },
+  {
+    "id": "sect_mine_stone",
+    "name": "开采灵石",
+    "description": "宗门灵脉需要人手开采，上缴 10 块灵石。",
+    "type": "collect",
+    "target_item": "spirit_stone",
+    "target_count": 10,
+    "required_rank": "outer",
+    "contribution_reward": 60,
+    "reputation_reward": 2,
+    "item_reward": {"health_pill": 1}
+  },
+  {
+    "id": "sect_hunt_fire_scorpion",
+    "name": "火焰谷除妖",
+    "description": "火焰谷的烈焰蝎威胁丹器两阁弟子，击杀 3 只。",
+    "type": "kill",
+    "target_enemy": "fire_scorpion",
+    "target_count": 3,
+    "required_rank": "inner",
+    "contribution_reward": 250,
+    "reputation_reward": 10,
+    "item_reward": {"century_herb": 2}
+  },
+  {
+    "id": "sect_spy_enemy",
+    "name": "探查敌情",
+    "description": "潜入敌对宗门领地探查情报，成功即可获得重赏。",
+    "type": "explore",
+    "target_location": "heifeng",
+    "target_count": 1,
+    "required_rank": "inner",
+    "contribution_reward": 300,
+    "reputation_reward": 12,
+    "item_reward": {"info_scroll": 1}
+  },
+  {
+    "id": "sect_kill_righteous_elder",
+    "name": "击杀正道长老",
+    "description": "正道修士屡屡欺压我宗，击杀 1 位正道长老以儆效尤。",
+    "type": "kill",
+    "target_enemy": "righteous_elder",
+    "target_count": 1,
+    "required_rank": "core",
+    "contribution_reward": 500,
+    "reputation_reward": 20,
+    "item_reward": {"jade_pendant": 1}
+  },
+  {
+    "id": "sect_blood_sacrifice",
+    "name": "血祭仪式",
+    "description": "为血魔宗献祭妖核 5 枚，以助宗门血池运转。",
+    "type": "collect",
+    "target_item": "demon_core",
+    "target_count": 5,
+    "required_rank": "outer",
+    "contribution_reward": 120,
+    "reputation_reward": 6,
+    "item_reward": {"health_pill": 2}
+  },
+  {
+    "id": "sect_patrol_spirit_vein",
+    "name": "巡视灵脉",
+    "description": "宗门灵脉需要巡视，前往灵脉驻守一次。",
+    "type": "explore",
+    "target_location": "lingyao_fudi",
+    "target_count": 1,
+    "required_rank": "core",
+    "contribution_reward": 350,
+    "reputation_reward": 15,
+    "item_reward": {"spirit_stone": 10}
+  }
+]

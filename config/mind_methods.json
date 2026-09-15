@@ -1,0 +1,54 @@
+[
+  {
+    "id": "clear_mind_method",
+    "name": "清心诀",
+    "description": "清心寡欲，每月额外恢复道心，降低心魔滋生速度。",
+    "element": "none",
+    "unlock_realm_order": 1,
+    "exclusive_path": null,
+    "effects": {
+      "mental_state_recovery": 2,
+      "heart_demon_decay_bonus": 0.1,
+      "cultivation_speed": 0.05
+    }
+  },
+  {
+    "id": "fire_heart_method",
+    "name": "焚心诀",
+    "description": "以心火炼神，火属性技能伤害提升，但每月心魔微增。",
+    "element": "fire",
+    "unlock_realm_order": 3,
+    "exclusive_path": null,
+    "effects": {
+      "element_damage": {"fire": 0.15},
+      "heart_demon_growth": 1,
+      "attack_mult": 0.05
+    }
+  },
+  {
+    "id": "sword_mind_method",
+    "name": "剑心通明",
+    "description": "剑修专属心法，剑意获取速度提升，暴击率增加。",
+    "element": "metal",
+    "unlock_realm_order": 5,
+    "exclusive_path": "jian",
+    "effects": {
+      "crit_rate_bonus": 0.1,
+      "path_resource_gain": {"jian": 1},
+      "breakthrough_bonus": 0.05
+    }
+  },
+  {
+    "id": "tiandan_method",
+    "name": "太上感应篇",
+    "description": "丹修专属，炼丹成功率提升，治疗效果增强。",
+    "element": "wood",
+    "unlock_realm_order": 5,
+    "exclusive_path": "dan",
+    "effects": {
+      "alchemy_success": 0.15,
+      "heal_bonus_mult": 0.2,
+      "mental_state_recovery": 1
+    }
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "id": "market_discount_fufeng",
+    "description": "听闻扶风城的坊市近日有一批丹药打折出售，正是囤货的好时机。",
+    "location": "fufeng_city",
+    "category": "market",
+    "cost": 100,
+    "weight": 20,
+    "effect": {"market_discount_fufeng": true}
+  },
+  {
+    "id": "auction_item_luoxia",
+    "description": "有修士在落霞城的拍卖行见到一株百年血参，引得众多丹修争抢。",
+    "location": "luoxia_city",
+    "category": "market",
+    "cost": 100,
+    "weight": 15,
+    "effect": {"auction_item_luoxia": "blood_ginseng"}
+  },
+  {
+    "id": "merchant_route_danger",
+    "description": "从万妖城到玄水城的商路最近不太平，妖兽出没频繁。",
+    "location": "any",
+    "category": "market",
+    "cost": 80,
+    "weight": 15,
+    "effect": {"travel_event_wanyao_xuanshui": "beast_ambush"}
+  },
+  {
+    "id": "hidden_dungeon_chiyan",
+    "description": "有人在赤焰城外的火山裂谷中发现了一处上古洞府，里面似乎有火系功法传承。",
+    "location": "chiyan_city",
+    "category": "secret",
+    "cost": 200,
+    "weight": 12,
+    "effect": {"unlock_secret_realm": "volcano_ruin"}
+  },
+  {
+    "id": "spirit_vein_yunmeng",
+    "description": "传说云梦城附近的云雾山脉藏着一条小型灵脉，适合闭关修炼。",
+    "location": "yunmeng_city",
+    "category": "secret",
+    "cost": 180,
+    "weight": 12,
+    "effect": {"unlock_secret_realm": "yunmeng_spirit_vein"}
+  },
+  {
+    "id": "water_temple_xuanshui",
+    "description": "玄水湖底有一座沉没的水族古庙，只在每月朔日开启入口。",
+    "location": "xuanshui_city",
+    "category": "secret",
+    "cost": 220,
+    "weight": 10,
+    "effect": {"unlock_secret_realm": "xuanshui_underwater_temple"}
+  },
+  {
+    "id": "master_li_hanzhou",
+    "description": "剑修大师李寒舟近日出现在落霞城的演武场，似乎在寻找传人。",
+    "location": "luoxia_city",
+    "category": "npc",
+    "cost": 120,
+    "weight": 15,
+    "effect": {"npc_location": {"npc_id": "li_hanzhou", "city": "luoxia_city"}}
+  },
+  {
+    "id": "bounty_blood_hand",
+    "description": "邪修‘血手人屠’最近在忘川镇一带活动，城主府已发布通缉令。",
+    "location": "wangchuan_town",
+    "category": "npc",
+    "cost": 150,
+    "weight": 12,
+    "effect": {"bounty_target": {"enemy_id": "blood_hand", "city": "wangchuan_town"}}
+  },
+  {
+    "id": "beast_tide_fufeng",
+    "description": "天象异动，妖兽潮可能在近日袭击扶风城，城主府正在招募修士守城。",
+    "location": "fufeng_city",
+    "category": "event",
+    "cost": 300,
+    "weight": 8,
+    "effect": {"upcoming_event": {"type": "beast_tide", "city": "fufeng_city", "months": 1}}
+  },
+  {
+    "id": "auction_preview_yunlan",
+    "description": "三个月后云岚城将举办云海拍卖会，届时会有不少稀世灵材现世。",
+    "location": "yunlan_city",
+    "category": "event",
+    "cost": 250,
+    "weight": 8,
+    "effect": {"upcoming_event": {"type": "auction", "city": "yunlan_city", "months": 3}}
+  },
+  {
+    "id": "inn_mysterious_guest",
+    "description": "客栈掌柜说，最近有个神秘客人在深夜独自饮酒，腰间挂着一柄黑鞘长剑。",
+    "location": "any",
+    "category": "trivia",
+    "cost": 50,
+    "weight": 25,
+    "effect": {}
+  },
+  {
+    "id": "cultivation_morning_tip",
+    "description": "老修士们常说，清晨在山顶吐纳，比平日更容易感应到灵气波动。",
+    "location": "any",
+    "category": "trivia",
+    "cost": 50,
+    "weight": 25,
+    "effect": {}
+  },
+  {
+    "id": "xuanshui_lantern_custom",
+    "description": "玄水城的居民每逢月圆之夜会向玄水湖投放灵灯，祈求水灵庇佑。",
+    "location": "xuanshui_city",
+    "category": "trivia",
+    "cost": 50,
+    "weight": 20,
+    "effect": {}
+  },
+  {
+    "id": "wanyao_beast_market",
+    "description": "万妖城的地下兽市每逢朔月开张，那里能买到正道坊市见不到的妖兽材料。",
+    "location": "wanyao_city",
+    "category": "market",
+    "cost": 150,
+    "weight": 14,
+    "effect": {"unlock_shop": "wanyao_black_market"}
+  },
+  {
+    "id": "yunlan_floating_market",
+    "description": "云岚城的浮岛集市只在云海最稀薄的日子出现，据说能淘到上古残片。",
+    "location": "yunlan_city",
+    "category": "market",
+    "cost": 180,
+    "weight": 12,
+    "effect": {"unlock_shop": "yunlan_floating_market"}
+  },
+  {
+    "id": "ancient_qilin",
+    "description": "有猎户在青云山脉深处看到一道赤红光芒冲天而起，疑似上古麒麟现世。",
+    "location": "qingyun",
+    "category": "event",
+    "cost": 300,
+    "weight": 10,
+    "effect": {"spawn_world_boss": "ancient_qilin"}
+  },
+  {
+    "id": "volcano_secret_realm",
+    "description": "赤焰城附近的火山口近期灵气异常，似乎有秘境即将开启。",
+    "location": "chiyan_city",
+    "category": "secret",
+    "cost": 200,
+    "weight": 10,
+    "effect": {"unlock_secret_realm": "volcano_inferno"}
+  },
+  {
+    "id": "treasure_map_clue",
+    "description": "一位老乞丐 drunkenly 提到，玄水城外的礁石下藏着一张古老藏宝图。",
+    "location": "xuanshui_city",
+    "category": "secret",
+    "cost": 150,
+    "weight": 10,
+    "effect": {"give_treasure_map": "xuanshui_reef_map"}
+  }
+]

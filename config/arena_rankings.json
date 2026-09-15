@@ -1,0 +1,142 @@
+{
+  "base_rewards": {
+    "spirit_stone": 50,
+    "reputation": 5,
+    "skill_proficiency_chance": 0.3
+  },
+  "rank_multipliers": {
+    "1": 3.0,
+    "2": 2.5,
+    "3": 2.0,
+    "4": 1.6,
+    "5": 1.3,
+    "6": 1.1,
+    "7": 1.0,
+    "8": 0.9,
+    "9": 0.8,
+    "10": 0.7
+  },
+  "daily_challenge_limit": 5,
+  "cities": {
+    "fufeng_city": {
+      "name": "扶风城演武场",
+      "opponents": [
+        {"id": "arena_fufeng_1", "name": "王铁柱", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_fufeng_2", "name": "李青云", "enemy_id": "righteous_disciple", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_fufeng_3", "name": "张横", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_fufeng_4", "name": "赵无极", "enemy_id": "righteous_disciple", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_fufeng_5", "name": "孙一刀", "enemy_id": "righteous_disciple", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_fufeng_6", "name": "冷凝霜", "enemy_id": "evil_cultivator", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_fufeng_7", "name": "风清扬", "enemy_id": "righteous_disciple", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_fufeng_8", "name": "莫问天", "enemy_id": "evil_cultivator", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_fufeng_9", "name": "南宫烈", "enemy_id": "righteous_disciple", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_fufeng_10", "name": "东方不败", "enemy_id": "evil_cultivator", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "luoxia_city": {
+      "name": "落霞城演武场",
+      "opponents": [
+        {"id": "arena_luoxia_1", "name": "钱多多", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_luoxia_2", "name": "周通", "enemy_id": "righteous_disciple", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_luoxia_3", "name": "吴用", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_luoxia_4", "name": "郑虎", "enemy_id": "righteous_disciple", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_luoxia_5", "name": "林冲", "enemy_id": "evil_cultivator", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_luoxia_6", "name": "花荣", "enemy_id": "evil_cultivator", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_luoxia_7", "name": "秦明", "enemy_id": "righteous_disciple", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_luoxia_8", "name": "呼延灼", "enemy_id": "righteous_disciple", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_luoxia_9", "name": "卢俊义", "enemy_id": "evil_cultivator", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_luoxia_10", "name": "关胜", "enemy_id": "righteous_disciple", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "yunmeng_city": {
+      "name": "云梦城演武场",
+      "opponents": [
+        {"id": "arena_yunmeng_1", "name": "云中子", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_yunmeng_2", "name": "雾里花", "enemy_id": "evil_cultivator", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_yunmeng_3", "name": "飘渺客", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_yunmeng_4", "name": "梦瑶", "enemy_id": "evil_cultivator", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_yunmeng_5", "name": "虚竹子", "enemy_id": "righteous_disciple", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_yunmeng_6", "name": "段誉", "enemy_id": "righteous_disciple", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_yunmeng_7", "name": "慕容复", "enemy_id": "evil_cultivator", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_yunmeng_8", "name": "鸠摩智", "enemy_id": "righteous_disciple", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_yunmeng_9", "name": "逍遥子", "enemy_id": "righteous_disciple", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_yunmeng_10", "name": "无崖子", "enemy_id": "evil_cultivator", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "wanyao_city": {
+      "name": "万妖城演武场",
+      "opponents": [
+        {"id": "arena_wanyao_1", "name": "狼牙", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_wanyao_2", "name": "豹冲", "enemy_id": "evil_cultivator", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_wanyao_3", "name": "熊烈", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_wanyao_4", "name": "鹰扬", "enemy_id": "evil_cultivator", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_wanyao_5", "name": "蛇姬", "enemy_id": "evil_cultivator", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_wanyao_6", "name": "虎煞", "enemy_id": "righteous_disciple", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_wanyao_7", "name": "蛛后", "enemy_id": "evil_cultivator", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_wanyao_8", "name": "象王", "enemy_id": "righteous_disciple", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_wanyao_9", "name": "鹏魔", "enemy_id": "evil_cultivator", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_wanyao_10", "name": "妖皇", "enemy_id": "righteous_disciple", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "xuanshui_city": {
+      "name": "玄水城演武场",
+      "opponents": [
+        {"id": "arena_xuanshui_1", "name": "水灵儿", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_xuanshui_2", "name": "波儿霸", "enemy_id": "evil_cultivator", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_xuanshui_3", "name": "奔波儿灞", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_xuanshui_4", "name": "龙太子", "enemy_id": "righteous_disciple", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_xuanshui_5", "name": "蚌仙子", "enemy_id": "evil_cultivator", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_xuanshui_6", "name": "龟丞相", "enemy_id": "righteous_disciple", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_xuanshui_7", "name": "鲛人王", "enemy_id": "evil_cultivator", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_xuanshui_8", "name": "水母娘娘", "enemy_id": "righteous_disciple", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_xuanshui_9", "name": "玄龟", "enemy_id": "evil_cultivator", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_xuanshui_10", "name": "水神", "enemy_id": "righteous_disciple", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "chiyan_city": {
+      "name": "赤焰城演武场",
+      "opponents": [
+        {"id": "arena_chiyan_1", "name": "小火", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_chiyan_2", "name": "炎辰", "enemy_id": "evil_cultivator", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_chiyan_3", "name": "熔岩", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_chiyan_4", "name": "烈阳", "enemy_id": "evil_cultivator", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_chiyan_5", "name": "焚天", "enemy_id": "righteous_disciple", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_chiyan_6", "name": "火舞", "enemy_id": "evil_cultivator", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_chiyan_7", "name": "赤霄", "enemy_id": "righteous_disciple", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_chiyan_8", "name": "祝融", "enemy_id": "evil_cultivator", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_chiyan_9", "name": "炎帝", "enemy_id": "righteous_disciple", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_chiyan_10", "name": "火神", "enemy_id": "evil_cultivator", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "wangchuan_town": {
+      "name": "忘川镇演武场",
+      "opponents": [
+        {"id": "arena_wangchuan_1", "name": "游魂", "enemy_id": "evil_cultivator", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_wangchuan_2", "name": "阴差", "enemy_id": "evil_cultivator", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_wangchuan_3", "name": "判官", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_wangchuan_4", "name": "孟婆", "enemy_id": "evil_cultivator", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_wangchuan_5", "name": "黑白无常", "enemy_id": "evil_cultivator", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_wangchuan_6", "name": "牛头", "enemy_id": "righteous_disciple", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_wangchuan_7", "name": "马面", "enemy_id": "evil_cultivator", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_wangchuan_8", "name": "鬼王", "enemy_id": "evil_cultivator", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_wangchuan_9", "name": "阎罗", "enemy_id": "righteous_disciple", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_wangchuan_10", "name": "冥帝", "enemy_id": "evil_cultivator", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    },
+    "yunlan_city": {
+      "name": "云岚城演武场",
+      "opponents": [
+        {"id": "arena_yunlan_1", "name": "云童", "enemy_id": "righteous_disciple", "realm": "qi_refining_early", "title": "末位陪练"},
+        {"id": "arena_yunlan_2", "name": "风信子", "enemy_id": "evil_cultivator", "realm": "qi_refining_mid", "title": "九品挑战者"},
+        {"id": "arena_yunlan_3", "name": "雾隐", "enemy_id": "righteous_disciple", "realm": "qi_refining_late", "title": "八品挑战者"},
+        {"id": "arena_yunlan_4", "name": "雷震子", "enemy_id": "evil_cultivator", "realm": "foundation_early", "title": "七品挑战者"},
+        {"id": "arena_yunlan_5", "name": "电母", "enemy_id": "righteous_disciple", "realm": "foundation_mid", "title": "六品挑战者"},
+        {"id": "arena_yunlan_6", "name": "雨师", "enemy_id": "evil_cultivator", "realm": "foundation_late", "title": "五品挑战者"},
+        {"id": "arena_yunlan_7", "name": "风伯", "enemy_id": "righteous_disciple", "realm": "golden_core_early", "title": "四品挑战者"},
+        {"id": "arena_yunlan_8", "name": "云中君", "enemy_id": "evil_cultivator", "realm": "golden_core_mid", "title": "三品挑战者"},
+        {"id": "arena_yunlan_9", "name": "东皇太一", "enemy_id": "righteous_disciple", "realm": "golden_core_late", "title": "二品挑战者"},
+        {"id": "arena_yunlan_10", "name": "天帝", "enemy_id": "evil_cultivator", "realm": "nascent_soul_early", "title": "一品擂主"}
+      ]
+    }
+  }
+}

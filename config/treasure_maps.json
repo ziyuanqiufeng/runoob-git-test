@@ -1,0 +1,42 @@
+{
+  "rarities": {
+    "common": {
+      "description": "普通藏宝图",
+      "reward_count": [1, 2],
+      "item_tags": ["material", "pill", "consumable"],
+      "min_value": 10,
+      "max_value": 100
+    },
+    "rare": {
+      "description": "珍稀藏宝图",
+      "reward_count": [1, 3],
+      "item_tags": ["material", "pill", "manual", "weapon"],
+      "min_value": 100,
+      "max_value": 500
+    },
+    "legendary": {
+      "description": "传说藏宝图",
+      "reward_count": [1, 4],
+      "item_tags": ["manual", "weapon", "accessory", "material"],
+      "min_value": 500,
+      "max_value": 5000
+    }
+  },
+  "location_hints": {
+    "qingyun": "青云山脚下",
+    "heifeng": "黑风岭阴风洞",
+    "wanyao": "万妖森林深处",
+    "huoyan_gu": "火焰谷底",
+    "jiuyuan_senlin": "幽冥森林边缘",
+    "jianzhong": "剑冢废墟",
+    "lingyao_fudi": "灵药福地药园",
+    "xuankong_ge": "悬空阁云台",
+    "luoxia_city": "落霞城郊野",
+    "yunmeng_city": "云梦城旧址",
+    "tianjian_sect": "天剑宗后山",
+    "zixiao_palace": "紫霄宫禁地",
+    "wangchuan_river": "忘川河畔",
+    "leize": "雷泽沼泽",
+    "hanbing_yuan": "寒冰原遗迹"
+  }
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "qi_refining_1",
+    "name": "练气期一层",
+    "order": 1,
+    "max_qi": 100,
+    "breakthrough_rate": 0.95,
+    "lifespan_bonus": 5
+  },
+  {
+    "id": "qi_refining_2",
+    "name": "练气期二层",
+    "order": 2,
+    "max_qi": 220,
+    "breakthrough_rate": 0.92,
+    "lifespan_bonus": 5
+  },
+  {
+    "id": "qi_refining_3",
+    "name": "练气期三层",
+    "order": 3,
+    "max_qi": 360,
+    "breakthrough_rate": 0.88,
+    "lifespan_bonus": 6
+  },
+  {
+    "id": "qi_refining_4",
+    "name": "练气期四层",
+    "order": 4,
+    "max_qi": 520,
+    "breakthrough_rate": 0.84,
+    "lifespan_bonus": 6
+  },
+  {
+    "id": "qi_refining_5",
+    "name": "练气期五层",
+    "order": 5,
+    "max_qi": 700,
+    "breakthrough_rate": 0.80,
+    "lifespan_bonus": 7
+  },
+  {
+    "id": "qi_refining_6",
+    "name": "练气期六层",
+    "order": 6,
+    "max_qi": 900,
+    "breakthrough_rate": 0.75,
+    "lifespan_bonus": 7
+  },
+  {
+    "id": "qi_refining_7",
+    "name": "练气期七层",
+    "order": 7,
+    "max_qi": 1150,
+    "breakthrough_rate": 0.70,
+    "lifespan_bonus": 8
+  },
+  {
+    "id": "qi_refining_8",
+    "name": "练气期八层",
+    "order": 8,
+    "max_qi": 1450,
+    "breakthrough_rate": 0.62,
+    "lifespan_bonus": 8
+  },
+  {
+    "id": "qi_refining_9",
+    "name": "练气期九层",
+    "order": 9,
+    "max_qi": 1800,
+    "breakthrough_rate": 0.55,
+    "lifespan_bonus": 10
+  },
+  {
+    "id": "foundation_early",
+    "name": "筑基初期",
+    "order": 10,
+    "max_qi": 5000,
+    "breakthrough_rate": 0.50,
+    "lifespan_bonus": 80
+  },
+  {
+    "id": "foundation_mid",
+    "name": "筑基中期",
+    "order": 11,
+    "max_qi": 8000,
+    "breakthrough_rate": 0.45,
+    "lifespan_bonus": 80
+  },
+  {
+    "id": "foundation_late",
+    "name": "筑基后期",
+    "order": 12,
+    "max_qi": 12000,
+    "breakthrough_rate": 0.40,
+    "lifespan_bonus": 80
+  },
+  {
+    "id": "foundation_peak",
+    "name": "筑基圆满",
+    "order": 13,
+    "max_qi": 18000,
+    "breakthrough_rate": 0.30,
+    "lifespan_bonus": 100
+  },
+  {
+    "id": "golden_core_early",
+    "name": "金丹初期",
+    "order": 14,
+    "max_qi": 35000,
+    "breakthrough_rate": 0.40,
+    "lifespan_bonus": 200
+  },
+  {
+    "id": "golden_core_mid",
+    "name": "金丹中期",
+    "order": 15,
+    "max_qi": 60000,
+    "breakthrough_rate": 0.35,
+    "lifespan_bonus": 200
+  },
+  {
+    "id": "golden_core_late",
+    "name": "金丹后期",
+    "order": 16,
+    "max_qi": 100000,
+    "breakthrough_rate": 0.30,
+    "lifespan_bonus": 200
+  },
+  {
+    "id": "golden_core_peak",
+    "name": "金丹圆满",
+    "order": 17,
+    "max_qi": 160000,
+    "breakthrough_rate": 0.20,
+    "lifespan_bonus": 300
+  },
+  {
+    "id": "nascent_soul",
+    "name": "元婴期",
+    "order": 18,
+    "max_qi": 300000,
+    "breakthrough_rate": 0.10,
+    "lifespan_bonus": 500
+  }
+]

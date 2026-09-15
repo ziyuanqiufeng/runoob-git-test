@@ -1,0 +1,129 @@
+[
+  {
+    "id": "a_bronze_kill",
+    "name": "初出茅庐",
+    "tier": "青铜",
+    "description": "首次斩杀妖兽或修士。",
+    "condition": {"type": "kill", "count": 1},
+    "reward": {}
+  },
+  {
+    "id": "a_bronze_skill",
+    "name": "初学乍练",
+    "tier": "青铜",
+    "description": "习得失传第一式功法。",
+    "condition": {"type": "skill_learn", "count": 1},
+    "reward": {}
+  },
+  {
+    "id": "a_bronze_quest",
+    "name": "初临世事",
+    "tier": "青铜",
+    "description": "完成第一桩世俗任务。",
+    "condition": {"type": "quest_complete", "count": 1},
+    "reward": {}
+  },
+  {
+    "id": "a_silver_kill",
+    "name": "杀伐果断",
+    "tier": "白银",
+    "description": "累计斩杀五十名敌人。",
+    "condition": {"type": "kill", "count": 50},
+    "reward": {}
+  },
+  {
+    "id": "a_silver_skill",
+    "name": "博学多闻",
+    "tier": "白银",
+    "description": "习得失传十式功法。",
+    "condition": {"type": "skill_learn", "count": 10},
+    "reward": {}
+  },
+  {
+    "id": "a_silver_sect",
+    "name": "宗门栋梁",
+    "tier": "白银",
+    "description": "在宗门内晋升至核心弟子。",
+    "condition": {"type": "sect_rank", "rank": "core"},
+    "reward": {}
+  },
+  {
+    "id": "a_gold_kill",
+    "name": "尸山血海",
+    "tier": "黄金",
+    "description": "累计斩杀两百位敌人。",
+    "condition": {"type": "kill", "count": 200},
+    "reward": {}
+  },
+  {
+    "id": "a_gold_quest",
+    "name": "世事洞明",
+    "tier": "黄金",
+    "description": "完成二十桩世俗任务。",
+    "condition": {"type": "quest_complete", "count": 20},
+    "reward": {}
+  },
+  {
+    "id": "a_gold_realm_gc",
+    "name": "金丹大成",
+    "tier": "黄金",
+    "description": "修为抵达金丹期。",
+    "condition": {"type": "realm", "realm_id": "golden_core_early"},
+    "reward": {
+      "title": "金丹客",
+      "title_bonus": {"attack": 5, "defense": 3}
+    }
+  },
+  {
+    "id": "a_imm_kill",
+    "name": "万灵之主",
+    "tier": "仙金",
+    "description": "累计斩杀五百位敌人。",
+    "condition": {"type": "kill", "count": 500},
+    "reward": {}
+  },
+  {
+    "id": "a_imm_realm_ns",
+    "name": "元婴不朽",
+    "tier": "仙金",
+    "description": "修为抵达元婴期，寿元绵长。",
+    "condition": {"type": "realm", "realm_id": "nascent_soul"},
+    "reward": {
+      "title": "元婴真君",
+      "title_bonus": {"max_health": 100, "attack": 10}
+    }
+  },
+  {
+    "id": "a_imm_win",
+    "name": "飞升登仙",
+    "tier": "仙金",
+    "description": "历经千劫，终得飞升。",
+    "condition": {"type": "win"},
+    "reward": {
+      "title": "登仙者",
+      "title_bonus": {"max_health": 200, "attack": 20, "defense": 10}
+    }
+  },
+  {
+    "id": "a_hidden_sword",
+    "name": "剑冢传承",
+    "tier": "黄金",
+    "hidden": true,
+    "description": "习得剑道绝学《剑术真解》。",
+    "condition": {"type": "skill_learn", "skill_id": "sword_art"},
+    "reward": {
+      "unlock_event": "hidden_event_sword_tomb"
+    }
+  },
+  {
+    "id": "a_hidden_boss",
+    "name": "弑神者",
+    "tier": "仙金",
+    "hidden": true,
+    "description": "斩杀一头世界 Boss，犯下滔天杀业。",
+    "condition": {"type": "kill", "world_boss": true},
+    "reward": {
+      "unlock_event": "hidden_event_divine_slayer"
+    }
+  }
+]

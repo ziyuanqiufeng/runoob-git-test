@@ -1,0 +1,145 @@
+{
+  "caves": [
+    {
+      "id": "fufeng_inn_cave",
+      "name": "扶风城郊静室",
+      "location_id": "fufeng_city",
+      "description": "扶风城郊外一处僻静石室，灵气稀薄但胜在安稳，适合短期闭关。",
+      "rent_per_month": 300,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.05,
+        "closed_door_qi_bonus": 0.1
+      }
+    },
+    {
+      "id": "fufeng_ling_cave",
+      "name": "扶风灵眼洞府",
+      "location_id": "fufeng_city",
+      "description": "依托小型灵脉之眼开凿的洞府，灵气浓郁，闭关修炼事半功倍。",
+      "rent_per_month": 800,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.12,
+        "closed_door_qi_bonus": 0.25
+      }
+    },
+    {
+      "id": "qingyun_cloud_cave",
+      "name": "青云山云居洞",
+      "location_id": "qingyun",
+      "description": "云雾缭绕的天然洞窟，清气上浮，对筑基以上修士颇有裨益。",
+      "rent_per_month": 1200,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.15,
+        "closed_door_qi_bonus": 0.3
+      }
+    },
+    {
+      "id": "xuan_water_cave",
+      "name": "玄水地下水府",
+      "location_id": "xuanshui_city",
+      "description": "玄水城中一处水下洞府，水灵气充沛，适合水属性修士闭关。",
+      "rent_per_month": 1000,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.13,
+        "closed_door_qi_bonus": 0.25,
+        "water_damage_bonus": 0.05
+      }
+    },
+    {
+      "id": "luoxia_quiet_cave",
+      "name": "落霞城静修洞府",
+      "location_id": "luoxia_city",
+      "description": "落霞城郊一处僻静洞府，可俯瞰满城霞光，灵气平稳。",
+      "rent_per_month": 500,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.08,
+        "closed_door_qi_bonus": 0.15
+      }
+    },
+    {
+      "id": "luoxia_premium_cave",
+      "name": "落霞灵峰别院",
+      "location_id": "luoxia_city",
+      "description": "落霞山腰的私人别院，灵气浓郁，仅供高阶修士租用。",
+      "rent_per_month": 1200,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.15,
+        "closed_door_qi_bonus": 0.3
+      }
+    },
+    {
+      "id": "yunmeng_mist_cave",
+      "name": "云梦雾隐洞",
+      "location_id": "yunmeng_city",
+      "description": "云梦城云雾深处的天然洞窟，神识在此能得到滋养。",
+      "rent_per_month": 900,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.12,
+        "closed_door_qi_bonus": 0.22
+      }
+    },
+    {
+      "id": "wanyao_beast_cave",
+      "name": "万妖驯兽洞府",
+      "location_id": "wanyao_city",
+      "description": "万妖城边缘以妖兽骨血加固的洞府，血气与灵气交织。",
+      "rent_per_month": 600,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.09,
+        "closed_door_qi_bonus": 0.18
+      }
+    },
+    {
+      "id": "chiyan_fire_cave",
+      "name": "赤焰地火室",
+      "location_id": "chiyan_city",
+      "description": "借赤焰城地下火脉开凿的闭关室，火灵气炽烈。",
+      "rent_per_month": 700,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.1,
+        "closed_door_qi_bonus": 0.2,
+        "fire_damage_bonus": 0.05
+      }
+    },
+    {
+      "id": "wangchuan_soul_cave",
+      "name": "忘川渡魂洞",
+      "location_id": "wangchuan_town",
+      "description": "忘川镇阴气最重的洞府之一，魂修闭关可事半功倍。",
+      "rent_per_month": 650,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.09,
+        "closed_door_qi_bonus": 0.19
+      }
+    },
+    {
+      "id": "yunlan_cloud_cave",
+      "name": "云岚悬空居",
+      "location_id": "yunlan_city",
+      "description": "云岚城云海之上漂浮的静室，天风拂面，感悟法则事半功倍。",
+      "rent_per_month": 1500,
+      "max_lease_months": 12,
+      "effects": {
+        "cultivation_speed_bonus": 0.18,
+        "closed_door_qi_bonus": 0.35
+      }
+    }
+  ],
+  "closed_door": {
+    "min_months": 1,
+    "max_months": 12,
+    "qi_multiplier_base": 1.0,
+    "qi_multiplier_per_month": 0.05,
+    "description": "闭关期间玩家专心修炼，每月获得额外修为，但会跳过正常历练事件。"
+  }
+}

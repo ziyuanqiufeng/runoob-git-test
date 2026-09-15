@@ -1,0 +1,122 @@
+[
+  {
+    "id": "sword_intent_surge",
+    "name": "剑意涌动",
+    "rarity": "rare",
+    "type": "offense",
+    "effect": {"attack": "+30%", "apply_to": "jian"},
+    "stackable": true,
+    "max_stack": 3,
+    "flavor_text": "万剑归宗，一念成锋。"
+  },
+  {
+    "id": "iron_body",
+    "name": "铜皮铁骨",
+    "rarity": "common",
+    "type": "defense",
+    "effect": {"defense": "+20%"},
+    "stackable": false,
+    "max_stack": 1,
+    "flavor_text": "炼体千锤，皮骨如铁。"
+  },
+  {
+    "id": "vigor_heart",
+    "name": "生气勃勃",
+    "rarity": "common",
+    "type": "defense",
+    "effect": {"hp": "+50"},
+    "stackable": true,
+    "max_stack": 3,
+    "flavor_text": "气血丰盈，久战不疲。"
+  },
+  {
+    "id": "flame_dao",
+    "name": "焚天道韵",
+    "rarity": "rare",
+    "type": "offense",
+    "effect": {"attack": "+25%", "apply_to": "fa"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "一点真火，可焚八荒。"
+  },
+  {
+    "id": "body_titan",
+    "name": "搬山巨力",
+    "rarity": "uncommon",
+    "type": "offense",
+    "effect": {"attack": "+15%"},
+    "stackable": true,
+    "max_stack": 3,
+    "flavor_text": "力能扛鼎，拳碎山岳。"
+  },
+  {
+    "id": "jade_guard",
+    "name": "玉清护体",
+    "rarity": "uncommon",
+    "type": "defense",
+    "effect": {"defense": "+15%", "hp": "+30"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "玉清之气，护身无虞。"
+  },
+  {
+    "id": "soul_pierce",
+    "name": "破魂一击",
+    "rarity": "rare",
+    "type": "offense",
+    "effect": {"attack": "+20%", "apply_to": "hun"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "神识化剑，直斩魂魄。"
+  },
+  {
+    "id": "beast_rage",
+    "name": "兽魂狂怒",
+    "rarity": "uncommon",
+    "type": "offense",
+    "effect": {"attack": "+18%", "apply_to": "yu"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "兽魂附身，凶性毕露。"
+  },
+  {
+    "id": "formation_master",
+    "name": "阵道通玄",
+    "rarity": "rare",
+    "type": "utility",
+    "effect": {"defense": "+18%", "apply_to": "zhen"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "一步一阵，万法不侵。"
+  },
+  {
+    "id": "talisman_burst",
+    "name": "符箓爆涌",
+    "rarity": "uncommon",
+    "type": "offense",
+    "effect": {"attack": "+14%", "apply_to": "fu"},
+    "stackable": true,
+    "max_stack": 3,
+    "flavor_text": "符出如雨，敌阵崩摧。"
+  },
+  {
+    "id": "elixir_bless",
+    "name": "丹元护身",
+    "rarity": "rare",
+    "type": "defense",
+    "effect": {"hp": "+80", "apply_to": "dan"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "丹元温养，伤可自愈。"
+  },
+  {
+    "id": "evil_will",
+    "name": "魔念滔天",
+    "rarity": "immortal_gold",
+    "type": "offense",
+    "effect": {"attack": "+40%", "apply_to": "xie"},
+    "stackable": true,
+    "max_stack": 2,
+    "flavor_text": "魔念既起，天地同悲。"
+  }
+]

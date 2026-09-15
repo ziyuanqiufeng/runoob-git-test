@@ -1,0 +1,36 @@
+{
+  "_comment": "主线剧情章节。condition 为推进到下一章的条件：sect=已加入宗门；realm=境界序号 >= order（见 REALM_ORDER）。",
+  "_comment2": "玩家达成当前章节 condition 后自动进入下一章；全部章节完成即主线通关。",
+  "chapters": [
+    {
+      "id": "ch1_start",
+      "title": "第一章 · 初入仙途",
+      "desc": "降临青云山，开启修仙之路",
+      "condition": { "type": "sect" }
+    },
+    {
+      "id": "ch2_sect",
+      "title": "第二章 · 拜入宗门",
+      "desc": "拜入一方宗门，求得传承",
+      "condition": { "type": "realm", "order": 10 }
+    },
+    {
+      "id": "ch3_renown",
+      "title": "第三章 · 名动一方",
+      "desc": "筑基有成，行走天下",
+      "condition": { "type": "realm", "order": 14 }
+    },
+    {
+      "id": "ch4_calamity",
+      "title": "第四章 · 天地大劫",
+      "desc": "金丹既成，直面天地大劫",
+      "condition": { "type": "realm", "order": 18 }
+    },
+    {
+      "id": "ch5_ascend",
+      "title": "第五章 · 飞升之路",
+      "desc": "元婴圆满，冲击飞升天劫",
+      "condition": { "type": "ending" }
+    }
+  ]
+}

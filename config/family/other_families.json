@@ -1,0 +1,8 @@
+{
+  "other_families": [
+    { "id": "su_family", "name": "苏氏", "tendency": "righteous", "strength": 60 },
+    { "id": "ye_family", "name": "叶氏", "tendency": "demonic", "strength": 55 },
+    { "id": "yun_family", "name": "云氏", "tendency": "neutral", "strength": 50 },
+    { "id": "xiao_family", "name": "萧氏", "tendency": "righteous", "strength": 65 }
+  ]
+}

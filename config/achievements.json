@@ -1,0 +1,37 @@
+[
+  {
+    "id": "first_kill",
+    "name": "初露锋芒",
+    "description": "首次击杀敌人。",
+    "condition": {"type": "kill", "count": 1},
+    "reward": {"item_id": "spirit_stone", "count": 5}
+  },
+  {
+    "id": "realm_foundation",
+    "name": "筑基有成",
+    "description": "突破至筑基期。",
+    "condition": {"type": "realm", "realm_id": "foundation_early"},
+    "reward": {"item_id": "health_pill", "count": 3}
+  },
+  {
+    "id": "rich_man",
+    "name": "小有积蓄",
+    "description": "背包中累计拥有 100 块灵石。",
+    "condition": {"type": "item_total", "item_id": "spirit_stone", "count": 100},
+    "reward": {"wisdom": 1}
+  },
+  {
+    "id": "companion_lover",
+    "name": "红尘道侣",
+    "description": "与一名 NPC 结为道侣。",
+    "condition": {"type": "companion", "count": 1},
+    "reward": {"item_id": "jade_pendant", "count": 1}
+  },
+  {
+    "id": "sect_elite",
+    "name": "宗门栋梁",
+    "description": "成为宗门内门弟子或以上。",
+    "condition": {"type": "sect_rank", "rank": "inner"},
+    "reward": {"constitution": 1}
+  }
+]

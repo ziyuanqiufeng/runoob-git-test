@@ -1,0 +1,67 @@
+{
+  "chains": [
+    {
+      "id": "demon_invasion",
+      "name": "魔道入侵",
+      "start_weight": 12,
+      "min_year": 3,
+      "stages": {
+        "1": {
+          "name": "魔气蔓延",
+          "duration_months": 2,
+          "global_effects": {"dark_qi": "+30%", "npc_mood": -10},
+          "player_choices": [
+            {"text": "主动出击", "next_stage": "2a", "effects": {"npc_mood": 5}},
+            {"text": "加固城防", "next_stage": "2b", "effects": {"safety": 8}},
+            {"text": "静观其变", "next_stage": "2c"}
+          ]
+        },
+        "2a": {
+          "name": "前线激战",
+          "duration_months": 1,
+          "trigger_battle": true,
+          "battle_success_rate": 0.6,
+          "reward": {"reputation": 50, "loot": "demon_core"},
+          "failure_consequence": {"safety": -20, "price_index": "+30%"},
+          "auto_next": "3"
+        },
+        "2b": {
+          "name": "坚壁清野",
+          "duration_months": 2,
+          "global_effects": {"safety": 10},
+          "auto_next": "3"
+        },
+        "2c": {
+          "name": "暗流涌动",
+          "duration_months": 2,
+          "global_effects": {"dark_qi": "+10%"},
+          "auto_next": "3"
+        },
+        "3": {
+          "name": "尘埃落定",
+          "duration_months": 1,
+          "ending": true
+        }
+      }
+    },
+    {
+      "id": "spirit_tide",
+      "name": "灵潮异变",
+      "start_weight": 10,
+      "min_year": 2,
+      "stages": {
+        "1": {
+          "name": "灵气喷涌",
+          "duration_months": 3,
+          "global_effects": {"lingqi": "+25%"},
+          "auto_next": "2"
+        },
+        "2": {
+          "name": "潮落归于平",
+          "duration_months": 1,
+          "ending": true
+        }
+      }
+    }
+  ]
+}

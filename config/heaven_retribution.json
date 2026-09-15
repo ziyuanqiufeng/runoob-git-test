@@ -1,0 +1,86 @@
+{
+  "_comment": "维度④天道反噬与生态平衡（F-08）。与 difficulty_manager 的『天道追杀』（突破触发）划清边界：本模块的天道注视由『战力/财富指数级暴涨』触发，灵脉枯竭由领地过度抽取灵气触发。",
+  "spirit_vein_depletion": {
+    "_comment": "灵脉枯竭与地脉暴走：领地月度灵气抽取量超过该品阶承载力时，枯竭度累积；归零后产出按倍率衰减，满值有概率触发地脉怨气化形攻城。",
+    "extraction_keys": ["spirit_stone"],
+    "tier_capacity": {
+      "spirit_vein": 200,
+      "blessed_land": 600,
+      "cave_heaven": 1500
+    },
+    "gain_per_excess_unit": 0.05,
+    "recover_per_month": 2.0,
+    "output_multiplier_at_full": 0.0,
+    "monster_chance_at_full": 0.3,
+    "max": 100
+  },
+  "heaven_gaze": {
+    "_comment": "天道注视：玩家战力或财富在短时间内暴涨，引来天道注视。表现为外出无妄之灾、坊市拒交易、杀人夺宝。可通过散财/行善/隐世消除。",
+    "power_spike_min": 500,
+    "wealth_spike_multiplier": 1.5,
+    "gaze_per_spike": 15,
+    "decay_per_month": 3,
+    "max": 100,
+    "levels": {
+      "low":  { "threshold": 1,  "misfortune": 0.05, "kill_for_treasure": 0.02, "trade_refuse": 0.10, "retribution_event_chance": 0.10 },
+      "mid":  { "threshold": 40, "misfortune": 0.15, "kill_for_treasure": 0.08, "trade_refuse": 0.35, "retribution_event_chance": 0.20 },
+      "high": { "threshold": 75, "misfortune": 0.30, "kill_for_treasure": 0.18, "trade_refuse": 0.70, "retribution_event_chance": 0.35 }
+    },
+    "relief": {
+      "donate": 20,
+      "good_deed": 10,
+      "seclude": 5
+    }
+  },
+  "retribution_events": [
+    {
+      "_comment": "天道反噬事件池：高注视外出游历时，按等级概率触发其一。effects 各字段可选；spawn_enemy 为真则召来追夺者开战。",
+      "id": "thunder_light",
+      "name": "雷劫轻谴",
+      "desc": "一道天雷自九霄落下，虽未致命，却震散了你部分灵力。",
+      "min_gaze": 1,
+      "weight": 10,
+      "effects": { "qi_loss": 30, "mental_delta": -2, "heart_delta": 3 }
+    },
+    {
+      "id": "treasure_dissipate",
+      "name": "灵宝蒙尘",
+      "desc": "天道忌盈，你库中部分灵石化作飞灰。",
+      "min_gaze": 1,
+      "weight": 8,
+      "effects": { "stone_loss": 100 }
+    },
+    {
+      "id": "heart_whisper",
+      "name": "心魔低语",
+      "desc": "注视之下，往日心魔在你识海翻涌不息。",
+      "min_gaze": 40,
+      "weight": 9,
+      "effects": { "heart_delta": 8, "mental_delta": -4 }
+    },
+    {
+      "id": "heaven_robber",
+      "name": "追夺天降",
+      "desc": "一名受天道感召的高阶修士循着你身上的气运杀来！",
+      "min_gaze": 40,
+      "weight": 6,
+      "effects": { "spawn_enemy": true }
+    },
+    {
+      "id": "dao_crack",
+      "name": "道心崩裂",
+      "desc": "盛极而衰，你的道心在注视中浮现裂痕。",
+      "min_gaze": 75,
+      "weight": 7,
+      "effects": { "mental_delta": -10, "qi_loss": 60 }
+    },
+    {
+      "id": "great_cataclysm",
+      "name": "大劫加身",
+      "desc": "天道震怒，雷火并作，修为与道心同遭重创。",
+      "min_gaze": 75,
+      "weight": 5,
+      "effects": { "qi_loss": 120, "mental_delta": -12, "heart_delta": 10, "spawn_enemy": true }
+    }
+  ]
+}

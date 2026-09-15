@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ancient_qilin",
+    "name": "上古麒麟残魂",
+    "description": "游荡于青云山脉深处的上古神兽残魂，实力强悍。",
+    "location": "qingyun",
+    "min_realm_order": 12,
+    "base_enemy_id": "qilin",
+    "respawn_months": 60,
+    "loot": ["qilin_horn", "beast_core", "spirit_stone"],
+    "participation_rewards": {"spirit_stone": 10, "qi": 100}
+  },
+  {
+    "id": "blood_demon",
+    "name": "血魔尊者",
+    "description": "被正道封印的血魔，每隔数十年力量复苏。",
+    "location": "jiuyuan_senlin",
+    "min_realm_order": 14,
+    "base_enemy_id": "blood_demon",
+    "respawn_months": 80,
+    "loot": ["blood_demon_heart", "evil_crystal", "spirit_stone"],
+    "participation_rewards": {"spirit_stone": 20, "qi": 200}
+  }
+]

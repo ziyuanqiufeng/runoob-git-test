@@ -1,0 +1,179 @@
+[
+  {
+    "id": "fufeng_lord_greeting",
+    "npc_id": "fufeng_lord",
+    "entry_node": "greeting",
+    "nodes": {
+      "greeting": {
+        "text": "来者何人？扶风城不欢迎无事生非之徒。",
+        "speaker": "fufeng_lord",
+        "options": [
+          {
+            "text": "晚辈前来拜会城主。",
+            "next_node": "ask_reason"
+          },
+          {
+            "text": "路过而已，告辞。",
+            "next_node": "bye"
+          }
+        ]
+      },
+      "ask_reason": {
+        "text": "最近城外风妖作乱，你若愿意出手，扶风城自有重谢。",
+        "options": [
+          {
+            "text": "晚辈愿意效劳。",
+            "effects": [
+              {"type": "start_quest", "quest_id": "fufeng_wind_trial"},
+              {"type": "set_flag", "flag": "accepted_wind_demon_quest", "value": true}
+            ],
+            "next_node": "quest_accepted"
+          },
+          {
+            "text": "此事还需斟酌。",
+            "next_node": "greeting"
+          }
+        ]
+      },
+      "quest_accepted": {
+        "text": "好！去往扶风城郊，斩杀作祟风妖。归来后必有赏赐。",
+        "options": [
+          {
+            "text": "遵命。",
+            "next_node": "bye"
+          }
+        ]
+      },
+      "bye": {
+        "text": "去吧。",
+        "options": []
+      }
+    }
+  },
+  {
+    "id": "fufeng_lord_reward",
+    "npc_id": "fufeng_lord",
+    "entry_node": "check_quest",
+    "nodes": {
+      "check_quest": {
+        "text": "风妖之乱可曾平息？",
+        "options": [
+          {
+            "text": "风妖已被晚辈斩杀。",
+            "conditions": [
+              {"type": "quest_completed", "quest_id": "fufeng_wind_trial"}
+            ],
+            "effects": [
+              {"type": "give_item", "item_id": "spirit_stone", "count": 30},
+              {"type": "modify_reputation", "value": 3},
+              {"type": "notify", "text": "扶风城主对你的表现非常满意。"}
+            ],
+            "next_node": "reward_given"
+          },
+          {
+            "text": "晚辈还在追查。",
+            "next_node": "keep_trying"
+          }
+        ]
+      },
+      "reward_given": {
+        "text": "很好，扶风城欠你一个人情。日后有事，可来城主府寻我。",
+        "options": []
+      },
+      "keep_trying": {
+        "text": "莫要耽搁，风妖每多肆虐一日，百姓便多一分危险。",
+        "options": []
+      }
+    }
+  },
+  {
+    "id": "wandering_merchant_encounter",
+    "npc_id": "wandering_merchant",
+    "entry_node": "greeting",
+    "nodes": {
+      "greeting": {
+        "text": "道友有礼了！老夫云游四方，偶尔也有些稀罕物件。",
+        "options": [
+          {
+            "text": "让我看看你的货。",
+            "effects": [
+              {"type": "set_flag", "flag": "open_wandering_shop", "value": true}
+            ],
+            "next_node": "bye"
+          },
+          {
+            "text": "你这里可有什么消息？",
+            "conditions": [
+              {"type": "dialogue_flag", "flag": "met_wandering_merchant"}
+            ],
+            "effects": [
+              {"type": "give_item", "item_id": "ancient_scroll", "count": 1}
+            ],
+            "next_node": "rumor_given"
+          },
+          {
+            "text": "只是路过。",
+            "effects": [
+              {"type": "set_flag", "flag": "met_wandering_merchant", "value": true}
+            ],
+            "next_node": "bye"
+          }
+        ]
+      },
+      "rumor_given": {
+        "text": "这有一份古旧地图，标注之地或许藏着机缘，也藏着凶险。",
+        "options": []
+      },
+      "bye": {
+        "text": "有缘再会。",
+        "options": []
+      }
+    }
+  },
+  {
+    "id": "fufeng_innkeeper_rumor",
+    "npc_id": "fufeng_innkeeper",
+    "entry_node": "greeting",
+    "nodes": {
+      "greeting": {
+        "text": "客官里边请！今日住店可要听听最近的新鲜事？",
+        "options": [
+          {
+            "text": "最近有什么消息？",
+            "effects": [
+              {"type": "modify_reputation", "value": 1}
+            ],
+            "next_node": "rumor"
+          },
+          {
+            "text": "来一壶好酒。",
+            "conditions": [
+              {"type": "has_item", "item_id": "spirit_stone", "count": 5}
+            ],
+            "effects": [
+              {"type": "take_item", "item_id": "spirit_stone", "count": 5},
+              {"type": "record_choice", "key": "bought_inn_wine", "value": true}
+            ],
+            "next_node": "wine_given"
+          },
+          {
+            "text": "不必了。",
+            "next_node": "bye"
+          }
+        ]
+      },
+      "rumor": {
+        "text": "听说玄水城近日有上古遗迹现世，水灵根的道友可不要错过。",
+        "options": []
+      },
+      "wine_given": {
+        "text": "客官豪爽！这壶‘扶风醉’下肚，保管您灵气运转更顺畅。",
+        "options": []
+      },
+      "bye": {
+        "text": "客官慢走，欢迎再来！",
+        "options": []
+      }
+    }
+  }
+]

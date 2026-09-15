@@ -1,0 +1,12 @@
+{
+  "_comment": "新手引导任务链（方案 A：任务链式，零侵入）。",
+  "_comment2": "step 为步骤序号（从 1 起），trigger 为推进该步骤所需的动作名（与 engine 钩子对应）。",
+  "_comment3": "玩家完成全部步骤后引导结束；可在 ui_prefs.json 设 tutorial_enabled=false 关闭。",
+  "steps": [
+    { "step": 1, "title": "初入仙途", "desc": "闭关修炼一次", "trigger": "cultivate" },
+    { "step": 2, "title": "灵气满溢", "desc": "修为圆满时尝试突破", "trigger": "breakthrough" },
+    { "step": 3, "title": "坊市初探", "desc": "前往坊市与商人交易", "trigger": "market" },
+    { "step": 4, "title": "师门引路", "desc": "拜访一位城中人物", "trigger": "npc" },
+    { "step": 5, "title": "初试游历", "desc": "外出游历一次", "trigger": "explore" }
+  ]
+}

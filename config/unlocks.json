@@ -1,0 +1,24 @@
+{
+  "_comment": "功能按钮的境界解锁门槛（渐进解锁）。key 为 action_panel 里按钮的 action_name。",
+  "_comment2": "order 为境界序号门槛（见 game/player.py 的 REALM_ORDER：练气1-9、筑基10-13、金丹14-17、元婴18）；feature 为需在 player.unlocked_features 中存在的功能名。",
+  "_comment3": "未在此配置的按钮视为默认解锁（练气期即可用）。",
+  "unlocks": {
+    "residence": { "order": 5, "hint": "练气五层解锁" },
+    "mind_method": { "order": 5, "hint": "练气五层解锁" },
+    "auction_house": { "order": 5, "hint": "练气五层解锁" },
+    "bounty_board": { "order": 5, "hint": "练气五层解锁" },
+    "farm": { "order": 7, "hint": "练气七层解锁" },
+    "equipment": { "order": 7, "hint": "练气七层解锁" },
+    "secret_realm": { "order": 10, "hint": "筑基期解锁" },
+    "compendium": { "order": 10, "hint": "筑基期解锁" },
+    "achievement": { "order": 10, "hint": "筑基期解锁" },
+    "heart_demon": { "order": 10, "hint": "筑基期解锁" },
+    "craft_life_treasure": { "feature": "life_treasure", "hint": "金丹期解锁" },
+    "family": { "order": 14, "hint": "金丹期解锁" },
+    "red_dust": { "order": 14, "hint": "金丹期解锁" },
+    "hundred_schools": { "order": 14, "hint": "金丹期解锁" },
+    "territory": { "order": 18, "hint": "元婴期解锁" },
+    "heaven_retribution": { "order": 18, "hint": "元婴期解锁" },
+    "lifespan": { "order": 18, "hint": "元婴期解锁" }
+  }
+}

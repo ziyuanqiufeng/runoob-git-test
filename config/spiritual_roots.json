@@ -1,0 +1,83 @@
+{
+  "elements": ["metal", "wood", "water", "fire", "earth", "thunder", "ice", "wind"],
+  "element_names": {
+    "metal": "金",
+    "wood": "木",
+    "water": "水",
+    "fire": "火",
+    "earth": "土",
+    "thunder": "雷",
+    "ice": "冰",
+    "wind": "风"
+  },
+  "element_colors": {
+    "metal": "#f1c40f",
+    "wood": "#27ae60",
+    "water": "#3498db",
+    "fire": "#e74c3c",
+    "earth": "#e67e22",
+    "thunder": "#9b59b6",
+    "ice": "#00bcd4",
+    "wind": "#95a5a6"
+  },
+  "variant_elements": ["thunder", "ice", "wind"],
+  "fusion_roots": {
+    "thunder_fire": {
+      "name": "雷火交加",
+      "elements": ["thunder", "fire"],
+      "description": "雷火共鸣，可同时驾驭雷霆与烈焰之力。"
+    },
+    "ice_wind": {
+      "name": "冰风双生",
+      "elements": ["ice", "wind"],
+      "description": "冰风同体，寒风所过之处万物凝霜。"
+    },
+    "metal_thunder": {
+      "name": "金雷淬体",
+      "elements": ["metal", "thunder"],
+      "description": "以金导电，雷霆之力在经脉中奔涌不息。"
+    },
+    "wood_ice": {
+      "name": "寒木成晶",
+      "elements": ["wood", "ice"],
+      "description": "木系生机与玄冰之力交融，攻守兼备。"
+    }
+  },
+  "multiplier_by_count": {
+    "1": 1.0,
+    "2": 1.5,
+    "3": 2.0,
+    "4": 2.8,
+    "5": 4.0
+  },
+  "root_names": {
+    "1": "天灵根",
+    "2": "真灵根",
+    "3": "异灵根",
+    "4": "伪灵根",
+    "5": "五行灵根"
+  },
+  "random_weights": {
+    "1": 20,
+    "2": 30,
+    "3": 30,
+    "4": 15,
+    "5": 5
+  },
+  "purity_ranges_by_count": {
+    "1": [1.1, 1.5],
+    "2": [0.9, 1.2],
+    "3": [0.8, 1.1],
+    "4": [0.7, 1.0],
+    "5": [0.6, 0.9]
+  },
+  "purity_labels": {
+    "pure": "纯",
+    "normal": "",
+    "mixed": "杂"
+  },
+  "purity_thresholds": {
+    "pure": 1.2,
+    "mixed": 0.9
+  }
+}

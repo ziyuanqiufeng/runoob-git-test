@@ -1,0 +1,88 @@
+{
+  "_comment": "维度③ 百家争鸣 / 非传统修仙路线（M11）。纯加法式、零侵入引擎核心，经 M0 月度插座接入。三支柱：①立派传道·气运反哺（开宗立派→弟子增长→气运积累→灵石反哺+道韵灌顶）②自创功法（推演独门功法→明心见性·月度道心微涨）③生活流派御劫（择丹/器/阵/符一途精进→可化解心魔之劫）。",
+  "sect": {
+    "min_realm_order": 14,
+    "found_cost_spirit_stone": 50,
+    "disciples_base": 1,
+    "disciples_per_qi_yun": 0.2,
+    "max_disciples": 200,
+    "qi_yun_per_new_disciple": 0.5,
+    "max_qi_yun": 100,
+    "feedback_spirit_stone_per_qi_yun": 0.3,
+    "enlightenment_cost_qi_yun": 10,
+    "enlightenment_dao_heart": 5
+  },
+  "self_created_technique": {
+    "min_realm_order": 14,
+    "cost_spirit_stone": 20,
+    "max_techniques": 5,
+    "allowed_attributes": ["attack", "defense", "wisdom", "luck", "dao_heart"],
+    "monthly_dao_heart_per_technique": 0.3,
+    "schools": ["剑修", "丹道", "阵法", "符箓", "体修", "器修", "儒家", "佛门"],
+    "attribute_element": {
+      "attack": "fire",
+      "defense": "earth",
+      "wisdom": "water",
+      "luck": "wood",
+      "dao_heart": "metal"
+    },
+    "skill_templates": {
+      "剑修": {"base_damage": 30, "realm_multiplier": 0.6, "weapon_multiplier": 0.0, "qi_cost": 15, "cooldown": 2, "heal": 0, "heal_realm_multiplier": 0.0, "path_exclusive": null},
+      "体修": {"base_damage": 40, "realm_multiplier": 0.4, "weapon_multiplier": 0.0, "qi_cost": 20, "cooldown": 3, "heal": 0, "heal_realm_multiplier": 0.0, "path_exclusive": null},
+      "丹道": {"base_damage": 0, "realm_multiplier": 0.0, "weapon_multiplier": 0.0, "qi_cost": 10, "cooldown": 1, "heal": 40, "heal_realm_multiplier": 0.4, "path_exclusive": null},
+      "阵法": {"base_damage": 15, "realm_multiplier": 0.3, "weapon_multiplier": 0.0, "qi_cost": 25, "cooldown": 3, "heal": 0, "heal_realm_multiplier": 0.0, "path_exclusive": null},
+      "符箓": {"base_damage": 25, "realm_multiplier": 0.5, "weapon_multiplier": 0.0, "qi_cost": 12, "cooldown": 1, "heal": 0, "heal_realm_multiplier": 0.0, "path_exclusive": null},
+      "器修": {"base_damage": 35, "realm_multiplier": 0.5, "weapon_multiplier": 0.5, "qi_cost": 18, "cooldown": 2, "heal": 0, "heal_realm_multiplier": 0.0, "path_exclusive": null},
+      "儒家": {"base_damage": 10, "realm_multiplier": 0.2, "weapon_multiplier": 0.0, "qi_cost": 15, "cooldown": 2, "heal": 10, "heal_realm_multiplier": 0.2, "path_exclusive": null},
+      "佛门": {"base_damage": 5, "realm_multiplier": 0.2, "weapon_multiplier": 0.0, "qi_cost": 15, "cooldown": 2, "heal": 30, "heal_realm_multiplier": 0.3, "path_exclusive": null}
+    },
+    "deduction": {
+      "_comment": "维度③·M19 功法推演：自创功法不再是一次性填参注册，而是『推演→逐节点参悟→大成』的养成过程。每参悟一节点累积品质，品质决定功法品质阶（凡/灵/仙/道），阶位乘算最终 Skill 强度。",
+      "cost_wisdom_per_node": 3,
+      "cost_spirit_stone_per_node": 5,
+      "max_nodes": 4,
+      "node_types": {
+        "参悟": {"stat": "realm_multiplier", "quality": 9, "success": 0.85, "desc": "参悟大道，境界加成更深。"},
+        "炼炁": {"stat": "base_damage", "quality": 7, "success": 0.80, "desc": "炼炁成罡，基础伤害更烈。"},
+        "凝元": {"stat": "heal", "quality": 8, "success": 0.80, "desc": "凝元养炁，疗伤更沛。"},
+        "御器": {"stat": "weapon_multiplier", "quality": 7, "success": 0.75, "desc": "御器归一，兵刃加成更盛。"}
+      },
+      "quality_tiers": [
+        {"tier": "凡", "min_quality": 0, "mult": 1.0},
+        {"tier": "灵", "min_quality": 14, "mult": 1.2},
+        {"tier": "仙", "min_quality": 24, "mult": 1.5},
+        {"tier": "道", "min_quality": 34, "mult": 2.0}
+      ]
+    }
+  },
+  "life_path": {
+    "types": {
+      "alchemy": "丹道",
+      "artifact": "器修",
+      "array": "阵法",
+      "talisman": "符箓"
+    },
+    "proficiency_per_month": 1,
+    "max_proficiency": 50,
+    "heart_demon_mitigation_per_level": 0.01,
+    "min_mitigation_level": 5,
+    "max_mitigation": 0.6,
+    "produce": {
+      "alchemy": {"item_id": "qi_pill", "every_months": 3, "min_proficiency": 5},
+      "artifact": {"item_id": "spirit_wood_sword", "every_months": 6, "min_proficiency": 8},
+      "talisman": {"item_id": "talisman_paper", "every_months": 2, "min_proficiency": 3,
+        "battle_buff": {
+          "name": "镇心符·镇魂",
+          "desc": "引动符箓镇心神，敌方攻势受挫，自身得护身灵光。",
+          "enemy_attack_down": {"ratio": 0.15, "turns": 3},
+          "player_shield": 30
+        }},
+      "array": {"item_id": "array_disk", "every_months": 4, "min_proficiency": 6,
+        "battle_buff": {
+          "name": "聚灵阵·锋锐",
+          "desc": "布下设下的聚灵阵，灵力奔涌，攻击大盛。",
+          "player_attack_up": {"ratio": 0.20, "turns": 3}
+        }}
+    }
+  }
+}

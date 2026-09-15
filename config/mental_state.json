@@ -1,0 +1,228 @@
+{
+  "mental_state_levels": [
+    {
+      "min": 80,
+      "name": "道心通明",
+      "breakthrough_bonus": 0.15,
+      "cultivation_speed_bonus": 0.1,
+      "heart_demon_decay_bonus": 0.05,
+      "passive": {
+        "name": "无漏之境",
+        "desc": "心魔事件免疫；天人合一顿悟月几率提升 50%。",
+        "heart_demon_event_immunity": true,
+        "unity_enlightenment_chance_mult": 1.5
+      }
+    },
+    {
+      "min": 60,
+      "name": "心境平和",
+      "breakthrough_bonus": 0.05,
+      "cultivation_speed_bonus": 0.0,
+      "heart_demon_decay_bonus": 0.0,
+      "passive": {
+        "name": "护道之境",
+        "desc": "突破失败不再折损道心；游历名山大川道心增长提升 50%。",
+        "breakthrough_failure_mental_protect": true,
+        "dao_heart_gain_mult": 1.5
+      }
+    },
+    {
+      "min": 40,
+      "name": "心浮气躁",
+      "breakthrough_bonus": -0.05,
+      "cultivation_speed_bonus": -0.05,
+      "heart_demon_decay_bonus": -0.03
+    },
+    {
+      "min": 20,
+      "name": "道心蒙尘",
+      "breakthrough_bonus": -0.15,
+      "cultivation_speed_bonus": -0.12,
+      "heart_demon_decay_bonus": -0.05
+    },
+    {
+      "min": 0,
+      "name": "走火入魔",
+      "breakthrough_bonus": -0.3,
+      "cultivation_speed_bonus": -0.2,
+      "heart_demon_decay_bonus": -0.1
+    }
+  ],
+  "heart_demon_events": [
+    {
+      "id": "inner_demon_attack",
+      "name": "心魔入侵",
+      "trigger_min": 70,
+      "trigger_chance": 0.3,
+      "effect": {
+        "health_loss_percent": 0.15,
+        "mental_state_loss": 10
+      }
+    }
+  ],
+  "killing_effects": {
+    "righteous": {
+      "mental_state_delta": -3,
+      "heart_demon_delta": 8
+    },
+    "evil": {
+      "mental_state_delta": 1,
+      "heart_demon_delta": -2
+    },
+    "neutral": {
+      "mental_state_delta": -1,
+      "heart_demon_delta": 3
+    }
+  },
+  "monthly_changes": {
+    "mental_state_recovery": 1,
+    "heart_demon_decay": 2
+  },
+  "traits": [
+    {
+      "id": "ruthless",
+      "name": "无情",
+      "requirement": {"mental_state_max": 30, "kills": 10},
+      "effect": {"attack_bonus": 0.1, "heart_demon_resistance": 0.2}
+    },
+    {
+      "id": "compassionate",
+      "name": "慈悲",
+      "requirement": {"mental_state_min": 80, "save_lives": 5},
+      "effect": {"mental_state_recovery": 2, "heart_demon_decay_bonus": 0.1}
+    }
+  ],
+
+  "_comment_dimension1": "以下为「维度① 心魔与道心」体验深化扩展：违戒、挫折、突破心魔劫幻境、天人合一顿悟、游历名山道心。",
+
+  "precept_violations": {
+    "_comment": "正道（非魔道路线）修习魔功时滋生心魔。demonic_paths 视为本身即魔道，不触发违戒。",
+    "demonic_paths": ["xie", "mo"],
+    "demonic_skill_ids": ["blood_demon_art", "heavenly_demon", "fear"],
+    "heart_demon_delta": 12,
+    "mental_state_delta": -3
+  },
+
+  "major_setbacks": {
+    "_comment": "重大挫折：积攒心魔，永久改变心境。family_collapse=家族覆灭/解散，companion_death=道侣陨落。",
+    "family_collapse": {
+      "name": "家族覆灭",
+      "heart_demon_delta": 20,
+      "mental_state_delta": -8
+    },
+    "companion_death": {
+      "name": "道侣陨落",
+      "heart_demon_delta": 18,
+      "mental_state_delta": -6
+    }
+  },
+
+  "heart_demon_tribulation": {
+    "_comment": "大境界突破且心魔值≥threshold 时强制触发心魔劫幻境。每个 scenario 提供抉择，抉择永久改变性格标签(personality_tag)与后续事件概率(tribulation_effects)。",
+    "threshold": 60,
+    "scenarios": [
+      {
+        "id": "past_self",
+        "name": "斩杀过去的软弱自己",
+        "description": "幻境中，那个畏缩、仁慈、犹豫不决的「过去的你」站在面前，向你伸出手。",
+        "choices": [
+          {
+            "id": "slay",
+            "text": "挥剑斩之，断去软弱",
+            "effects": {
+              "heart_demon_delta": 15,
+              "mental_state_delta": -5,
+              "personality_tag": "cold",
+              "subsequent_modifier": {"key": "kill_event_chance", "delta": 0.1}
+            },
+            "result_text": "你斩落过去的自己，眼底再无波澜。杀戮之心更盛，却也愈发冷酷。"
+          },
+          {
+            "id": "forgive",
+            "text": "拥抱过去的自己，与之和解",
+            "effects": {
+              "heart_demon_delta": -10,
+              "mental_state_delta": 10,
+              "personality_tag": "merciful",
+              "subsequent_modifier": {"key": "save_life_event_chance", "delta": 0.1}
+            },
+            "result_text": "你与过去的自己相视一笑，心魔稍敛，道心渐明。"
+          }
+        ]
+      },
+      {
+        "id": "beloved",
+        "name": "放弃挚爱换取无上修为",
+        "description": "幻境中，你的挚爱被锁在祭坛之上，以她为引可换一场通天造化。",
+        "choices": [
+          {
+            "id": "sacrifice",
+            "text": "推她入祭坛，夺取造化",
+            "effects": {
+              "heart_demon_delta": 22,
+              "mental_state_delta": -8,
+              "personality_tag": "ruthless_heart",
+              "subsequent_modifier": {"key": "breakthrough_rate", "delta": -0.05}
+            },
+            "result_text": "祭坛光芒大作，你修为暴涨，却永远失去了某样东西。"
+          },
+          {
+            "id": "protect",
+            "text": "毁去祭坛，护她周全",
+            "effects": {
+              "heart_demon_delta": -12,
+              "mental_state_delta": 15,
+              "personality_tag": "loyal",
+              "subsequent_modifier": {"key": "companion_buff", "delta": 0.1}
+            },
+            "result_text": "你掐灭祭坛，将她护在身后。道心通明，再无挂碍。"
+          }
+        ]
+      },
+      {
+        "id": "heavenly_law",
+        "name": "面对天道之质问",
+        "description": "浩渺虚空中，一道无情的意志质问你：修行所为，可是逆天？",
+        "choices": [
+          {
+            "id": "obey",
+            "text": "俯首顺天，守本分",
+            "effects": {
+              "heart_demon_delta": -8,
+              "mental_state_delta": 10,
+              "personality_tag": "obedient",
+              "subsequent_modifier": {"key": "tribulation_rate", "delta": -0.05}
+            },
+            "result_text": "你答天之道，心境澄澈，雷劫之威稍减。"
+          },
+          {
+            "id": "defy",
+            "text": "昂首逆天，夺造化",
+            "effects": {
+              "heart_demon_delta": 12,
+              "mental_state_delta": -3,
+              "personality_tag": "defiant",
+              "subsequent_modifier": {"key": "tribulation_rate", "delta": 0.08}
+            },
+            "result_text": "你逆天而起，气势暴涨，却也引动更多天威。"
+          }
+        ]
+      }
+    ]
+  },
+
+  "unity_enlightenment": {
+    "_comment": "高道心（≥min_mental_state）闭关时有概率触发天人合一顿悟：海量修为或顿悟高阶神通。",
+    "min_mental_state": 80,
+    "chance_per_month": 0.05,
+    "qi_multiplier": 2.0,
+    "technique_chance": 0.3
+  },
+
+  "travel_dao_heart": {
+    "_comment": "游历/前往名山大川增长道心。famous_location_ids 为 config/locations.json 中的地点 id。",
+    "famous_location_ids": ["qingyun"],
+    "famous_gain": 5,
+    "normal_gain": 1
+  }
+}

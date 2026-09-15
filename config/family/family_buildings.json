@@ -1,0 +1,40 @@
+{
+  "buildings": [
+    {
+      "id": "ancestral_hall",
+      "name": "家族祠堂",
+      "max_level": 5,
+      "base_cost": { "spirit_stone": 2000 },
+      "maintenance": 100,
+      "effect": { "reputation_monthly": 20, "loyalty_bonus": 5 },
+      "desc": "供奉先祖，提升家族声望与成员忠诚。"
+    },
+    {
+      "id": "scripture_hall",
+      "name": "藏经阁",
+      "max_level": 5,
+      "base_cost": { "spirit_stone": 3000 },
+      "maintenance": 150,
+      "effect": { "member_growth": 0.1 },
+      "desc": "功法共享，加速成员修为成长。"
+    },
+    {
+      "id": "training_hall",
+      "name": "演武堂",
+      "max_level": 5,
+      "base_cost": { "spirit_stone": 2500 },
+      "maintenance": 120,
+      "effect": { "combat_bonus": 0.1 },
+      "desc": "操演战法，提升成员战力。"
+    },
+    {
+      "id": "shop",
+      "name": "家族商铺",
+      "max_level": 5,
+      "base_cost": { "spirit_stone": 3500 },
+      "maintenance": 80,
+      "effect": { "income": 200 },
+      "desc": "经营买卖，每月产生灵石被动收入。"
+    }
+  ]
+}

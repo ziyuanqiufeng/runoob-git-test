@@ -1,0 +1,47 @@
+[
+  {
+    "id": "tianjian_sword_attendant",
+    "name": "剑童",
+    "sect_id": "tianjian_sect",
+    "required_rank": "inner",
+    "cost_contribution": 800,
+    "element": "metal",
+    "path": "jian",
+    "description": "天剑宗内门剑童，每日打扫剑冢，对剑气略有感悟。",
+    "passive_bonus": {"cultivation_speed": 0.05},
+    "mission": {
+      "duration_months": 6,
+      "reward_items": {"spirit_stone": 2, "century_herb": 1}
+    }
+  },
+  {
+    "id": "zixiao_thunder_child",
+    "name": "雷童子",
+    "sect_id": "zixiao_palace",
+    "required_rank": "inner",
+    "cost_contribution": 800,
+    "element": "water",
+    "path": "fa",
+    "description": "紫霄宫饲养的雷灵童子，可引动一丝雷霆灵气。",
+    "passive_bonus": {"cultivation_speed": 0.05},
+    "mission": {
+      "duration_months": 6,
+      "reward_items": {"spirit_stone": 2, "demon_core": 1}
+    }
+  },
+  {
+    "id": "xie_mo_blood_slave",
+    "name": "血奴",
+    "sect_id": "xie_mo_cult",
+    "required_rank": "inner",
+    "cost_contribution": 600,
+    "element": "fire",
+    "path": "xie",
+    "description": "血魔宗以秘法控制的血奴，忠诚不二，可代为收集血祭材料。",
+    "passive_bonus": {"cultivation_speed": 0.04},
+    "mission": {
+      "duration_months": 6,
+      "reward_items": {"demon_core": 2, "health_pill": 1}
+    }
+  }
+]

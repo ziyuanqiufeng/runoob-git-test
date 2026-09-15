@@ -1,0 +1,98 @@
+{
+  "policies": [
+    {
+      "id": "encourage_cultivation",
+      "name": "鼓励修炼",
+      "description": "城主府出资设立静室，城中修士每月修炼效率略微提升。",
+      "category": "development",
+      "cost": {
+        "spirit_stone": 3000,
+        "reputation": 100
+      },
+      "effects": {
+        "cultivation_speed_bonus": 0.1
+      },
+      "duration_months": 6
+    },
+    {
+      "id": "market_tax_cut",
+      "name": "减免商税",
+      "description": "降低坊市交易税负，玩家摆摊售出概率提升，商人收购价提高。",
+      "category": "economy",
+      "cost": {
+        "spirit_stone": 2500,
+        "reputation": 80
+      },
+      "effects": {
+        "stall_sale_bonus": 0.1,
+        "buy_multiplier_bonus": 0.05
+      },
+      "duration_months": 4
+    },
+    {
+      "id": "defense_drill",
+      "name": "守城演练",
+      "description": "组织城中修士定期演练守城术法，提升城池防御与守城战伤害。",
+      "category": "defense",
+      "cost": {
+        "spirit_stone": 4000,
+        "reputation": 120
+      },
+      "effects": {
+        "defense_bonus": 0.15,
+        "city_defense_damage_bonus": 0.1
+      },
+      "duration_months": 6
+    },
+    {
+      "id": "alchemy_subsidy",
+      "name": "丹药补贴",
+      "description": "对炼丹材料发放补贴，炼丹阁购买材料价格降低。",
+      "category": "economy",
+      "cost": {
+        "spirit_stone": 3500,
+        "reputation": 100
+      },
+      "effects": {
+        "alchemy_cost_reduction": 0.1
+      },
+      "duration_months": 5
+    },
+    {
+      "id": "bounty_monsters",
+      "name": "悬赏妖兽",
+      "description": "发布妖兽悬赏，提升该城池周边遭遇妖兽的掉落收益。",
+      "category": "military",
+      "cost": {
+        "spirit_stone": 3000,
+        "reputation": 90
+      },
+      "effects": {
+        "monster_loot_bonus": 0.2
+      },
+      "duration_months": 4
+    },
+    {
+      "id": "recruit_talents",
+      "name": "招揽散修",
+      "description": "提高城池对散修的吸引力，每月小幅提升城池声望增长。",
+      "category": "development",
+      "cost": {
+        "spirit_stone": 5000,
+        "reputation": 150
+      },
+      "effects": {
+        "reputation_growth_bonus": 0.2
+      },
+      "duration_months": 8
+    }
+  ],
+  "election": {
+    "term_months": 24,
+    "min_reputation": 200,
+    "campaign_cost_spirit_stone": 5000,
+    "campaign_cost_reputation": 200,
+    "max_active_policies": 3,
+    "reelection_cooldown_months": 12
+  }
+}

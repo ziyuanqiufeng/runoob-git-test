@@ -1,0 +1,214 @@
+{
+  "_comment": "维度② 红尘炼心/入世：暂别清修，于凡尘中结缘历劫以淬炼道心、滋长心魔。本系统加法式接入，状态持久化在 player 上，受 feature_flags.red_dust 开关控制。",
+  "enter": {
+    "description": "入世历练：暂别清修，投身凡尘淬炼心境。",
+    "bond_gain_chance": 0.45,
+    "event_chance": 0.55,
+    "qingjie_chance": 0.08
+  },
+  "exit": {
+    "description": "归隐出尘：结束历练，红尘羁绊沉淀为心境。",
+    "dao_heart_per_bond": 3,
+    "heart_demon_per_bond": 2
+  },
+  "bond_types": {
+    "qingyuan": {
+      "name": "情缘",
+      "mental_gain": 4,
+      "heart_gain": 3,
+      "intimacy_max": 100,
+      "desc": "刻骨铭心的爱恋，道心因情而润，亦因执而魔。"
+    },
+    "zhiji": {
+      "name": "知己",
+      "mental_gain": 5,
+      "heart_gain": 1,
+      "intimacy_max": 100,
+      "desc": "高山流水的相知，最是澄澈道心之资。"
+    },
+    "zhiyou": {
+      "name": "挚友",
+      "mental_gain": 3,
+      "heart_gain": 1,
+      "intimacy_max": 100,
+      "desc": "同生共死的兄弟，情义化入胸襟。"
+    },
+    "hongyan": {
+      "name": "红颜",
+      "mental_gain": 4,
+      "heart_gain": 4,
+      "intimacy_max": 100,
+      "desc": "惊鸿一瞥的缘分，最易惹动凡心。"
+    },
+    "enyuan": {
+      "name": "恩怨",
+      "mental_gain": -2,
+      "heart_gain": 5,
+      "intimacy_max": 100,
+      "desc": "仇深似海或恩重如山，皆搅动心湖。"
+    }
+  },
+  "monthly_decay": {
+    "intimacy_decay_per_month": 4
+  },
+  "red_dust_events": [
+    {
+      "id": "market_bustle",
+      "name": "市井喧闹",
+      "description": "茶楼酒肆人声鼎沸，你于烟火气中体会众生百态。",
+      "mental_delta": 2,
+      "heart_delta": 0,
+      "bond_chance": 0.35
+    },
+    {
+      "id": "orphan_rescue",
+      "name": "路遇孤童",
+      "description": "雪夜救下一名冻饿的孩童，你心生怜意。",
+      "mental_delta": 3,
+      "heart_delta": -1,
+      "bond_chance": 0.5,
+      "bond_type": "zhiyou"
+    },
+    {
+      "id": "old_friend_meet",
+      "name": "故人重逢",
+      "description": "酒肆中偶遇旧识，把酒言欢忆往昔。",
+      "mental_delta": 3,
+      "heart_delta": 1,
+      "bond_chance": 0.4,
+      "bond_type": "zhiji"
+    },
+    {
+      "id": "beauty_encounter",
+      "name": "惊鸿一遇",
+      "description": "灯会人潮里与一抹身影擦肩，久久难忘。",
+      "mental_delta": 2,
+      "heart_delta": 3,
+      "bond_chance": 0.6,
+      "bond_type": "hongyan"
+    },
+    {
+      "id": "grudge_conflict",
+      "name": "旧怨寻仇",
+      "description": "往日仇家寻至，刀光剑影间恩怨纠缠。",
+      "mental_delta": -2,
+      "heart_delta": 5,
+      "bond_chance": 0.5,
+      "bond_type": "enyuan"
+    },
+    {
+      "id": "lovers_quarrel",
+      "name": "两心相误",
+      "description": "一段情缘横生误会，爱恨交织令人心乱。",
+      "mental_delta": -1,
+      "heart_delta": 4,
+      "bond_chance": 0.5,
+      "bond_type": "qingyuan"
+    },
+    {
+      "id": "merchant_deal",
+      "name": "市集交易",
+      "description": "与商贾讨价还价，体会世事圆融。",
+      "mental_delta": 1,
+      "heart_delta": 0,
+      "bond_chance": 0.2
+    },
+    {
+      "id": "philanthropy",
+      "name": "施粥济贫",
+      "description": "你开仓施粥，见众生疾苦而道心愈坚。",
+      "mental_delta": 4,
+      "heart_delta": -2,
+      "bond_chance": 0.3
+    }
+  ],
+  "bond_resonance": {
+    "_comment": "羁绊共鸣：亲密度达到 min_intimacy 阈值时解锁对应共鸣档，月度结算时稳定滋养道心/抑制心魔。每类按 min_intimacy 升序排列。",
+    "qingyuan": [
+      {"min_intimacy": 40, "name": "情丝缠心", "monthly_mental": 1, "monthly_heart": -1, "desc": "情根深种，道心因爱而润，执念稍减。"},
+      {"min_intimacy": 80, "name": "生死相许", "monthly_mental": 2, "monthly_heart": -2, "desc": "情比金坚，心魔难侵，道心愈发澄澈。"}
+    ],
+    "zhiji": [
+      {"min_intimacy": 40, "name": "高山流水", "monthly_mental": 2, "monthly_heart": 0, "desc": "相知相契，最是澄澈道心之资。"},
+      {"min_intimacy": 80, "name": "金石之交", "monthly_mental": 3, "monthly_heart": -1, "desc": "知己肝胆相照，乱云飞渡仍见本心。"}
+    ],
+    "zhiyou": [
+      {"min_intimacy": 40, "name": "患难与共", "monthly_mental": 1, "monthly_heart": -1, "desc": "同生共死之情义化入胸襟，心魔渐消。"},
+      {"min_intimacy": 80, "name": "义薄云天", "monthly_mental": 2, "monthly_heart": -2, "desc": "兄弟同心，其利断金，邪念难近。"}
+    ],
+    "hongyan": [
+      {"min_intimacy": 40, "name": "惊鸿照影", "monthly_mental": 1, "monthly_heart": 0, "desc": "红颜知己相陪，凡心稍安，道心微润。"},
+      {"min_intimacy": 80, "name": "倾心相许", "monthly_mental": 2, "monthly_heart": 1, "desc": "情深惹动凡心，道心虽润，执念亦增——需以定力调和。"}
+    ],
+    "enyuan": [
+      {"min_intimacy": 40, "name": "恩怨分明", "monthly_mental": 0, "monthly_heart": -1, "desc": "了却恩怨，心湖渐平，心魔稍减。"},
+      {"min_intimacy": 80, "name": "渡尽劫波", "monthly_mental": 2, "monthly_heart": 1, "desc": "劫波渡尽兄弟在，道心因磨砺而坚，然旧怨余波仍撩动心魔。"}
+    ]
+  },
+  "warmth": {
+    "_comment": "温养羁绊：以灵石为资，主动提升某段羁绊的亲密度（不超过 intimacy_max）。",
+    "cost_item": "spirit_stone",
+    "cost_count": 5,
+    "intimacy_gain": 8,
+    "desc": "以灵石温养羁绊，助其亲密度更上层楼。"
+  },
+  "qingjie_scenarios": [
+    {
+      "id": "qj_parting",
+      "name": "生离死别",
+      "description": "你结下的红尘羁绊身染沉疴，大限将至。",
+      "choices": [
+        {
+          "id": "let_go",
+          "text": "放手成全，送其安然离去",
+          "result_text": "你悟得「诸法无常」，道心更圆融。",
+          "effects": {"mental_delta": 6, "heart_delta": -3}
+        },
+        {
+          "id": "cling",
+          "text": "强留执念，逆天续命",
+          "result_text": "执念深种，心魔悄然滋长。",
+          "effects": {"mental_delta": -2, "heart_delta": 8}
+        }
+      ]
+    },
+    {
+      "id": "qj_betrayal",
+      "name": "背信弃义",
+      "description": "你信赖的知己为利背盟，反戈一击。",
+      "choices": [
+        {
+          "id": "forgive",
+          "text": "一笑置之，不与计较",
+          "result_text": "胸襟开阔，心魔自消。",
+          "effects": {"mental_delta": 4, "heart_delta": -2}
+        },
+        {
+          "id": "resent",
+          "text": "铭记此恨，伺机报复",
+          "result_text": "怨气入心，化为心魔养料。",
+          "effects": {"mental_delta": -3, "heart_delta": 7}
+        }
+      ]
+    },
+    {
+      "id": "qj_choice",
+      "name": "道情两难",
+      "description": "一段情缘与你的修行之路正面冲突，必须取舍。",
+      "choices": [
+        {
+          "id": "dao_first",
+          "text": "斩断情丝，专心向道",
+          "result_text": "你挥剑断情，道心清明，却也落寞。",
+          "effects": {"mental_delta": 5, "heart_delta": -1}
+        },
+        {
+          "id": "love_first",
+          "text": "宁负长生，不负此情",
+          "result_text": "你甘堕凡尘，心魔因执念而生。",
+          "effects": {"mental_delta": -1, "heart_delta": 6}
+        }
+      ]
+    }
+  ]
+}
