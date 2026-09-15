@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+build/
+dist/
+.pytest_cache/
+backups/
+
+# 敏感配置：含 Agnes API key，绝不入库
+config/ai_config.json
+
+# 本机私密与工作目录，绝不入库
+.ssh/
+.workbuddy/
+
+# 玩家个人数据
+saves/
+
+# 排障临时文件
+180000*
+collect_list.txt
+run_log.txt
+subset.txt

@@ -276,6 +276,73 @@ class SaveManager:
         except Exception:
             return None
 
+    def export_slot(self, slot, dest_path):
+        """把指定槽位导出为可分享的 zip 包（存档 JSON + 当前立绘）。
+
+        立绘文件若存在则一并打包为 portrait.png；默认图等本机资源不打包。
+        成功返回导出的存档数据 dict；槽位不存在/读取失败返回 None。
+        """
+        import zipfile
+
+        path = self._resolve_path(slot)
+        if not os.path.exists(path):
+            return None
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if not isinstance(data, dict) or "player" not in data:
+                return None
+            os.makedirs(os.path.dirname(os.path.abspath(dest_path)) or ".", exist_ok=True)
+            with zipfile.ZipFile(dest_path, "w", zipfile.ZIP_DEFLATED) as zf:
+                zf.writestr("save.json", json.dumps(data, ensure_ascii=False, indent=2))
+                portrait = (data.get("player") or {}).get("portrait")
+                if portrait and os.path.exists(portrait):
+                    zf.write(portrait, "portrait.png")
+            return data
+        except (json.JSONDecodeError, OSError):
+            return None
+
+    def import_slot(self, zip_path, base_name=None):
+        """从 zip 包导入存档为新槽位。
+
+        zip 需含 save.json（player/world 结构）；若包含 portrait.png 则将其
+       释放到 assets/portraits/imported_<ts>.png 并修复存档内的立绘路径。
+        槽位名默认取 base_name（缺省用 zip 文件名），冲突时自动加序号。
+        成功返回槽位名；包无效返回 None。
+        """
+        import time
+        import zipfile
+
+        try:
+            with zipfile.ZipFile(zip_path, "r") as zf:
+                names = zf.namelist()
+                if "save.json" not in names:
+                    return None
+                data = json.loads(zf.read("save.json").decode("utf-8"))
+                if not isinstance(data, dict) or "player" not in data:
+                    return None
+                if "portrait.png" in names:
+                    portrait_dir = os.path.join("assets", "portraits")
+                    os.makedirs(portrait_dir, exist_ok=True)
+                    dest = os.path.join(
+                        portrait_dir, f"imported_{int(time.time())}.png"
+                    )
+                    with zf.open("portrait.png") as src, open(dest, "wb") as out:
+                        out.write(src.read())
+                    if isinstance(data.get("player"), dict):
+                        data["player"]["portrait"] = dest.replace("\\", "/")
+        except (zipfile.BadZipFile, json.JSONDecodeError, KeyError, OSError):
+            return None
+
+        if not base_name:
+            base_name = os.path.splitext(os.path.basename(zip_path))[0]
+        slot = self.allocate_slot(base_name)
+        slot_path = self._resolve_path(slot)
+        os.makedirs(os.path.dirname(slot_path) or ".", exist_ok=True)
+        with open(slot_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return slot
+
     def allocate_slot(self, base_name):
         """基于道号/名称生成唯一槽位名（冲突时追加序号）。"""
         base = (base_name or "修仙存档").strip() or "修仙存档"
