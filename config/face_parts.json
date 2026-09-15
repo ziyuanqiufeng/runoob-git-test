@@ -1,0 +1,67 @@
+{
+  "_comment": "拼装捏脸（路线 A）部件配置。layers 按 z 从小到大叠放；tintable 层会按 skins 的 tint 调色；optional 层允许不选（部件 id 为 none 时跳过）。",
+  "canvas": 256,
+  "layers": [
+    {
+      "id": "face", "name": "脸型", "z": 10, "tintable": true,
+      "parts": [
+        { "id": "oval_1",   "name": "鹅蛋脸", "file": "assets/faces/face/oval_1.png" },
+        { "id": "oval_2",   "name": "瓜子脸", "file": "assets/faces/face/oval_2.png" },
+        { "id": "round_1",  "name": "圆润脸", "file": "assets/faces/face/round_1.png" },
+        { "id": "square_1", "name": "方正脸", "file": "assets/faces/face/square_1.png" }
+      ]
+    },
+    {
+      "id": "brow", "name": "眉", "z": 20,
+      "parts": [
+        { "id": "sword_1",   "name": "剑眉", "file": "assets/faces/brow/sword_1.png" },
+        { "id": "willow_1",  "name": "柳叶眉", "file": "assets/faces/brow/willow_1.png" },
+        { "id": "straight_1","name": "平眉", "file": "assets/faces/brow/straight_1.png" },
+        { "id": "thick_1",   "name": "浓眉", "file": "assets/faces/brow/thick_1.png" }
+      ]
+    },
+    {
+      "id": "eye", "name": "眼", "z": 25,
+      "parts": [
+        { "id": "phoenix_1", "name": "丹凤眼", "file": "assets/faces/eye/phoenix_1.png" },
+        { "id": "round_1",   "name": "圆眼",   "file": "assets/faces/eye/round_1.png" },
+        { "id": "narrow_1",  "name": "细长眼", "file": "assets/faces/eye/narrow_1.png" },
+        { "id": "big_1",     "name": "杏眼",   "file": "assets/faces/eye/big_1.png" }
+      ]
+    },
+    {
+      "id": "mouth", "name": "嘴", "z": 30,
+      "parts": [
+        { "id": "smile_1",  "name": "微笑", "file": "assets/faces/mouth/smile_1.png" },
+        { "id": "neutral_1","name": "抿嘴", "file": "assets/faces/mouth/neutral_1.png" },
+        { "id": "pout_1",   "name": "嘟嘴", "file": "assets/faces/mouth/pout_1.png" },
+        { "id": "grin_1",   "name": "咧嘴", "file": "assets/faces/mouth/grin_1.png" }
+      ]
+    },
+    {
+      "id": "hair", "name": "发型", "z": 40,
+      "parts": [
+        { "id": "high_ponytail", "name": "高马尾",   "file": "assets/faces/hair/high_ponytail.png" },
+        { "id": "loose",         "name": "披肩长发", "file": "assets/faces/hair/loose.png" },
+        { "id": "topknot",       "name": "道髻",     "file": "assets/faces/hair/topknot.png" },
+        { "id": "half_up",       "name": "半束半披", "file": "assets/faces/hair/half_up.png" },
+        { "id": "short_bob",     "name": "利落短发", "file": "assets/faces/hair/short_bob.png" },
+        { "id": "twin_buns",     "name": "双丫髻",   "file": "assets/faces/hair/twin_buns.png" }
+      ]
+    },
+    {
+      "id": "accessory", "name": "饰品", "z": 50, "optional": true,
+      "parts": [
+        { "id": "none",       "name": "无",       "file": "" },
+        { "id": "jade_crown", "name": "玉冠",     "file": "assets/faces/accessory/jade_crown.png" },
+        { "id": "flower_pin", "name": "珠花",     "file": "assets/faces/accessory/flower_pin.png" },
+        { "id": "scar_mark",  "name": "剑疤",     "file": "assets/faces/accessory/scar_mark.png" }
+      ]
+    }
+  ],
+  "skins": [
+    { "id": "fair",    "name": "白皙", "tint": null },
+    { "id": "wheat",   "name": "麦色", "tint": [232, 190, 150] },
+    { "id": "bronzed", "name": "古铜", "tint": [200, 152, 112] }
+  ]
+}

@@ -227,6 +227,8 @@ class Player:
         self.has_won = False              # 是否已通关（解锁天道轮回模式）
         self.ending_id = None             # 达成的结局 ID（飞升/死亡时判定）
         self.main_story_step = 0          # 主线剧情进度：已完成章节数
+        self.face_traits = {}             # 捏脸特征选择（路线 B：AI 提示词捏脸）
+        self.face_params = {}             # 拼装捏脸参数（路线 A：{层id: 部件id, "skin": 肤色id}）
         self.treasure_maps = []       # 藏宝图列表 {map_id, location_id, hint}
         self.location_event_cooldowns = {}  # {location_id: cooldown_month}
         self.world_boss_kills = []    # 击杀过的世界 BOSS ID 列表
@@ -1163,6 +1165,8 @@ class Player:
             "has_won": self.has_won,
             "ending_id": getattr(self, "ending_id", None),
             "main_story_step": getattr(self, "main_story_step", 0),
+            "face_traits": getattr(self, "face_traits", {}),
+            "face_params": getattr(self, "face_params", {}),
             "treasure_maps": self.treasure_maps,
             "location_event_cooldowns": self.location_event_cooldowns,
             "world_boss_kills": self.world_boss_kills,
@@ -1426,6 +1430,10 @@ class Player:
         player.has_won = data.get("has_won", False)
         player.ending_id = data.get("ending_id", None)
         player.main_story_step = int(data.get("main_story_step", 0))
+        ft = data.get("face_traits", {})
+        player.face_traits = ft if isinstance(ft, dict) else {}
+        fp = data.get("face_params", {})
+        player.face_params = fp if isinstance(fp, dict) else {}
         player.treasure_maps = data.get("treasure_maps", [])
         player.location_event_cooldowns = data.get("location_event_cooldowns", {})
         player.world_boss_kills = data.get("world_boss_kills", [])

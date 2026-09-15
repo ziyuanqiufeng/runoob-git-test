@@ -1,0 +1,53 @@
+{
+  "_comment": "捏脸系统（路线 B：AI 提示词捏脸）特征表。dimensions 每项是一个选择维度，选项的 prompt 片段按序拼进正向提示词。",
+  "style_prefix": "A {gender_desc} Chinese fantasy cultivator portrait,",
+  "style_suffix": "traditional xianxia robe, serene expression, soft lighting, ink wash painting style, ethereal atmosphere, detailed face, upper body portrait",
+  "negative": "low quality, blurry, deformed hands, extra fingers, modern clothes, western style, cartoon, 3d render",
+  "dimensions": [
+    {
+      "id": "face_shape", "name": "脸型",
+      "options": [
+        { "id": "sharp",    "name": "剑眉星目", "prompt": "sharp eyebrows and piercing determined eyes" },
+        { "id": "gentle",   "name": "温润如玉", "prompt": "gentle refined features with a soft warm gaze" },
+        { "id": "heroic",   "name": "英气逼人", "prompt": "heroic striking features, strong jawline" },
+        { "id": "ethereal", "name": "仙风道骨", "prompt": "ethereal otherworldly face, immortal aura" }
+      ]
+    },
+    {
+      "id": "eyes", "name": "眼神",
+      "options": [
+        { "id": "calm",     "name": "古井无波", "prompt": "calm serene eyes" },
+        { "id": "fierce",   "name": "锋芒毕露", "prompt": "fierce intense gaze" },
+        { "id": "deep",     "name": "深不可测", "prompt": "deep mysterious eyes" },
+        { "id": "kind",     "name": "悲悯柔和", "prompt": "kind compassionate eyes" }
+      ]
+    },
+    {
+      "id": "aura", "name": "气质",
+      "options": [
+        { "id": "cold",     "name": "清冷出尘", "prompt": "cold aloof temperament, distant elegance" },
+        { "id": "righteous","name": "浩然正气", "prompt": "righteous noble bearing" },
+        { "id": "demonic",  "name": "邪魅狂狷", "prompt": "demonic charming smirk, dark elegance" },
+        { "id": "scholar",  "name": "儒雅书卷", "prompt": "scholarly refined temperament" }
+      ]
+    },
+    {
+      "id": "hair_style", "name": "发型",
+      "options": [
+        { "id": "high_ponytail", "name": "高马尾", "prompt": "long black hair in a high ponytail with a ribbon" },
+        { "id": "loose",         "name": "披肩长发", "prompt": "loose flowing long black hair" },
+        { "id": "topknot",       "name": "道髻",     "prompt": "hair tied in a traditional taoist topknot with a wooden hairpin" },
+        { "id": "half_up",       "name": "半束半披", "prompt": "half-up half-down black hair with a jade clasp" }
+      ]
+    },
+    {
+      "id": "outfit", "name": "服饰",
+      "options": [
+        { "id": "white",  "name": "月白道袍", "prompt": "wearing a flowing moon-white taoist robe" },
+        { "id": "azure",  "name": "青衫仗剑", "prompt": "wearing an azure scholar robe with a sword on the back" },
+        { "id": "black",  "name": "玄黑劲装", "prompt": "wearing a black fitted cultivator outfit with dark embroidery" },
+        { "id": "crimson","name": "赤红法袍", "prompt": "wearing a crimson spellcaster robe with golden trims" }
+      ]
+    }
+  ]
+}

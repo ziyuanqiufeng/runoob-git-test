@@ -359,6 +359,24 @@ def generate_portrait(player, output_dir="assets/portraits", use_ai=True, timeou
     return True, output_path
 
 
+def generate_portrait_from_prompt(prompt, output_dir="assets/portraits", timeout=180, config_dir="config"):
+    """按给定英文提示词生成一张立绘（供捏脸等调用方使用）。
+
+    生成成功返回 (True, 图片路径)；失败返回 (False, None)——
+    与 generate_portrait 不同，本函数失败时不回退占位图，
+    由调用方决定降级策略（捏脸场景需明确区分成功与失败）。
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    timestamp = int(time.time())
+    output_path = os.path.join(output_dir, f"generated_{timestamp}.png")
+    result = _generate_via_agnes(
+        prompt, output_path, timeout=max(timeout, 180), config_dir=config_dir
+    )
+    if result:
+        return True, output_path
+    return False, None
+
+
 def _draw_gradient_background(draw, size, top_color, bottom_color):
     """用水平色带模拟从上到下的渐变背景。"""
     for y in range(size):
