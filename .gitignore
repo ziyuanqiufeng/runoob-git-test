@@ -26,3 +26,7 @@ collect_list.txt
 run_log.txt
 subset.txt
 outputs/
+
+# 玩家运行时生成/导入的立绘（个人数据）
+assets/portraits/generated_*
+assets/portraits/imported_*
