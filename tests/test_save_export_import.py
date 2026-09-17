@@ -98,6 +98,27 @@ class TestExportImport(unittest.TestCase):
         self.assertTrue(os.path.exists(new_portrait))  # 路径已修复且文件存在
         self.assertIn("imported_", new_portrait.replace("\\", "/"))
 
+    def test_corrupt_portrait_skipped_gracefully(self):
+        """损坏立绘：跳过释放与路径改写，导入本身仍成功。"""
+        portrait = os.path.join(self.tmp, "broken.png")
+        with open(portrait, "wb") as f:
+            f.write(b"this is not a png at all")
+        self.player.portrait = portrait
+        self.sm.save(self.player, self.world, slot="my_slot")
+
+        self.sm.export_slot("my_slot", self.zip_path)
+        slot = self.sm.import_slot(self.zip_path, base_name="坏立绘")
+        self.assertIsNotNone(slot)  # 导入不因立绘损坏而失败
+        with open(self.sm._resolve_path(slot), encoding="utf-8") as f:
+            data = json.load(f)
+        # 路径未被改写为 imported_*（损坏立绘未释放）
+        self.assertNotIn("imported_", data["player"]["portrait"].replace("\\", "/"))
+        # assets/portraits 下没有新增损坏文件
+        imported = [f for f in os.listdir("assets/portraits")
+                    if f.startswith("imported_") and os.path.getsize(
+                        os.path.join("assets/portraits", f)) < 40]
+        self.assertEqual(imported, [])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -105,6 +105,30 @@ class TestStoryCondition(unittest.TestCase):
         self.assertTrue(e._meet_story_condition({"type": "ending"}))
 
 
+class TestStoryHint(unittest.TestCase):
+    """主线目标引导：条件翻译成玩家可读提示。"""
+
+    def test_ch1_hint_sect(self):
+        e = _make_engine()
+        self.assertEqual(e.get_main_story_hint(), "加入一方宗门")
+
+    def test_ch2_hint_realm_name(self):
+        e = _make_engine("qi_refining_1")
+        e.player.main_story_step = 1  # 第二章：realm order 10
+        hint = e.get_main_story_hint()
+        self.assertIn("修为达到", hint)
+
+    def test_last_chapter_hint_ending(self):
+        e = _make_engine("nascent_soul")
+        e.player.main_story_step = 4
+        self.assertEqual(e.get_main_story_hint(), "达成任意结局")
+
+    def test_hint_none_when_all_done(self):
+        e = _make_engine()
+        e.player.main_story_step = 5
+        self.assertIsNone(e.get_main_story_hint())
+
+
 class TestStoryPersist(unittest.TestCase):
     """主线进度持久化。"""
 

@@ -175,3 +175,29 @@ class MainStoryMixin:
             return None
         cur = chapters[step]
         return (cur.get("title", ""), cur.get("desc", ""), step + 1, len(chapters))
+
+    def _story_condition_hint(self, cond):
+        """把主线完成条件翻译成玩家可读的行动提示。"""
+        cond = cond or {}
+        t = cond.get("type")
+        if t == "sect":
+            return "加入一方宗门"
+        if t == "realm":
+            order = cond.get("order", 0)
+            realm_id = {v: k for k, v in self.player.REALM_ORDER.items()}.get(order)
+            name = None
+            if realm_id:
+                realm = self.world.get_realm(realm_id)
+                name = realm.get("name") if isinstance(realm, dict) else None
+            return f"修为达到【{name or order}】"
+        if t == "ending":
+            return "达成任意结局"
+        return "继续修行"
+
+    def get_main_story_hint(self):
+        """返回当前主线章节的行动提示（str）；无进行中章节返回 None。"""
+        chapters = self._main_story.get("chapters", [])
+        step = getattr(self.player, "main_story_step", 0)
+        if not chapters or step >= len(chapters):
+            return None
+        return self._story_condition_hint(chapters[step].get("condition"))

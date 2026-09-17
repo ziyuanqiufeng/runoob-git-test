@@ -603,7 +603,11 @@ class MainWindow(QMainWindow):
             self.main_story_label.setVisible(False)
             return
         title, desc, current, total = progress
-        self.main_story_label.setText(f"主线 {current}/{total} · {title}：{desc}")
+        text = f"主线 {current}/{total} · {title}：{desc}"
+        hint = self.engine.get_main_story_hint()
+        if hint:
+            text += f"（目标：{hint}）"
+        self.main_story_label.setText(text)
         self.main_story_label.setVisible(True)
 
     def _update_tutorial_label(self):

@@ -7,6 +7,19 @@ from game.player import Player
 from game.world import World
 
 
+def _valid_portrait_bytes(raw):
+    """校验立绘字节流是可解码的图片（防止分享包携带损坏立绘）。"""
+    import io
+
+    try:
+        from PIL import Image
+        img = Image.open(io.BytesIO(raw))
+        img.verify()
+        return True
+    except Exception:
+        return False
+
+
 class SaveManager:
     """存档管理器：支持多存档槽位，同时向后兼容旧的单一 save.json。"""
 
@@ -322,15 +335,18 @@ class SaveManager:
                 if not isinstance(data, dict) or "player" not in data:
                     return None
                 if "portrait.png" in names:
-                    portrait_dir = os.path.join("assets", "portraits")
-                    os.makedirs(portrait_dir, exist_ok=True)
-                    dest = os.path.join(
-                        portrait_dir, f"imported_{int(time.time())}.png"
-                    )
-                    with zf.open("portrait.png") as src, open(dest, "wb") as out:
-                        out.write(src.read())
-                    if isinstance(data.get("player"), dict):
-                        data["player"]["portrait"] = dest.replace("\\", "/")
+                    raw = zf.read("portrait.png")
+                    if _valid_portrait_bytes(raw):
+                        portrait_dir = os.path.join("assets", "portraits")
+                        os.makedirs(portrait_dir, exist_ok=True)
+                        dest = os.path.join(
+                            portrait_dir, f"imported_{int(time.time())}.png"
+                        )
+                        with open(dest, "wb") as out:
+                            out.write(raw)
+                        if isinstance(data.get("player"), dict):
+                            data["player"]["portrait"] = dest.replace("\\", "/")
+                    # 立绘损坏：跳过释放与路径改写，载入端走占位图兜底
         except (zipfile.BadZipFile, json.JSONDecodeError, KeyError, OSError):
             return None
 
