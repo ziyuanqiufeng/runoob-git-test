@@ -19,7 +19,7 @@ from game import ai_diag
 from ui.settings_dialog import SettingsDialog
 
 _MODELS_BODY = {
-    "data": [{"id": "agnes-2.5-flash"}, {"id": "agnes-image-2.1-flash"}]
+    "data": [{"id": "agnes-3.0-flash"}, {"id": "agnes-image-2.1-flash"}]
 }
 
 
@@ -51,7 +51,7 @@ class TestDiagnoseAI(unittest.TestCase):
         self.assertIn("未配置", result["detail"])
 
     def test_success_reports_model_available(self):
-        with patch("game.ai_diag._API_ROOT", "https://fake/v1"), \
+        with patch("game.ai_diag._api_root", return_value="https://fake/v1"), \
              patch("urllib.request.urlopen") as mock_urlopen:
             mock_urlopen.return_value.__enter__.return_value.read.return_value = (
                 json.dumps(_MODELS_BODY).encode("utf-8")
@@ -60,6 +60,7 @@ class TestDiagnoseAI(unittest.TestCase):
         self.assertTrue(result["key_present"])
         self.assertTrue(result["reachable"])
         self.assertTrue(result["image_model_ok"])
+        self.assertTrue(result["llm_model_ok"])
         self.assertIn("可用", result["detail"])
 
     def test_401_reports_invalid_key(self):
@@ -80,8 +81,8 @@ class TestDiagnoseAI(unittest.TestCase):
         self.assertIn("网络不可达", result["detail"])
 
     def test_image_model_missing_warns(self):
-        body = {"data": [{"id": "agnes-2.5-flash"}]}  # 无图模型
-        with patch("game.ai_diag._API_ROOT", "https://fake/v1"), \
+        body = {"data": [{"id": "agnes-3.0-flash"}]}  # 无图模型
+        with patch("game.ai_diag._api_root", return_value="https://fake/v1"), \
              patch("urllib.request.urlopen") as mock_urlopen:
             mock_urlopen.return_value.__enter__.return_value.read.return_value = (
                 json.dumps(body).encode("utf-8")

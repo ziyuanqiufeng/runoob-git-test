@@ -67,7 +67,7 @@ class AIStoryGenerator:
         if not base_url or not api_key:
             return None
         payload = {
-            "model": self.config.get("model", "agnes-2.5-flash"),
+            "model": self.config.get("model", "agnes-3.0-flash"),
             "messages": [{"role": "user", "content": self._build_prompt(event, player, location, realm_name)}],
             "max_tokens": self.config.get("max_tokens", 200),
         }

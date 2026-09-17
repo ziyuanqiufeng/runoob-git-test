@@ -14,8 +14,27 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 # Agnes AI 文生图配置（API key 复用 config/ai_config.json，也可由环境变量 AGNES_API_KEY 覆盖）
+# 地址与模型均可由 config/ai_config.json 的 image_base_url / image_model 覆盖，缺省用下方内置值。
 _AGNES_IMAGE_API = "https://apihub.agnes-ai.com/v1/images/generations"
 _AGNES_IMAGE_MODEL = "agnes-image-2.1-flash"
+
+
+def _load_image_config(config_dir="config"):
+    """读取文生图配置（image_base_url / image_model），缺省回退内置值。
+
+    这样以后更换文生图服务商/模型只需改 config/ai_config.json，无需改代码。
+    返回 (api, model)。
+    """
+    api, model = _AGNES_IMAGE_API, _AGNES_IMAGE_MODEL
+    try:
+        with open(os.path.join(config_dir, "ai_config.json"), "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            api = data.get("image_base_url") or _AGNES_IMAGE_API
+            model = data.get("image_model") or _AGNES_IMAGE_MODEL
+    except (json.JSONDecodeError, OSError):
+        pass
+    return api, model
 
 # 默认提示词模板（config/portrait_prompt_template.json 不存在时使用）
 _DEFAULT_PROMPT_TEMPLATE = {
@@ -268,8 +287,9 @@ def _generate_via_agnes(prompt, output_path, timeout=180, config_dir="config", i
     api_key = _load_ai_api_key(config_dir)
     if not api_key:
         return None
+    image_api, image_model = _load_image_config(config_dir)
     payload = {
-        "model": _AGNES_IMAGE_MODEL,
+        "model": image_model,
         "prompt": prompt,
         "n": 1,
         "size": image_size,
@@ -279,7 +299,7 @@ def _generate_via_agnes(prompt, output_path, timeout=180, config_dir="config", i
     last_error = "未知错误"
     for attempt in range(max_retries):
         req = urllib.request.Request(
-            _AGNES_IMAGE_API,
+            image_api,
             data=json.dumps(payload).encode("utf-8"),
             headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
             method="POST",
