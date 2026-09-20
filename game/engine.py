@@ -1033,6 +1033,11 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
             base_gain = 10 + self.player.wisdom * 2
             # 灵根越多倍率越高，实际获得修为越少
             actual_gain = int(base_gain / self.player.cultivation_multiplier)
+            # 境界成长系数：高境界灵气更浓郁，月修为收入随境界增长
+            # （练气 1.8x → 元婴 15.4x），避免"收入恒定、需求指数涨"的曲线卡死
+            realm = self.world.get_realm(self.player.realm_id)
+            realm_order = realm["order"] if realm else 1
+            actual_gain = int(actual_gain * (1 + realm_order * 0.8))
             # 动态天气加成：每月可能变化，重新计算
             current_weather_bonus = self.weather_manager.get_cultivation_speed_bonus(path)
             current_total_bonus = total_bonus - weather_bonus + current_weather_bonus
