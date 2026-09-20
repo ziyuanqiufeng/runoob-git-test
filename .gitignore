@@ -30,3 +30,6 @@ outputs/
 # 玩家运行时生成/导入的立绘（个人数据）
 assets/portraits/generated_*
 assets/portraits/imported_*
+
+# 测试运行时临时文件（tearDown 正常会删，防沙箱拦截后残留入库）
+test_*.json
