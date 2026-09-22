@@ -45,8 +45,8 @@ class TestDanCultivationBuff(unittest.TestCase):
         q0 = engine.player.qi
         ok = engine.use_item(pill)
         self.assertTrue(ok)
-        # 即时修为 +50
-        self.assertEqual(engine.player.qi, q0 + 50)
+        # 即时修为 +50（乘境界成长系数）
+        self.assertEqual(engine.player.qi, q0 + int(50 * engine._realm_qi_scale()))
         # 持续增益：3 个月，每月 +40
         self.assertEqual(engine.player.cultivation_boost_months, 3)
         self.assertEqual(engine.player.cultivation_boost_amount, 40)

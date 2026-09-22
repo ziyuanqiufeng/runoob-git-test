@@ -132,9 +132,9 @@ class EventMixin:
 
         effects = event.get("effects", {})
 
-        # 修为变化
+        # 修为变化（乘境界成长系数，保持相对价值；负向惩罚同比例）
         if "qi" in effects:
-            self.player.qi += effects["qi"]
+            self.player.qi += int(effects["qi"] * self._realm_qi_scale())
 
         # 健康变化
         if "health" in effects:

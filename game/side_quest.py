@@ -31,14 +31,26 @@ class SideQuestConfig:
 class SideQuestManager:
     """管理支线任务的接取、进度与结算。"""
 
-    def __init__(self, player, item_library, config_dir="config"):
+    def __init__(self, player, item_library, config_dir="config", world=None):
         self.player = player
         self.item_library = item_library
         self.config = SideQuestConfig(config_dir)
+        self.world = world
         if not hasattr(player, "active_side_quests"):
             player.active_side_quests = {}
         if not hasattr(player, "completed_side_quests"):
             player.completed_side_quests = []
+
+    def _realm_qi_scale(self):
+        """境界成长系数（与 GameEngine._realm_qi_scale 同斜率）。
+
+        未注入 world 时返回 1.0（保持旧行为，兼容测试与旧调用方）。
+        """
+        if not self.world:
+            return 1.0
+        realm = self.world.realms.get(self.player.realm_id)
+        order = realm["order"] if realm else 1
+        return 1 + order * 0.8
 
     def get_available_quests(self, location_id):
         """获取当前地点可接取的支线任务。"""
@@ -117,8 +129,8 @@ class SideQuestManager:
         contrib = rewards.get("sect_contribution", 0)
         if contrib:
             self.player.sect_contribution += contrib
-        # 修为奖励
-        qi_reward = rewards.get("qi", 0)
+        # 修为奖励（乘境界成长系数，保持相对价值）
+        qi_reward = int(rewards.get("qi", 0) * self._realm_qi_scale())
         if qi_reward:
             self.player.qi += qi_reward
         del self.player.active_side_quests[quest_id]

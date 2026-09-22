@@ -112,9 +112,9 @@ class ItemAlchemyMixin:
             self.check_formation_unlock()
             return True
 
-        # 应用常规效果
+        # 应用常规效果（qi 乘境界成长系数，保持相对价值）
         if "qi" in effects:
-            self.player.qi += effects["qi"]
+            self.player.qi += int(effects["qi"] * self._realm_qi_scale())
         if "health" in effects:
             self.player.health += effects["health"]
             self.player.health = min(self.player.health, self.player.max_health)

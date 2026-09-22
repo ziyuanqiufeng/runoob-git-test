@@ -77,15 +77,16 @@ class QuestDialogueMixin:
         self.player.quest_progress.pop(quest_id, None)
         self.player.completed_quests.append(quest_id)
 
-        # 发放奖励
+        # 发放奖励（qi 乘境界成长系数，保持相对价值）
         reward = quest.reward
-        if "qi" in reward:
-            self.player.qi += reward["qi"]
+        qi_reward = int(reward.get("qi", 0) * self._realm_qi_scale())
+        if qi_reward:
+            self.player.qi += qi_reward
         for item_id in reward.get("items", []):
             item = self.item_library.create(item_id)
             self.player.add_item(item)
 
-        messages = [f"任务完成！{quest.name} 奖励：修为 +{reward.get('qi', 0)}，物品 {len(reward.get('items', []))} 件。"]
+        messages = [f"任务完成！{quest.name} 奖励：修为 +{qi_reward}，物品 {len(reward.get('items', []))} 件。"]
 
         # 提升关联 NPC 的好感度（完成任务 +2）
         related_npc = self._find_quest_npc(quest_id)

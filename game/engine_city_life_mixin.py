@@ -577,7 +577,7 @@ class CityLifeMixin:
             return False
 
         reward = quest.get("reward", {})
-        qi = reward.get("qi", 0)
+        qi = int(reward.get("qi", 0) * self._realm_qi_scale())
         stones = reward.get("spirit_stone", 0)
 
         self.player.qi += qi

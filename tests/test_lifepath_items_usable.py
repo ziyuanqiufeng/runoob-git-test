@@ -101,7 +101,7 @@ class TestLifePathItemsUsable(unittest.TestCase):
         before_count = engine.player.count_item(item_id)
         ok = engine.use_item(item)
         self.assertTrue(ok)
-        self.assertEqual(engine.player.qi, qi0 + 80)       # 修为 +80
+        self.assertEqual(engine.player.qi, qi0 + int(80 * engine._realm_qi_scale()))  # 修为 +80（乘境界系数）
         self.assertEqual(engine.player.wisdom, 7)         # 悟性 +2
         self.assertEqual(engine.player.count_item(item_id), before_count - 1)
 
@@ -127,7 +127,7 @@ class TestLifePathItemsUsable(unittest.TestCase):
         before_count = engine.player.count_item(item_id)
         ok = engine.use_item(item)
         self.assertTrue(ok)
-        self.assertEqual(engine.player.qi, qi0 + 50)       # 修为 +50
+        self.assertEqual(engine.player.qi, qi0 + int(50 * engine._realm_qi_scale()))  # 修为 +50（乘境界系数）
         self.assertEqual(engine.player.count_item(item_id), before_count - 1)
 
 

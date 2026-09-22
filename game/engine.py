@@ -269,7 +269,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         self.meta_manager = MetaManager(config_dir="config")
         self.chronicle_manager = ChronicleManager(self.player, self.world)
         self.side_quest_manager = SideQuestManager(
-            self.player, self.item_library
+            self.player, self.item_library, world=self.world
         )
         # 城池动态任务生成器
         self.city_quest_generator = CityQuestGenerator(config_dir="config")
@@ -910,8 +910,8 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
                 if item:
                     self.player.add_item(item)
                     self.notify(f"[gold]支线任务【{quest_name}】奖励：{item.name} x1")
-            # 修为奖励已在 SideQuestManager.complete 中发放，这里仅通知
-            qi_reward = rewards.get("qi", 0)
+            # 修为奖励已在 SideQuestManager.complete 中发放（内部已乘境界系数），这里同步缩放仅通知
+            qi_reward = int(rewards.get("qi", 0) * self._realm_qi_scale())
             if qi_reward:
                 self.notify(f"[gold]支线任务【{quest_name}】奖励：修为 +{qi_reward}")
             # 宗门贡献与好感度已在 complete 中处理
@@ -1042,9 +1042,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
             actual_gain = int(base_gain / self.player.cultivation_multiplier)
             # 境界成长系数：高境界灵气更浓郁，月修为收入随境界增长
             # （练气 1.8x → 元婴 15.4x），避免"收入恒定、需求指数涨"的曲线卡死
-            realm = self.world.get_realm(self.player.realm_id)
-            realm_order = realm["order"] if realm else 1
-            actual_gain = int(actual_gain * (1 + realm_order * 0.8))
+            actual_gain = int(actual_gain * self._realm_qi_scale())
             # 动态天气加成：每月可能变化，重新计算
             current_weather_bonus = self.weather_manager.get_cultivation_speed_bonus(path)
             current_total_bonus = total_bonus - weather_bonus + current_weather_bonus
@@ -1243,6 +1241,16 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
     def _world_total_months(self):
         """计算当前世界总月份，用于头像光效等限时效果。"""
         return (self.world.year - 1) * 12 + (self.world.month - 1)
+
+    def _realm_qi_scale(self):
+        """境界成长系数：静态 qi 奖励/惩罚随境界放大（与 cultivate 收入同斜率）。
+
+        背景：修为收入乘 (1 + order * 0.8) 后，固定值的事件/丹药/任务 qi 奖励
+        在高境界会贬值到无感；统一乘本系数保持其相对意义（正负向同比例）。
+        """
+        realm = self.world.get_realm(self.player.realm_id)
+        order = realm["order"] if realm else 1
+        return 1 + order * 0.8
 
     def breakthrough(self):
         """尝试突破到下一个境界。大境界圆满时需先渡劫。"""

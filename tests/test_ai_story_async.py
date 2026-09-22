@@ -83,8 +83,8 @@ class TestPendingAIEvent(unittest.TestCase):
              patch.object(self.engine, "notify"):
             self.engine._apply_event(dict(_EVENT), dict(_LOCATION))
         self.assertIsNone(self.engine.pop_pending_ai_event())
-        # qi 效果照常生效
-        self.assertEqual(self.engine.player.qi, 10)
+        # qi 效果照常生效（乘境界成长系数：10 × 练气一层 1.8 = 18）
+        self.assertEqual(self.engine.player.qi, int(10 * self.engine._realm_qi_scale()))
 
 
 class TestAIStoryWorker(unittest.TestCase):
