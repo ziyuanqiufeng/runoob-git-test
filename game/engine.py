@@ -85,6 +85,9 @@ from game.engine_master_mixin import MentorMixin
 from game.engine_sect_mixin import SectMixin
 from game.engine_combat_flow_mixin import CombatFlowMixin
 from game.engine_city_life_mixin import CityLifeMixin
+from game.engine_item_alchemy_mixin import ItemAlchemyMixin
+from game.engine_cave_home_mixin import CaveHomeMixin
+from game.engine_social_beast_mixin import SocialBeastMixin
 
 # 模块级灵根配置，用于展开融合灵根
 _SPIRITUAL_ROOT_CONFIG = SpiritualRootConfig()
@@ -126,7 +129,7 @@ def element_multiplier(attacker_element, defender_element):
     return 1.0
 
 
-class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMixin, SectMixin, CombatFlowMixin, CityLifeMixin):
+class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMixin, SectMixin, CombatFlowMixin, CityLifeMixin, ItemAlchemyMixin, CaveHomeMixin, SocialBeastMixin):
     """游戏核心引擎，连接玩家、世界、事件，处理所有玩法逻辑。"""
 
     def __init__(
@@ -1662,77 +1665,6 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         """获取 NPC 关联的对话配置 ID。优先使用 dialogue_id，否则返回 None。"""
         return getattr(npc, "dialogue_id", None)
 
-    def get_skill_success_rate(self, skill_id):
-        """计算技能施展成功率。满足境界时为 1.0，否则随境界差递减。"""
-        skill = self.skill_library.get(skill_id)
-        if not skill or not skill.realm_id:
-            return 1.0
-        required_order = self.player.REALM_ORDER.get(skill.realm_id, 0)
-        player_order = self._get_realm_order()
-        diff = required_order - player_order
-        if diff <= 0:
-            return 1.0
-        # 每低一个大境界成功率下降 25%，最低保留 10% 强行施展可能
-        return max(0.1, 1.0 - diff * 0.25)
-
-    def get_skill_usability(self, skill_id, in_combat=True):
-        """检查技能是否可用，返回 (can_use: bool, reasons: list[str])。
-
-        境界不足不再完全禁用，而是作为风险提示（含成功率），
-        战斗中仍可选择强行施展，失败时会受到反噬。
-        """
-        reasons = []
-        skill = self.skill_library.get(skill_id)
-        if not skill:
-            return False, ["技能不存在"]
-
-        # 是否已习得
-        if skill_id not in self.player.skills:
-            return False, ["尚未习得该技能"]
-
-        # 战斗中冷却判断
-        if in_combat and self.player.get_skill_cooldown(skill_id) > 0:
-            cd = self.player.get_skill_cooldown(skill_id)
-            reasons.append(f"冷却中（{cd} 回合）")
-
-        # 真气消耗（考虑熟练度减耗）
-        effective_cost = self._get_effective_qi_cost(skill_id)
-        if self.player.qi < effective_cost:
-            reasons.append(f"真气不足（{self.player.qi}/{effective_cost}）")
-
-        # 灵根属性
-        if not self.player.has_element(skill.element):
-            elem_cn = ELEMENT_NAMES.get(skill.element, skill.element)
-            reasons.append(f"需要{elem_cn}属性灵根")
-
-        # 境界要求：不足时提示成功率，仍允许尝试施展
-        if skill.realm_id:
-            required_order = self.player.REALM_ORDER.get(skill.realm_id, 0)
-            if self._get_realm_order() < required_order:
-                realm_data = self.world.get_realm(skill.realm_id)
-                realm_name = realm_data.get("name", skill.realm_id) if realm_data else skill.realm_id
-                rate = self.get_skill_success_rate(skill_id)
-                reasons.append(f"境界不足（需{realm_name}，成功率 {int(rate * 100)}%）")
-
-        # 流派专属
-        if skill.path_exclusive and self.player.cultivation_path != skill.path_exclusive:
-            path_names = {
-                "fa": "法修", "ti": "体修", "jian": "剑修", "xie": "邪修",
-                "dan": "丹修", "qi": "器修", "shou": "御兽修", "hun": "魂修",
-                "zhen": "阵修", "fu": "符修",
-            }
-            reasons.append(f"{path_names.get(skill.path_exclusive, skill.path_exclusive)}专属")
-
-        # 剑修武器要求
-        if skill.path_exclusive == "jian" and not self._player_has_sword():
-            reasons.append("需要装备剑类武器")
-
-        # 境界不足仅作为风险提示，不算作硬禁用
-        hard_reasons = [r for r in reasons if "成功率" not in r]
-        return len(hard_reasons) == 0, reasons
-
-    # ==================== 商店系统 ====================
-
     def record_npc_choice(self, npc_id, choice_key, choice_value=True):
         """记录玩家对某 NPC 的关键选择，供记忆对话与后续剧情使用。"""
         self.player.record_npc_choice(npc_id, choice_key, choice_value)
@@ -1790,93 +1722,6 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         sell_adjust = min(sell_max, 1.0 + rel * sell_per_level)
         return buy_adjust, sell_adjust
 
-    def get_buy_price(self, item_id, npc=None):
-        """
-        计算购买价格 = 物品价值 × NPC 购买倍率 × 好感度折扣 × 关系网修正 × 阵营偏好修正 × 宗门关系修正 × 地点类型修正 × 节日折扣。
-        好感度越高，购买越便宜；与 NPC 好友关系好也会降价，与敌人关系好则会加价。
-        最终倍率限制在合理区间，防止极端价格。
-        """
-        item = self.item_library.get(item_id)
-        if not item:
-            return 0
-        base_buy, _ = self.economy_config.get_base_multipliers()
-        # 基础购买倍率
-        multiplier = getattr(npc, "buy_multiplier", base_buy) if npc else base_buy
-        # 好感度折扣
-        buy_adjust, _ = self._get_relationship_discount(npc)
-        # 宗门关系带来的价格波动（友好降价、敌对加价）
-        sect_buy_mult, _ = self.get_sect_price_multiplier(npc)
-        # NPC 关系网修正（朋友/敌人）
-        rel_buy_mult, _ = npc.get_relationship_price_adjustment(self.player, self.npc_library) if npc else (1.0, 1.0)
-        # 阵营偏好修正
-        camp_mult = npc.get_faction_price_multiplier(self.player.get_camp()) if npc else 1.0
-        # 地点类型修正（城市/宗门/荒野物价差异）
-        loc_type_buy_mult = self._get_location_type_multiplier(npc, buy=True)
-        final_multiplier = multiplier * buy_adjust * sect_buy_mult * rel_buy_mult * camp_mult * loc_type_buy_mult
-        # 节日期间额外折扣：仅当 NPC 配置了当前节日的特殊对话时才生效
-        current_festival = self.world.get_current_festival()
-        if npc and current_festival:
-            has_festival_dialog = any(
-                entry.get("festival_id") == current_festival
-                for entry in npc.festival_dialogs
-            )
-            if has_festival_dialog:
-                final_multiplier *= self.economy_config.get_festival_discount()
-        # 动态世界事件带来的地点价格修正
-        if npc:
-            location_id = getattr(npc, "current_location", None) or getattr(npc, "location", None)
-            mods = self.player.world_event_price_mods.get(location_id)
-            if mods:
-                final_multiplier *= mods.get("buy_mult", 1.0)
-        # 限制购买倍率在合理区间，避免经济失衡
-        limits = self.economy_config.get_price_limits()
-        buy_min = limits.get("buy_min", 0.75)
-        buy_max = limits.get("buy_max", 3.0)
-        final_multiplier = max(buy_min, min(buy_max, final_multiplier))
-        return max(1, int(item.value * final_multiplier))
-
-    def get_sell_price(self, item, npc=None):
-        """
-        计算出售价格 = 物品价值 × NPC 出售倍率 × 好感度加成 × 关系网修正 × 宗门关系修正 × 地点类型修正。
-        好感度越高，出售价越高；敌对宗门会压低收购价，友好宗门则提高。
-        最终倍率限制在合理区间，确保玩家无法通过倒卖无限获利。
-        """
-        _, base_sell = self.economy_config.get_base_multipliers()
-        multiplier = getattr(npc, "sell_multiplier", base_sell) if npc else base_sell
-        _, sell_adjust = self._get_relationship_discount(npc)
-        _, sect_sell_mult = self.get_sect_price_multiplier(npc)
-        _, rel_sell_mult = npc.get_relationship_price_adjustment(self.player, self.npc_library) if npc else (1.0, 1.0)
-        # 地点类型修正
-        loc_type_sell_mult = self._get_location_type_multiplier(npc, buy=False)
-        final_multiplier = multiplier * sell_adjust * sect_sell_mult * rel_sell_mult * loc_type_sell_mult
-        # 动态世界事件带来的地点价格修正
-        if npc:
-            location_id = getattr(npc, "current_location", None) or getattr(npc, "location", None)
-            mods = self.player.world_event_price_mods.get(location_id)
-            if mods:
-                final_multiplier *= mods.get("sell_mult", 1.0)
-        # 限制出售倍率，让高好感 NPC 愿意提高收购价，同时仍低于最低购买价
-        limits = self.economy_config.get_price_limits()
-        sell_min = limits.get("sell_min", 0.2)
-        sell_max = limits.get("sell_max", 0.7)
-        final_multiplier = max(sell_min, min(sell_max, final_multiplier))
-        return max(1, int(item.value * final_multiplier))
-
-    def _get_location_type_multiplier(self, npc, buy=True):
-        """根据 NPC 当前所在地点类型返回价格修正倍率。"""
-        if not npc:
-            return 1.0
-        # 优先使用当前实际位置，否则使用默认归属地点
-        location_id = getattr(npc, "current_location", None) or getattr(npc, "location", None)
-        if not location_id:
-            return 1.0
-        loc = self.world.get_location(location_id)
-        if not loc:
-            return 1.0
-        loc_type = loc.get("type", "wild")
-        buy_mult, sell_mult = self.economy_config.get_location_type_modifier(loc_type)
-        return buy_mult if buy else sell_mult
-
     def check_dynamic_npcs(self, location_id=None):
         """
         检查满足动态出现条件的 NPC，并筛选出在指定地点或玩家当前地点的 NPC。
@@ -1894,3 +1739,95 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
                 result.append(npc)
         return result
 
+
+    def save_game(self, save_manager=None):
+        """调用存档管理器保存游戏。"""
+        sm = save_manager or self.save_manager
+        if sm:
+            sm.save(self.player, self.world)
+            self.notify("游戏已保存。")
+
+    # ==================== 通用 ====================
+
+    def _check_death(self):
+        """检查玩家是否寿元耗尽或健康归零。"""
+        if self.player.health <= 0 or self.player.age >= self.player.max_lifespan:
+            # 维度⑤：若已安排坐化后事，则在身死时转化为前世遗产
+            if getattr(self.player, "sit_pending", False) and self.is_feature_enabled(
+                "lifespan_reincarnation"
+            ):
+                for line in self.lifespan_manager.on_death():
+                    self.notify(f"[magenta]{line}")
+            if self.player.health <= 0:
+                self.chronicle_manager.record(
+                    f"{self.player.age} 岁时重伤陨落", category="death"
+                )
+                self.notify("你身受重伤，道消身殒。")
+            else:
+                self.chronicle_manager.record(
+                    f"{self.player.age} 岁时寿元耗尽", category="death"
+                )
+                self.notify("你寿元耗尽，化为一抔黄土。")
+            # 判定死亡结局（红尘归隐 / 凡尘谢幕）
+            self._trigger_ending("death")
+
+    # ==================== 宗门系统 ====================
+
+    def start_world_boss_combat(self, boss_id):
+        """
+        开启世界 BOSS 战斗。
+        生成 BOSS 敌人并标记 pending_world_boss_id，战斗结束后据此发放奖励。
+        """
+        boss_cfg = self.world_boss_manager.config.get(boss_id)
+        if not boss_cfg:
+            self.notify("世界 BOSS 配置异常，无法进入战斗。")
+            return False
+
+        # 校验玩家境界是否满足挑战要求
+        player_order = self.player.REALM_ORDER.get(self.player.realm_id, 0)
+        min_order = boss_cfg.get("min_realm_order", 1)
+        if player_order < min_order:
+            self.notify("你的境界尚不足以挑战该世界 BOSS。")
+            return False
+
+        enemy = self.world_boss_manager.create_enemy(boss_id)
+        if not enemy:
+            self.notify("世界 BOSS 敌人数据异常，无法进入战斗。")
+            return False
+
+        self.pending_world_boss_id = boss_id
+        self.notify(f"【世界 BOSS】你遭遇了 {boss_cfg['name']}！")
+        self.start_combat(enemy)
+        return True
+
+    def finish_world_boss_combat(self, result):
+        """世界 BOSS 战斗结束后结算奖励与击败状态。"""
+        boss_id = getattr(self, "pending_world_boss_id", None)
+        if not boss_id:
+            return
+
+        boss_cfg = self.world_boss_manager.config.get(boss_id)
+        boss_name = boss_cfg["name"] if boss_cfg else "世界 BOSS"
+
+        if result == "win":
+            # 发放击败奖励
+            reward_msgs, gained_names = self.world_boss_manager.grant_defeat_rewards(
+                self.player, self.item_library, boss_id
+            )
+            self.world_boss_manager.defeat(boss_id)
+            self.chronicle_manager.record(
+                f"击败世界 BOSS【{boss_name}】", category="combat"
+            )
+
+            msg = f"【世界 BOSS】你成功击败【{boss_name}】！"
+            if reward_msgs:
+                msg += " " + "，".join(reward_msgs)
+            if gained_names:
+                msg += " 获得：" + "、".join(gained_names)
+            self.notify(msg)
+        else:
+            self.notify(f"【世界 BOSS】你未能击败【{boss_name}】，它仍在世间游荡。")
+
+        self.pending_world_boss_id = None
+        self._auto_save()
+        self.update_view()
