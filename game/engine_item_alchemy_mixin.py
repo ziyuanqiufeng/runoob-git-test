@@ -131,11 +131,11 @@ class ItemAlchemyMixin:
         if "heart_demon" in effects:
             hd = getattr(self.player, "heart_demon", 0)
             self.player.heart_demon = max(0, min(100, hd + effects["heart_demon"]))
-        # 维度③·M18：丹道「灵力温养」持续修炼增益（服用丹药后每月额外修为）
+        # 维度③·M18：丹道「灵力温养」持续修炼增益（服用丹药后每月额外修为，乘境界系数）
         if "cultivation_boost" in effects:
             cb = effects["cultivation_boost"]
             self.player.cultivation_boost_months = int(cb.get("months", 0))
-            self.player.cultivation_boost_amount = int(cb.get("amount", 0))
+            self.player.cultivation_boost_amount = int(cb.get("amount", 0) * self._realm_qi_scale())
 
         # 丹药/消耗品使用后消耗（带效果的 consumable 不再无限复用）
         if item.type in ("pill", "consumable"):

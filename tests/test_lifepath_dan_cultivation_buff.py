@@ -47,9 +47,10 @@ class TestDanCultivationBuff(unittest.TestCase):
         self.assertTrue(ok)
         # 即时修为 +50（乘境界成长系数）
         self.assertEqual(engine.player.qi, q0 + int(50 * engine._realm_qi_scale()))
-        # 持续增益：3 个月，每月 +40
+        # 持续增益：3 个月，每月 +40（乘境界成长系数）
         self.assertEqual(engine.player.cultivation_boost_months, 3)
-        self.assertEqual(engine.player.cultivation_boost_amount, 40)
+        self.assertEqual(engine.player.cultivation_boost_amount,
+                         int(40 * engine._realm_qi_scale()))
 
     # -------- 2. cultivate：增益每月附加并到期递减 --------
     def test_cultivation_boost_adds_monthly_and_expires(self):

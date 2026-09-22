@@ -77,7 +77,7 @@ ELEMENT_COUNTERS = {
 }
 
 # 属性中文名映射（用于日志显示）
-from game.constants import ELEMENT_NAMES  # noqa: F401  (供本模块与子模块共用)
+from game.constants import ELEMENT_NAMES, realm_qi_scale  # noqa: F401  (供本模块与子模块共用)
 from game.engine_event_mixin import EventMixin
 from game.engine_ending_mixin import EndingMixin, MainStoryMixin
 from game.engine_combat_mixin import CombatMixin
@@ -1245,12 +1245,12 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
     def _realm_qi_scale(self):
         """境界成长系数：静态 qi 奖励/惩罚随境界放大（与 cultivate 收入同斜率）。
 
-        背景：修为收入乘 (1 + order * 0.8) 后，固定值的事件/丹药/任务 qi 奖励
+        背景：修为收入乘境界系数后，固定值的事件/丹药/任务 qi 奖励
         在高境界会贬值到无感；统一乘本系数保持其相对意义（正负向同比例）。
         """
         realm = self.world.get_realm(self.player.realm_id)
         order = realm["order"] if realm else 1
-        return 1 + order * 0.8
+        return realm_qi_scale(order)
 
     def breakthrough(self):
         """尝试突破到下一个境界。大境界圆满时需先渡劫。"""

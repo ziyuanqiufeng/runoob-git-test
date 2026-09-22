@@ -7,6 +7,8 @@
 import json
 import os
 
+from game.constants import realm_qi_scale
+
 
 class CompanionConfig:
     """道侣系统配置加载器。"""
@@ -132,6 +134,10 @@ class CompanionManager:
         dual_cfg = self.config.get_dual_cultivation()
         qi_gain = dual_cfg.get("qi_gain_base", 100)
         qi_gain += dual_cfg.get("qi_gain_per_intimacy", 0) * companion.get("intimacy", 0)
+        # 修为奖励乘境界成长系数（与闭关收入同斜率，保持高境界相对价值）
+        realm = self.world.realms.get(self.player.realm_id)
+        order = realm["order"] if realm else 1
+        qi_gain = int(qi_gain * realm_qi_scale(order))
         mental_gain = dual_cfg.get("mental_state_gain", 0)
         heart_decay = dual_cfg.get("heart_demon_decay", 0)
 
