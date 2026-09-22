@@ -30,10 +30,10 @@ python -m pytest tests/ -q          # 全量回归（约 100 秒）
 
 ```
 main.py            # 入口：登录 → 角色创建 → 主窗口
-game/              # 引擎层：GameEngine 门面 + 52 个 Manager + 配置加载
+game/              # 引擎层：GameEngine 门面（1633 行）+ 12 个域 Mixin + 52 个 Manager
 ui/                # 界面层：主窗口 + 75 个对话框/面板（PySide6）
-config/            # 配置层：59 个 JSON（境界/事件/物品/功能开关/捏脸…）
-tests/             # 测试层：105+ 文件，1168 用例
+config/            # 配置层：61 个 JSON（境界/事件/物品/功能开关/捏脸…）
+tests/             # 测试层：118 文件，1197 用例
 tools/             # 工具：捏脸部件生成、操作手册生成
 docs/              # 设计文档与玩家手册
 ```
