@@ -103,26 +103,27 @@ class TestGateLeap(unittest.TestCase):
         self.assertGreater(e.player.heaven_gaze, 10)     # 天道注视加深
 
     def test_pill_consumed_and_bonus(self):
+        """飞升丹被消耗且 +30% 生效：同一随机数 0.6，无丹失败 / 有丹成功。
+
+        实际 rate（道心 90、心魔 10、天道 10）：
+        无丹 = 0.5 - 0.05 - 0.04 + 0.10 = 0.51；有丹 = 0.51 + 0.30 = 0.81。
+        """
+        base = _make_engine()
+        with patch("game.engine.random.random", return_value=0.6):
+            ret = base._attempt_ascension()
+        self.assertIsNone(ret)                          # 无丹：0.6 > 0.51 失败（可再战，不结局）
+        self.assertFalse(base.player.has_won)
+
         e = _make_engine()
         pill = e.item_library.create("ascension_pill")
         e.player.add_item(pill)
-        captured = {}
-
-        real_random = __import__("random").random
-
-        def spy():
-            v = real_random()
-            captured["v"] = v
-            return v
-
-        with patch("game.engine.random.random", side_effect=spy):
-            e._attempt_ascension()
-        # random=0.0+ 必成功；丹药应被消耗
+        with patch("game.engine.random.random", return_value=0.6):
+            ending = e._attempt_ascension()
+        self.assertIsNotNone(ending)                    # 有丹：0.6 < 0.81 成功
         self.assertTrue(e.player.has_won)
-        self.assertEqual(sum(1 for i in e.player.inventory if i.id == "ascension_pill"), 0)
-        # rate = 0.5 -0.05 -0.04 +0.30(pill) +0.10(道心90) = 0.81：成功概率高，
-        # 用捕获值断言"消耗了 random 且通过"
-        self.assertLess(captured["v"], 0.81)
+        self.assertEqual(
+            sum(1 for i in e.player.inventory if i.id == "ascension_pill"), 0,
+            "飞升丹应被消耗")
 
     def test_stone_burn_ratio(self):
         e = _make_engine()
