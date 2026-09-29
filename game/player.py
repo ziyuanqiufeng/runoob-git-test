@@ -12,7 +12,7 @@ class Player:
     EQUIPMENT_SLOTS = ["weapon", "helmet", "armor", "accessory"]
 
     # 大境界突破阈值：到达这些境界后尝试突破时触发渡劫事件
-    MAJOR_REALM_IDS = {"qi_refining_9", "foundation_peak", "golden_core_peak"}
+    MAJOR_REALM_IDS = {"qi_refining_9", "foundation_peak", "golden_core_peak", "huashen_peak"}
 
     # 技能熟练度配置
     SKILL_PROFICIENCY_MAX_LEVEL = 10                # 最高等级
@@ -45,6 +45,8 @@ class Player:
         "foundation_early": 10, "foundation_mid": 11, "foundation_late": 12, "foundation_peak": 13,
         "golden_core_early": 14, "golden_core_mid": 15, "golden_core_late": 16, "golden_core_peak": 17,
         "nascent_soul": 18,
+        "huashen": 19, "huashen_peak": 20,
+        "lianxu": 21, "lianxu_peak": 22,
     }
 
     def __init__(self, name="无名"):

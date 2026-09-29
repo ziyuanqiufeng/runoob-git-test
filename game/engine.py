@@ -1232,6 +1232,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         "qi_refining_9": "筑基天劫",
         "foundation_peak": "金丹雷劫",
         "golden_core_peak": "元婴心魔劫",
+        "huashen_peak": "化神大劫",
     }
 
     def _is_major_breakthrough(self, realm_id):

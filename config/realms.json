@@ -142,5 +142,37 @@
     "max_qi": 300000,
     "breakthrough_rate": 0.10,
     "lifespan_bonus": 500
+  },
+  {
+    "id": "huashen",
+    "name": "化神期",
+    "order": 19,
+    "max_qi": 360000,
+    "breakthrough_rate": 0.30,
+    "lifespan_bonus": 400
+  },
+  {
+    "id": "huashen_peak",
+    "name": "化神圆满",
+    "order": 20,
+    "max_qi": 380000,
+    "breakthrough_rate": 0.40,
+    "lifespan_bonus": 500
+  },
+  {
+    "id": "lianxu",
+    "name": "炼虚期",
+    "order": 21,
+    "max_qi": 420000,
+    "breakthrough_rate": 0.22,
+    "lifespan_bonus": 600
+  },
+  {
+    "id": "lianxu_peak",
+    "name": "炼虚圆满",
+    "order": 22,
+    "max_qi": 460000,
+    "breakthrough_rate": 0.15,
+    "lifespan_bonus": 800
   }
 ]

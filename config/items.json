@@ -428,7 +428,10 @@
     "description": "丹道生活流派所炼之丹。服用后立得修为 50，并引发「灵力温养」：此后 3 个月内每月额外获得 40 点修为。",
     "effects": {
       "qi": 50,
-      "cultivation_boost": {"amount": 40, "months": 3}
+      "cultivation_boost": {
+        "amount": 40,
+        "months": 3
+      }
     }
   },
   {
@@ -546,6 +549,28 @@
     "effects": {
       "qi": 80,
       "wisdom": 2
+    }
+  },
+  {
+    "id": "huashen_pill",
+    "name": "化神丹",
+    "type": "pill",
+    "value": 1200,
+    "description": "化神期修士冲击圆满时服用的丹药，可提升突破成功率 25%，仅在化神期冲击化神圆满时生效。",
+    "effects": {
+      "breakthrough_boost": "huashen",
+      "boost_rate": 0.25
+    }
+  },
+  {
+    "id": "lianxu_pill",
+    "name": "炼虚丹",
+    "type": "pill",
+    "value": 3000,
+    "description": "以冰魄雪莲与麒麟角为主材的绝世珍丹，可提升化神大劫成功率 25%，仅在化神圆满冲击炼虚时生效。",
+    "effects": {
+      "breakthrough_boost": "huashen_peak",
+      "boost_rate": 0.25
     }
   }
 ]

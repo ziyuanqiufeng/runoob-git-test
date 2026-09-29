@@ -186,6 +186,8 @@ def _exercise_breakthroughs(engine, player, max_attempts=3):
         next_id = engine.world.next_realm(player.realm_id)
         if next_id is None:
             break
+        # 演练口径：满血硬闯（setup 演练后可能只剩 1 血，渡劫失败 -30 会误杀）
+        player.health = player.max_health
         player.qi = realm["max_qi"] + 1
         before = player.realm_id
         engine.current_enemy = None
@@ -200,6 +202,9 @@ def _exercise_breakthroughs(engine, player, max_attempts=3):
         if not advanced:
             # 突破失败则结束演练（避免无意义重试）
             break
+        if not player.is_alive():
+            # 渡劫反噬致死（演练口径不允许误杀）：回满血继续
+            player.health = player.max_health
     return results
 
 

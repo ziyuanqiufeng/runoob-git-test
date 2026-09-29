@@ -20,7 +20,7 @@ if PROJECT_ROOT not in sys.path:
 
 from tools.balance_sim import build_engine
 
-MILESTONES = {10: "筑基初期", 14: "金丹初期", 18: "元婴期"}
+MILESTONES = {10: "筑基初期", 14: "金丹初期", 18: "元婴期", 22: "炼虚圆满"}
 _GAIN_RE = re.compile(r"修为增加 (\d+) 点")
 
 
@@ -34,6 +34,8 @@ def main():
     parser.add_argument("--max-years", type=int, default=800, help="模拟年数上限")
     parser.add_argument("--seed", type=int, default=42, help="随机种子")
     parser.add_argument("--verbose", action="store_true", help="打印每次突破明细")
+    parser.add_argument("--pills", type=int, default=0,
+                        help="开局发放的炼虚丹数量（验证带丹渡劫口径）")
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -46,6 +48,12 @@ def main():
     if stone:
         for _ in range(2000):
             player.add_item(stone)
+    # 炼虚丹：化神圆满渡劫时引擎自动服用（breakthrough_boost=huashen_peak）
+    if args.pills > 0:
+        pill = engine.item_library.create("lianxu_pill")
+        if pill:
+            for _ in range(args.pills):
+                player.add_item(pill)
 
     reached = {}          # order -> 到达时累计月数
     seg_gain = {}         # realm_id -> 该境界段累计真实修为增量（来自闭关日志）
@@ -66,8 +74,8 @@ def main():
     seg_months[cur_realm] = 0
 
     while total_months(engine) < args.max_years * 12 and len(reached) < len(MILESTONES):
-        # 受伤优先调养（渡劫/突破失败反噬会掉血，真玩家不会带残血硬闯）
-        if player.health < player.max_health * 0.6:
+        # 受伤/心境崩坏优先调养（渡劫连败会降心境→负加成螺旋；客栈恢复血与心境）
+        if player.health < player.max_health * 0.6 or player.mental_state < 50:
             engine.rest_at_inn(cost=50)
         else:
             engine.cultivate(1)

@@ -55,8 +55,8 @@ def main():
             engine.apply_heart_demon_tribulation_choice(sc["id"], sc["choices"][0]["id"])
 
         realm = engine.world.get_realm(player.realm_id)
-        if player.health < player.max_health * 0.6:
-            engine.rest_at_inn(cost=50)          # 1 个月调养
+        if player.health < player.max_health * 0.6 or player.mental_state < 50:
+            engine.rest_at_inn(cost=50)          # 1 个月调养（回血+回心境）
             stats["rests"] += 1
         elif realm and player.qi >= realm["max_qi"] and not engine.world.is_max_realm(player.realm_id):
             before = player.realm_id
