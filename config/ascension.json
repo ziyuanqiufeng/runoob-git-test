@@ -1,0 +1,18 @@
+{
+  "_comment": "天门试炼（炼虚圆满冲击飞升）参数。三阶段：问心（心魔红线）→ 渡雷（天道红线）→ 天门一跃（概率）；普通失败可重整再战，仅两条红线直接结局。",
+  "heart_demon_fail": 80,
+  "heart_demon_wound": 50,
+  "heaven_gaze_fail": 90,
+  "base_rate": 0.5,
+  "pill_bonus": 0.3,
+  "mental_gate": 80,
+  "mental_bonus": 0.1,
+  "wound_penalty": 0.1,
+  "heart_demon_rate_drag": 200.0,
+  "heaven_gaze_rate_drag": 250.0,
+  "stone_burn_ratio": 0.5,
+  "fail_qi_penalty": 0.7,
+  "fail_hp_penalty": 0.5,
+  "fail_lifespan_cost": 30,
+  "fail_gaze_gain": 10
+}

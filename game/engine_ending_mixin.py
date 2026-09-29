@@ -88,26 +88,102 @@ class EndingMixin:
         self._auto_save()
         return ending
 
+    # 天门试炼默认参数（config/ascension.json 可覆盖）
+    ASCENSION_DEFAULTS = {
+        "heart_demon_fail": 80, "heart_demon_wound": 50,
+        "heaven_gaze_fail": 90,
+        "base_rate": 0.5, "pill_bonus": 0.30,
+        "mental_gate": 80, "mental_bonus": 0.10, "wound_penalty": 0.10,
+        "heart_demon_rate_drag": 200.0, "heaven_gaze_rate_drag": 250.0,
+        "stone_burn_ratio": 0.5,
+        "fail_qi_penalty": 0.7, "fail_hp_penalty": 0.5,
+        "fail_lifespan_cost": 30, "fail_gaze_gain": 10,
+    }
+
+    def _load_ascension_config(self):
+        """读取天门试炼参数 config/ascension.json；缺失字段用默认兜底。"""
+        path = os.path.join(self.config_dir, "ascension.json")
+        cfg = dict(self.ASCENSION_DEFAULTS)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                for k, v in data.items():
+                    if k in cfg and isinstance(v, (int, float)):
+                        cfg[k] = v
+        except (json.JSONDecodeError, OSError):
+            pass
+        return cfg
+
     def _attempt_ascension(self):
-        """元婴圆满尝试飞升：判定飞升劫与结局。"""
+        """炼虚圆满冲击天门：三阶段试炼（问心 → 渡雷 → 天门一跃）。
+
+        - 问心/渡雷各有红线（心魔 80+/天道注视 90+），触发即对应坏结局；
+        - 天门一跃为概率判定（受心魔/天道注视/道心/飞升丹影响），
+          **普通失败不再直接结局**：兵解重创（qi/hp/寿元折损、天道注视+10），
+          玩家可重整旗鼓再次冲击（返回 None，游戏继续）。
+        """
         p = self.player
-        # 心魔过高：走火入魔
-        if getattr(p, "heart_demon", 0) >= 80:
-            self.notify("[red]飞升之际心魔大盛，你即将走火入魔！")
+        cfg = self._load_ascension_config()
+
+        # 阶段一·问心（心魔大劫）：红线直接走火入魔
+        if getattr(p, "heart_demon", 0) >= cfg["heart_demon_fail"]:
+            self.notify("[red]天门之前心魔大盛，你道心崩碎，走火入魔！")
             return self._trigger_ending("ascend_fail")
-        # 天道注视过高：天道降罚
-        if getattr(p, "heaven_gaze", 0) >= 90:
-            self.notify("[red]天道注视已久，飞升天劫化作灭世神雷！")
+        # 道基蒙尘：心魔 50+ 未过问心，天门一跃减益
+        wounded = getattr(p, "heart_demon", 0) >= cfg["heart_demon_wound"]
+        if wounded:
+            self.notify("[purple]心魔未净，你强压杂念踏入天门，道基隐隐不稳……")
+
+        # 阶段二·渡雷（天道神雷）：红线直接天道降罚
+        if getattr(p, "heaven_gaze", 0) >= cfg["heaven_gaze_fail"]:
+            self.notify("[red]天道注视已久，天门神雷化作灭世之罚！")
             return self._trigger_ending("ascend_fail")
-        # 飞升成功率：受心魔与天道注视影响
-        rate = 0.8 - (getattr(p, "heart_demon", 0) / 100.0) * 0.5 - (getattr(p, "heaven_gaze", 0) / 100.0) * 0.4
-        rate = max(0.1, min(0.95, rate))
-        success = random.random() < rate
-        if success:
-            self.notify("[gold]你渡过飞升天劫，白日飞升！")
+
+        # 阶段三·天门一跃：资源豪赌 + 概率判定
+        burn = int(getattr(p, "spirit_stones", 0) * cfg["stone_burn_ratio"])
+        p.spirit_stones = getattr(p, "spirit_stones", 0) - burn
+        pill_used = False
+        for item in list(p.inventory):
+            if item.id == "ascension_pill":
+                p.remove_item(item)
+                pill_used = True
+                break
+
+        rate = cfg["base_rate"]
+        rate -= getattr(p, "heart_demon", 0) / cfg["heart_demon_rate_drag"]
+        rate -= getattr(p, "heaven_gaze", 0) / cfg["heaven_gaze_rate_drag"]
+        if pill_used:
+            rate += cfg["pill_bonus"]
+        if getattr(p, "mental_state", 50) >= cfg["mental_gate"]:
+            rate += cfg["mental_bonus"]
+        if wounded:
+            rate -= cfg["wound_penalty"]
+        rate = max(0.05, min(0.95, rate))
+
+        extra = []
+        if burn > 0:
+            extra.append(f"燃灵石 {burn}")
+        if pill_used:
+            extra.append("服飞升丹")
+        ctx = f"（{'、'.join(extra) or '孤注一掷'}，成功率 {int(rate * 100)}%）"
+
+        if random.random() < rate:
+            self.notify(f"[gold]天门轰然洞开！{ctx}——你跨过最后一道天堑，白日飞升！")
             return self._trigger_ending("ascend")
-        self.notify("[red]飞升天劫之下，你肉身兵解，唯余一丝真灵。")
-        return self._trigger_ending("ascend_fail")
+
+        # 折戟天门：兵解重创，可重整再战（不触发结局）
+        p.qi = int(p.qi * (1 - cfg["fail_qi_penalty"]))
+        p.health = max(1, int(p.health * (1 - cfg["fail_hp_penalty"])))
+        p.max_lifespan = max(p.age + 1, p.max_lifespan - cfg["fail_lifespan_cost"])
+        p.heaven_gaze = min(100, getattr(p, "heaven_gaze", 0) + cfg["fail_gaze_gain"])
+        self.notify(
+            f"[red]天门一跃失败！{ctx}——你兵解重创，修为折损七成，"
+            f"寿元折损 {cfg['fail_lifespan_cost']} 载，天道注视愈深。"
+            "整理道基之后，天门仍为你而开。"
+        )
+        self._check_death()
+        return None
 
 
 class MainStoryMixin:

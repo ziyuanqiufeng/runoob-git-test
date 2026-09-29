@@ -119,15 +119,24 @@ class TestAscension(unittest.TestCase):
         self.assertTrue(e.player.has_won)
         self.assertIsNotNone(e.player.ending_id)
 
-    def test_fail_reincarnate_no_win(self):
+    def test_gate_failure_survivable(self):
+        """普通失败（阶段三失手）不再直接结局：兵解重创、可再战。"""
         e = _make_engine()
         e.player.heart_demon = 10
         e.player.heaven_gaze = 10
+        e.player.qi = 460000
+        e.player.spirit_stones = 10000
+        hp0 = e.player.health
+        age0 = e.player.age
         with patch("game.engine.random.random", return_value=1.0):
             ending = e._attempt_ascension()
-        self.assertIsNotNone(ending)
-        self.assertEqual(ending["context"], "ascend_fail")
+        self.assertIsNone(ending)                       # 不触发结局
         self.assertFalse(e.player.has_won)
+        self.assertTrue(e.player.is_alive())
+        self.assertEqual(e.player.realm_id, "nascent_soul")  # 境界不变，可再战
+        self.assertEqual(e.player.spirit_stones, 5000)  # 燃烧一半灵石
+        self.assertLess(e.player.qi, 300000)            # 修为折损（元婴需求 30 万）
+        self.assertLess(e.player.max_lifespan, 100 + 500)  # 寿元折损（元婴+500 基线）
 
 
 class TestEndingPersist(unittest.TestCase):

@@ -572,5 +572,15 @@
       "breakthrough_boost": "huashen_peak",
       "boost_rate": 0.25
     }
+  },
+  {
+    "id": "ascension_pill",
+    "name": "飞升丹",
+    "type": "pill",
+    "value": 8000,
+    "description": "传说中的仙家珍丹，冲击天门时服用可提升飞升成功率 30%，每次试炼至多生效一颗。",
+    "effects": {
+      "ascension_boost": 0.3
+    }
   }
 ]
