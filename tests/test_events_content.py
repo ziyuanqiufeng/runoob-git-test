@@ -144,3 +144,43 @@ class TestEventDedup(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestRealmGatedEvents(unittest.TestCase):
+    """终局专属事件：min_realm_order 境界门槛过滤。"""
+
+    def _player(self, realm_id):
+        from game.player import Player
+        p = Player(name="测试")
+        p.realm_id = realm_id
+        return p
+
+    def test_low_realm_excluded(self):
+        """元婴玩家抽不到终局专属事件（order<19 全过滤）。"""
+        pool = EventPool(config_dir=CFG)
+        for _ in range(60):
+            ev = pool.draw("explore", player=self._player("nascent_soul"))
+            self.assertIsNotNone(ev)
+            self.assertLess(ev.get("min_realm_order", 0), 19,
+                            f"元婴不应抽到 {ev['id']}（min_realm_order=19+）")
+
+    def test_high_realm_included(self):
+        """炼虚圆满玩家候选池包含终局事件（draw 有概率抽中）。"""
+        pool = EventPool(config_dir=CFG)
+        seen = set()
+        for _ in range(120):
+            ev = pool.draw("explore", player=self._player("lianxu_peak"))
+            if ev:
+                seen.add(ev["id"])
+        self.assertTrue(
+            {"divine_soul_roam", "heaven_gate_echo", "void_refine"} & seen,
+            "120 次抽取应至少命中一个终局专属事件")
+
+    def test_gated_events_configured(self):
+        """三个终局事件的 min_realm_order 配置正确。"""
+        pool = EventPool(config_dir=CFG)
+        expect = {"divine_soul_roam": 19, "heaven_gate_echo": 20, "void_refine": 21}
+        for eid, order in expect.items():
+            ev = pool.get_event(eid)
+            self.assertIsNotNone(ev, eid)
+            self.assertEqual(ev.get("min_realm_order"), order, eid)

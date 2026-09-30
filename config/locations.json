@@ -42,7 +42,10 @@
       "wandering_merchant": 5,
       "hidden_shop": 3,
       "secret_realm": 3,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "wolf"
@@ -93,7 +96,10 @@
       "wandering_merchant": 8,
       "hidden_shop": 3,
       "secret_realm": 3,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "wolf",
@@ -152,7 +158,10 @@
       "wandering_merchant": 8,
       "hidden_shop": 3,
       "secret_realm": 3,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "wolf",
@@ -212,7 +221,10 @@
       "wandering_merchant": 10,
       "hidden_shop": 3,
       "secret_realm": 10,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "flame_lion",
@@ -271,7 +283,10 @@
       "wandering_merchant": 5,
       "hidden_shop": 3,
       "secret_realm": 10,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "snake",
@@ -330,7 +345,10 @@
       "wandering_merchant": 2,
       "hidden_shop": 3,
       "secret_realm": 20,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "tiger",
@@ -388,7 +406,10 @@
       "wandering_merchant": 10,
       "hidden_shop": 3,
       "secret_realm": 3,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "snake",
@@ -445,7 +466,10 @@
       "beast_attack": 35,
       "rogue_cultivator": 3,
       "secret_realm": 10,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "righteous_disciple",
@@ -498,7 +522,10 @@
       "beast_attack": 5,
       "rogue_cultivator": 4,
       "secret_realm": 3,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "wolf"
@@ -593,7 +620,10 @@
       "beast_attack": 15,
       "rogue_cultivator": 4,
       "secret_realm": 3,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "snake",
@@ -689,7 +719,10 @@
       "beast_attack": 30,
       "rogue_cultivator": 3,
       "secret_realm": 15,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "righteous_disciple",
@@ -746,7 +779,10 @@
       "beast_attack": 20,
       "rogue_cultivator": 3,
       "secret_realm": 15,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "righteous_elder",
@@ -803,7 +839,10 @@
       "wandering_merchant": 3,
       "hidden_shop": 3,
       "secret_realm": 12,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "shadow_wolf",
@@ -861,7 +900,10 @@
       "wandering_merchant": 5,
       "hidden_shop": 3,
       "secret_realm": 10,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "thunder_lord",
@@ -930,7 +972,10 @@
       "wandering_merchant": 3,
       "hidden_shop": 3,
       "secret_realm": 12,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 10,
+      "heaven_gate_echo": 10,
+      "void_refine": 10
     },
     "enemies": [
       "ice_wolf",
@@ -996,7 +1041,10 @@
       "beast_attack": 8,
       "rogue_cultivator": 4,
       "secret_realm": 3,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "wolf"
@@ -1087,7 +1135,10 @@
       "beast_attack": 25,
       "rogue_cultivator": 3,
       "secret_realm": 15,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "wind_sparrow",
@@ -1140,7 +1191,10 @@
       "beast_attack": 30,
       "rogue_cultivator": 4,
       "secret_realm": 3,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "wolf",
@@ -1238,7 +1292,10 @@
       "beast_attack": 35,
       "rogue_cultivator": 3,
       "secret_realm": 15,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "tiger",
@@ -1291,7 +1348,10 @@
       "beast_attack": 10,
       "rogue_cultivator": 4,
       "secret_realm": 16,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "snake"
@@ -1397,7 +1457,10 @@
       "beast_attack": 8,
       "rogue_cultivator": 3,
       "secret_realm": 32,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "swamp_crocodile",
@@ -1460,7 +1523,10 @@
       "beast_attack": 18,
       "rogue_cultivator": 4,
       "secret_realm": 3,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "fire_scorpion",
@@ -1552,7 +1618,10 @@
       "beast_attack": 20,
       "rogue_cultivator": 3,
       "secret_realm": 25,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "flame_lion",
@@ -1607,7 +1676,10 @@
       "beast_attack": 12,
       "rogue_cultivator": 4,
       "secret_realm": 30,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "shadow_wolf"
@@ -1698,7 +1770,10 @@
       "beast_attack": 15,
       "rogue_cultivator": 3,
       "secret_realm": 35,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "shadow_wolf"
@@ -1750,7 +1825,10 @@
       "beast_attack": 5,
       "rogue_cultivator": 4,
       "secret_realm": 20,
-      "herb_realm": 3
+      "herb_realm": 3,
+      "divine_soul_roam": 2,
+      "heaven_gate_echo": 2,
+      "void_refine": 2
     },
     "enemies": [
       "wind_roc"
@@ -1841,7 +1919,10 @@
       "beast_attack": 8,
       "rogue_cultivator": 3,
       "secret_realm": 32,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "wind_roc"
@@ -1893,7 +1974,10 @@
       "beast_attack": 10,
       "rogue_cultivator": 3,
       "secret_realm": 10,
-      "herb_realm": 4
+      "herb_realm": 4,
+      "divine_soul_roam": 5,
+      "heaven_gate_echo": 5,
+      "void_refine": 5
     },
     "enemies": [
       "snake",

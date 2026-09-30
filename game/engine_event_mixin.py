@@ -28,8 +28,10 @@ class EventMixin:
             self._check_sect_daily_reset()
             self._run_registered_monthly_ticks()
 
-        # 按当前地点权重抽取事件
-        event = self.event_pool.draw("explore", location=location)
+        # 按当前地点权重抽取事件（player 用于终局事件的境界门槛过滤）
+        event = self.event_pool.draw(
+            "explore", location=location, player=self.player
+        )
 
         # 元婴期神识扫描：探索时有概率洞察当前地点妖兽弱点
         self._try_sense_scan(location)

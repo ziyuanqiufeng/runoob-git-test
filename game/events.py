@@ -45,14 +45,23 @@ class EventPool:
                 return event
         return candidates[-1]
 
-    def draw(self, condition, location=None, avoid_recent=True):
+    def draw(self, condition, location=None, avoid_recent=True, player=None):
         """根据条件和地点按权重随机抽取一个事件。
 
         avoid_recent=True 时启用去重窗口：最近 RECENT_WINDOW 次抽中的
         事件在还有其他候选时被跳过；候选不足（全部命中窗口）则回退
         全候选，保证总能抽出一个事件。
+        player 用于境界门槛过滤（min_realm_order 事件只对达标者进候选池）。
         """
         candidates = [e for e in self.events if e["condition"] == condition]
+        if player is not None:
+            player_order = getattr(player, "REALM_ORDER", {}).get(
+                getattr(player, "realm_id", ""), 0
+            )
+            candidates = [
+                e for e in candidates
+                if e.get("min_realm_order", 0) <= player_order
+            ]
         if not candidates:
             return None
 

@@ -361,5 +361,40 @@
     "description": "一名修士眼中凶光一闪，显然把你当成了猎物。",
     "effects": {},
     "trigger_combat": true
+  },
+  {
+    "id": "divine_soul_roam",
+    "name": "神游太虚",
+    "condition": "explore",
+    "weight": 10,
+    "min_realm_order": 19,
+    "description": "你神魂离体，遨游太虚之际捕获一缕玄妙道韵，归来时修为悄然精进。",
+    "effects": {
+      "qi": 120
+    }
+  },
+  {
+    "id": "heaven_gate_echo",
+    "name": "天门遗音",
+    "condition": "explore",
+    "weight": 6,
+    "min_realm_order": 20,
+    "description": "静谧之夜，你遥遥听见天门之外的浩渺道音，心神俱震，顿悟之余拾得上古遗物。",
+    "effects": {
+      "qi": 80,
+      "item": "demon_core_high"
+    }
+  },
+  {
+    "id": "void_refine",
+    "name": "虚空炼形",
+    "condition": "explore",
+    "weight": 8,
+    "min_realm_order": 21,
+    "description": "你于虚空裂隙中锤炼法体，道行大进，但肉身承受了不小的反噬。",
+    "effects": {
+      "qi": 160,
+      "health": -5
+    }
   }
 ]
