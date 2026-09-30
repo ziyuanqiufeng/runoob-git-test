@@ -85,6 +85,7 @@ class _AIStoryWorker(QRunnable):
                 self.engine.player,
                 self.ctx.get("location"),
                 realm_name,
+                npc_memories=self.ctx.get("npc_memories"),
             )
             self.signals.finished.emit(text or "")
         except Exception:

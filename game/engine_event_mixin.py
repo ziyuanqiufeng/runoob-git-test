@@ -108,7 +108,11 @@ class EventMixin:
                 event, self.player, location
             )
             if self.is_feature_enabled("ai_llm_story"):
-                self._pending_ai_event = {"event": event, "location": location}
+                self._pending_ai_event = {
+                    "event": event,
+                    "location": location,
+                    "npc_memories": self._collect_recent_memories(),
+                }
         # 如果事件触发战斗，进入战斗流程
         if event.get("trigger_combat"):
             enemy = self._spawn_enemy(location)
@@ -162,6 +166,17 @@ class EventMixin:
         # AI 增强补发：通知 UI 层后台生成 AI 剧情文案（不阻塞当前流程）
         if getattr(self, "_pending_ai_event", None):
             self.notify("__AI_STORY_PENDING__")
+
+    def _collect_recent_memories(self, limit=3):
+        """收集 NPC 共同经历中最新的若干条（AI 剧情提示词喂料）。
+
+        来源：player.npc_memory 各 NPC 的 moments（结道侣/双修/论道/收徒/
+        传艺/主动事件等动作写入），按写入顺序取末尾 limit 条。
+        """
+        memories = []
+        for _npc_id, mem in (getattr(self.player, "npc_memory", {}) or {}).items():
+            memories.extend(mem.get("moments", []) or [])
+        return memories[-limit:]
 
     def pop_pending_ai_event(self):
         """取走待 AI 增强的游历事件上下文（UI 层发起后台生成用）。

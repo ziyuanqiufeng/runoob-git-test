@@ -44,23 +44,33 @@ class AIStoryGenerator:
             parts.append("行事随心，隐有煞气")
         return "；".join(parts) if parts else "心境平和"
 
-    def _build_prompt(self, event, player, location, realm_name):
+    def _build_prompt(self, event, player, location, realm_name, npc_memories=None):
         loc_type = (location or {}).get("type", "wild")
         type_desc = {"city": "繁华城池", "sect": "仙门宗派", "wild": "荒野之地"}.get(
             loc_type, "荒野"
         )
         loc_name = (location or {}).get("name", "某处")
+        memory_block = ""
+        memories = npc_memories or []
+        if memories:
+            lines = "\n".join(f"- {m}" for m in memories)
+            memory_block = (
+                "\n与故人的共同往事（可自然融入一两处，点到即止，不必全用）：\n"
+                f"{lines}\n"
+            )
         return (
             "你是古典仙侠小说的写手。请根据以下信息，用古风笔法写一段修士游历奇遇的描写，"
             "融入环境氛围与修士心境，文笔典雅、不写对话、不要标题，约50字：\n\n"
             f"事件：{event.get('description', '')}\n"
             f"地点：{loc_name}（{type_desc}）\n"
             f"境界：{realm_name or '炼气期'}\n"
-            f"心境：{self._state_desc(player)}\n\n"
-            "只输出正文，不要解释。"
+            f"心境：{self._state_desc(player)}\n"
+            f"{memory_block}"
+            "\n只输出正文，不要解释。"
         )
 
-    def generate_story(self, event, player, location=None, realm_name=None):
+    def generate_story(self, event, player, location=None, realm_name=None,
+                       npc_memories=None):
         """调 Agnes LLM 生成剧情文案；失败返回 None。"""
         base_url = self.config.get("base_url", "")
         api_key = self._api_key()
@@ -68,7 +78,9 @@ class AIStoryGenerator:
             return None
         payload = {
             "model": self.config.get("model", "agnes-3.0-flash"),
-            "messages": [{"role": "user", "content": self._build_prompt(event, player, location, realm_name)}],
+            "messages": [{"role": "user", "content": self._build_prompt(
+                event, player, location, realm_name, npc_memories=npc_memories
+            )}],
             "max_tokens": self.config.get("max_tokens", 200),
         }
         req = urllib.request.Request(
