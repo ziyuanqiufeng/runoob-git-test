@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import (
     QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QMessageBox,
-    QMenuBar, QMenu, QFileDialog, QScrollArea, QPushButton,
+    QMenuBar, QMenu, QFileDialog, QScrollArea, QPushButton, QDialog,
 )
 from PySide6.QtCore import (
     Qt, QPropertyAnimation, QEasingCurve, QRect,
@@ -621,15 +621,24 @@ class MainWindow(QMainWindow):
         self.tutorial_label.setVisible(True)
 
     def _reset_game(self):
-        """重新开始游戏。"""
-        self._init_game()
-        self._reconnect_after_load_or_reset()
-
+        """转世重修：弹出继承选择，应用前世羁绊后开启新周目。"""
+        from ui.reincarnation_dialog import ReincarnationDialog
+        dialog = ReincarnationDialog(self.engine, parent=self)
+        if dialog.exec() != QDialog.Accepted:
+            return  # 玩家取消：保持现状（已结局），可自行存档或回主菜单
+        selected = dialog.get_selected_options()
+        # 在旧引擎上完成转世结算（宿慧叙事经旧引擎监听器写入日志）
         self.log_panel.clear()
-        self.log_panel.append("轮回转世，你重新开始修仙之路。")
-        # 重新开始时也弹出灵根觉醒
-        self._show_spiritual_root_dialog()
+        new_player, summary = self.engine.start_reincarnation(selected)
+        # 用新 Player 重建引擎（npc_library 为 main_window 级实例，转世 NPC 跨周目保留）
+        self._init_game(player=new_player)
+        self._reconnect_after_load_or_reset()
         self._refresh_status()
+        # 灵根觉醒：仅未选择"保留灵根"时弹出（保留灵根继承会覆盖觉醒结果）
+        if not summary.get("retain_roots"):
+            self._show_spiritual_root_dialog()
+        else:
+            self.log_panel.append("前世灵根随魂而来，无需再觉醒。")
 
     def _show_ending_dialog(self, ending_id):
         """弹出结局结算画面。"""

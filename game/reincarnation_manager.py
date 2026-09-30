@@ -198,6 +198,7 @@ class ReincarnationManager:
             "relic_chain_bonuses": compute_relic_chain_bonus(
                 getattr(self.player, "relic_chain", []) or []
             ),
+            "past_bond": self._select_past_bond(),
         }
 
         # 应用业力影响
@@ -255,6 +256,44 @@ class ReincarnationManager:
 
         return new_data
 
+    def _select_past_bond(self):
+        """选择前世羁绊最深的一位：道侣优先（亲密度最高），否则好感度最高 NPC。
+
+        返回 {npc_id, name, bond_type, intimacy} 或 None（前世无羁绊）。
+        供新周目注入"转世重逢"NPC 与宿慧叙事。
+        """
+        companions = getattr(self.player, "companions", []) or []
+        if companions:
+            best = max(
+                companions, key=lambda c: c.get("intimacy", 0)
+            )
+            return {
+                "npc_id": best.get("npc_id"),
+                "name": best.get("name") or best.get("npc_id"),
+                "bond_type": "dao_lv",
+                "intimacy": best.get("intimacy", 0),
+            }
+        relationships = getattr(self.player, "npc_relationships", {}) or {}
+        positive = {k: v for k, v in relationships.items() if v > 0}
+        if positive:
+            npc_id = max(positive, key=positive.get)
+            npc = None
+            getter = getattr(self.player, "_bond_npc_name", None)
+            name = npc_id
+            # 尝试从 NPC 库补全名字（由引擎侧注入的回调，失败则退回 id）
+            if callable(getter):
+                try:
+                    name = getter(npc_id) or npc_id
+                except Exception:
+                    name = npc_id
+            return {
+                "npc_id": npc_id,
+                "name": name,
+                "bond_type": "friend",
+                "intimacy": positive[npc_id],
+            }
+        return None
+
     def _select_carry_items(self, count):
         """选择价值最高的若干物品用于转世携带。"""
         items = getattr(self.player, "inventory", []) + [
@@ -289,6 +328,8 @@ class ReincarnationManager:
         new_player.reincarnation_count = new_data["reincarnation_count"]
         new_player.karma = new_data["karma"]
         new_player.past_life_talents = list(new_data["past_life_talents"])
+        # 前世羁绊：跨世记忆（新周目注入"转世重逢"NPC 与宿慧叙事）
+        new_player.past_bond = new_data.get("past_bond")
 
         # 应用属性加成
         new_player.wisdom += new_data["attribute_bonuses"].get("wisdom", 0)

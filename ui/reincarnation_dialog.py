@@ -73,6 +73,10 @@ class ReincarnationDialog(QDialog):
         self.cost_label = QLabel("已选消耗：0 点")
         bottom_layout.addWidget(self.cost_label)
         bottom_layout.addStretch()
+        # 允许 0 继承点玩家转世（否则 points=0 时确认按钮永久禁用会卡死）
+        self.skip_btn = QPushButton("放下执念，空手转世")
+        self.skip_btn.clicked.connect(self._on_skip)
+        bottom_layout.addWidget(self.skip_btn)
         self.confirm_btn = QPushButton("确认转世")
         self.confirm_btn.clicked.connect(self._on_confirm)
         bottom_layout.addWidget(self.confirm_btn)
@@ -154,6 +158,11 @@ class ReincarnationDialog(QDialog):
             QMessageBox.warning(self, "未选择", "请至少选择一项继承。")
             return
         self.selected_options = selected
+        self.accept()
+
+    def _on_skip(self):
+        """放下执念：不选任何继承，直接转世。"""
+        self.selected_options = []
         self.accept()
 
     def get_selected_options(self):

@@ -135,6 +135,62 @@ class CaveHomeMixin:
         """
         return self.reincarnation_manager.compute_available_options()
 
+    def start_reincarnation(self, selected_option_ids):
+        """转世重修：应用继承选择，生成新周目 Player 并注入前世羁绊。
+
+        - new_player.past_bond 已由转世结算写入（道侣优先，其次好感最高 NPC）；
+        - 向 NPC 库运行时注入"转世重逢"NPC（前世羁绊者转世现身于新周目）；
+        - 输出宿慧叙事并记入年表。
+        返回 (new_player, summary)。
+        """
+        from game.npc import NPC
+        new_player, summary = self.apply_reincarnation(selected_option_ids)
+        summary["past_bond"] = getattr(new_player, "past_bond", None)
+
+        bond = getattr(new_player, "past_bond", None)
+        if bond:
+            bond_type_cn = "道侣" if bond["bond_type"] == "dao_lv" else "挚友"
+            reborn_id = f"reborn_{bond['npc_id']}"
+            if reborn_id not in self.npc_library.npcs:
+                reborn_npc = NPC(
+                    npc_id=reborn_id,
+                    name=bond["name"],
+                    location=new_player.location_id,
+                    description=(
+                        f"一位眉眼间似曾相识的修士。恍惚之间，你想起前世与"
+                        f"{bond['name']}（{bond_type_cn}，情分 {bond['intimacy']}）"
+                        f"的种种过往——如今TA转世重临，却已不记得你。"
+                    ),
+                    dialog=[
+                        f"（{bond['name']}望着你，眼中闪过一丝迷惘）我们……是否在哪里见过？",
+                        "总觉得你的气息莫名熟悉，像是很久很久以前的旧梦。",
+                    ],
+                    quests=[],
+                    can_dual_cultivate=(bond["bond_type"] == "dao_lv"),
+                )
+                reborn_npc.past_life_bond = bond  # 供对话/AI 剧情引用前世信息
+                self.npc_library.npcs[reborn_id] = reborn_npc
+            self.notify(
+                f"[purple]【宿慧】一缕前尘掠过心间：前世{bond_type_cn}"
+                f"{bond['name']}的情分犹未了断——TA已转世重临人间，"
+                f"或就在这方天地之间。"
+            )
+            self.chronicle_manager.record(
+                f"第 {new_player.reincarnation_count} 世启程：前世{bond_type_cn}"
+                f"{bond['name']}转世重逢的宿慧苏醒",
+                category="reincarnation",
+            )
+        else:
+            self.notify(
+                f"[purple]【宿慧】前尘如烟，你于轮回中保住一缕真灵，"
+                f"重踏修仙之路。"
+            )
+            self.chronicle_manager.record(
+                f"第 {new_player.reincarnation_count} 世启程（无前世羁绊）",
+                category="reincarnation",
+            )
+        return new_player, summary
+
     def apply_reincarnation(self, selected_option_ids):
         """
         应用玩家选择的继承项，生成新一世 Player。
@@ -152,6 +208,8 @@ class CaveHomeMixin:
             "starting_items": new_data["starting_items"],
             "relationship_bonuses": new_data["relationship_bonuses"],
             "relic_chain_bonuses": new_data["relic_chain_bonuses"],
+            "retain_roots": new_data.get("retain_roots", False),
+            "past_bond": new_data.get("past_bond"),
             "negative_event": (
                 new_data["negative_event"]["name"]
                 if new_data["negative_event"]

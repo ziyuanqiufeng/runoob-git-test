@@ -270,6 +270,7 @@ class Player:
         self.reincarnation_count = 0  # 转世次数
         self.karma = 0                # 因果业力
         self.past_life_talents = []   # 前世天赋
+        self.past_bond = None         # 前世羁绊：道侣/挚友转世重逢的跨世记忆
         # 转世带来的全局加成（百分比）
         self.reincarnation_cultivation_bonus = 0.0
         self.reincarnation_breakthrough_bonus = 0.0
@@ -1193,6 +1194,7 @@ class Player:
             "reincarnation_count": self.reincarnation_count,
             "karma": self.karma,
             "past_life_talents": self.past_life_talents,
+            "past_bond": self.past_bond,
             "reincarnation_cultivation_bonus": self.reincarnation_cultivation_bonus,
             "reincarnation_breakthrough_bonus": self.reincarnation_breakthrough_bonus,
             # 宗门系统
@@ -1463,6 +1465,7 @@ class Player:
         player.reincarnation_count = data.get("reincarnation_count", 0)
         player.karma = data.get("karma", 0)
         player.past_life_talents = data.get("past_life_talents", [])
+        player.past_bond = data.get("past_bond", None)
         player.reincarnation_cultivation_bonus = data.get(
             "reincarnation_cultivation_bonus", 0.0
         )
