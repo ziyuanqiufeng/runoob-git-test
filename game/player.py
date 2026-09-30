@@ -978,8 +978,24 @@ class Player:
                 "choices": {},
                 "last_visit": None,
                 "visit_count": 0,
+                "moments": [],
             }
+        elif "moments" not in self.npc_memory[npc_id]:
+            # 旧档兼容：补建经历条目列表
+            self.npc_memory[npc_id]["moments"] = []
         return self.npc_memory[npc_id]
+
+    def record_npc_moment(self, npc_id, text):
+        """记录与某 NPC 的一段共同经历（FIFO 上限 5 条）。
+
+        供 NPC 对话回顾与 AI 剧情提示词引用——让角色"记得"与玩家的历史。
+        年份前缀由调用方携带（引擎持有 world）。
+        """
+        memory = self.get_npc_memory(npc_id)
+        moments = memory.setdefault("moments", [])
+        moments.append(text)
+        if len(moments) > 5:
+            del moments[: len(moments) - 5]
 
     def record_npc_choice(self, npc_id, choice_key, choice_value):
         """记录玩家对某 NPC 的关键选择。"""

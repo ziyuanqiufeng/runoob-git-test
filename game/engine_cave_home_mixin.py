@@ -170,6 +170,12 @@ class CaveHomeMixin:
                 )
                 reborn_npc.past_life_bond = bond  # 供对话/AI 剧情引用前世信息
                 self.npc_library.npcs[reborn_id] = reborn_npc
+                # 前世羁绊写入新周目的 NPC 记忆（宿慧的具象化）
+                new_player.record_npc_moment(
+                    reborn_id,
+                    f"前世：TA曾是我的{bond_type_cn}，情分深笃（亲密度 "
+                    f"{bond['intimacy']}），一世纠葛未竟。",
+                )
             self.notify(
                 f"[purple]【宿慧】一缕前尘掠过心间：前世{bond_type_cn}"
                 f"{bond['name']}的情分犹未了断——TA已转世重临人间，"

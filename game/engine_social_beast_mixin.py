@@ -13,11 +13,22 @@ from game.enemy import Enemy
 class SocialBeastMixin:
     """依赖宿主 GameEngine 的对应 Manager 实例属性与跨 Mixin 方法。"""
 
+    def _record_social_moment(self, npc_id, text):
+        """社交动作成功后写入 NPC 共同经历记忆（NPC 记忆系统钩子）。"""
+        try:
+            self.player.record_npc_moment(npc_id, text)
+        except Exception:
+            pass  # 记忆写入失败不影响社交动作本身
+
     def debate_with_npc(self, npc_id):
         """与 NPC 论道。"""
         success, message, win = self.social_manager.debate(npc_id)
         self.notify(message)
         if success:
+            self._record_social_moment(
+                npc_id,
+                f"第{self.world.year}年：与我论道{'，对方心服口服' if win else '，旗鼓相当'}",
+            )
             self._auto_save()
         return success, win
 
@@ -34,6 +45,9 @@ class SocialBeastMixin:
         success, message = self.social_manager.accept_disciple(npc_id)
         self.notify(message)
         if success:
+            self._record_social_moment(
+                npc_id, f"第{self.world.year}年：被我收为亲传弟子"
+            )
             self._auto_save()
         return success, message
 
@@ -42,6 +56,9 @@ class SocialBeastMixin:
         success, message = self.social_manager.teach_disciple(npc_id)
         self.notify(message)
         if success:
+            self._record_social_moment(
+                npc_id, f"第{self.world.year}年：我倾囊相授，其技艺大进"
+            )
             self._auto_save()
         return success, message
 

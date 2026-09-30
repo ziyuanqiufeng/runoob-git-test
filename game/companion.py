@@ -109,6 +109,10 @@ class CompanionManager:
             "is_alive": True,
             "last_dual_month": -999,
         })
+        # 写入共同经历记忆（NPC 记忆系统）
+        year = getattr(self.world, "year", None)
+        prefix = f"第{year}年：" if year else ""
+        self.player.record_npc_moment(npc_id, f"{prefix}与我结为道侣，誓同修大道")
         return True, f"你与【{name}】结为道侣，愿同修大道。"
 
     def can_dual_cultivate(self, npc_id):
@@ -146,6 +150,11 @@ class CompanionManager:
         self.player.heart_demon = max(0, self.player.heart_demon - heart_decay)
         companion["intimacy"] = min(100, companion.get("intimacy", 0) + 5)
         companion["last_dual_month"] = (self.world.year - 1) * 12 + self.world.month
+        # 写入共同经历记忆（NPC 记忆系统）
+        bond_name = companion.get("name") or npc_id
+        self.player.record_npc_moment(
+            npc_id, f"第{self.world.year}年：与{bond_name}双修，情意愈笃"
+        )
         return True, f"双修结束，修为 +{qi_gain}，亲密度 +5。"
 
     def get_intimacy_level_name(self, intimacy):

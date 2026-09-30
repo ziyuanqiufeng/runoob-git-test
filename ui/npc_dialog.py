@@ -710,6 +710,16 @@ class NPCDialog(QDialog):
         if festival_id:
             festival_name = self.engine.world.festivals.get(festival_id, {}).get("name", festival_id)
             info_html += f"<br><span style='color:#e67e22;'>今日节日：{festival_name}</span>"
+        # 共同经历记忆回顾（NPC 记忆系统：moments 由社交/转世等动作写入）
+        moments = self.engine.player.get_npc_memory(npc.id).get("moments") or []
+        if moments:
+            memory_items = "".join(
+                f"<li style='color:#6b5b95;'>{m}</li>" for m in moments
+            )
+            info_html += (
+                "<br><span style='color:#8a7ae8;'><b>—— 共同回忆 ——</b></span>"
+                f"<ul style='margin:4px 0;'>{memory_items}</ul>"
+            )
         info_html += f"<br><br>「{dialog}」"
         self.info_label.setText(info_html)
 
