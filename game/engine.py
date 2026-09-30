@@ -46,6 +46,7 @@ from game.equipment_manager import EquipmentManager
 from game.alchemy_manager import AlchemyManager
 from game.smithy_manager import SmithyManager
 from game.social_manager import SocialManager
+from game.social_events import SocialEventManager
 from game.master_disciple import MasterDiscipleManager
 from game.world_event import WorldEventManager
 from game.world_state import WorldStateManager
@@ -235,6 +236,15 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         self.social_manager = SocialManager(
             self.player, self.npc_library, self.world
         )
+        # NPC 主动事件（AI 角色引擎二期）：道侣赠礼/师徒互动/宿敌寻衅
+        self.social_event_manager = SocialEventManager(
+            self.player,
+            npc_library=self.npc_library,
+            item_library=self.item_library,
+            world=self.world,
+            config_dir=config_dir,
+            notify_callback=self.notify,
+        )
         self.bounty_board_manager = BountyBoardManager(
             self.player, self.item_library, self.world
         )
@@ -372,6 +382,9 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         )
         # 心境 / 道心系统月度结算（核心系统，常开；维度①深度特性由 heart_demon 开关门控）
         self.register_monthly_tick(self._tick_mental_state)
+        # NPC 主动事件月度判定（AI 角色引擎二期：道侣赠礼/师徒互动/宿敌寻衅；
+        # 频率由 config/social_events.json 的 chance 控制，常开）
+        self.register_monthly_tick(self.social_event_manager.tick_monthly)
         # 维度③：读档后 skill_library 由 skills.json 重建，需把已自创功法重新注册为可用技能
         self._register_self_created_skills()
 

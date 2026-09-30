@@ -1,0 +1,23 @@
+{
+  "_comment": "NPC 主动事件（AI 角色引擎二期）：月度判定，chance 为当月触发概率，cooldown_months 为同一 NPC 同类事件的最短间隔；参数调整不改代码。",
+  "dao_lv_gift": {
+    "chance": 0.08,
+    "cooldown_months": 12,
+    "min_intimacy": 40,
+    "items": [
+      "qi_pill",
+      "healing_pill"
+    ]
+  },
+  "master_teaching": {
+    "chance": 0.06,
+    "cooldown_months": 24,
+    "qi_base": 30
+  },
+  "rival_ambush": {
+    "chance": 0.05,
+    "cooldown_months": 18,
+    "min_grudge_level": 1,
+    "hp_penalty_ratio": 0.1
+  }
+}
