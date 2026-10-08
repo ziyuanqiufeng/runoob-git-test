@@ -568,6 +568,17 @@ class MainWindow(QMainWindow):
             self._show_ending_dialog(ending_id)
             return
 
+        # 天门试炼结算：弹出三阶段演出面板（成功时结局弹窗随后由 __ENDING__ 触发）
+        if message.startswith("__ASCENSION_TRIAL__:"):
+            import json
+            from ui.ascension_trial_dialog import AscensionTrialDialog
+            try:
+                report = json.loads(message.split(":", 1)[1])
+            except Exception:
+                report = {"stages": [], "outcome": "survive"}
+            AscensionTrialDialog(report, parent=self).exec()
+            return
+
         # AI 剧情增强：后台生成完成后追加日志（不阻塞游历主流程）
         if message == "__AI_STORY_PENDING__":
             self._start_ai_story_enhancement()

@@ -152,3 +152,73 @@ class TestGateLeap(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestTrialReport(unittest.TestCase):
+    """试炼报告组装与 __ASCENSION_TRIAL__ 标记（UI 演出数据源）。"""
+
+    def _captured(self, engine):
+        msgs = []
+        engine.add_listener(msgs.append)
+        return msgs
+
+    def _reports(self, msgs):
+        import json as _json
+        out = []
+        for m in msgs:
+            if m.startswith("__ASCENSION_TRIAL__:"):
+                out.append(_json.loads(m.split(":", 1)[1]))
+        return out
+
+    def test_success_report(self):
+        e = _make_engine()
+        msgs = self._captured(e)
+        with patch("game.engine.random.random", return_value=0.0):
+            e._attempt_ascension()
+        reports = self._reports(msgs)
+        self.assertEqual(len(reports), 1)
+        r = reports[0]
+        self.assertEqual(r["outcome"], "ascend")
+        self.assertEqual([s["name"] for s in r["stages"]], ["问心", "渡雷", "天门一跃"])
+        self.assertEqual(r["stages"][2]["result"], "success")
+
+    def test_survive_report(self):
+        e = _make_engine()
+        msgs = self._captured(e)
+        with patch("game.engine.random.random", return_value=1.0):
+            e._attempt_ascension()
+        r = self._reports(msgs)[0]
+        self.assertEqual(r["outcome"], "survive")
+        last = r["stages"][-1]
+        self.assertEqual(last["result"], "fail")
+        self.assertIn("rate", last)
+        self.assertIn("burn", last)
+
+    def test_redline_report(self):
+        e = _make_engine()
+        e.player.heart_demon = 85
+        msgs = self._captured(e)
+        e._attempt_ascension()
+        r = self._reports(msgs)[0]
+        self.assertEqual(r["outcome"], "ending")
+        self.assertEqual(len(r["stages"]), 1)
+        self.assertEqual(r["stages"][0]["result"], "fail")
+
+    def test_dialog_construct_offscreen(self):
+        """结算面板可离屏构造（不 exec，遵守测试禁模态弹窗约定）。"""
+        import os
+        os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+        from PySide6.QtWidgets import QApplication
+        from ui.ascension_trial_dialog import AscensionTrialDialog
+        app = QApplication.instance() or QApplication([])
+        report = {
+            "stages": [
+                {"name": "问心", "result": "pass", "text": "道心澄澈"},
+                {"name": "渡雷", "result": "pass", "text": "道体不灭"},
+                {"name": "天门一跃", "result": "fail", "rate": 25,
+                 "burn": 5000, "pill": True, "text": "兵解重创"},
+            ],
+            "outcome": "survive",
+        }
+        dlg = AscensionTrialDialog(report)
+        self.assertIsNotNone(dlg)
