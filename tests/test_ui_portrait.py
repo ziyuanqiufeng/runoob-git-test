@@ -125,7 +125,7 @@ class TestPortraitGenerator(unittest.TestCase):
         from game.portrait_generator import generate_all_default_portrait_resources
         with tempfile.TemporaryDirectory() as tmpdir:
             paths = generate_all_default_portrait_resources(output_dir=tmpdir, size=32)
-            self.assertEqual(len(paths), 60)
+            self.assertEqual(len(paths), 100)  # 终局境界扩容：4大境界→6境界 × 10流派 × 2性别
             for path in paths:
                 self.assertTrue(os.path.exists(path))
 
@@ -380,3 +380,30 @@ class TestBreakthroughPortraitSwitch(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+    def test_huashen_lianxu_border(self):
+        """新境界（化神/炼虚）头像边框色不再走灰色 fallback。"""
+        from ui.status_panel import _get_realm_border_color
+        self.assertEqual(_get_realm_border_color("huashen"), "#e67e22")
+        self.assertEqual(_get_realm_border_color("huashen_peak"), "#e67e22")
+        self.assertEqual(_get_realm_border_color("lianxu"), "#2980b9")
+        self.assertEqual(_get_realm_border_color("lianxu_peak"), "#2980b9")
+
+    def test_new_realm_portrait_resources(self):
+        """新境界立绘资源齐全：组合图存在且 find_best 能命中。"""
+        import os
+        from game.portrait_generator import find_best_portrait_resource
+        for realm in ("huashen", "lianxu"):
+            for path_id in ("jian", "fa", "ti"):
+                for gender in ("male", "female"):
+                    p = f"assets/portraits/protagonist_{realm}_{path_id}_{gender}.png"
+                    self.assertTrue(os.path.exists(p), p)
+        # find_best：化神剑修男 → 精确组合图
+        e = self.engine if hasattr(self, "engine") else None
+        class _P:
+            realm_id = "huashen"
+            cultivation_path = "jian"
+            gender = "male"
+        best = find_best_portrait_resource(_P())
+        self.assertTrue(best and "huashen" in best, best)

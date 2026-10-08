@@ -57,6 +57,7 @@ _DEFAULT_PROMPT_TEMPLATE = {
     "realm_desc": {
         "qi_refining": "Qi Refining", "foundation": "Foundation Establishment",
         "golden_core": "Golden Core", "nascent_soul": "Nascent Soul",
+        "huashen": "Spirit Transformation", "lianxu": "Void Refinement",
     },
     "element_names": {
         "metal": "metal", "wood": "wood", "water": "water", "fire": "fire", "earth": "earth",
@@ -74,6 +75,7 @@ _ELEMENT_NAMES = {
 _REALM_NAMES = {
     "qi_refining": "练气期", "foundation": "筑基期",
     "golden_core": "金丹期", "nascent_soul": "元婴期",
+    "huashen": "化神期", "lianxu": "炼虚期",
 }
 
 # 默认立绘资源生成用配色与文本
@@ -98,6 +100,7 @@ _PATH_NAMES_CN = {
 
 _REALM_NAMES_SHORT = {
     "foundation": "筑基", "golden_core": "金丹", "nascent_soul": "元婴",
+    "huashen": "化神", "lianxu": "炼虚",
 }
 
 _GENDER_NAMES_CN = {
@@ -134,6 +137,8 @@ _MAJOR_REALM_PORTRAITS = {
     "foundation": "assets/portraits/protagonist_foundation.png",
     "golden_core": "assets/portraits/protagonist_golden_core.png",
     "nascent_soul": "assets/portraits/protagonist_nascent_soul.png",
+    "huashen": "assets/portraits/protagonist_huashen.png",
+    "lianxu": "assets/portraits/protagonist_lianxu.png",
 }
 
 # 更丰富的头像资源匹配规则：按 境界/流派/性别 组合查找

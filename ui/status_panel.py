@@ -18,6 +18,8 @@ _REALM_BORDER_COLORS = {
     "foundation": "#2ecc71",    # 筑基期：绿色
     "golden_core": "#f1c40f",   # 金丹期：金色
     "nascent_soul": "#9b59b6",  # 元婴期：紫色
+    "huashen": "#e67e22",       # 化神期：霞光橙
+    "lianxu": "#2980b9",        # 炼虚期：虚空蓝
 }
 
 # 修炼流派 ID → 文本颜色
