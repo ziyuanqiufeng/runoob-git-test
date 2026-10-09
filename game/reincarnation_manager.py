@@ -370,6 +370,12 @@ class ReincarnationManager:
             + chain_bonus.get("breakthrough_bonus", 0.0)
         )
 
+        # 前世年表跨世延续（修行年谱 = 魂之记忆）：
+        # 旧世全部条目带入新世，并插入一条轮回分隔标记
+        old_chronicle = list(getattr(self.player, "chronicle", []) or [])
+        if old_chronicle:
+            new_player.chronicle = old_chronicle
+
         # 保留灵根
         if new_data["retain_roots"]:
             decay = new_data["root_purity_decay"]

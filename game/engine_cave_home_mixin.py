@@ -181,20 +181,28 @@ class CaveHomeMixin:
                 f"{bond['name']}的情分犹未了断——TA已转世重临人间，"
                 f"或就在这方天地之间。"
             )
-            self.chronicle_manager.record(
-                f"第 {new_player.reincarnation_count} 世启程：前世{bond_type_cn}"
-                f"{bond['name']}转世重逢的宿慧苏醒",
-                category="reincarnation",
-            )
+            # 年表记录写 new_player（chronicle_manager 仍绑定旧 player，
+            # 直接 append 确保条目随新世存档延续）
+            new_player.chronicle.append({
+                "year": self.world.year, "month": self.world.month,
+                "age": new_player.age,
+                "text": (
+                    f"第 {new_player.reincarnation_count} 世启程：前世"
+                    f"{bond_type_cn}{bond['name']}转世重逢的宿慧苏醒"
+                ),
+                "category": "reincarnation",
+            })
         else:
             self.notify(
                 f"[purple]【宿慧】前尘如烟，你于轮回中保住一缕真灵，"
                 f"重踏修仙之路。"
             )
-            self.chronicle_manager.record(
-                f"第 {new_player.reincarnation_count} 世启程（无前世羁绊）",
-                category="reincarnation",
-            )
+            new_player.chronicle.append({
+                "year": self.world.year, "month": self.world.month,
+                "age": new_player.age,
+                "text": f"第 {new_player.reincarnation_count} 世启程（无前世羁绊）",
+                "category": "reincarnation",
+            })
         return new_player, summary
 
     def trigger_past_life_reunion(self, npc_id):

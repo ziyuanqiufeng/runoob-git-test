@@ -154,6 +154,17 @@ class TestFullReincarnationCycle(unittest.TestCase):
         self.assertFalse(engine2.trigger_past_life_reunion(reborn_id))
         self.assertEqual(
             new_player.npc_relationships.get(reborn_id), rel1, "好感不再加成")
+        # ---- 阶段 G：前世年表跨世延续 ----
+        self.assertGreater(
+            len(new_player.chronicle), len(e.player.chronicle),
+            "新世年表应包含前世全部条目 + 本世新增")
+        texts = [c["text"] for c in new_player.chronicle]
+        self.assertTrue(any("第 1 世启程" in x for x in texts),
+                        "新世开局条目应写入 new_player")
+        # 阶段 B 的飞升结局条目（旧世记录）应被带入
+        self.assertTrue(any("结局" in x or "飞升" in x for x in texts),
+                        "前世结局条目应跨世延续")
+
 
 
 
