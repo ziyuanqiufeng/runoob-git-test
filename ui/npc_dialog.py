@@ -645,7 +645,9 @@ class NPCDialog(QDialog):
         # 记录玩家访问该 NPC（记忆系统）
         self.engine.player.record_npc_visit(npc.id, self.engine.world)
 
-        # 获取好感度信息
+        # 转世重逢初见演出（一次性：前世情分转化好感 + 重逢记忆）
+        self.engine.trigger_past_life_reunion(npc.id)
+        # 重逢可能已改变好感度，后续展示取最新值
         rel = self.engine.player.get_npc_relationship(npc.id)
         rel_text = f"好感度：{'★' * rel}{'☆' * (10 - rel)}" if rel > 0 else "好感度：☆☆☆☆☆☆☆☆☆☆（陌生）"
         # 宗门关系信息

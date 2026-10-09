@@ -197,6 +197,46 @@ class CaveHomeMixin:
             )
         return new_player, summary
 
+    def trigger_past_life_reunion(self, npc_id):
+        """转世重逢初见演出：首次与转世 NPC 对话时触发（一次性）。
+
+        - 前世情分转化为今生的初始好感加成（道侣 +15 / 挚友 +10）；
+        - 写入"重逢"共同经历记忆；
+        - 以 npc_memory["first_met"] 标记防重复触发。
+        返回 True 表示本次触发了初见演出。
+        """
+        bond = getattr(self.player, "past_bond", None)
+        if not bond:
+            return False
+        expected_reborn_id = f"reborn_{bond['npc_id']}"
+        if npc_id != expected_reborn_id:
+            return False
+        memory = self.player.get_npc_memory(npc_id)
+        if memory.get("first_met"):
+            return False
+        memory["first_met"] = True
+
+        bonus = 15 if bond["bond_type"] == "dao_lv" else 10
+        bond_type_cn = "道侣" if bond["bond_type"] == "dao_lv" else "挚友"
+        current = self.player.npc_relationships.get(npc_id, 0)
+        self.player.npc_relationships[npc_id] = min(100, current + bonus)
+
+        year = self.world.year
+        self.player.record_npc_moment(
+            npc_id, f"第{year}年：重逢——前世{bond_type_cn}情分未了，TA似有所感"
+        )
+        self.notify(
+            f"[purple]【重逢】四目相对的刹那，前尘往事如潮涌来——"
+            f"TA正是你前世的{bond_type_cn}【{bond['name']}】！"
+            f"虽然TA已不记得前世，但那份情分化作了此刻的默契"
+            f"（好感 +{bonus}）。"
+        )
+        self.chronicle_manager.record(
+            f"与前世{bond_type_cn}【{bond['name']}】的转世之身重逢",
+            category="reincarnation",
+        )
+        return True
+
     def apply_reincarnation(self, selected_option_ids):
         """
         应用玩家选择的继承项，生成新一世 Player。

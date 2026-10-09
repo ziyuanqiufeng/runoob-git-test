@@ -142,6 +142,20 @@ class TestFullReincarnationCycle(unittest.TestCase):
         self.assertTrue(any("结为道侣" in m for m in moments))
         self.assertGreaterEqual(len(moments), 2)
 
+        # ---- 阶段 F：转世重逢初见演出（一次性 + 情分转化）----
+        rel0 = new_player.npc_relationships.get(reborn_id, 0)
+        triggered = engine2.trigger_past_life_reunion(reborn_id)
+        self.assertTrue(triggered, "首次对话应触发重逢演出")
+        rel1 = new_player.npc_relationships.get(reborn_id)
+        self.assertEqual(rel1, min(100, rel0 + 15), "道侣重逢好感 +15")
+        self.assertTrue(any(
+            "重逢" in m for m in new_player.get_npc_memory(reborn_id)["moments"]))
+        # 二次对话不重复触发
+        self.assertFalse(engine2.trigger_past_life_reunion(reborn_id))
+        self.assertEqual(
+            new_player.npc_relationships.get(reborn_id), rel1, "好感不再加成")
+
+
 
 if __name__ == "__main__":
     unittest.main()
