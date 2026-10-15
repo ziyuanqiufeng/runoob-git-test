@@ -225,3 +225,38 @@ class TestModeGatedEvents(unittest.TestCase):
             if ev:
                 seen.add(ev["id"])
         self.assertIn("mortal_will", seen)
+
+    def test_heaven_cycle_hits(self):
+        """天道轮回模式能抽中专属事件。"""
+        pool = EventPool(config_dir=CFG)
+        seen = set()
+        for _ in range(150):
+            ev = pool.draw("explore", player=self._player("heaven_cycle"))
+            if ev:
+                seen.add(ev["id"])
+        self.assertTrue(
+            {"samsara_insight", "heaven_watch"} & seen)
+
+    def test_seize_rebirth_hits(self):
+        """夺舍重生模式能抽中专属事件。"""
+        pool = EventPool(config_dir=CFG)
+        seen = set()
+        for _ in range(150):
+            ev = pool.draw("explore", player=self._player("seize_rebirth"))
+            if ev:
+                seen.add(ev["id"])
+        self.assertTrue(
+            {"body_reject", "old_kin"} & seen)
+
+    def test_mode_events_isolated(self):
+        """模式事件互不可见：魔道玩家抽不到天道/凡人/夺舍专属。"""
+        pool = EventPool(config_dir=CFG)
+        mode_events = {"demonic_hunt", "demonic_bargain", "mortal_will",
+                       "samsara_insight", "heaven_watch", "body_reject",
+                       "old_kin"}
+        for _ in range(80):
+            ev = pool.draw("explore", player=self._player("demonic_lone"))
+            if ev and ev.get("required_mode"):
+                self.assertEqual(ev["required_mode"], "demonic_lone",
+                                 f"魔道玩家不应抽到 {ev['id']}")
+

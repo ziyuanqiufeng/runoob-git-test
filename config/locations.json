@@ -48,7 +48,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "wolf"
@@ -105,7 +109,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "wolf",
@@ -170,7 +178,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "wolf",
@@ -236,7 +248,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "flame_lion",
@@ -301,7 +317,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "snake",
@@ -366,7 +386,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "tiger",
@@ -430,7 +454,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "snake",
@@ -493,7 +521,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "righteous_disciple",
@@ -552,7 +584,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "wolf"
@@ -653,7 +689,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "snake",
@@ -755,7 +795,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "righteous_disciple",
@@ -818,7 +862,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "righteous_elder",
@@ -881,7 +929,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "shadow_wolf",
@@ -945,7 +997,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "thunder_lord",
@@ -1020,7 +1076,11 @@
       "void_refine": 10,
       "demonic_hunt": 9,
       "demonic_bargain": 9,
-      "mortal_will": 9
+      "mortal_will": 9,
+      "samsara_insight": 9,
+      "heaven_watch": 9,
+      "body_reject": 9,
+      "old_kin": 9
     },
     "enemies": [
       "ice_wolf",
@@ -1092,7 +1152,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "wolf"
@@ -1189,7 +1253,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "wind_sparrow",
@@ -1248,7 +1316,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "wolf",
@@ -1352,7 +1424,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "tiger",
@@ -1411,7 +1487,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "snake"
@@ -1523,7 +1603,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "swamp_crocodile",
@@ -1592,7 +1676,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "fire_scorpion",
@@ -1690,7 +1778,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "flame_lion",
@@ -1751,7 +1843,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "shadow_wolf"
@@ -1848,7 +1944,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "shadow_wolf"
@@ -1906,7 +2006,11 @@
       "void_refine": 2,
       "demonic_hunt": 3,
       "demonic_bargain": 3,
-      "mortal_will": 3
+      "mortal_will": 3,
+      "samsara_insight": 3,
+      "heaven_watch": 3,
+      "body_reject": 3,
+      "old_kin": 3
     },
     "enemies": [
       "wind_roc"
@@ -2003,7 +2107,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "wind_roc"
@@ -2061,7 +2169,11 @@
       "void_refine": 5,
       "demonic_hunt": 4,
       "demonic_bargain": 4,
-      "mortal_will": 4
+      "mortal_will": 4,
+      "samsara_insight": 4,
+      "heaven_watch": 4,
+      "body_reject": 4,
+      "old_kin": 4
     },
     "enemies": [
       "snake",

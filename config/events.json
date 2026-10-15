@@ -429,5 +429,52 @@
       "health": 8,
       "qi": 30
     }
+  },
+  {
+    "id": "samsara_insight",
+    "name": "轮回宿慧",
+    "condition": "explore",
+    "weight": 8,
+    "required_mode": "heaven_cycle",
+    "description": "打坐之际，前世飞升时窥见的天道法则忽然清晰如昨——这一世，你走得比谁都笃定。",
+    "effects": {
+      "qi": 100,
+      "health": 5
+    }
+  },
+  {
+    "id": "heaven_watch",
+    "name": "天道常视",
+    "condition": "explore",
+    "weight": 7,
+    "required_mode": "heaven_cycle",
+    "description": "早已飞升过一次的你，一举一动皆在天道眼底。它不喜规则之外的变数，注视如影随形。",
+    "effects": {
+      "qi": 40
+    }
+  },
+  {
+    "id": "body_reject",
+    "name": "躯壳排异",
+    "condition": "explore",
+    "weight": 8,
+    "required_mode": "seize_rebirth",
+    "description": "这具躯壳终究不是你的——经脉滞涩、旧忆袭扰，夺舍者必须日夜与之角力。",
+    "effects": {
+      "health": -5,
+      "qi": 50
+    }
+  },
+  {
+    "id": "old_kin",
+    "name": "故主寻亲",
+    "condition": "explore",
+    "weight": 6,
+    "required_mode": "seize_rebirth",
+    "description": "躯壳原主的故人寻上门来，泪眼婆娑地问你可是记得旧事。你唯有沉默——夺舍者的秘密，永不可说。",
+    "effects": {
+      "item": "spirit_stone",
+      "qi": 40
+    }
   }
 ]

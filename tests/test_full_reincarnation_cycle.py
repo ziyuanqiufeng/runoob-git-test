@@ -125,8 +125,10 @@ class TestFullReincarnationCycle(unittest.TestCase):
             "前世" in m for m in new_player.get_npc_memory(reborn_id)["moments"]))
 
         # ---- 阶段 D：新周目月度运行（主动事件插座零异常）----
-        for _ in range(3):
-            engine2._run_registered_monthly_ticks()
+        # patch random=1.0：月度事件（含 rumor）均不触发，保持确定性
+        with patch("game.social_events.random.random", return_value=1.0):
+            for _ in range(3):
+                engine2._run_registered_monthly_ticks()
         self.assertTrue(new_player.is_alive())
         # 新周目冷却状态为全新（social_event_state 空 dict）
         self.assertEqual(new_player.social_event_state, {})
