@@ -45,7 +45,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "wolf"
@@ -99,7 +102,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "wolf",
@@ -161,7 +167,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "wolf",
@@ -224,7 +233,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "flame_lion",
@@ -286,7 +298,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "snake",
@@ -348,7 +363,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "tiger",
@@ -409,7 +427,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "snake",
@@ -469,7 +490,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "righteous_disciple",
@@ -525,7 +549,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "wolf"
@@ -623,7 +650,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "snake",
@@ -722,7 +752,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "righteous_disciple",
@@ -782,7 +815,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "righteous_elder",
@@ -842,7 +878,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "shadow_wolf",
@@ -903,7 +942,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "thunder_lord",
@@ -975,7 +1017,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 10,
       "heaven_gate_echo": 10,
-      "void_refine": 10
+      "void_refine": 10,
+      "demonic_hunt": 9,
+      "demonic_bargain": 9,
+      "mortal_will": 9
     },
     "enemies": [
       "ice_wolf",
@@ -1044,7 +1089,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "wolf"
@@ -1138,7 +1186,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "wind_sparrow",
@@ -1194,7 +1245,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "wolf",
@@ -1295,7 +1349,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "tiger",
@@ -1351,7 +1408,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "snake"
@@ -1460,7 +1520,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "swamp_crocodile",
@@ -1526,7 +1589,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "fire_scorpion",
@@ -1621,7 +1687,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "flame_lion",
@@ -1679,7 +1748,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "shadow_wolf"
@@ -1773,7 +1845,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "shadow_wolf"
@@ -1828,7 +1903,10 @@
       "herb_realm": 3,
       "divine_soul_roam": 2,
       "heaven_gate_echo": 2,
-      "void_refine": 2
+      "void_refine": 2,
+      "demonic_hunt": 3,
+      "demonic_bargain": 3,
+      "mortal_will": 3
     },
     "enemies": [
       "wind_roc"
@@ -1922,7 +2000,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "wind_roc"
@@ -1977,7 +2058,10 @@
       "herb_realm": 4,
       "divine_soul_roam": 5,
       "heaven_gate_echo": 5,
-      "void_refine": 5
+      "void_refine": 5,
+      "demonic_hunt": 4,
+      "demonic_bargain": 4,
+      "mortal_will": 4
     },
     "enemies": [
       "snake",

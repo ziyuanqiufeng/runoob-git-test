@@ -184,3 +184,44 @@ class TestRealmGatedEvents(unittest.TestCase):
             ev = pool.get_event(eid)
             self.assertIsNotNone(ev, eid)
             self.assertEqual(ev.get("min_realm_order"), order, eid)
+
+
+class TestModeGatedEvents(unittest.TestCase):
+    """周目模式专属事件：required_mode 过滤。"""
+
+    def _player(self, mode):
+        from game.player import Player
+        p = Player(name="测试")
+        p.game_mode = mode
+        return p
+
+    def test_standard_excluded(self):
+        """standard 模式抽不到模式专属事件。"""
+        pool = EventPool(config_dir=CFG)
+        for _ in range(60):
+            ev = pool.draw("explore", player=self._player("standard"))
+            self.assertIsNotNone(ev)
+            self.assertFalse(ev.get("required_mode"),
+                             f"standard 不应抽到 {ev['id']}")
+
+    def test_demonic_mode_hits(self):
+        """魔道独行模式能抽中专属事件。"""
+        pool = EventPool(config_dir=CFG)
+        seen = set()
+        for _ in range(150):
+            ev = pool.draw("explore", player=self._player("demonic_lone"))
+            if ev:
+                seen.add(ev["id"])
+        self.assertTrue(
+            {"demonic_hunt", "demonic_bargain"} & seen,
+            "150 次抽取应命中至少一个魔道专属事件")
+
+    def test_mortal_mode_hits(self):
+        """凡人挑战模式能抽中专属事件。"""
+        pool = EventPool(config_dir=CFG)
+        seen = set()
+        for _ in range(150):
+            ev = pool.draw("explore", player=self._player("mortal_challenge"))
+            if ev:
+                seen.add(ev["id"])
+        self.assertIn("mortal_will", seen)

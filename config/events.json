@@ -396,5 +396,38 @@
       "qi": 160,
       "health": -5
     }
+  },
+  {
+    "id": "demonic_hunt",
+    "name": "正道围剿",
+    "condition": "explore",
+    "weight": 9,
+    "required_mode": "demonic_lone",
+    "description": "正道修士识破你的魔道身份，设伏围剿！血战脱身之际，你愈发笃定——这乱世，正配你的道。",
+    "trigger_combat": true
+  },
+  {
+    "id": "demonic_bargain",
+    "name": "魔道交易",
+    "condition": "explore",
+    "weight": 7,
+    "required_mode": "demonic_lone",
+    "description": "一名黑袍客寻上门来，愿以重金换取你手上的一件魔器。是陷阱还是机缘，魔道中人从不纠结。",
+    "effects": {
+      "item": "spirit_stone",
+      "qi": 60
+    }
+  },
+  {
+    "id": "mortal_will",
+    "name": "凡人之志",
+    "condition": "explore",
+    "weight": 10,
+    "required_mode": "mortal_challenge",
+    "description": "无灵根如你，只能以肉身硬撼天地。晨起锻体，看凡人炊烟——这份不甘，正是你的道。",
+    "effects": {
+      "health": 8,
+      "qi": 30
+    }
   }
 ]

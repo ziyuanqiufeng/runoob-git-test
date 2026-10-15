@@ -62,6 +62,13 @@ class EventPool:
                 e for e in candidates
                 if e.get("min_realm_order", 0) <= player_order
             ]
+            # 周目模式门槛：required_mode 事件只对对应模式的玩家进候选池
+            player_mode = getattr(player, "game_mode", "standard")
+            candidates = [
+                e for e in candidates
+                if not e.get("required_mode")
+                or e["required_mode"] == player_mode
+            ]
         if not candidates:
             return None
 
