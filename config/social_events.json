@@ -19,5 +19,20 @@
     "cooldown_months": 18,
     "min_grudge_level": 1,
     "hp_penalty_ratio": 0.1
+  },
+  "friend_visit": {
+    "chance": 0.07,
+    "cooldown_months": 12,
+    "min_favor": 50,
+    "mental_gain": 5
+  },
+  "disciple_defect": {
+    "chance": 0.03,
+    "cooldown_months": 36,
+    "grudge_reason": "师门恩义已尽"
+  },
+  "rumor": {
+    "chance": 0.06,
+    "cooldown_months": 6
   }
 }

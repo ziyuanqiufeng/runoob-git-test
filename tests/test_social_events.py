@@ -173,3 +173,55 @@ class TestPersistAndConfig(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestNewEvents(unittest.TestCase):
+    """扩容事件：挚友来访 / 弟子叛逃 / 江湖传言。"""
+
+    def test_friend_visit(self):
+        e = _make_engine()
+        p = e.player
+        p.npc_relationships = {"npc_f": 60}
+        m0 = p.mental_state
+        with patch("game.social_events.random.random", return_value=0.0),              patch("game.social_events.random.choice",
+                   side_effect=lambda seq: seq[0]):
+            _mgr(e).tick_monthly()
+        self.assertGreater(p.mental_state, m0)
+        self.assertTrue(any(
+            "来访" in m for m in p.get_npc_memory("npc_f")["moments"]))
+
+    def test_friend_visit_excludes_companions(self):
+        """道侣走赠礼通道，不走来访。"""
+        e = _make_engine()
+        p = e.player
+        p.companions = [{"npc_id": "npc_g", "name": "庚", "intimacy": 90}]
+        p.npc_relationships = {"npc_g": 90}
+        with patch("game.social_events.random.random", return_value=0.0):
+            _mgr(e).tick_monthly()
+        # 道侣不走来访通道（可走赠礼通道，那是另一事件）
+        self.assertFalse(
+            any("来访" in m for m in p.get_npc_memory("npc_g")["moments"]))
+
+    def test_disciple_defect(self):
+        e = _make_engine()
+        p = e.player
+        p.disciples = [{"npc_id": "npc_d", "name": "丁",
+                        "realm_id": "qi_refining_3"}]
+        with patch("game.social_events.random.random", return_value=0.0),              patch("game.social_events.random.choice",
+                   side_effect=lambda seq: seq[0]):
+            _mgr(e).tick_monthly()
+        self.assertEqual(p.disciples, [])
+        self.assertIn("npc_d", p.grudges)          # 恩怨 +1
+        self.assertTrue(any(
+            "叛出师门" in m for m in p.get_npc_memory("npc_d")["moments"]))
+
+    def test_rumor_karma(self):
+        e = _make_engine()
+        p = e.player
+        p.karma = 0
+        with patch("game.social_events.random.random", return_value=0.0),              patch("game.social_events.random.random", return_value=0.0):
+            pass
+        # rumor 判定一次 random + 正负一次 random：0.0/0.0 → 触发且正 Rumor
+        with patch("game.social_events.random.random", side_effect=[0.0, 0.0]):
+            _mgr(e).tick_monthly()
+        self.assertGreater(p.karma, 0)

@@ -21,6 +21,11 @@ DEFAULTS = {
     "master_teaching": {"chance": 0.06, "cooldown_months": 24, "qi_base": 30},
     "rival_ambush": {"chance": 0.05, "cooldown_months": 18,
                      "min_grudge_level": 1, "hp_penalty_ratio": 0.10},
+    "friend_visit": {"chance": 0.07, "cooldown_months": 12,
+                     "min_favor": 50, "mental_gain": 5},
+    "disciple_defect": {"chance": 0.03, "cooldown_months": 36,
+                        "grudge_reason": "师门恩义已尽"},
+    "rumor": {"chance": 0.06, "cooldown_months": 6},
 }
 
 
@@ -92,6 +97,9 @@ class SocialEventManager:
         self._maybe_dao_lv_gift()
         self._maybe_master_teaching()
         self._maybe_rival_ambush()
+        self._maybe_friend_visit()
+        self._maybe_disciple_defect()
+        self._maybe_rumor()
 
     # ---------- 事件：道侣赠礼 ----------
     def _maybe_dao_lv_gift(self):
@@ -173,3 +181,77 @@ class SocialEventManager:
         self.player.record_npc_moment(
             npc_id, f"第{self.world.year}年：因旧怨拦路寻衅，缠斗后负伤遁走",
         )
+
+    # ---------- 事件：挚友来访 ----------
+    def _maybe_friend_visit(self):
+        cfg = self.config.get("friend_visit")
+        rels = getattr(self.player, "npc_relationships", {}) or {}
+        companions = {c.get("npc_id") for c in (getattr(self.player, "companions", []) or [])}
+        min_favor = cfg.get("min_favor", 50)
+        candidates = [nid for nid, v in rels.items()
+                      if v >= min_favor and nid not in companions]
+        if not candidates or not self._roll(cfg.get("chance", 0.0)):
+            return
+        npc_id = random.choice(candidates)
+        key = f"friend_visit:{npc_id}"
+        if not self._ready(key, cfg.get("cooldown_months", 12)):
+            return
+        gain = cfg.get("mental_gain", 5)
+        self.player.mental_state = min(100, self.player.mental_state + gain)
+        self._mark(key)
+        name = self._npc_name(npc_id)
+        self._notify(
+            f"[cyan]【故人来访】{name}远道来访，与你煮茶论道、共忆往昔，"
+            f"心境澄明（心境 +{gain}）。"
+        )
+        self.player.record_npc_moment(
+            npc_id, f"第{self.world.year}年：远道来访，煮茶论道共忆往昔",
+        )
+
+    # ---------- 事件：弟子叛逃 ----------
+    def _maybe_disciple_defect(self):
+        cfg = self.config.get("disciple_defect")
+        disciples = getattr(self.player, "disciples", []) or []
+        if not disciples or not self._roll(cfg.get("chance", 0.0)):
+            return
+        disciple = random.choice(disciples)
+        npc_id = disciple["npc_id"]
+        key = f"disciple_defect:{npc_id}"
+        if not self._ready(key, cfg.get("cooldown_months", 36)):
+            return
+        self.player.disciples = [
+            d for d in disciples if d.get("npc_id") != npc_id
+        ]
+        reason = cfg.get("grudge_reason", "师门恩义已尽")
+        self.player.add_grudge(npc_id, 1, reason)
+        self._mark(key)
+        d_name = disciple.get("name", npc_id)
+        self._notify(
+            f"[red]【叛离】弟子{d_name}不辞而别，只留下一封绝笔——"
+            f"师徒缘尽，徒留一声叹息（恩怨 +1）。"
+        )
+        self.player.record_npc_moment(
+            npc_id, f"第{self.world.year}年：不辞而别叛出师门，师徒缘尽",
+        )
+
+    # ---------- 事件：江湖传言 ----------
+    def _maybe_rumor(self):
+        cfg = self.config.get("rumor")
+        if not self._roll(cfg.get("chance", 0.0)):
+            return
+        key = "rumor"
+        if not self._ready(key, cfg.get("cooldown_months", 6)):
+            return
+        self._mark(key)
+        if random.random() < 0.5:
+            self.player.karma += 1
+            self._notify(
+                "[cyan]【江湖】茶馆里有人说起你的侠义事迹，"
+                "善名渐播（业力 +1）。"
+            )
+        else:
+            self.player.karma -= 1
+            self._notify(
+                "[red]【江湖】坊间流传你当年行事狠辣的传闻，"
+                "纵是真真假假，也难免惹人侧目（业力 -1）。"
+            )
