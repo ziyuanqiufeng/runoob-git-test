@@ -450,7 +450,8 @@
     "required_mode": "heaven_cycle",
     "description": "早已飞升过一次的你，一举一动皆在天道眼底。它不喜规则之外的变数，注视如影随形。",
     "effects": {
-      "qi": 40
+      "qi": 40,
+      "heaven_gaze": 5
     }
   },
   {

@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from game.events import EventPool
 
 CFG = "config"
-VALID_EFFECT_KEYS = {"qi", "health", "item", "item_count"}
+VALID_EFFECT_KEYS = {"qi", "health", "item", "item_count", "heaven_gaze", "mental", "karma"}
 
 
 def _load_items():
@@ -260,3 +260,53 @@ class TestModeGatedEvents(unittest.TestCase):
                 self.assertEqual(ev["required_mode"], "demonic_lone",
                                  f"魔道玩家不应抽到 {ev['id']}")
 
+
+
+class TestExtendedEffects(unittest.TestCase):
+    """事件 effects 扩展：heaven_gaze / mental / karma 直接生效。"""
+
+    def _engine(self):
+        import tempfile
+        from game.player import Player
+        from game.world import World
+        from game.events import EventPool
+        from game.item import ItemLibrary
+        from game.enemy import EnemyLibrary
+        from game.skill import SkillLibrary
+        from game.npc import NPCLibrary
+        from game.quest import QuestLibrary
+        from game.engine import GameEngine
+        from game.save_manager import SaveManager
+        tmp = tempfile.mkdtemp()
+        e = GameEngine(
+            Player(name="测试"), World(config_dir="config"),
+            EventPool(config_dir="config"), ItemLibrary(config_dir="config"),
+            EnemyLibrary(config_dir="config"), SkillLibrary(config_dir="config"),
+            NPCLibrary(config_dir="config"), QuestLibrary(config_dir="config"),
+            save_manager=SaveManager(
+                save_path=os.path.join(tmp, "s.json"),
+                save_dir=os.path.join(tmp, "saves")),
+        )
+        return e
+
+    def test_heaven_gaze_effect(self):
+        e = self._engine()
+        e.player.heaven_gaze = 10
+        e._apply_event({"id": "x", "name": "测试", "condition": "explore",
+                        "description": "d",
+                        "effects": {"heaven_gaze": 5}}, {})
+        self.assertEqual(e.player.heaven_gaze, 15)
+
+    def test_mental_effect_clamped(self):
+        e = self._engine()
+        e.player.mental_state = 98
+        e._apply_event({"id": "x", "name": "测试", "condition": "explore",
+                        "description": "d", "effects": {"mental": 10}}, {})
+        self.assertEqual(e.player.mental_state, 100)   # 钳位
+
+    def test_karma_effect(self):
+        e = self._engine()
+        e.player.karma = 0
+        e._apply_event({"id": "x", "name": "测试", "condition": "explore",
+                        "description": "d", "effects": {"karma": -2}}, {})
+        self.assertEqual(e.player.karma, -2)

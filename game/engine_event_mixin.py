@@ -147,6 +147,23 @@ class EventMixin:
             self.player.health += effects["health"]
             self.player.health = min(self.player.health, self.player.max_health)
 
+        # 天道注视变化（终局张力类事件，如"天道常视"）
+        if "heaven_gaze" in effects:
+            self.player.heaven_gaze = max(
+                0, min(100, getattr(self.player, "heaven_gaze", 0)
+                       + effects["heaven_gaze"])
+            )
+
+        # 心境变化
+        if "mental" in effects:
+            self.player.mental_state = max(
+                0, min(100, self.player.mental_state + effects["mental"])
+            )
+
+        # 业力变化（善恶向事件）
+        if "karma" in effects:
+            self.player.karma += effects["karma"]
+
         # 获得物品
         if "item" in effects:
             item_id = effects["item"]
