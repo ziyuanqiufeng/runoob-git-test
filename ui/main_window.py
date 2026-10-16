@@ -581,6 +581,17 @@ class MainWindow(QMainWindow):
             AscensionTrialDialog(report, parent=self).exec()
             return
 
+        # 转世重逢演出：前世羁绊面板（对话窗打开时由引擎触发）
+        if message.startswith("__PAST_LIFE_REUNION__:"):
+            import json
+            from ui.reunion_dialog import PastLifeReunionDialog
+            try:
+                report = json.loads(message.split(":", 1)[1])
+            except Exception:
+                report = {}
+            PastLifeReunionDialog(report, parent=self).exec()
+            return
+
         # AI 剧情增强：后台生成完成后追加日志（不阻塞游历主流程）
         if message == "__AI_STORY_PENDING__":
             self._start_ai_story_enhancement()

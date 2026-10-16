@@ -183,3 +183,44 @@ class TestModeOpening(unittest.TestCase):
         self.assertTrue(any("凡人" in m for m in notify_log))
         self.assertTrue(any("启程：凡人之路" in c["text"]
                             for c in e.player.chronicle))
+
+
+class TestReunionReport(unittest.TestCase):
+    """重逢演出面板数据：__PAST_LIFE_REUNION__ 标记组装。"""
+
+    def test_reunion_report_emitted(self):
+        e = _make_engine()
+        e.player.game_mode = "demonic_lone"
+        new_player, _ = e.start_reincarnation([])
+        engine2 = GameEngine(
+            new_player, World(config_dir="config"),
+            EventPool(config_dir="config"), ItemLibrary(config_dir="config"),
+            EnemyLibrary(config_dir="config"), SkillLibrary(config_dir="config"),
+            e.npc_library, QuestLibrary(config_dir="config"),
+        )
+        msgs = []
+        engine2.add_listener(msgs.append)
+        import json as _json
+        engine2.trigger_past_life_reunion("reborn_npc_b")
+        reports = [
+            _json.loads(m.split(":", 1)[1]) for m in msgs
+            if m.startswith("__PAST_LIFE_REUNION__:")
+        ]
+        self.assertEqual(len(reports), 1)
+        r = reports[0]
+        self.assertEqual(r["bond_type"], "道侣")
+        self.assertEqual(r["bonus"], 15)
+        self.assertIn("bond_name", r)
+
+    def test_reunion_dialog_construct_offscreen(self):
+        """重逢面板可离屏构造（不 exec，遵守测试禁模态约定）。"""
+        import os
+        os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+        from PySide6.QtWidgets import QApplication
+        from ui.reunion_dialog import PastLifeReunionDialog
+        app = QApplication.instance() or QApplication([])
+        dlg = PastLifeReunionDialog({
+            "bond_name": "乙", "bond_type": "道侣",
+            "intimacy": 90, "bonus": 15, "year": 3,
+        })
+        self.assertIsNotNone(dlg)

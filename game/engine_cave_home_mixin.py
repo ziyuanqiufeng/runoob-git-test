@@ -5,6 +5,7 @@
 方法原样迁出：第八期误并入 CityLifeMixin / 第六期误并入 SectMixin 的部分由本文件归位。
 切出备份：tools/.purity_fix_backup_20260922.py。
 """
+import json
 
 
 class CaveHomeMixin:
@@ -278,6 +279,23 @@ class CaveHomeMixin:
         self.player.record_npc_moment(
             npc_id, f"第{year}年：重逢——前世{bond_type_cn}情分未了，TA似有所感"
         )
+        # 重逢演出面板数据（UI 经 __PAST_LIFE_REUNION__ 弹面板；
+        # 引擎直跑/测试无监听则无副作用）
+        try:
+            report = {
+                "bond_name": bond["name"],
+                "bond_type": bond_type_cn,
+                "intimacy": bond["intimacy"],
+                "bonus": bonus,
+                "year": year,
+                "reborn_id": npc_id,
+            }
+            self.notify(
+                "__PAST_LIFE_REUNION__:"
+                + json.dumps(report, ensure_ascii=False)
+            )
+        except Exception:
+            pass  # 演出通知失败不影响重逢结算本身
         self.notify(
             f"[purple]【重逢】四目相对的刹那，前尘往事如潮涌来——"
             f"TA正是你前世的{bond_type_cn}【{bond['name']}】！"
