@@ -66,6 +66,35 @@ class TestCareerDialog(unittest.TestCase):
         self.assertIn("修真第", joined)
 
 
+    def test_multi_life_grouping(self):
+        """跨世分组：第 2 世启程条目产生分组头，各世条目按世归位。"""
+        player, world = _make_player_with_entries()
+        player.chronicle.append(
+            {"year": 1, "month": 1, "age": 16,
+             "text": "第 1 世启程（无前世羁绊）", "category": "reincarnation"})
+        player.chronicle.append(
+            {"year": 2, "month": 3, "age": 16,
+             "text": "二世重来再修仙", "category": "event"})
+
+        dlg = CareerDialog(player, world)
+        texts = [dlg.list_widget.item(i).text()
+                 for i in range(dlg.list_widget.count())]
+        # 分组头出现（倒序：第 2 世在最上）
+        self.assertTrue(any("第 2 世" in t for t in texts), texts)
+        # 各条目仍在（不丢失）
+        self.assertTrue(any("市集闲逛" in t for t in texts))
+        self.assertTrue(any("二世重来" in t for t in texts))
+        self.assertTrue(any("初出茅庐" in t for t in texts))
+
+    def test_single_life_flat(self):
+        """单世玩家（无启程条目）保持平铺，不加分组头。"""
+        player, world = _make_player_with_entries()
+        dlg = CareerDialog(player, world)
+        texts = [dlg.list_widget.item(i).text()
+                 for i in range(dlg.list_widget.count())]
+        self.assertFalse(any("━━━━" in t for t in texts), texts)
+
+
 class TestCareerMilestones(unittest.TestCase):
     """大事件自动进入年表（结局/成就埋点）。"""
 
