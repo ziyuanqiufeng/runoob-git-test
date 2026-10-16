@@ -272,6 +272,7 @@ class Player:
         self.past_life_talents = []   # 前世天赋
         self.past_bond = None         # 前世羁绊：道侣/挚友转世重逢的跨世记忆
         self.social_event_state = {}  # NPC 主动事件冷却：{event_key: 上次触发月索引}
+        self.mode_opening_done = False  # 模式开场演出已触发（一次性）
         # 转世带来的全局加成（百分比）
         self.reincarnation_cultivation_bonus = 0.0
         self.reincarnation_breakthrough_bonus = 0.0
@@ -1213,6 +1214,7 @@ class Player:
             "past_life_talents": self.past_life_talents,
             "past_bond": self.past_bond,
             "social_event_state": self.social_event_state,
+            "mode_opening_done": self.mode_opening_done,
             "reincarnation_cultivation_bonus": self.reincarnation_cultivation_bonus,
             "reincarnation_breakthrough_bonus": self.reincarnation_breakthrough_bonus,
             # 宗门系统
@@ -1485,6 +1487,7 @@ class Player:
         player.past_life_talents = data.get("past_life_talents", [])
         player.past_bond = data.get("past_bond", None)
         player.social_event_state = data.get("social_event_state", {})
+        player.mode_opening_done = data.get("mode_opening_done", False)
         player.reincarnation_cultivation_bonus = data.get(
             "reincarnation_cultivation_bonus", 0.0
         )

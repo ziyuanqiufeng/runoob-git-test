@@ -449,6 +449,8 @@ class MainWindow(QMainWindow):
             self.engine, self.player, parent=self, new_game=True
         )
         dialog.exec()  # 取消则沿用默认 normal/standard
+        # 模式开场演出（一次性：人生开篇，standard 无演出）
+        self.engine.trigger_mode_opening()
         # 凡人挑战（天生无灵根）跳过灵根觉醒，直接进入流派选择
         if getattr(self.player, "no_spiritual_roots", False):
             self.player.set_spiritual_roots([], {})

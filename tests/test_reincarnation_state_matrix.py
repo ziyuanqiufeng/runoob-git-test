@@ -128,3 +128,38 @@ class TestResetStates(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestModeOpening(unittest.TestCase):
+    """模式开场演出：一次性 + 文案 + 年表 + standard 无演出。"""
+
+    def test_demonic_opening(self):
+        e = _make_engine()
+        e.player.game_mode = "demonic_lone"
+        notify_log = []
+        e.add_listener(notify_log.append)
+        self.assertTrue(e.trigger_mode_opening())
+        self.assertTrue(any("魔道" in m for m in notify_log))
+        self.assertTrue(e.player.mode_opening_done)
+        self.assertTrue(any("启程：魔道之路" in c["text"]
+                            for c in e.player.chronicle))
+        # 二次调用不重复
+        self.assertFalse(e.trigger_mode_opening())
+
+    def test_standard_silent(self):
+        e = _make_engine()
+        notify_log = []
+        e.add_listener(notify_log.append)
+        self.assertFalse(e.trigger_mode_opening())
+        self.assertTrue(e.player.mode_opening_done)   # 标记照置
+        self.assertEqual(notify_log, [])              # 无演出
+
+    def test_mortal_opening(self):
+        e = _make_engine()
+        e.player.game_mode = "mortal_challenge"
+        notify_log = []
+        e.add_listener(notify_log.append)
+        self.assertTrue(e.trigger_mode_opening())
+        self.assertTrue(any("凡人" in m for m in notify_log))
+        self.assertTrue(any("启程：凡人之路" in c["text"]
+                            for c in e.player.chronicle))

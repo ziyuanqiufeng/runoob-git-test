@@ -205,6 +205,51 @@ class CaveHomeMixin:
             })
         return new_player, summary
 
+    _MODE_OPENINGS = {
+        "seize_rebirth": (
+            "【夺舍】",
+            "你在别人的躯壳中醒来。经脉滞涩、旧忆纷扰——但这一世，"
+            "由你做主。夺舍者的路，注定无人同行。",
+        ),
+        "heaven_cycle": (
+            "【轮回】",
+            "飞升的刹那，天道却将你送回了起点。前世的功法感悟历历在目，"
+            "而天道注视，也如影随形——再来一世，你仍要问那长生。",
+        ),
+        "mortal_challenge": (
+            "【凡人】",
+            "测灵石黯淡无光——你天生无灵根。但修仙界从不缺逆天改命的传说，"
+            "以肉身硬撼天地，以凡人之躯比肩神明，此生便做这个传说。",
+        ),
+        "demonic_lone": (
+            "【魔道】",
+            "魔气入体，杀伐果断——你选择了这条无人祝福的路。"
+            "正道的刀悬在头顶，而力量是唯一的真理。",
+        ),
+    }
+
+    def trigger_mode_opening(self):
+        """多周目模式开场演出：新档首次进入时触发（一次性）。
+
+        standard 模式无演出（也置标记，避免后续误触发）。
+        返回 True 表示本次触发了演出。
+        """
+        p = self.player
+        if getattr(p, "mode_opening_done", False):
+            return False
+        p.mode_opening_done = True
+        mode = getattr(p, "game_mode", "standard")
+        opening = self._MODE_OPENINGS.get(mode)
+        if not opening:
+            return False
+        title, text = opening
+        self.notify(f"[purple]{title}{text}")
+        self.chronicle_manager.record(
+            f"以此世之道启程：{title.strip('【】')}之路",
+            category="mode",
+        )
+        return True
+
     def trigger_past_life_reunion(self, npc_id):
         """转世重逢初见演出：首次与转世 NPC 对话时触发（一次性）。
 
