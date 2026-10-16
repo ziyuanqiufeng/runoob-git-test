@@ -92,6 +92,26 @@ class TestInheritedStates(unittest.TestCase):
             self.assertIn(t, new_texts)
         self.assertTrue(any("第 1 世启程" in t for t in new_texts))
 
+    def test_game_mode_inherited(self):
+        """周目模式跨世延续（魔道玩家转世仍是魔道，专属线不断）。"""
+        e = _make_engine()
+        e.player.game_mode = "demonic_lone"
+        new_player, _ = e.start_reincarnation([])
+        self.assertEqual(new_player.game_mode, "demonic_lone")
+
+    def test_mode_opening_flag_reset_but_untouched(self):
+        """转世后演出标记复位（新实例默认），但转世流程不调用演出——
+        不会误触发；若未来新周目入口调用则正常演出一次。"""
+        e = _make_engine()
+        e.player.game_mode = "demonic_lone"
+        e.player.mode_opening_done = True
+        notify_log = []
+        e.add_listener(notify_log.append)
+        new_player, _ = e.start_reincarnation([])
+        self.assertFalse(new_player.mode_opening_done)
+        # 转世流程本身不触发开场演出（无魔道文案入 notify）
+        self.assertFalse(any("【魔道】" in m for m in notify_log))
+
     def test_relic_chain_inherited(self):
         e = _make_engine()
         e.player.relic_chain = ["relic_a", "relic_b"]
