@@ -525,6 +525,10 @@ class FamilyManager:
         task_logs = self.task_mgr.settle_monthly(family, rng=random)
         # 2) 建筑收入与维护
         income, upkeep = self._building_economy(family)
+        # 难度 × 模式的生产乘区（difficulty_modifiers）
+        prod_mult = getattr(self.player, "difficulty_modifiers", {}).get(
+            "production_mult", 1.0)
+        income = int(income * prod_mult)
         family["treasury"] = family["treasury"] + income - upkeep
         family["total_income"] += income
         family["total_upkeep"] += upkeep

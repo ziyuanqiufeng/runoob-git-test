@@ -390,8 +390,11 @@ class TerritoryProductionManager:
         """
         rng = rng or random
         logs = []
+        # 难度 × 模式的生产乘区（difficulty_modifiers，独立乘区）
+        prod_mult = getattr(self.player, "difficulty_modifiers", {}).get(
+            "production_mult", 1.0)
         # 灵石产出（含聚灵塔 + 坊市）进入领地金库
-        stone = int(self._effect(territory, "spirit_stone"))
+        stone = int(self._effect(territory, "spirit_stone") * prod_mult)
         # 维护费（建筑顶层 maintenance 字段，按等级累加）
         upkeep = self.total_maintenance(territory)
         # 声望积累（坊市）
@@ -425,9 +428,9 @@ class TerritoryProductionManager:
             if isinstance(rep_map, dict):
                 rep_map["territory"] = rep_map.get("territory", 0) + rep
                 logs.append(f"坊市往来，势力声望 +{rep}。")
-        # 灵草 / 灵矿产出（按概率，转为背包物品）
+        # 灵草 / 灵矿产出（按概率，转为背包物品；产量受生产乘区影响）
         for key, item_id in (("herb", "spirit_herb"), ("ore", "spirit_ore")):
-            amount = int(self._effect(territory, key))
+            amount = int(self._effect(territory, key) * prod_mult)
             if amount <= 0:
                 continue
             produced = 0

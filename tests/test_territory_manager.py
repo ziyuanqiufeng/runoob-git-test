@@ -200,6 +200,14 @@ class TestTerritoryProduction(unittest.TestCase):
         self.assertEqual(self.p.count_item("spirit_stone"), stones_before - 8)
         self.assertTrue(any("灵石" in line for line in logs))
 
+    def test_production_mult_applied(self):
+        """难度/模式生产乘区：production_mult=2.0 时灵石产出翻倍。"""
+        self.p.difficulty_modifiers = {"production_mult": 2.0}
+        self.mgr.prod_mgr.settle_monthly(self.p.territory, rng=_DeterministicRng())
+        # 聚灵塔 1 级基础产出 25 → ×2.0 = 50 入金库
+        self.assertEqual(self.p.territory["treasury"], 50)
+
+
 
 class TestTerritoryTierUpgrade(unittest.TestCase):
     def test_upgrade_tier_expands_grid(self):
