@@ -22,6 +22,15 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### Windows 绿色启动（临时文件不落 C 盘）
+
+项目根目录已提供三个批处理脚本，会把临时文件、pip 缓存重定向到项目内的
+`.tmp/` 与 `.cache/`：
+
+- `install_deps.bat`：创建 `.venv`（如缺失）并安装依赖
+- `run_game.bat`：双击启动游戏
+- `run_tests.bat`：运行全量测试；也可传测试路径，如 `run_tests.bat tests/test_infrastructure.py`
+
 ## 运行测试
 
 ```bash

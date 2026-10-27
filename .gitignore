@@ -31,5 +31,12 @@ outputs/
 assets/portraits/generated_*
 assets/portraits/imported_*
 
+# 本地运行缓存：把临时文件/pip 缓存留在项目内，避免占用 C 盘
+.tmp/
+.cache/
+
 # 测试运行时临时文件（tearDown 正常会删，防沙箱拦截后残留入库）
 test_*.json
+
+# 历史切出备份（Mixin 拆分过程产物，不入库、不删除）
+tools/.*backup*.py
