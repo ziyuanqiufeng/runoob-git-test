@@ -23,6 +23,23 @@ class NPCQuestManager:
         self.chronicle_manager = chronicle_manager
         self.achievement_manager = achievement_manager
         self.config = self._load(config_dir)
+        self._location_types = self._load_location_types(config_dir)
+
+    def _load_location_types(self, config_dir):
+        """加载地点 id → 类型（city/wild/sect），用于委托物品池差异化。"""
+        path = os.path.join(config_dir, "locations.json")
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                locs = json.load(f)
+            locs = locs if isinstance(locs, list) else locs.get("locations", [])
+            return {loc.get("id"): loc.get("type") for loc in locs if loc.get("id")}
+        except (OSError, json.JSONDecodeError):
+            return {}
+
+    def _npc_location_type(self, npc):
+        """NPC 所在地点类型；未知返回 None。"""
+        loc_id = getattr(npc, "location", None)
+        return self._location_types.get(loc_id) if loc_id else None
 
     def _load(self, config_dir):
         path = os.path.join(config_dir, "npc_quests.json")
@@ -63,8 +80,12 @@ class NPCQuestManager:
                 "count": 0,
                 "text": section.get("intro", "可否助我一臂之力？"),
             }
-        # 寻物型
-        pool = self.config.get("item_pool") or ["healing_pill"]
+        # 寻物型：物品池按 NPC 所在地点类型差异化（城/野/宗）
+        loc_type = self._npc_location_type(npc)
+        location_pools = self.config.get("location_item_pools", {}) or {}
+        pool = (location_pools.get(loc_type)
+                or self.config.get("item_pool")
+                or ["healing_pill"])
         item_id = pool[seed % len(pool)]
         lo, hi = (self.config.get("count_range") or [1, 1])[:2]
         span = max(0, int(hi) - int(lo))
@@ -72,9 +93,12 @@ class NPCQuestManager:
         templates = self.config.get("intro_templates") or ["帮我带 {count} 份【{item}】来。"]
         template = templates[(seed // 13) % len(templates)]
         item_name = self._item_name(item_id) or item_id
+        npc_name = getattr(npc, "name", npc_id)
+        flavor = (self.config.get("location_flavor", {}) or {}).get(loc_type, "")
+        text = template.format(item=item_name, count=count, npc=npc_name)
         return {
             "npc_id": npc_id,
-            "npc_name": getattr(npc, "name", npc_id),
+            "npc_name": npc_name,
             "type": "collect",
             "type_title": "寻物",
             "item_id": item_id,
@@ -82,7 +106,7 @@ class NPCQuestManager:
             "count": count,
             "favor_reward": int(self.config.get("favor_reward", 10)),
             "stone_reward": int(self.config.get("stone_reward", 50)),
-            "text": template.format(item=item_name, count=count),
+            "text": text + flavor,
         }
 
     def get_state(self, npc_id):

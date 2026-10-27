@@ -1,14 +1,24 @@
 {
-  "_comment": "NPC 个人支线：寻物（默认）/ 护法 / 复仇三型，按 npc_id 确定性分派。敌人/物品 id 均取自 enemies.json 与 items.json。",
-  "item_pool": ["healing_pill", "qi_pill", "spirit_herb", "spirit_stone"],
+  "_comment": "NPC 个人支线：寻物（默认）/ 护法 / 复仇三型，按 npc_id 确定性分派；寻物物品池按 NPC 所在地点类型（城/野/宗）差异化。物品/敌人 id 均取自 items.json 与 enemies.json。",
+  "item_pool": ["healing_pill", "qi_pill", "spirit_herb"],
+  "location_item_pools": {
+    "city": ["qi_pill", "healing_pill"],
+    "wild": ["spirit_herb", "healing_pill"],
+    "sect": ["qi_pill", "spirit_herb"]
+  },
+  "location_flavor": {
+    "city": "（城中往来，皆是生意与消息。）",
+    "wild": "（野外的路，走一趟可不容易。）",
+    "sect": "（宗门之内，人情往来自有规矩。）"
+  },
   "count_range": [1, 3],
   "favor_reward": 10,
   "stone_reward": 50,
   "intro_templates": [
-    "我近来炼药缺一味【{item}】，你若能寻来 {count} 份，我必有重谢。",
-    "听闻你行走四方——可否替我带 {count} 份【{item}】回来？这份人情我记下了。",
-    "有些事不便亲自去办……{count} 份【{item}】，拜托了。",
-    "我有一桩心事：需要【{item}】{count} 份。你愿意帮我这个忙吗？"
+    "{npc}：我近来炼药缺一味【{item}】，你若能寻来 {count} 份，必有重谢。",
+    "{npc}：听闻你行走四方——可否替我带 {count} 份【{item}】回来？这份人情我记下了。",
+    "{npc}：有些事不便亲自去办……{count} 份【{item}】，拜托了。",
+    "{npc}：我有一桩心事：需要【{item}】{count} 份。你愿意帮我这个忙吗？"
   ],
   "combat_favor_reward": 15,
   "combat_stone_reward": 120,

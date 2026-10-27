@@ -103,6 +103,38 @@ class TestNPCQuest(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("材料不足", msg)
 
+    def test_location_aware_item_pool(self):
+        """寻物委托物品池按 NPC 所在地点类型差异化。"""
+        e = _make_engine()
+        pools = e.npc_quest_manager.config.get("location_item_pools", {})
+        checked = 0
+        for nid, npc in e.npc_library.npcs.items():
+            q = e.npc_quest_manager.get_quest(nid)
+            if not q or q["type"] != "collect":
+                continue
+            loc_type = e.npc_quest_manager._npc_location_type(npc)
+            if loc_type and loc_type in pools:
+                self.assertIn(q["item_id"], pools[loc_type],
+                              f"{npc.name}（{loc_type}）委托物品越池")
+                checked += 1
+        self.assertGreater(checked, 5, "应检查到多个寻物委托")
+
+    def test_quest_text_contains_npc_name(self):
+        e = _make_engine()
+        nid = next(iter(e.npc_library.npcs))
+        q = e.npc_quest_manager.get_quest(nid)
+        if q["type"] == "collect":
+            self.assertIn(q["npc_name"], q["text"])
+
+    def test_quest_items_never_currency(self):
+        """守门：委托物品不得是灵石（否则"索灵石换灵石奖励"成套利）。"""
+        e = _make_engine()
+        for nid in e.npc_library.npcs:
+            q = e.npc_quest_manager.get_quest(nid)
+            if q and q["type"] == "collect":
+                self.assertNotEqual(q["item_id"], "spirit_stone",
+                                    f"{q['npc_name']} 的委托索要灵石")
+
     def test_low_favor_rejects_accept(self):
         """好感 < -10 时不可接委托（与正道皆敌联动）。"""
         e = _make_engine()
