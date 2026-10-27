@@ -42,6 +42,9 @@ def _make_engine():
 
 class TestTrialTower(unittest.TestCase):
 
+    def _per_floor(self, e):
+        return e.trial_tower_manager.config["stone_reward_per_floor"]
+
     def test_start_run(self):
         e = _make_engine()
         mgr = e.trial_tower_manager
@@ -63,8 +66,9 @@ class TestTrialTower(unittest.TestCase):
         self.assertEqual(result["floor_cleared"], 1)
         self.assertFalse(result["cleared"])
         self.assertEqual(mgr.floor, 2)
+        per_floor = int(mgr.config["stone_reward_per_floor"])
         self.assertEqual(
-            e.player.count_item("spirit_stone"), stones + 20)   # 1 层 × 20
+            e.player.count_item("spirit_stone"), stones + per_floor)
         self.assertEqual(len(mgr.pending_buffs), 3)
 
     def test_choose_buff_item(self):
@@ -108,8 +112,9 @@ class TestTrialTower(unittest.TestCase):
             stones = e.player.count_item("spirit_stone")
             lost = mgr.on_combat_lost()
         self.assertEqual(lost["reached"], 1)
+        per_floor = int(self._per_floor(e))
         self.assertEqual(
-            e.player.count_item("spirit_stone"), stones + 20 // 2)  # 折半
+            e.player.count_item("spirit_stone"), stones + per_floor // 2)
         self.assertFalse(mgr.active)
         self.assertEqual(mgr.best, 1)
 
@@ -124,8 +129,9 @@ class TestTrialTower(unittest.TestCase):
             stones = e.player.count_item("spirit_stone")
             result = mgr.retreat()
         self.assertEqual(result["reached"], 2)
+        per_floor = int(self._per_floor(e))
         self.assertEqual(
-            e.player.count_item("spirit_stone"), stones + 2 * 20)   # 全额
+            e.player.count_item("spirit_stone"), stones + 2 * per_floor)
 
     def test_best_inherited_on_reincarnation(self):
         e = _make_engine()
