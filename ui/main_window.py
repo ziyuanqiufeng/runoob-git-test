@@ -248,6 +248,7 @@ class MainWindow(QMainWindow):
         self.action_panel.open_world_events.connect(self._open_world_events)
         self.action_panel.open_secret_realm.connect(self._open_secret_realm)
         self.action_panel.open_trial_tower.connect(self._open_trial_tower)
+        self.action_panel.open_lantern.connect(self._open_lantern)
         self.action_panel.open_family.connect(self._open_family)
         self.action_panel.open_territory.connect(self._open_territory)
         self.action_panel.open_difficulty_mode.connect(self._open_difficulty_mode)
@@ -323,6 +324,22 @@ class MainWindow(QMainWindow):
         """打开修行图鉴（跨世收集：结局/人物/试炼塔）。"""
         from ui.collection_dialog import CollectionDialog
         CollectionDialog(self.engine, parent=self).exec()
+
+    def _open_lantern(self):
+        """灯会（节日限定）：非节日期间不可入。"""
+        festival = None
+        try:
+            festival = self.world.get_current_festival()
+        except Exception:
+            festival = None
+        if not festival:
+            from PySide6.QtWidgets import QMessageBox
+            QMessageBox.information(
+                self, "灯会", "今夜无节，灯会未开——节日期间再来吧。")
+            return
+        from ui.lantern_dialog import LanternDialog
+        LanternDialog(self.engine, parent=self).exec()
+        self._refresh_status()
 
     def _setup_global_style(self):
         """配置全局 QSS，统一圆角、配色与去黑边风格。"""

@@ -155,3 +155,31 @@ class TestMetaCollection(unittest.TestCase):
         self.assertEqual(new_player.meta_collection["endings"],
                          ["ascend_immortal"])
         self.assertEqual(len(new_player.meta_collection["npcs"]), 2)
+
+
+class TestLantern(unittest.TestCase):
+    """灯会：奖励发放（答对数×灵石，全对加心境）与题库完整性。"""
+
+    def test_award_per_correct(self):
+        e = _make_engine()
+        stones = e.player.count_item("spirit_stone")
+        desc = e.award_lantern_reward(2, 3)
+        self.assertEqual(e.player.count_item("spirit_stone"), stones + 60)
+        self.assertIn("灵石", desc)
+
+    def test_perfect_bonus(self):
+        e = _make_engine()
+        e.player.mental_state = 50
+        e.award_lantern_reward(3, 3)
+        self.assertGreater(e.player.mental_state, 50)
+
+    def test_riddles_config_valid(self):
+        import json
+        path = os.path.join("config", "lantern_riddles.json")
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertGreaterEqual(len(data.get("riddles", [])), 3)
+        for r in data["riddles"]:
+            self.assertTrue(r.get("question"))
+            self.assertEqual(len(r.get("options", [])), 3)
+            self.assertIn(r.get("answer"), (0, 1, 2))

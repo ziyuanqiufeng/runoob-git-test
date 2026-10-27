@@ -229,6 +229,37 @@ class CaveHomeMixin:
         ),
     }
 
+    def award_lantern_reward(self, correct_count, total):
+        """灯会奖励发放（节日灯谜）。返回奖励描述。
+
+        correct_count 题答对：每题 reward_per_correct 灵石；
+        全对额外心境 +perfect_mental_bonus。
+        """
+        import os
+        cfg = {"reward_per_correct": 30, "perfect_mental_bonus": 5}
+        try:
+            import json as _json
+            path = os.path.join("config", "lantern_riddles.json")
+            with open(path, "r", encoding="utf-8") as f:
+                data = _json.load(f)
+            cfg["reward_per_correct"] = data.get(
+                "reward_per_correct", cfg["reward_per_correct"])
+            cfg["perfect_mental_bonus"] = data.get(
+                "perfect_mental_bonus", cfg["perfect_mental_bonus"])
+        except (OSError, ValueError):
+            pass
+        stone = int(correct_count) * int(cfg["reward_per_correct"])
+        if stone > 0:
+            item = self.item_library.create("spirit_stone")
+            for _ in range(stone):
+                self.player.add_item(item)
+        lines = [f"灵石 ×{stone}"]
+        if total > 0 and correct_count >= total:
+            bonus = int(cfg["perfect_mental_bonus"])
+            self.player.mental_state = min(100, self.player.mental_state + bonus)
+            lines.append(f"心境 +{bonus}（全对）")
+        return "、".join(lines)
+
     def consume_pending_start_items(self):
         """发放模式开局赠礼（pending_start_items 真实到手）。
 
