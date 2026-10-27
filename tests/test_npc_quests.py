@@ -103,6 +103,15 @@ class TestNPCQuest(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("材料不足", msg)
 
+    def test_low_favor_rejects_accept(self):
+        """好感 < -10 时不可接委托（与正道皆敌联动）。"""
+        e = _make_engine()
+        nid = self._npc_id(e)
+        e.player.npc_relationships[nid] = -30
+        ok, msg = e.npc_quest_manager.accept(nid)
+        self.assertFalse(ok)
+        self.assertIn("芥蒂", msg)
+
     def test_double_turn_in_rejected(self):
         e = _make_engine()
         nid = self._npc_id(e)

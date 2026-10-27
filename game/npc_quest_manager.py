@@ -107,6 +107,10 @@ class NPCQuestManager:
             return False, "此人身上没有任何委托。"
         if self.get_state(npc_id) != "none":
             return False, "这条支线已经接过了。"
+        # 好感门槛：心怀芥蒂者不会托付私事（与"正道皆敌"等机制自然联动）
+        rel = self.player.npc_relationships.get(npc_id, 0)
+        if rel < -10:
+            return False, "此人对你心怀芥蒂，不愿将私事托付于你。"
         store = getattr(self.player, "npc_quests", None)
         if store is None:
             self.player.npc_quests = {}
