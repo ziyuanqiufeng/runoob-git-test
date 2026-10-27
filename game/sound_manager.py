@@ -55,9 +55,14 @@ class SoundManager:
             effect.setSource(QUrl.fromLocalFile(os.path.abspath(path)))
             effect.play()
         else:
-            # 没有音效文件时回退到系统提示音
-            from PySide6.QtWidgets import QApplication
-            QApplication.beep()
+            # 没有音效文件时回退到系统提示音（无 QApplication 实例时跳过，
+            # 否则 QApplication.beep() 会 access violation）
+            try:
+                from PySide6.QtWidgets import QApplication
+                if QApplication.instance() is not None:
+                    QApplication.beep()
+            except Exception:
+                pass
 
     def play_breakthrough(self):
         """突破成功音效。"""

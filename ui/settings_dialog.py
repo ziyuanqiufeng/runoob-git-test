@@ -110,6 +110,11 @@ class SettingsDialog(QDialog):
         vol_row.addWidget(vol_label)
         vol_row.addWidget(self.vol_slider, 1)
         vol_row.addWidget(self.vol_value)
+        self.btn_vol_test = QPushButton("试听")
+        self.btn_vol_test.setToolTip("按当前音量播放一小段音效")
+        self.btn_vol_test.setFixedWidth(56)
+        self.btn_vol_test.clicked.connect(self._on_vol_test)
+        vol_row.addWidget(self.btn_vol_test)
         layout.addLayout(vol_row)
 
         layout.addSpacing(8)
@@ -185,6 +190,13 @@ class SettingsDialog(QDialog):
         if self.sound_manager is not None:
             self.sound_manager.set_muted(self._muted)
             self.sound_manager.set_volume(self._volume)
+
+    def _on_vol_test(self):
+        """按当前音量试听一段音效（供调音参考）。"""
+        if self.sound_manager is None:
+            return
+        self._apply_runtime_sound()
+        self.sound_manager.play_level_up()
 
     def _on_change_portrait(self):
         if self.player is None:
