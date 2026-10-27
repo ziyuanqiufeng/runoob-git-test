@@ -172,5 +172,99 @@
       "item_id": "spirit_stone",
       "count": 50
     }
+  },
+  {
+    "id": "residence_owner",
+    "name": "洞天有主",
+    "description": "购置一处洞府。",
+    "condition": {
+      "type": "flag",
+      "field": "residence"
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 20
+    }
+  },
+  {
+    "id": "family_founder",
+    "name": "开枝散叶",
+    "description": "创立修仙家族。",
+    "condition": {
+      "type": "flag",
+      "field": "family"
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 50
+    }
+  },
+  {
+    "id": "sect_founder",
+    "name": "开宗立派",
+    "description": "自立门户，开创宗门。",
+    "condition": {
+      "type": "flag",
+      "field": "founded_sect"
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 80
+    }
+  },
+  {
+    "id": "territory_lord",
+    "name": "广厦千间",
+    "description": "占据一处领地。",
+    "condition": {
+      "type": "flag",
+      "field": "territory"
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 50
+    }
+  },
+  {
+    "id": "recipe_collector",
+    "name": "丹方集藏",
+    "description": "掌握 6 种丹方。",
+    "condition": {
+      "type": "size_at_least",
+      "field": "learned_recipes",
+      "count": 6
+    },
+    "reward": {
+      "item_id": "health_pill",
+      "count": 5
+    }
+  },
+  {
+    "id": "sect_pillar",
+    "name": "宗门柱石",
+    "description": "宗门贡献累计 1000。",
+    "condition": {
+      "type": "field_at_least",
+      "field": "sect_contribution",
+      "count": 1000
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 100
+    }
+  },
+  {
+    "id": "life_path_adept",
+    "name": "百艺精进",
+    "description": "三条生活技艺达到熟练（百家争鸣）。",
+    "condition": {
+      "type": "size_at_least",
+      "field": "life_path_proficiency",
+      "count": 3
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 40
+    }
   }
 ]

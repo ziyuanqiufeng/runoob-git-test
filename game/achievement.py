@@ -117,6 +117,22 @@ class AchievementManager:
             coll = getattr(self.player, "meta_collection", {}) or {}
             kind = condition.get("kind", "npcs")
             return len(coll.get(kind, []) or []) >= condition.get("count", 1)
+        # 存在性标记（洞府/家族/宗门/领地等"已拥有"类）
+        if ctype == "flag" and event_type == "snapshot":
+            field = condition.get("field")
+            if not field:
+                return False
+            return bool(getattr(self.player, field, None))
+        # 容器规模阈值（丹方/熟练记录等 dict/list 长度）
+        if ctype == "size_at_least" and event_type == "snapshot":
+            field = condition.get("field")
+            if not field:
+                return False
+            val = getattr(self.player, field, None)
+            try:
+                return len(val) >= condition.get("count", 1)
+            except TypeError:
+                return False
         return False
 
     def _unlock(self, achievement_id):

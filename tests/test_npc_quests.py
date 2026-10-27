@@ -204,6 +204,33 @@ class TestNewAchievements(unittest.TestCase):
         e._achievement_snapshot()
         self.assertIn("three_lives", e.player.achievements)
 
+    def test_flag_achievements(self):
+        """存在性成就：洞府/家族/领地/宗门。"""
+        e = _make_engine()
+        e.player.residence = {"id": "r1"}
+        e.player.family = {"name": "测试家族"}
+        e.player.territory = {"id": "t1"}
+        e.player.founded_sect = {"name": "测试宗"}
+        e._achievement_snapshot()
+        for aid in ("residence_owner", "family_founder",
+                    "territory_lord", "sect_founder"):
+            self.assertIn(aid, e.player.achievements)
+
+    def test_size_achievements(self):
+        """容器规模成就：丹方/生活技艺。"""
+        e = _make_engine()
+        e.player.learned_recipes = {f"r{i}": 1 for i in range(6)}
+        e.player.life_path_proficiency = {f"p{i}": 10 for i in range(3)}
+        e._achievement_snapshot()
+        self.assertIn("recipe_collector", e.player.achievements)
+        self.assertIn("life_path_adept", e.player.achievements)
+
+    def test_contribution_achievement(self):
+        e = _make_engine()
+        e.player.sect_contribution = 1200
+        e._achievement_snapshot()
+        self.assertIn("sect_pillar", e.player.achievements)
+
     def test_achievement_unlock_notifies(self):
         """成就解锁必须触发提示 + 年表（此前快照/物品型静默解锁）。"""
         e = _make_engine()
