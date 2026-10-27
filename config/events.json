@@ -569,5 +569,100 @@
       "qi": 110,
       "item": "qi_pill"
     }
+  },
+  {
+    "id": "sect_tournament_spectate",
+    "name": "大比观战",
+    "condition": "explore",
+    "weight": 6,
+    "description": "宗门大比如火如荼，你在看台上旁观同门斗法。一招一式间，你忽然看懂了从前没想通的那处关隘。",
+    "effects": {
+      "qi": 40,
+      "mental": 6
+    }
+  },
+  {
+    "id": "sect_bounty_hall",
+    "name": "悬赏堂",
+    "condition": "explore",
+    "weight": 5,
+    "description": "悬赏堂的木牌上新挂了一枚任务，无人认领。你揭下它——顺手还能领一份宗门补贴。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 2,
+      "qi": 25
+    }
+  },
+  {
+    "id": "family_ancestral_night",
+    "name": "祠堂夜话",
+    "condition": "explore",
+    "weight": 4,
+    "min_realm_order": 13,
+    "description": "深夜祠堂，族老点起一炷香，说起家族百年前的旧事。那些兴衰起落里藏着为人处世的分寸。",
+    "effects": {
+      "mental": 10,
+      "qi": 30
+    }
+  },
+  {
+    "id": "family_marriage_envoy",
+    "name": "联姻使者",
+    "condition": "explore",
+    "weight": 3,
+    "min_realm_order": 13,
+    "description": "别家使者携礼登门，欲与你的家族结秦晋之好。礼数周全，进退之间皆是学问。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 3,
+      "karma": 2
+    }
+  },
+  {
+    "id": "territory_vein_found",
+    "name": "矿脉新发现",
+    "condition": "explore",
+    "weight": 4,
+    "min_realm_order": 18,
+    "description": "领地匠人来报：后山探测到一条新的灵石矿脉。你亲自去看了一眼——脉息绵长，足够开采百年。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 6
+    }
+  },
+  {
+    "id": "territory_refugees",
+    "name": "领地流民",
+    "condition": "explore",
+    "weight": 3,
+    "min_realm_order": 18,
+    "description": "战乱流民涌至领地边界，跪求收留。管事等你一句话——开仓放粮，还是闭门不纳？",
+    "effects": {
+      "karma": 5,
+      "mental": 5
+    }
+  },
+  {
+    "id": "realm_rift",
+    "name": "秘境裂隙",
+    "condition": "explore",
+    "weight": 4,
+    "min_realm_order": 12,
+    "description": "一道虚空裂隙无声张开，裂隙深处有灵光流转，也有罡风割面。你握紧护体灵气，探身而入。",
+    "effects": {
+      "qi": 90,
+      "health": -35
+    }
+  },
+  {
+    "id": "realm_ancient_map",
+    "name": "秘境古图",
+    "condition": "explore",
+    "weight": 3,
+    "description": "荒庙残像后藏着一卷兽皮古图，墨迹虽褪，山川走势仍可辨。这样的东西，坊市里总有人肯出好价。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 3
+    }
   }
 ]

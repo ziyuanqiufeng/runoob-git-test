@@ -60,7 +60,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "wolf"
@@ -129,7 +137,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "wolf",
@@ -206,7 +222,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "wolf",
@@ -284,7 +308,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "flame_lion",
@@ -361,7 +393,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "snake",
@@ -438,7 +478,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "tiger",
@@ -514,7 +562,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "snake",
@@ -589,7 +645,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "righteous_disciple",
@@ -660,7 +724,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "wolf"
@@ -773,7 +845,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "snake",
@@ -887,7 +967,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "righteous_disciple",
@@ -962,7 +1050,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "righteous_elder",
@@ -1037,7 +1133,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "shadow_wolf",
@@ -1113,7 +1217,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "thunder_lord",
@@ -1200,7 +1312,15 @@
       "cave_shedding": 4,
       "wandering_monk": 5,
       "black_market_stall": 1,
-      "demon_market": 1
+      "demon_market": 1,
+      "realm_rift": 7,
+      "realm_ancient_map": 6,
+      "sect_tournament_spectate": 1,
+      "sect_bounty_hall": 1,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 2,
+      "territory_refugees": 1
     },
     "enemies": [
       "ice_wolf",
@@ -1284,7 +1404,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "wolf"
@@ -1393,7 +1521,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "wind_sparrow",
@@ -1464,7 +1600,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "wolf",
@@ -1580,7 +1724,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "tiger",
@@ -1651,7 +1803,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "snake"
@@ -1775,7 +1935,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "swamp_crocodile",
@@ -1856,7 +2024,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "fire_scorpion",
@@ -1966,7 +2142,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "flame_lion",
@@ -2039,7 +2223,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "shadow_wolf"
@@ -2148,7 +2340,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "shadow_wolf"
@@ -2218,7 +2418,15 @@
       "ancient_stele": 1,
       "rain_debate": 2,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_bounty_hall": 4,
+      "family_ancestral_night": 4,
+      "family_marriage_envoy": 4,
+      "territory_vein_found": 4,
+      "territory_refugees": 4,
+      "sect_tournament_spectate": 2,
+      "realm_rift": 1,
+      "realm_ancient_map": 2
     },
     "enemies": [
       "wind_roc"
@@ -2327,7 +2535,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "wind_roc"
@@ -2397,7 +2613,15 @@
       "black_market_stall": 1,
       "demon_market": 1,
       "thunder_pool_trial": 1,
-      "cave_shedding": 1
+      "cave_shedding": 1,
+      "sect_tournament_spectate": 8,
+      "sect_bounty_hall": 6,
+      "family_ancestral_night": 1,
+      "family_marriage_envoy": 1,
+      "territory_vein_found": 1,
+      "territory_refugees": 1,
+      "realm_rift": 1,
+      "realm_ancient_map": 1
     },
     "enemies": [
       "snake",
