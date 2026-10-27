@@ -162,3 +162,25 @@ class TestEndingPersist(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestEndingModeLabel(unittest.TestCase):
+    """结局面板此世之道标注（非正统显示/正统不显示）。"""
+
+    def _labels(self, mode):
+        import os
+        os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+        from PySide6.QtWidgets import QApplication, QLabel
+        from ui.ending_dialog import EndingDialog
+        app = QApplication.instance() or QApplication([])
+        dlg = EndingDialog({"name": "魔道登天", "desc": "d", "type": "demon"},
+                           game_mode=mode)
+        return [w.text() for w in dlg.findChildren(QLabel)]
+
+    def test_demonic_ending_label(self):
+        texts = self._labels("demonic_lone")
+        self.assertTrue(any("以「魔道独行」之道" in t for t in texts), texts)
+
+    def test_standard_no_label(self):
+        texts = self._labels("standard")
+        self.assertFalse(any("之道，走完此生" in t for t in texts))

@@ -20,9 +20,10 @@ class EndingDialog(QDialog):
     reincarnate_requested = Signal()
     main_menu_requested = Signal()
 
-    def __init__(self, ending, parent=None):
+    def __init__(self, ending, parent=None, game_mode="standard"):
         super().__init__(parent)
         self.ending = ending or {}
+        self.game_mode = game_mode
         self.setWindowTitle("结局")
         self.setFixedSize(520, 380)
 
@@ -49,6 +50,19 @@ class EndingDialog(QDialog):
         desc.setAlignment(Qt.AlignCenter)
         desc.setStyleSheet(f"color: {text_color}; font-size: 14px; line-height: 1.6;")
         layout.addWidget(desc)
+
+        # 此世之道标注（非正统模式：让结局见证你选择的路）
+        mode_name = {
+            "seize_rebirth": "夺舍重生", "heaven_cycle": "天道轮回",
+            "mortal_challenge": "凡人挑战", "demonic_lone": "魔道独行",
+        }.get(getattr(self, "game_mode", "standard"))
+        if mode_name:
+            mode_label = QLabel(f"以「{mode_name}」之道，走完此生")
+            mode_label.setAlignment(Qt.AlignCenter)
+            mode_label.setStyleSheet(
+                "color: #8e44ad; font-size: 13px; font-style: italic;"
+            )
+            layout.addWidget(mode_label)
 
         layout.addStretch(1)
 

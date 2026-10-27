@@ -676,7 +676,10 @@ class MainWindow(QMainWindow):
         if not ending:
             return
         from ui.ending_dialog import EndingDialog
-        dialog = EndingDialog(ending, parent=self)
+        dialog = EndingDialog(
+            ending, parent=self,
+            game_mode=getattr(self.engine.player, "game_mode", "standard"),
+        )
         dialog.reincarnate_requested.connect(self._reset_game)
         dialog.main_menu_requested.connect(self.close)
         dialog.exec()
