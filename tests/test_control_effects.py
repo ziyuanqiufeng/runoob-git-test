@@ -444,3 +444,61 @@ class TestConfiguredSkillEffects(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestCombatIntentPreview(unittest.TestCase):
+    """战斗意图预告：玩家行动前显示敌人本回合决策。"""
+
+    def _engine(self):
+        import tempfile
+        from game.engine import GameEngine
+        from game.save_manager import SaveManager
+        tmp = tempfile.mkdtemp()
+        player = Player(name="观战者")
+        engine = GameEngine(
+            player, World(config_dir="config"),
+            EventPool(config_dir="config"), ItemLibrary(config_dir="config"),
+            EnemyLibrary(config_dir="config"), SkillLibrary(config_dir="config"),
+            NPCLibrary(config_dir="config"), QuestLibrary(config_dir="config"),
+            save_manager=SaveManager(
+                save_path=os.path.join(tmp, "s.json"),
+                save_dir=os.path.join(tmp, "saves")),
+        )
+        return engine
+
+    def _enemy(self):
+        data = {"id": "intent_test", "name": "试探妖兽", "alignment": "neutral",
+                "hp": 500, "attack": 20, "defense": 0, "level": 1,
+                "skills": [], "loot": [], "exp": 0}
+        return Enemy.from_dict(data)
+
+    def test_intent_preview_shown(self):
+        e = self._engine()
+        e.player.health = e.player.max_health
+        enemy = self._enemy()
+        e.start_combat(enemy)
+        logs, result = e.combat_round(enemy, "attack")
+        self.assertTrue(any("【敌意】" in l for l in logs), logs)
+        self.assertIn(result, ("continue", "win", "lose"))
+
+    def test_intent_cleared_after_execution(self):
+        e = self._engine()
+        e.player.health = e.player.max_health
+        enemy = self._enemy()
+        e.start_combat(enemy)
+        e.combat_round(enemy, "attack")
+        self.assertIsNone(getattr(e, "_enemy_intent", None))
+
+    def test_decide_action_called_once_per_round(self):
+        e = self._engine()
+        e.player.health = e.player.max_health
+        enemy = self._enemy()
+        e.start_combat(enemy)
+        calls = {"n": 0}
+        original = enemy.decide_action
+        def counting(player):
+            calls["n"] += 1
+            return original(player)
+        enemy.decide_action = counting
+        e.combat_round(enemy, "attack")
+        self.assertEqual(calls["n"], 1)   # 预调一次，敌人段复用，不二次随机

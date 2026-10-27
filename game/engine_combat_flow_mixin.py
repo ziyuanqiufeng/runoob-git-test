@@ -89,6 +89,26 @@ class CombatFlowMixin:
             special=None,
         )
 
+    def _describe_enemy_intent(self, enemy, decision):
+        """把敌人本回合决策翻译成玩家可读的意图预告。"""
+        action = decision.get("action")
+        if action == "flee":
+            return f"{enemy.name} 目露退意，似欲遁走。"
+        if action == "heal":
+            skill = decision.get("skill") or {}
+            return f"{enemy.name} 气息转为绵长——似要施展【{skill.get('name', '疗伤')}】。"
+        if action == "buff":
+            skill = decision.get("skill") or {}
+            return f"{enemy.name} 周身灵气涌动——似要施展【{skill.get('name', '加持')}】。"
+        if action == "skill":
+            skill = decision.get("skill") or {}
+            mult = skill.get("damage_multiplier", 1.0)
+            est = max(1, int(enemy.attack * mult))
+            return (f"{enemy.name} 将施展【{skill.get('name', '绝招')}】"
+                    f"（预计伤害约 {est}）。")
+        est = max(1, int(enemy.attack * 0.8))
+        return f"{enemy.name} 正蓄势待发（普通攻击，预计伤害约 {est}）。"
+
     def _apply_difficulty_enemy_scaling(self, enemy):
         """难度 × 周目模式的敌人强度乘区（difficulty_modifiers，独立乘区）。"""
         diff_enemy_mult = getattr(self.player, "difficulty_modifiers", {}).get(
@@ -1168,6 +1188,19 @@ class CombatFlowMixin:
             # 环境效果直接击杀敌人时按胜利结算
             return logs, "win"
 
+        # 战斗意图预告：预判本回合敌人行动（缓存决策，敌人段直接执行，
+        # 不二次随机——与旧逻辑行为一致，只是提前告知玩家）
+        intent = getattr(self, "_enemy_intent", None)
+        if intent is None:
+            try:
+                intent = enemy.decide_action(self.player)
+                self._enemy_intent = intent
+                hint = self._describe_enemy_intent(enemy, intent)
+                if hint:
+                    logs.append(f"[gray]【敌意】{hint}")
+            except Exception:
+                self._enemy_intent = None
+
         if action == "skill" and skill_id:
             skill = self.skill_library.get(skill_id)
             if not skill or skill_id not in self.player.skills:
@@ -1604,6 +1637,7 @@ class CombatFlowMixin:
             # 反噬结束提示
             if self.player_stunned == 0:
                 logs.append(f"[green]神识逐渐恢复，眩晕解除。")
+            self._enemy_intent = None   # 眩晕路径不执行缓存意图，清除防串回合
             self.player.update_skill_cooldowns()
             self._tick_buffs(logs)
             if not self.player.is_alive():
@@ -1623,6 +1657,7 @@ class CombatFlowMixin:
 
         # 高阶敌人专属技能（优先于普通 AI）
         if self._try_enemy_special_skill(enemy, logs):
+            self._enemy_intent = None   # 专属技能路径不执行缓存意图
             self.player.update_skill_cooldowns()
             self._tick_buffs(logs)
             self._tick_combat_states(logs)
@@ -1636,7 +1671,10 @@ class CombatFlowMixin:
         # 高阶敌人召唤机制（在普通行动前尝试）
         self._try_enemy_summon(enemy, logs)
 
-        decision = enemy.decide_action(self.player)
+        decision = getattr(self, "_enemy_intent", None)
+        self._enemy_intent = None       # 意图一经执行即清除
+        if decision is None:
+            decision = enemy.decide_action(self.player)
         action_type = decision["action"]
 
         if action_type == "flee":
