@@ -229,6 +229,29 @@ class CaveHomeMixin:
         ),
     }
 
+    def consume_pending_start_items(self):
+        """发放模式开局赠礼（pending_start_items 真实到手）。
+
+        返回发放的物品名列表（空列表表示无赠礼）。
+        """
+        pending = list(getattr(self.player, "pending_start_items", []) or [])
+        if not pending:
+            return []
+        names = []
+        for item_id in pending:
+            try:
+                item = self.item_library.create(item_id)
+            except Exception:
+                continue
+            if item is None:      # 无效 id：create 返回 None
+                continue
+            self.player.add_item(item)
+            names.append(item.name)
+        self.player.pending_start_items = []
+        if names:
+            self.notify(f"[cyan]【开局赠礼】{('、'.join(names))} 已入行囊。")
+        return names
+
     def apply_hostile_factions(self):
         """将模式的敌对阵营落到 NPC 关系上（正道皆敌等）。
 

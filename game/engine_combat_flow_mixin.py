@@ -1516,6 +1516,15 @@ class CombatFlowMixin:
                 player_realm_order=self._get_realm_order(),
                 enemy_realm_order=self._get_enemy_realm_order(enemy),
             )
+            # 难度 × 模式的掉落倍率（difficulty_modifiers 独立乘区）
+            drop_mult = getattr(self.player, "difficulty_modifiers", {}).get(
+                "drop_mult", 1.0)
+            if drop_mult < 1.0:
+                loot_ids = [i for i in loot_ids if random.random() < drop_mult]
+            elif drop_mult > 1.0:
+                for item_id in list(loot_ids):
+                    if random.random() < (drop_mult - 1.0):
+                        loot_ids.append(item_id)
             for item_id in loot_ids:
                 item = self.item_library.create(item_id)
                 self.player.add_item(item)

@@ -141,3 +141,27 @@ class TestHostileFactions(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestStartItemsDelivery(unittest.TestCase):
+    """模式开局赠礼：pending_start_items 真实发放并入包。"""
+
+    def test_consume_start_items(self):
+        e = _make_engine()
+        e.player.pending_start_items = ["spirit_stone"]
+        before = e.player.count_item("spirit_stone")
+        names = e.consume_pending_start_items()
+        self.assertEqual(len(names), 1)
+        self.assertEqual(e.player.count_item("spirit_stone"), before + 1)
+        self.assertEqual(e.player.pending_start_items, [])   # 清空防重复
+
+    def test_empty_pending_noop(self):
+        e = _make_engine()
+        e.player.pending_start_items = []
+        self.assertEqual(e.consume_pending_start_items(), [])
+
+    def test_invalid_item_skipped(self):
+        e = _make_engine()
+        e.player.pending_start_items = ["not_exist_item", "spirit_stone"]
+        names = e.consume_pending_start_items()
+        self.assertEqual(len(names), 1)   # 无效 id 跳过，有效照发

@@ -109,6 +109,8 @@ class DifficultyModeDialog(QDialog):
                 self.meta_manager.apply_to_player(self.player, selected_mode)
                 # 敌对阵营落地：正道皆敌（NPC 初始关系）
                 self.engine.apply_hostile_factions()
+                # 开局赠礼发放（模式随身物品真实到手）
+                self.engine.consume_pending_start_items()
             else:
                 QMessageBox.warning(self, "模式不可用", reason)
                 return
