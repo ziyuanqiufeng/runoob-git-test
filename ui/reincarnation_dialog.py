@@ -55,6 +55,18 @@ class ReincarnationDialog(QDialog):
         info_layout.addWidget(
             QLabel(self._chain_bonus_text(chain_bonus)), 3, 1
         )
+        # 周目模式跨世延续提示（转世不重选模式）
+        mode_id = getattr(engine.player, "game_mode", "standard")
+        if mode_id != "standard":
+            mode_name = {
+                "seize_rebirth": "夺舍重生", "heaven_cycle": "天道轮回",
+                "mortal_challenge": "凡人挑战", "demonic_lone": "魔道独行",
+            }.get(mode_id, mode_id)
+            info_layout.addWidget(QLabel("此世之道："), 4, 0)
+            info_layout.addWidget(
+                QLabel(f"<span style='color:#8e44ad;'><b>{mode_name}</b>"
+                       f"（将延续至下一世）</span>"), 4, 1
+            )
         self.layout.addWidget(info_group)
 
         # 继承选项区

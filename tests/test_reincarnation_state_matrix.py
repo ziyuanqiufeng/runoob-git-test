@@ -224,3 +224,28 @@ class TestReunionReport(unittest.TestCase):
             "intimacy": 90, "bonus": 15, "year": 3,
         })
         self.assertIsNotNone(dlg)
+
+
+class TestReincarnationDialogModeHint(unittest.TestCase):
+    """转世弹窗显示此世之道延续提示（魔道显示/正统不显示）。"""
+
+    def _dialog(self, mode):
+        import os as _os
+        _os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+        from PySide6.QtWidgets import QApplication, QLabel
+        app = QApplication.instance() or QApplication([])
+        e = _make_engine()
+        e.player.game_mode = mode
+        from ui.reincarnation_dialog import ReincarnationDialog
+        dlg = ReincarnationDialog(e)
+        texts = [w.text() for w in dlg.findChildren(QLabel)]
+        return dlg, texts
+
+    def test_demonic_mode_hint(self):
+        _, texts = self._dialog("demonic_lone")
+        self.assertTrue(any("魔道独行" in t for t in texts), texts[-5:])
+        self.assertTrue(any("将延续至下一世" in t for t in texts))
+
+    def test_standard_no_hint(self):
+        _, texts = self._dialog("standard")
+        self.assertFalse(any("将延续至下一世" in t for t in texts))
