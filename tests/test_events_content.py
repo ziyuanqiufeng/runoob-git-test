@@ -122,7 +122,9 @@ class TestEventDedup(unittest.TestCase):
         others = [e["id"] for e in self.pool.events if e["id"] != first]
         self.pool._recent.extend(others[:5])
         # 把 first 权重调大 → 必然可被抽中（证明滑出窗口后可重复）
-        self.pool.event_map[first]["weight"] = 10000
+        # 用绝对大权重而非 10000：候选总权重会随事件扩容增长，
+        # 10^9 让概率性失败降到可忽略量级（此前 10000 曾随事件扩容 flaky）
+        self.pool.event_map[first]["weight"] = 10 ** 9
         picked = self.pool.draw("explore")["id"]
         self.assertEqual(picked, first)
 

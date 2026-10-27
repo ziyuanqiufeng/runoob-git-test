@@ -52,7 +52,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "wolf"
@@ -113,7 +121,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "wolf",
@@ -182,7 +198,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "wolf",
@@ -252,7 +276,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "flame_lion",
@@ -321,7 +353,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "snake",
@@ -390,7 +430,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "tiger",
@@ -458,7 +506,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "snake",
@@ -525,7 +581,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "righteous_disciple",
@@ -588,7 +652,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "wolf"
@@ -693,7 +765,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "snake",
@@ -799,7 +879,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "righteous_disciple",
@@ -866,7 +954,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "righteous_elder",
@@ -933,7 +1029,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "shadow_wolf",
@@ -1001,7 +1105,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "thunder_lord",
@@ -1080,7 +1192,15 @@
       "samsara_insight": 9,
       "heaven_watch": 9,
       "body_reject": 9,
-      "old_kin": 9
+      "old_kin": 9,
+      "spirit_marrow_pool": 9,
+      "ancient_stele": 8,
+      "rain_debate": 7,
+      "thunder_pool_trial": 5,
+      "cave_shedding": 4,
+      "wandering_monk": 5,
+      "black_market_stall": 1,
+      "demon_market": 1
     },
     "enemies": [
       "ice_wolf",
@@ -1156,7 +1276,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "wolf"
@@ -1257,7 +1385,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "wind_sparrow",
@@ -1320,7 +1456,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "wolf",
@@ -1428,7 +1572,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "tiger",
@@ -1491,7 +1643,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "snake"
@@ -1607,7 +1767,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "swamp_crocodile",
@@ -1680,7 +1848,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "fire_scorpion",
@@ -1782,7 +1958,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "flame_lion",
@@ -1847,7 +2031,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "shadow_wolf"
@@ -1948,7 +2140,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "shadow_wolf"
@@ -2010,7 +2210,15 @@
       "samsara_insight": 3,
       "heaven_watch": 3,
       "body_reject": 3,
-      "old_kin": 3
+      "old_kin": 3,
+      "black_market_stall": 7,
+      "demon_market": 6,
+      "wandering_monk": 6,
+      "spirit_marrow_pool": 1,
+      "ancient_stele": 1,
+      "rain_debate": 2,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "wind_roc"
@@ -2111,7 +2319,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "wind_roc"
@@ -2173,7 +2389,15 @@
       "samsara_insight": 4,
       "heaven_watch": 4,
       "body_reject": 4,
-      "old_kin": 4
+      "old_kin": 4,
+      "rain_debate": 4,
+      "wandering_monk": 3,
+      "spirit_marrow_pool": 2,
+      "ancient_stele": 2,
+      "black_market_stall": 1,
+      "demon_market": 1,
+      "thunder_pool_trial": 1,
+      "cave_shedding": 1
     },
     "enemies": [
       "snake",

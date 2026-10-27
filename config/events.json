@@ -477,5 +477,97 @@
       "item": "spirit_stone",
       "qi": 40
     }
+  },
+  {
+    "id": "spirit_marrow_pool",
+    "name": "灵泉洗髓",
+    "condition": "explore",
+    "weight": 7,
+    "description": "山涧深处有一汪乳白灵泉，泉眼咕嘟咕嘟冒着灵气。你俯身饮下，一股温润之力涤荡经脉，浊气自毛孔逸出——久违的轻快。",
+    "effects": {
+      "qi": 60,
+      "health": 12
+    }
+  },
+  {
+    "id": "ancient_stele",
+    "name": "古碑参悟",
+    "condition": "explore",
+    "weight": 6,
+    "min_realm_order": 9,
+    "description": "荒野中立着一方残碑，碑文被风雨磨去大半，残存的笔画间却隐约流转着某种道韵。你驻足良久，忽觉心中一片澄明。",
+    "effects": {
+      "qi": 45,
+      "mental": 8
+    }
+  },
+  {
+    "id": "black_market_stall",
+    "name": "黑市奇遇",
+    "condition": "explore",
+    "weight": 5,
+    "description": "巷尾摆着一个不起眼的摊子，摊主蒙着面，只在袖口露出一截发黑的护腕。他用极低的价格塞给你一瓶丹药：「别问来路。」",
+    "effects": {
+      "item": "qi_pill",
+      "qi": 20
+    }
+  },
+  {
+    "id": "rain_debate",
+    "name": "雨中论道",
+    "condition": "explore",
+    "weight": 6,
+    "description": "细雨如丝，你与一位避雨的老者在檐下闲谈。他不谈功法，只说「雨落无声，道在寻常」——一句话点破你数月的困惑。",
+    "effects": {
+      "qi": 32,
+      "mental": 10
+    }
+  },
+  {
+    "id": "demon_market",
+    "name": "妖市交易",
+    "condition": "explore",
+    "weight": 4,
+    "description": "夜色中，一群披着人皮的妖物围着一堆货物讨价还价。它们不介意你的到来，只要你肯用「一点良心」换它们的货。",
+    "effects": {
+      "item": "spirit_stone",
+      "item_count": 4,
+      "karma": -3
+    }
+  },
+  {
+    "id": "thunder_pool_trial",
+    "name": "雷池试炼",
+    "condition": "explore",
+    "weight": 4,
+    "min_realm_order": 15,
+    "description": "山谷尽头雷光成池，紫电如龙翻涌。传说敢入雷池淬体者，非死即脱胎换骨。你深吸一口气，一步踏入。",
+    "effects": {
+      "qi": 130,
+      "health": -60
+    }
+  },
+  {
+    "id": "wandering_monk",
+    "name": "游方僧赠药",
+    "condition": "explore",
+    "weight": 7,
+    "description": "一个瘸腿游方僧拦下你，从破布袋里摸出一颗药丸塞到你手里：「施主面有倦色，此药可解。」说完便拄杖而去，不索分文。",
+    "effects": {
+      "health": 35,
+      "item": "healing_pill"
+    }
+  },
+  {
+    "id": "cave_shedding",
+    "name": "洞天遗蜕",
+    "condition": "explore",
+    "weight": 3,
+    "min_realm_order": 18,
+    "description": "一处天然洞天中，你发现了一具晶莹的遗蜕——某位前辈坐化前留下的道躯。遗蜕内的残存灵力如潮水般涌入你体内。",
+    "effects": {
+      "qi": 110,
+      "item": "qi_pill"
+    }
   }
 ]
