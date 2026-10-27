@@ -274,6 +274,7 @@ class Player:
         self.social_event_state = {}  # NPC 主动事件冷却：{event_key: 上次触发月索引}
         self.mode_opening_done = False  # 模式开场演出已触发（一次性）
         self.trial_tower_best = 0       # 试炼塔最高层纪录（跨世保留）
+        self.meta_collection = {"endings": [], "npcs": []}  # 跨世图鉴（结局/NPC）
         # 转世带来的全局加成（百分比）
         self.reincarnation_cultivation_bonus = 0.0
         self.reincarnation_breakthrough_bonus = 0.0
@@ -1007,6 +1008,12 @@ class Player:
 
     def record_npc_visit(self, npc_id, world):
         """记录玩家访问某 NPC 的时间和次数。"""
+        # 跨世图鉴：见过的 NPC
+        coll = getattr(self, "meta_collection", None)
+        if isinstance(coll, dict):
+            seen = coll.setdefault("npcs", [])
+            if npc_id not in seen:
+                seen.append(npc_id)
         memory = self.get_npc_memory(npc_id)
         memory["last_visit"] = {
             "year": world.year,
@@ -1217,6 +1224,7 @@ class Player:
             "social_event_state": self.social_event_state,
             "mode_opening_done": self.mode_opening_done,
             "trial_tower_best": self.trial_tower_best,
+            "meta_collection": self.meta_collection,
             "reincarnation_cultivation_bonus": self.reincarnation_cultivation_bonus,
             "reincarnation_breakthrough_bonus": self.reincarnation_breakthrough_bonus,
             # 宗门系统
@@ -1491,6 +1499,8 @@ class Player:
         player.social_event_state = data.get("social_event_state", {})
         player.mode_opening_done = data.get("mode_opening_done", False)
         player.trial_tower_best = data.get("trial_tower_best", 0)
+        player.meta_collection = data.get(
+            "meta_collection", {"endings": [], "npcs": []})
         player.reincarnation_cultivation_bonus = data.get(
             "reincarnation_cultivation_bonus", 0.0
         )

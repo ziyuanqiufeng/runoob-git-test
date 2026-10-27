@@ -136,3 +136,22 @@ class TestTrialTower(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestMetaCollection(unittest.TestCase):
+    """跨世图鉴：NPC 访问记录 / 结局记录 / 转世合并。"""
+
+    def test_npc_visit_records_collection(self):
+        e = _make_engine()
+        npc_id = next(iter(e.npc_library.npcs))
+        e.player.record_npc_visit(npc_id, e.world)
+        self.assertIn(npc_id, e.player.meta_collection["npcs"])
+
+    def test_collection_inherited(self):
+        e = _make_engine()
+        e.player.meta_collection = {"endings": ["ascend_immortal"],
+                                    "npcs": ["npc_a", "npc_b"]}
+        new_player, _ = e.start_reincarnation([])
+        self.assertEqual(new_player.meta_collection["endings"],
+                         ["ascend_immortal"])
+        self.assertEqual(len(new_player.meta_collection["npcs"]), 2)

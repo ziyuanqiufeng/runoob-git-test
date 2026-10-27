@@ -77,6 +77,12 @@ class EndingMixin:
         if not ending:
             return None
         self.player.ending_id = ending["id"]
+        # 跨世图鉴：达成过的结局
+        coll = getattr(self.player, "meta_collection", None)
+        if isinstance(coll, dict):
+            endings_seen = coll.setdefault("endings", [])
+            if ending["id"] not in endings_seen:
+                endings_seen.append(ending["id"])
         if context == "ascend":
             self.player.has_won = True
         self.notify(f"[gold]【结局】{ending['name']}：{ending['desc']}")

@@ -332,6 +332,12 @@ class ReincarnationManager:
         new_player.game_mode = getattr(self.player, "game_mode", "standard")
         # 试炼塔最高层纪录跨世保留（图鉴式 meta 纪录）
         new_player.trial_tower_best = getattr(self.player, "trial_tower_best", 0)
+        # 跨世图鉴合并（旧世 ∪ 新世）
+        old_coll = getattr(self.player, "meta_collection", {}) or {}
+        new_player.meta_collection = {
+            "endings": list(old_coll.get("endings", [])),
+            "npcs": list(old_coll.get("npcs", [])),
+        }
         # 前世羁绊：跨世记忆（新周目注入"转世重逢"NPC 与宿慧叙事）
         new_player.past_bond = new_data.get("past_bond")
 

@@ -299,6 +299,10 @@ class MainWindow(QMainWindow):
         career_action.setStatusTip("回顾你的生涯大事记")
         career_action.triggered.connect(self._open_career_dialog)
         help_menu.addAction(career_action)
+        collection_action = QAction("修行图鉴", self)
+        collection_action.setStatusTip("跨世收集：结局图鉴 / 人物图鉴 / 试炼塔纪录")
+        collection_action.triggered.connect(self._open_collection_dialog)
+        help_menu.addAction(collection_action)
         guide_action = QAction("玩法指南", self)
         guide_action.setStatusTip("快速上手、系统总览、AI 功能与常见问题")
         guide_action.triggered.connect(self._open_help_dialog)
@@ -314,6 +318,11 @@ class MainWindow(QMainWindow):
         """打开修行年谱弹窗。"""
         from ui.career_dialog import CareerDialog
         CareerDialog(self.player, self.world, parent=self).exec()
+
+    def _open_collection_dialog(self):
+        """打开修行图鉴（跨世收集：结局/人物/试炼塔）。"""
+        from ui.collection_dialog import CollectionDialog
+        CollectionDialog(self.engine, parent=self).exec()
 
     def _setup_global_style(self):
         """配置全局 QSS，统一圆角、配色与去黑边风格。"""
