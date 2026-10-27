@@ -204,6 +204,20 @@ class TestNewAchievements(unittest.TestCase):
         e._achievement_snapshot()
         self.assertIn("three_lives", e.player.achievements)
 
+    def test_achievement_unlock_notifies(self):
+        """成就解锁必须触发提示 + 年表（此前快照/物品型静默解锁）。"""
+        e = _make_engine()
+        messages = []
+        e.notify = lambda msg: messages.append(msg)
+        e.player.trial_tower_best = 8
+        e._achievement_snapshot()
+        self.assertTrue(any("达成成就" in m for m in messages), messages)
+        self.assertTrue(any(
+            "tower_veteran" in str(a) or "攀塔者" in str(a)
+            for a in e.player.achievements))
+        # 年表也应有成就记录
+        self.assertTrue(any("成就" in str(entry) for entry in e.player.chronicle))
+
     def test_quest_complete_counter(self):
         e = _make_engine()
         nid = next(iter(e.npc_library.npcs))

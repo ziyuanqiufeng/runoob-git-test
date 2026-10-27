@@ -564,12 +564,24 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         return (step + 1, len(self._tutorial_steps),
                 cur.get("title", ""), cur.get("desc", ""))
 
+    def _check_achievements(self, event_type, **kwargs):
+        """统一成就检查入口：检查 + 解锁提示 + 年表记录。"""
+        try:
+            unlocked = self.achievement_manager.check(event_type, **kwargs)
+        except Exception:
+            return []
+        for _aid, name in unlocked or []:
+            self.notify(f"[gold]达成成就：【{name}】！")
+            try:
+                self.chronicle_manager.record(
+                    f"达成成就【{name}】", category="achievement")
+            except Exception:
+                pass
+        return unlocked
+
     def _achievement_snapshot(self):
         """月度成就快照：状态型条件（试炼塔纪录/图鉴收集/转世次数）。"""
-        try:
-            self.achievement_manager.check("snapshot")
-        except Exception:
-            pass
+        self._check_achievements("snapshot")
 
     def register_monthly_tick(self, callback, flag=None):
         """注册按月结算回调（无参可调用），作为新系统的统一月度插座。
@@ -865,11 +877,9 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         side_rewards = self.side_quest_manager.update_progress("kill", enemy_id=enemy.id)
         self._grant_side_quest_rewards(side_rewards)
         # 检查击杀相关成就（附带 world_boss 标记，供隐藏成就判定）
-        unlocked = self.achievement_manager.check(
-            "kill", enemy_id=enemy.id, world_boss=getattr(enemy, "world_boss", False)
-        )
-        for aid, name in unlocked:
-            self.notify(f"[gold]达成成就：【{name}】！")
+        self._check_achievements(
+            "kill", enemy_id=enemy.id,
+            world_boss=getattr(enemy, "world_boss", False))
         # 记录年表
         self.chronicle_manager.record(
             f"斩杀 {enemy.name}", category="combat"
@@ -887,7 +897,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         """获得物品后触发图鉴、成就、支线任务钩子。"""
         self.compendium_manager.record_item(item_id)
         # 成就仅对累计数量类物品触发一次即可
-        self.achievement_manager.check("item_change", item_id=item_id)
+        self._check_achievements("item_change", item_id=item_id)
         # 推进收集类支线任务
         side_rewards = self.side_quest_manager.update_progress(
             "collect_item", item_id=item_id
@@ -900,7 +910,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         维度①：若开启心魔系统，正道（非魔道路线）修习魔功视为违戒，滋生心魔。
         """
         self.compendium_manager.record_skill(skill_id)
-        self.achievement_manager.check("skill_learn", skill_id=skill_id)
+        self._check_achievements("skill_learn", skill_id=skill_id)
         if self.is_feature_enabled("heart_demon"):
             triggered, delta = self.mental_state_manager.on_precept_violation(skill_id)
             if triggered:
@@ -962,7 +972,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         self.chronicle_manager.record(
             f"完成任务【{quest_name}】", category="quest"
         )
-        self.achievement_manager.check("quest_complete", quest_id=quest_id)
+        self._check_achievements("quest_complete", quest_id=quest_id)
 
     # ==================== 地点环境与旅行 ====================
 
@@ -1028,11 +1038,11 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
 
     def _on_form_companion(self, npc_id):
         """结为道侣后触发成就钩子。"""
-        self.achievement_manager.check("companion", npc_id=npc_id)
+        self._check_achievements("companion", npc_id=npc_id)
 
     def _on_sect_rank_change(self, rank):
         """宗门职位变动后触发成就钩子。"""
-        self.achievement_manager.check("sect_rank", rank=rank)
+        self._check_achievements("sect_rank", rank=rank)
 
     def _notify_chronicle(self, text, category="event"):
         """便捷方法：记录年表并触发刷新。"""
@@ -1428,18 +1438,11 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
             if feature_name:
                 self.notify(f"[cyan]你领悟了【{feature_name}】！")
 
-            # 记录年表与成就
+            # 记录年表与成就（成就年表由 _check_achievements 统一写入）
             self.chronicle_manager.record(
                 f"突破至【{new_realm['name']}】", category="breakthrough"
             )
-            unlocked = self.achievement_manager.check(
-                "breakthrough", realm_id=next_id
-            )
-            for aid, name in unlocked:
-                self.notify(f"[gold]达成成就：【{name}】！")
-                self.chronicle_manager.record(
-                    f"达成成就【{name}】", category="achievement"
-                )
+            self._check_achievements("breakthrough", realm_id=next_id)
 
             # F-06 难度系统：地狱难度的大境界突破触发天道追杀
             if self.is_feature_enabled("achievement_tier"):
