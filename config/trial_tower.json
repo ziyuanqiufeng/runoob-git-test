@@ -1,0 +1,20 @@
+{
+  "_comment": "试炼塔配置：连续波次挑战，层数越高敌人越强、奖励越丰。敌人/物品 id 均取自 enemies.json 与 items.json。",
+  "max_floors": 15,
+  "stone_reward_per_floor": 20,
+  "item_reward_every": 5,
+  "item_reward_pool": ["healing_pill", "qi_pill", "spirit_herb"],
+  "clear_bonus": {"spirit_stone": 300, "item": "qi_pill", "item_count": 2},
+  "enemy_tiers": [
+    {"min_floor": 1, "max_floor": 3, "enemy_pool": ["wolf", "snake", "tiger"]},
+    {"min_floor": 4, "max_floor": 7, "enemy_pool": ["bear", "fire_scorpion", "evil_cultivator"]},
+    {"min_floor": 8, "max_floor": 11, "enemy_pool": ["flame_lion", "shadow_wolf", "ghost_swordsman"]},
+    {"min_floor": 12, "max_floor": 15, "enemy_pool": ["qilin", "blood_demon", "righteous_elder"]}
+  ],
+  "buff_pool": [
+    {"id": "heal_supply", "name": "疗伤补给", "desc": "获得回血丹 ×2", "item": "healing_pill", "count": 2},
+    {"id": "qi_supply", "name": "灵气补给", "desc": "获得聚气丹 ×2", "item": "qi_pill", "count": 2},
+    {"id": "stone_cache", "name": "灵石窖藏", "desc": "获得灵石 ×80", "stone": 80},
+    {"id": "herb_bundle", "name": "灵草束", "desc": "获得灵草 ×3", "item": "spirit_herb", "count": 3}
+  ]
+}

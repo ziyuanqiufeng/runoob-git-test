@@ -330,6 +330,8 @@ class ReincarnationManager:
         new_player.past_life_talents = list(new_data["past_life_talents"])
         # 周目模式跨世延续（转世不重选模式：此道既择，一世相随）
         new_player.game_mode = getattr(self.player, "game_mode", "standard")
+        # 试炼塔最高层纪录跨世保留（图鉴式 meta 纪录）
+        new_player.trial_tower_best = getattr(self.player, "trial_tower_best", 0)
         # 前世羁绊：跨世记忆（新周目注入"转世重逢"NPC 与宿慧叙事）
         new_player.past_bond = new_data.get("past_bond")
 

@@ -1536,6 +1536,19 @@ class CombatFlowMixin:
             self._on_kill_enemy(enemy)
             self.combat_extension_manager.end_battle(won=True)
 
+            # 试炼塔：胜利推进（层数结算 + 下一层待命）
+            if getattr(self, "pending_trial", False):
+                self.pending_trial = False
+                trial_result = self.trial_tower_manager.on_combat_won()
+                self._last_trial_result = trial_result
+                if trial_result.get("cleared"):
+                    self.notify("[gold]【试炼塔】登顶成功！此塔再无你的对手！")
+                else:
+                    self.notify(
+                        f"[gold]【试炼塔】第 {trial_result.get('floor_cleared')} 层通过！"
+                        f"奖励：{'、'.join(trial_result.get('rewards', []))}"
+                    )
+
             # 演武场排名挑战结算
             if getattr(self, "pending_arena_opponent", None):
                 logs.extend(self._finish_arena_ranking_challenge(True))
@@ -1787,6 +1800,13 @@ class CombatFlowMixin:
             self.chronicle_manager.record(
                 f"败于 {enemy.name} 之手", category="combat"
             )
+            # 试炼塔：失败结算（按已过层数 50% 结算）
+            if getattr(self, "pending_trial", False):
+                self.pending_trial = False
+                lost = self.trial_tower_manager.on_combat_lost()
+                self.notify(
+                    f"[red]【试炼塔】挑战中止，止步第 {lost.get('reached', 0)} 层。"
+                )
             # 演武场排名挑战结算
             if getattr(self, "pending_arena_opponent", None):
                 logs.extend(self._finish_arena_ranking_challenge(False))

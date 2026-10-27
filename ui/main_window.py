@@ -247,6 +247,7 @@ class MainWindow(QMainWindow):
         self.action_panel.open_compendium.connect(self._open_compendium)
         self.action_panel.open_world_events.connect(self._open_world_events)
         self.action_panel.open_secret_realm.connect(self._open_secret_realm)
+        self.action_panel.open_trial_tower.connect(self._open_trial_tower)
         self.action_panel.open_family.connect(self._open_family)
         self.action_panel.open_territory.connect(self._open_territory)
         self.action_panel.open_difficulty_mode.connect(self._open_difficulty_mode)
@@ -893,6 +894,13 @@ class MainWindow(QMainWindow):
     def _open_secret_realm(self):
         """打开 Roguelike 秘境探索弹窗（F-03）。"""
         dialog = SecretRealmDialog(self.engine, parent=self)
+        dialog.exec()
+        self._refresh_status()
+
+    def _open_trial_tower(self):
+        """打开试炼塔弹窗（连续波次挑战）。"""
+        from ui.trial_tower_dialog import TrialTowerDialog
+        dialog = TrialTowerDialog(self.engine, parent=self)
         dialog.exec()
         self._refresh_status()
 

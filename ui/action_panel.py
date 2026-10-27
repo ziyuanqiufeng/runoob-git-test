@@ -37,6 +37,7 @@ _BUTTON_GROUPS = [
             ("map", "地图", "🗺", "查看地点并前往其他区域", "open_map"),
             ("npc", "NPC", "🗣", "与当前地点 NPC 交谈", "open_npc"),
             ("secret_realm", "秘境探索", "🌀", "进入 Roguelike 秘境，组队探索节点地图", "open_secret_realm"),
+            ("trial_tower", "试炼塔", "🗼", "连续波次挑战，层数越高敌人越强、奖励越丰", "open_trial_tower"),
         ],
     ),
     (
@@ -250,6 +251,7 @@ class ActionPanel(QWidget):
     open_compendium = Signal()
     open_world_events = Signal()
     open_secret_realm = Signal()
+    open_trial_tower = Signal()
     open_family = Signal()
     open_territory = Signal()
     open_difficulty_mode = Signal()
@@ -394,6 +396,7 @@ class ActionPanel(QWidget):
             "compendium": self.open_compendium,
             "world_events": self.open_world_events,
             "secret_realm": self.open_secret_realm,
+            "trial_tower": self.open_trial_tower,
             "family": self.open_family,
             "territory": self.open_territory,
             "difficulty_mode": self.open_difficulty_mode,

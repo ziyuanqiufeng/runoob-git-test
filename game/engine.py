@@ -19,6 +19,7 @@ from game.farm import FarmManager
 from game.achievement import AchievementManager
 from game.difficulty_manager import DifficultyManager
 from game.meta_manager import MetaManager
+from game.trial_tower import TrialTowerManager
 from game.combat_extension import CombatExtensionManager
 from game.secret_realm import SecretRealmManager
 from game.ruin import RuinManager
@@ -277,6 +278,9 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         # F-06 难度系统 / F-07 多周目模式
         self.difficulty_manager = DifficultyManager(config_dir="config")
         self.meta_manager = MetaManager(config_dir="config")
+        self.trial_tower_manager = TrialTowerManager(
+            self.player, self.enemy_library, self.item_library, config_dir="config")
+        self.pending_trial = False   # 当前战斗是否为试炼塔层战斗
         self.chronicle_manager = ChronicleManager(self.player, self.world)
         self.side_quest_manager = SideQuestManager(
             self.player, self.item_library, world=self.world
