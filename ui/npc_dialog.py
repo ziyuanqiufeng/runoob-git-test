@@ -416,8 +416,10 @@ class NPCDialog(QDialog):
             self.npc_quest_turnin_btn.setEnabled(False)
             return
         state = mgr.get_state(npc_id)
+        qtype = quest.get("type", "collect")
         if state == "none":
-            self.npc_quest_label.setText(f"「{quest['text']}」")
+            prefix = f"［{quest.get('type_title', '寻物')}］" if qtype != "collect" else ""
+            self.npc_quest_label.setText(f"{prefix}「{quest['text']}」")
             self.npc_quest_accept_btn.setEnabled(True)
             self.npc_quest_turnin_btn.setEnabled(False)
         elif state == "accepted":
@@ -428,11 +430,21 @@ class NPCDialog(QDialog):
             self.npc_quest_accept_btn.setEnabled(False)
             self.npc_quest_turnin_btn.setEnabled(False)
         elif state == "ready":
-            self.npc_quest_label.setText(
-                f"材料已备齐：{quest['count']} 份【{quest['item_name']}】——可以交付了。"
-            )
-            self.npc_quest_accept_btn.setEnabled(False)
-            self.npc_quest_turnin_btn.setEnabled(True)
+            if qtype in ("guard", "revenge"):
+                self.npc_quest_label.setText(
+                    f"［{quest.get('type_title', '战斗')}］待你出手——"
+                    f"敌人：{quest.get('enemy_id', '未知')}。"
+                )
+                self.npc_quest_accept_btn.setEnabled(False)
+                self.npc_quest_turnin_btn.setText("出发")
+                self.npc_quest_turnin_btn.setEnabled(True)
+            else:
+                self.npc_quest_label.setText(
+                    f"材料已备齐：{quest['count']} 份【{quest['item_name']}】——可以交付了。"
+                )
+                self.npc_quest_accept_btn.setEnabled(False)
+                self.npc_quest_turnin_btn.setText("交付委托")
+                self.npc_quest_turnin_btn.setEnabled(True)
         else:  # done
             self.npc_quest_label.setText("TA 的委托已经完成了，情分记在彼此心上。")
             self.npc_quest_accept_btn.setEnabled(False)
@@ -451,7 +463,17 @@ class NPCDialog(QDialog):
         npc = self.selected_npc
         if not npc:
             return
-        ok, msg = self.engine.npc_quest_manager.turn_in(npc.id)
+        mgr = self.engine.npc_quest_manager
+        quest = mgr.get_quest(npc.id)
+        if quest and quest.get("type") in ("guard", "revenge") \
+                and mgr.get_state(npc.id) == "ready":
+            # 战斗型委托：出发应战
+            ok, msg = self.engine.start_npc_combat_quest(npc.id)
+            if ok:
+                self.engine.notify(f"[purple]【委托】{msg}")
+            self.accept()
+            return
+        ok, msg = mgr.turn_in(npc.id)
         if ok:
             self.engine.notify(f"[green]【委托】{msg}")
         self._refresh_social_tab(npc.id)

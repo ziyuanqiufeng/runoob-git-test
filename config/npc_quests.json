@@ -1,5 +1,5 @@
 {
-  "_comment": "NPC 个人支线（v1 寻物型）：按 npc_id 确定性生成，所有 NPC 均有。物品 id 均取自 items.json。",
+  "_comment": "NPC 个人支线：寻物（默认）/ 护法 / 复仇三型，按 npc_id 确定性分派。敌人/物品 id 均取自 enemies.json 与 items.json。",
   "item_pool": ["healing_pill", "qi_pill", "spirit_herb", "spirit_stone"],
   "count_range": [1, 3],
   "favor_reward": 10,
@@ -9,5 +9,17 @@
     "听闻你行走四方——可否替我带 {count} 份【{item}】回来？这份人情我记下了。",
     "有些事不便亲自去办……{count} 份【{item}】，拜托了。",
     "我有一桩心事：需要【{item}】{count} 份。你愿意帮我这个忙吗？"
-  ]
+  ],
+  "combat_favor_reward": 15,
+  "combat_stone_reward": 120,
+  "guard": {
+    "title": "护法",
+    "intro": "我近日闭关冲关，恐有妖邪趁虚而入。你可愿为我护法一场？",
+    "enemy_pool": ["wolf", "bear", "flame_lion", "shadow_wolf"]
+  },
+  "revenge": {
+    "title": "复仇",
+    "intro": "有一伙人欺我太甚……你若替我出了这口气，此恩我铭记于心。",
+    "enemy_pool": ["evil_cultivator", "fire_scorpion", "righteous_disciple", "ghost_swordsman"]
+  }
 }

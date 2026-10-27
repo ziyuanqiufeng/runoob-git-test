@@ -229,6 +229,23 @@ class CaveHomeMixin:
         ),
     }
 
+    def start_npc_combat_quest(self, npc_id):
+        """发动战斗型 NPC 委托（护法/复仇）：创建敌人并开战。
+
+        返回 (ok, message)；胜利后由战斗钩子调用 npc_quest_manager 结算。
+        """
+        enemy_id = self.npc_quest_manager.get_combat_enemy_id(npc_id)
+        if not enemy_id:
+            return False, "这不是战斗委托。"
+        data = self.enemy_library.get(enemy_id)
+        if not data:
+            return False, "敌人数据缺失。"
+        from game.enemy import Enemy
+        enemy = Enemy.from_dict(data)
+        self.pending_npc_quest = npc_id
+        self.start_combat(enemy)
+        return True, f"【{getattr(enemy, 'name', enemy_id)}】现身了！"
+
     def award_lantern_reward(self, correct_count, total):
         """灯会奖励发放（节日灯谜）。返回奖励描述。
 

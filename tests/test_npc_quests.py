@@ -118,3 +118,55 @@ class TestNPCQuest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestCombatQuests(unittest.TestCase):
+    """战斗型委托（护法/复仇）：确定性类型分派 + 胜利结算 + 失败保留。"""
+
+    def _find_npc_of_type(self, e, target):
+        for nid in e.npc_library.npcs:
+            q = e.npc_quest_manager.get_quest(nid)
+            if q and q.get("type") == target:
+                return nid, q
+        return None, None
+
+    def test_type_distribution(self):
+        """三型委托在 NPC 库中都有分布。"""
+        e = _make_engine()
+        types = set()
+        for nid in e.npc_library.npcs:
+            q = e.npc_quest_manager.get_quest(nid)
+            types.add(q.get("type"))
+        self.assertIn("collect", types)
+        self.assertTrue({"guard", "revenge"} & types,
+                        f"应有战斗型委托，实际：{types}")
+
+    def test_combat_quest_flow(self):
+        e = _make_engine()
+        nid, q = self._find_npc_of_type(e, "guard")
+        if not nid:
+            nid, q = self._find_npc_of_type(e, "revenge")
+        self.assertIsNotNone(nid)
+        mgr = e.npc_quest_manager
+        ok, _ = mgr.accept(nid)
+        self.assertTrue(ok)
+        self.assertEqual(mgr.get_state(nid), "ready")   # 战斗委托接取即可出发
+        favor = e.player.npc_relationships.get(nid, 0)
+        stones = e.player.count_item("spirit_stone")
+        ok, msg = mgr.complete_combat_quest(nid)
+        self.assertTrue(ok)
+        self.assertEqual(mgr.get_state(nid), "done")
+        self.assertEqual(e.player.count_item("spirit_stone"),
+                         stones + q["stone_reward"])
+        self.assertEqual(e.player.npc_relationships.get(nid, 0),
+                         favor + q["favor_reward"])
+
+    def test_collect_turn_in_rejects_combat_type(self):
+        e = _make_engine()
+        nid, _ = self._find_npc_of_type(e, "guard")
+        if not nid:
+            return
+        e.npc_quest_manager.accept(nid)
+        ok, msg = e.npc_quest_manager.turn_in(nid)
+        self.assertFalse(ok)
+        self.assertIn("战斗委托", msg)

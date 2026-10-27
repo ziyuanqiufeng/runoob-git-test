@@ -1581,6 +1581,13 @@ class CombatFlowMixin:
                         f"[gold]【试炼塔】第 {trial_result.get('floor_cleared')} 层通过！"
                         f"奖励：{'、'.join(trial_result.get('rewards', []))}"
                     )
+            # NPC 战斗型委托：胜利结算
+            if getattr(self, "pending_npc_quest", None):
+                quest_npc = self.pending_npc_quest
+                self.pending_npc_quest = None
+                ok, msg = self.npc_quest_manager.complete_combat_quest(quest_npc)
+                if ok:
+                    self.notify(f"[green]【委托】{msg}")
 
             # 演武场排名挑战结算
             if getattr(self, "pending_arena_opponent", None):
@@ -1845,6 +1852,10 @@ class CombatFlowMixin:
                 self.notify(
                     f"[red]【试炼塔】挑战中止，止步第 {lost.get('reached', 0)} 层。"
                 )
+            # NPC 战斗型委托：失败则清除标记（委托保留，可再来）
+            if getattr(self, "pending_npc_quest", None):
+                self.pending_npc_quest = None
+                self.notify("[red]【委托】此战失利，委托仍在——养好伤再来。")
             # 演武场排名挑战结算
             if getattr(self, "pending_arena_opponent", None):
                 logs.extend(self._finish_arena_ranking_challenge(False))

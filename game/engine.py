@@ -281,6 +281,7 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         self.trial_tower_manager = TrialTowerManager(
             self.player, self.enemy_library, self.item_library, config_dir="config")
         self.pending_trial = False   # 当前战斗是否为试炼塔层战斗
+        self.pending_npc_quest = None  # 当前战斗对应的 NPC 战斗型委托
         self.chronicle_manager = ChronicleManager(self.player, self.world)
         from game.npc_quest_manager import NPCQuestManager
         self.npc_quest_manager = NPCQuestManager(
