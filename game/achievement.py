@@ -106,6 +106,17 @@ class AchievementManager:
             return self.player.achievement_progress.get("quest_complete_count", 0) >= condition.get("count", 1)
         if ctype == "win" and event_type == "win_game":
             return True
+        # 状态型条件：月度快照触发（试炼塔纪录/境界/转世次数等字段值）
+        if ctype == "field_at_least" and event_type == "snapshot":
+            field = condition.get("field")
+            if not field:
+                return False
+            return getattr(self.player, field, 0) >= condition.get("count", 1)
+        # 跨世图鉴收集数
+        if ctype == "collection" and event_type == "snapshot":
+            coll = getattr(self.player, "meta_collection", {}) or {}
+            kind = condition.get("kind", "npcs")
+            return len(coll.get(kind, []) or []) >= condition.get("count", 1)
         return False
 
     def _unlock(self, achievement_id):

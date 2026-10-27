@@ -179,3 +179,43 @@ class TestCombatQuests(unittest.TestCase):
         ok, msg = e.npc_quest_manager.turn_in(nid)
         self.assertFalse(ok)
         self.assertIn("战斗委托", msg)
+
+
+class TestNewAchievements(unittest.TestCase):
+    """新成就体系：快照型（试炼塔/图鉴/转世）+ 委托计数。"""
+
+    def test_tower_achievement_by_snapshot(self):
+        e = _make_engine()
+        e.player.trial_tower_best = 8
+        e._achievement_snapshot()
+        self.assertIn("tower_veteran", e.player.achievements)
+        self.assertIn("tower_climber", e.player.achievements)
+        self.assertNotIn("tower_conqueror", e.player.achievements)
+
+    def test_collection_achievement(self):
+        e = _make_engine()
+        e.player.meta_collection["npcs"] = [f"n{i}" for i in range(30)]
+        e._achievement_snapshot()
+        self.assertIn("npc_acquaintance", e.player.achievements)
+
+    def test_reincarnation_achievement(self):
+        e = _make_engine()
+        e.player.reincarnation_count = 3
+        e._achievement_snapshot()
+        self.assertIn("three_lives", e.player.achievements)
+
+    def test_quest_complete_counter(self):
+        e = _make_engine()
+        nid = next(iter(e.npc_library.npcs))
+        mgr = e.npc_quest_manager
+        mgr.accept(nid)
+        q = mgr.get_quest(nid)
+        if q["type"] == "collect":
+            item = e.item_library.create(q["item_id"])
+            for _ in range(q["count"]):
+                e.player.add_item(item)
+            mgr.turn_in(nid)
+        else:
+            mgr.complete_combat_quest(nid)
+        self.assertGreaterEqual(
+            e.player.achievement_progress.get("quest_complete_count", 0), 1)

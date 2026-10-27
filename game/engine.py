@@ -287,7 +287,8 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         self.npc_quest_manager = NPCQuestManager(
             self.player, self.npc_library, self.item_library,
             chronicle_manager=self.chronicle_manager,
-            config_dir="config")
+            config_dir="config",
+            achievement_manager=getattr(self, "achievement_manager", None))
         self.side_quest_manager = SideQuestManager(
             self.player, self.item_library, world=self.world
         )
@@ -392,6 +393,8 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         )
         # 心境 / 道心系统月度结算（核心系统，常开；维度①深度特性由 heart_demon 开关门控）
         self.register_monthly_tick(self._tick_mental_state)
+        # 月度成就快照（状态型条件：试炼塔纪录/图鉴收集/转世次数）
+        self.register_monthly_tick(self._achievement_snapshot)
         # NPC 主动事件月度判定（AI 角色引擎二期：道侣赠礼/师徒互动/宿敌寻衅；
         # 频率由 config/social_events.json 的 chance 控制，常开）
         self.register_monthly_tick(self.social_event_manager.tick_monthly)
@@ -560,6 +563,13 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
         cur = self._tutorial_steps[step]
         return (step + 1, len(self._tutorial_steps),
                 cur.get("title", ""), cur.get("desc", ""))
+
+    def _achievement_snapshot(self):
+        """月度成就快照：状态型条件（试炼塔纪录/图鉴收集/转世次数）。"""
+        try:
+            self.achievement_manager.check("snapshot")
+        except Exception:
+            pass
 
     def register_monthly_tick(self, callback, flag=None):
         """注册按月结算回调（无参可调用），作为新系统的统一月度插座。

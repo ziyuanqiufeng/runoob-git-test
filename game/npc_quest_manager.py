@@ -15,11 +15,13 @@ class NPCQuestManager:
     """NPC 寻物支线管理器。"""
 
     def __init__(self, player, npc_library, item_library,
-                 chronicle_manager=None, config_dir="config"):
+                 chronicle_manager=None, config_dir="config",
+                 achievement_manager=None):
         self.player = player
         self.npc_library = npc_library
         self.item_library = item_library
         self.chronicle_manager = chronicle_manager
+        self.achievement_manager = achievement_manager
         self.config = self._load(config_dir)
 
     def _load(self, config_dir):
@@ -157,6 +159,7 @@ class NPCQuestManager:
                 f"完成了【{quest['npc_name']}】的委托",
                 category="quest",
             )
+        self._notify_achievements(npc_id)
         return True, (
             f"委托完成：灵石 +{quest['stone_reward']}，"
             f"好感 +{quest['favor_reward']}。"
@@ -196,10 +199,21 @@ class NPCQuestManager:
                 f"完成了【{quest['npc_name']}】的{quest['type_title']}委托",
                 category="quest",
             )
+        self._notify_achievements(npc_id)
         return True, (
             f"{quest['type_title']}完成：灵石 +{quest['stone_reward']}，"
             f"好感 +{quest['favor_reward']}。"
         )
+
+    def _notify_achievements(self, npc_id):
+        """委托完成后触发成就检查（quest_complete 计数复用）。"""
+        if self.achievement_manager is None:
+            return
+        try:
+            self.achievement_manager.check(
+                "quest_complete", quest_id=f"npc_{npc_id}")
+        except Exception:
+            pass
 
     def _item_name(self, item_id):
         try:
