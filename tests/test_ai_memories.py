@@ -51,6 +51,38 @@ _LOCATION = {"id": "loc_wild", "name": "荒郊", "type": "wild"}
 
 
 class TestPromptInjection(unittest.TestCase):
+
+    def test_prompt_includes_cultivation_path(self):
+        """流派风味注入：剑修应出现在提示词中。"""
+        gen = self._generator()
+        player = Player(name="剑客")
+        player.cultivation_path = "jian"
+        prompt = gen._build_prompt({"description": "test"}, player,
+                                   {"name": "青云山", "type": "wild"}, "筑基")
+        self.assertIn("剑修", prompt)
+
+    def test_prompt_includes_recent_chronicle(self):
+        """近期大事注入：年表最近条目应影响提示词。"""
+        gen = self._generator()
+        player = Player(name="有故事的人")
+        player.chronicle = [
+            {"text": "突破至【金丹期】", "category": "breakthrough"},
+            {"text": "与云中鹤结为道侣", "category": "social"},
+        ]
+        prompt = gen._build_prompt({"description": "test"}, player,
+                                   {"name": "坊市", "type": "city"}, "金丹")
+        self.assertIn("近期经历", prompt)
+        self.assertIn("结为道侣", prompt)
+        self.assertIn("突破至【金丹期】", prompt)   # [-2:] 取最近两条，均在
+
+    def test_prompt_without_chronicle_no_block(self):
+        gen = self._generator()
+        player = Player(name="新人")
+        player.chronicle = []
+        prompt = gen._build_prompt({"description": "test"}, player,
+                                   {"name": "荒野", "type": "wild"}, "练气")
+        self.assertNotIn("近期经历", prompt)
+
     """_build_prompt：记忆注入与不注入两种形态。"""
 
     def _generator(self):

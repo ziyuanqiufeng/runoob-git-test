@@ -266,5 +266,61 @@
       "item_id": "spirit_stone",
       "count": 40
     }
+  },
+  {
+    "id": "ending_complete",
+    "name": "结局全览",
+    "description": "见证全部 8 种结局（跨世累计）。",
+    "condition": {
+      "type": "collection",
+      "kind": "endings",
+      "count": 8
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 200
+    }
+  },
+  {
+    "id": "people_complete",
+    "name": "人间识尽",
+    "description": "结识全部 101 位人物（跨世累计）。",
+    "condition": {
+      "type": "collection",
+      "kind": "npcs",
+      "count": 101
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 300
+    }
+  },
+  {
+    "id": "reincarnation_veteran",
+    "name": "轮回老手",
+    "description": "经历五次转世。",
+    "condition": {
+      "type": "field_at_least",
+      "field": "reincarnation_count",
+      "count": 5
+    },
+    "reward": {
+      "item_id": "health_pill",
+      "count": 8
+    }
+  },
+  {
+    "id": "reincarnation_eternal",
+    "name": "世世不休",
+    "description": "经历十次转世。",
+    "condition": {
+      "type": "field_at_least",
+      "field": "reincarnation_count",
+      "count": 10
+    },
+    "reward": {
+      "item_id": "spirit_stone",
+      "count": 150
+    }
   }
 ]

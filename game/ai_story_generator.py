@@ -58,14 +58,35 @@ class AIStoryGenerator:
                 "\n与故人的共同往事（可自然融入一两处，点到即止，不必全用）：\n"
                 f"{lines}\n"
             )
+        # 流派风味（法/体/剑/邪/丹/器/兽/魂/阵/符）
+        path_names = {"fa": "法修", "ti": "体修", "jian": "剑修", "xie": "邪修",
+                      "dan": "丹修", "qi": "器修", "shou": "兽修", "hun": "魂修",
+                      "zhen": "阵修", "fu": "符修"}
+        path_name = path_names.get(
+            getattr(player, "cultivation_path", None) or "", "")
+        path_line = f"流派：{path_name}\n" if path_name else ""
+        # 近期大事（年表最近两条，供文风暗合境遇）
+        recent = []
+        for entry in (getattr(player, "chronicle", []) or [])[-2:]:
+            text = entry.get("text") if isinstance(entry, dict) else str(entry)
+            if text:
+                recent.append(text)
+        recent_block = ""
+        if recent:
+            recent_block = (
+                "\n近期经历（可暗合其境遇，不必明写）：\n"
+                + "\n".join(f"- {t}" for t in recent) + "\n"
+            )
         return (
             "你是古典仙侠小说的写手。请根据以下信息，用古风笔法写一段修士游历奇遇的描写，"
             "融入环境氛围与修士心境，文笔典雅、不写对话、不要标题，约50字：\n\n"
             f"事件：{event.get('description', '')}\n"
             f"地点：{loc_name}（{type_desc}）\n"
             f"境界：{realm_name or '炼气期'}\n"
+            f"{path_line}"
             f"心境：{self._state_desc(player)}\n"
             f"{memory_block}"
+            f"{recent_block}"
             "\n只输出正文，不要解释。"
         )
 
