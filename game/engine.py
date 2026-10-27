@@ -282,6 +282,11 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
             self.player, self.enemy_library, self.item_library, config_dir="config")
         self.pending_trial = False   # 当前战斗是否为试炼塔层战斗
         self.chronicle_manager = ChronicleManager(self.player, self.world)
+        from game.npc_quest_manager import NPCQuestManager
+        self.npc_quest_manager = NPCQuestManager(
+            self.player, self.npc_library, self.item_library,
+            chronicle_manager=self.chronicle_manager,
+            config_dir="config")
         self.side_quest_manager = SideQuestManager(
             self.player, self.item_library, world=self.world
         )

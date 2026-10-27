@@ -377,7 +377,84 @@ class NPCDialog(QDialog):
         grudge_layout.addWidget(self.resolve_grudge_btn)
 
         layout.addLayout(grudge_layout)
+
+        # NPC 个人支线（寻物型，所有 NPC 均有）
+        quest_title = QLabel("TA 的委托")
+        quest_title.setStyleSheet(
+            "font-weight: bold; color: #6b21a8; margin-top: 6px;")
+        layout.addWidget(quest_title)
+        self.npc_quest_label = QLabel("请选择一位 NPC。")
+        self.npc_quest_label.setWordWrap(True)
+        self.npc_quest_label.setStyleSheet(
+            "background-color: #f5f3ff; border-radius: 6px; padding: 8px;"
+            "color: #4c1d95; font-size: 12px;"
+        )
+        layout.addWidget(self.npc_quest_label)
+        quest_btn_row = QHBoxLayout()
+        self.npc_quest_accept_btn = QPushButton("接下委托")
+        self.npc_quest_accept_btn.clicked.connect(self._on_npc_quest_accept)
+        quest_btn_row.addWidget(self.npc_quest_accept_btn)
+        self.npc_quest_turnin_btn = QPushButton("交付委托")
+        self.npc_quest_turnin_btn.clicked.connect(self._on_npc_quest_turnin)
+        quest_btn_row.addWidget(self.npc_quest_turnin_btn)
+        layout.addLayout(quest_btn_row)
+
         layout.addStretch()
+
+    def _refresh_npc_quest(self, npc_id):
+        """刷新 NPC 个人支线区（寻物型）。"""
+        mgr = getattr(self.engine, "npc_quest_manager", None)
+        if mgr is None:
+            self.npc_quest_label.setText("（支线系统未就绪）")
+            self.npc_quest_accept_btn.setEnabled(False)
+            self.npc_quest_turnin_btn.setEnabled(False)
+            return
+        quest = mgr.get_quest(npc_id)
+        if not quest:
+            self.npc_quest_label.setText("此人没有委托。")
+            self.npc_quest_accept_btn.setEnabled(False)
+            self.npc_quest_turnin_btn.setEnabled(False)
+            return
+        state = mgr.get_state(npc_id)
+        if state == "none":
+            self.npc_quest_label.setText(f"「{quest['text']}」")
+            self.npc_quest_accept_btn.setEnabled(True)
+            self.npc_quest_turnin_btn.setEnabled(False)
+        elif state == "accepted":
+            self.npc_quest_label.setText(
+                f"委托进行中：寻 {quest['count']} 份【{quest['item_name']}】"
+                f"（当前 {self.engine.player.count_item(quest['item_id'])} 份）"
+            )
+            self.npc_quest_accept_btn.setEnabled(False)
+            self.npc_quest_turnin_btn.setEnabled(False)
+        elif state == "ready":
+            self.npc_quest_label.setText(
+                f"材料已备齐：{quest['count']} 份【{quest['item_name']}】——可以交付了。"
+            )
+            self.npc_quest_accept_btn.setEnabled(False)
+            self.npc_quest_turnin_btn.setEnabled(True)
+        else:  # done
+            self.npc_quest_label.setText("TA 的委托已经完成了，情分记在彼此心上。")
+            self.npc_quest_accept_btn.setEnabled(False)
+            self.npc_quest_turnin_btn.setEnabled(False)
+
+    def _on_npc_quest_accept(self):
+        npc = self.selected_npc
+        if not npc:
+            return
+        ok, msg = self.engine.npc_quest_manager.accept(npc.id)
+        if ok:
+            self.engine.notify(f"[cyan]【委托】{msg}")
+        self._refresh_social_tab(npc.id)
+
+    def _on_npc_quest_turnin(self):
+        npc = self.selected_npc
+        if not npc:
+            return
+        ok, msg = self.engine.npc_quest_manager.turn_in(npc.id)
+        if ok:
+            self.engine.notify(f"[green]【委托】{msg}")
+        self._refresh_social_tab(npc.id)
 
     def _refresh_social_tab(self, npc_id):
         """刷新社交标签页内容。"""
@@ -417,6 +494,9 @@ class NPCDialog(QDialog):
             f"{npc.name}<br>{rel_text}<br>"
             f"恩怨：{grudge_text}<br>关系：{tag_text}"
         )
+
+        # NPC 个人支线（寻物型）
+        self._refresh_npc_quest(npc_id)
 
         # 各按钮可用性
         can_debate, _ = social_mgr.can_debate(npc_id)

@@ -275,6 +275,7 @@ class Player:
         self.mode_opening_done = False  # 模式开场演出已触发（一次性）
         self.trial_tower_best = 0       # 试炼塔最高层纪录（跨世保留）
         self.meta_collection = {"endings": [], "npcs": []}  # 跨世图鉴（结局/NPC）
+        self.npc_quests = {}            # NPC 个人支线状态：{npc_id: {accepted, done}}（每世重置）
         # 转世带来的全局加成（百分比）
         self.reincarnation_cultivation_bonus = 0.0
         self.reincarnation_breakthrough_bonus = 0.0
@@ -1225,6 +1226,7 @@ class Player:
             "mode_opening_done": self.mode_opening_done,
             "trial_tower_best": self.trial_tower_best,
             "meta_collection": self.meta_collection,
+            "npc_quests": self.npc_quests,
             "reincarnation_cultivation_bonus": self.reincarnation_cultivation_bonus,
             "reincarnation_breakthrough_bonus": self.reincarnation_breakthrough_bonus,
             # 宗门系统
@@ -1501,6 +1503,7 @@ class Player:
         player.trial_tower_best = data.get("trial_tower_best", 0)
         player.meta_collection = data.get(
             "meta_collection", {"endings": [], "npcs": []})
+        player.npc_quests = data.get("npc_quests", {})
         player.reincarnation_cultivation_bonus = data.get(
             "reincarnation_cultivation_bonus", 0.0
         )
