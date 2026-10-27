@@ -115,6 +115,17 @@ class MetaManager:
         if "enemy_strength" in effects:
             meta_mod["enemy_strength"] = effects["enemy_strength"]
         player.meta_modifiers = meta_mod
+        # 并入难度修正乘区（difficulty_modifiers 是战斗/修炼的实际乘区；
+        # 难度先于模式应用，此处相乘得到复合乘区）
+        diff_mods = getattr(player, "difficulty_modifiers", None)
+        if diff_mods is not None:
+            if "exp_mult" in meta_mod:
+                diff_mods["exp_mult"] = (
+                    diff_mods.get("exp_mult", 1.0) * meta_mod["exp_mult"])
+            if "enemy_strength" in meta_mod:
+                diff_mods["enemy_strength"] = (
+                    diff_mods.get("enemy_strength", 1.0)
+                    * meta_mod["enemy_strength"])
 
         # 天赋加成（累加到转世修炼加成）
         if "talent_bonus" in effects:

@@ -107,6 +107,8 @@ class DifficultyModeDialog(QDialog):
             ok, reason = self.meta_manager.is_available(mode, self.player)
             if ok:
                 self.meta_manager.apply_to_player(self.player, selected_mode)
+                # 敌对阵营落地：正道皆敌（NPC 初始关系）
+                self.engine.apply_hostile_factions()
             else:
                 QMessageBox.warning(self, "模式不可用", reason)
                 return

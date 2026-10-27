@@ -89,6 +89,21 @@ class CombatFlowMixin:
             special=None,
         )
 
+    def _apply_difficulty_enemy_scaling(self, enemy):
+        """难度 × 周目模式的敌人强度乘区（difficulty_modifiers，独立乘区）。"""
+        diff_enemy_mult = getattr(self.player, "difficulty_modifiers", {}).get(
+            "enemy_strength", 1.0)
+        if diff_enemy_mult <= 1.0:
+            return
+        enemy.max_hp = int(enemy.max_hp * diff_enemy_mult)
+        enemy.hp = enemy.max_hp
+        enemy.attack = int(enemy.attack * diff_enemy_mult)
+        enemy.defense = int(enemy.defense * diff_enemy_mult)
+        self.notify(
+            f"[orange]此世凶险（难度/模式乘区），{enemy.name} 实力增强"
+            f" {int((diff_enemy_mult - 1) * 100)}%！"
+        )
+
     def start_combat(self, enemy, is_city_defense=False):
         """开始一场战斗。is_city_defense=True 表示该战斗为城池防卫战（如兽潮来袭）。"""
         # 标记当前战斗是否为城池防卫战，战斗结束后据此结算城池声望
@@ -180,6 +195,8 @@ class CombatFlowMixin:
                 f"[red]天象异变，{enemy.name} 受到强化，"
                 f"全属性提升 {int(weather_strength_bonus * 100)}%！"
             )
+        # 难度 × 周目模式的敌人强度乘区（difficulty_modifiers，独立乘区）
+        self._apply_difficulty_enemy_scaling(enemy)
         # 道侣助战加成提示
         if getattr(self, "companion_atk_bonus", 0.0) > 0 or getattr(self, "companion_def_bonus", 0.0) > 0:
             self.notify(

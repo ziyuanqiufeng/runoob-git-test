@@ -229,6 +229,28 @@ class CaveHomeMixin:
         ),
     }
 
+    def apply_hostile_factions(self):
+        """将模式的敌对阵营落到 NPC 关系上（正道皆敌等）。
+
+        当前实现：对 faction_affinity 中正道倾向为正的 NPC，
+        初始好感降至 -30（敌视）。返回受影响 NPC 数量。
+        """
+        hostile = getattr(self.player, "hostile_factions", []) or []
+        if not hostile or "righteous" not in hostile:
+            return 0
+        count = 0
+        for npc_id, npc in (self.npc_library.npcs or {}).items():
+            affinity = getattr(npc, "faction_affinity", {}) or {}
+            if affinity.get("righteous", 0) > 0:
+                self.player.npc_relationships[npc_id] = min(
+                    -30, self.player.npc_relationships.get(npc_id, 0))
+                count += 1
+        if count:
+            self.notify(
+                f"[red]【魔道】正道中人视你为魔头——{count} 位正道修士与你结下梁子。"
+            )
+        return count
+
     def trigger_mode_opening(self):
         """多周目模式开场演出：新档首次进入时触发（一次性）。
 

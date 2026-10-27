@@ -1062,6 +1062,16 @@ class GameEngine(EventMixin, EndingMixin, MainStoryMixin, CombatMixin, MentorMix
             # 洞府 + 设施 + 心境 + 天气等综合加成
             if current_total_bonus > 0:
                 actual_gain = int(actual_gain * (1 + current_total_bonus))
+            # 难度 × 周目模式修为乘区（difficulty_modifiers，独立乘区）
+            actual_gain = int(
+                actual_gain
+                * getattr(self.player, "difficulty_modifiers", {}).get("exp_mult", 1.0)
+            )
+            # 前世天赋加成（夺舍重生等模式的修炼增益）
+            rebirth_bonus = getattr(
+                self.player, "reincarnation_cultivation_bonus", 0.0)
+            if rebirth_bonus > 0:
+                actual_gain = int(actual_gain * (1 + rebirth_bonus))
             self.player.qi += actual_gain
             total_gain += actual_gain
             # 维度③·M18：丹道「灵力温养」持续修炼增益（每月附加，到期递减）
