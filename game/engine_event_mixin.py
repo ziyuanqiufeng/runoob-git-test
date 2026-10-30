@@ -104,8 +104,11 @@ class EventMixin:
            （__AI_STORY_PENDING__），由 UI 层后台线程生成 AI 增强文案。
         战斗/商人/秘境事件有自己的交互弹窗，不做 AI 增强。
         """
+        # 文案：ai_dynamic_event 开启走「环境+心境」渲染，关闭时也取
+        # descriptions 随机变体（避免每次触发同一句正文）。event 先复制，
+        # 防止写入污染 EventPool 缓存的配置对象。
+        event = dict(event)
         if self.is_feature_enabled("ai_dynamic_event"):
-            event = dict(event)
             event["description"] = self.story_generator.render_event(
                 event, self.player, location
             )
@@ -115,6 +118,8 @@ class EventMixin:
                     "location": location,
                     "npc_memories": self._collect_recent_memories(),
                 }
+        else:
+            event["description"] = self.story_generator.pick_description(event)
         # 如果事件触发战斗，进入战斗流程
         if event.get("trigger_combat"):
             enemy = self._spawn_enemy(location)

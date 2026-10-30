@@ -5,6 +5,7 @@
 """
 import json
 import os
+import random
 import urllib.error
 import urllib.request
 
@@ -77,10 +78,17 @@ class AIStoryGenerator:
                 "\n近期经历（可暗合其境遇，不必明写）：\n"
                 + "\n".join(f"- {t}" for t in recent) + "\n"
             )
+        # 事件素材取 descriptions 变体（不含环境/心境装饰），避免与下方
+        # 「心境」字段重复喂料；旧配置回退 description。
+        variants = event.get("descriptions") or []
+        event_core = (
+            random.choice(variants) if variants else event.get("description", "")
+        )
         return (
             "你是古典仙侠小说的写手。请根据以下信息，用古风笔法写一段修士游历奇遇的描写，"
-            "融入环境氛围与修士心境，文笔典雅、不写对话、不要标题，约50字：\n\n"
-            f"事件：{event.get('description', '')}\n"
+            "融入环境氛围与修士心境，文笔典雅、不写对话、不要标题，约80字。"
+            "不要复述事件本身，要把它展开成具体的场景、动作与感官细节：\n\n"
+            f"事件：{event_core}\n"
             f"地点：{loc_name}（{type_desc}）\n"
             f"境界：{realm_name or '炼气期'}\n"
             f"{path_line}"

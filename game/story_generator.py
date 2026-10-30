@@ -55,13 +55,25 @@ class StoryGenerator:
 
     # ---- 对外接口 ----
 
+    def pick_description(self, event, rng=None):
+        """取事件正文：优先 descriptions 变体随机一条，回退旧 description。
+
+        descriptions 为空/缺失的旧配置与旧存档仍走单条 description，
+        保证向后兼容。非 explore 路径（城池事件等）也可复用本方法。
+        """
+        variants = event.get("descriptions") or []
+        if variants:
+            return (rng or random).choice(variants)
+        return event.get("description", "")
+
     def render_event(self, event, player, location=None, rng=None):
         """渲染事件文案，返回一段融入环境与心境的剧情文字。
 
         格式：{开头}，{环境}。{事件描述} {心境}，{收尾}
+        事件描述优先取 descriptions 随机变体，消除重复游历的复读感。
         """
         rng = rng or random
-        description = event.get("description", "")
+        description = self.pick_description(event, rng)
         opener = self._pick(self.data.get("openers", []), rng)
         env = self._env_flavor(location, rng)
         state = self._pick(self._state_flavors(player), rng)
