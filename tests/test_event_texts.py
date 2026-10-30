@@ -166,6 +166,22 @@ class TestPickDescription(unittest.TestCase):
         }
         self.assertGreater(len(texts), 1, "连续渲染文本完全一致，变体机制失效")
 
+    def test_opener_is_optional(self):
+        """开头有时省略：opener 含时间词，与正文时序可能冲突，不能无条件拼接。"""
+        event = {"description": "旧文案", "descriptions": ["变体甲", "变体乙"]}
+        player = Player(name="测试")
+        openers = self.gen.data.get("openers", [])
+        with_opener = 0
+        runs = 40
+        for i in range(runs):
+            text = self.gen.render_event(
+                event, player, {"type": "wild"}, rng=random.Random(i)
+            )
+            if any(text.startswith(o) for o in openers):
+                with_opener += 1
+        self.assertGreater(with_opener, 0, "从不拼接开头，描写池失效")
+        self.assertLess(with_opener, runs, "每次都拼接开头，时序冲突风险回归")
+
 
 class TestApplyEventUsesVariant(unittest.TestCase):
     """Engine._apply_event 的文案落点（AI 开关两种形态）。"""

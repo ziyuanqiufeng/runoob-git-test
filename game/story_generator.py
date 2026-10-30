@@ -74,7 +74,11 @@ class StoryGenerator:
         """
         rng = rng or random
         description = self.pick_description(event, rng)
-        opener = self._pick(self.data.get("openers", []), rng)
+        # 开头只在七成场合拼接：opener 多含明确时间（晨钟/月上山岗/日头西斜），
+        # 而事件正文自有时序（如「夜里靠着树干」），无条件拼接会撞车。
+        opener = ""
+        if rng.random() < 0.7:
+            opener = self._pick(self.data.get("openers", []), rng)
         env = self._env_flavor(location, rng)
         state = self._pick(self._state_flavors(player), rng)
         closer = self._pick(self.data.get("closers", []), rng)
